@@ -1,0 +1,284 @@
+/* ============================================================
+   Components — nav, buttons, cards, form, blobs, footer
+   ============================================================ */
+
+/* --- Floating Nav Pill ----------------------------------- */
+.site-header {
+  position: sticky;
+  top: 1rem;
+  z-index: 50;
+  padding-inline: 1rem;
+  margin-top: 1rem;
+}
+.nav {
+  max-width: var(--container);
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.65rem 0.85rem 0.65rem 1.25rem;
+  background: rgba(253, 252, 248, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid color-mix(in oklab, var(--timber) 70%, transparent);
+  border-radius: var(--r-pill);
+  box-shadow: var(--shadow-soft);
+}
+.nav__brand {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+}
+.nav__logo {
+  width: 2rem; height: 2rem;
+  display: grid; place-items: center;
+  background: var(--moss); color: var(--moss-fg);
+  border-radius: var(--r-pill);
+  font-family: var(--font-display);
+  font-weight: 800;
+}
+.nav__list {
+  display: none;
+  gap: 0.25rem;
+  align-items: center;
+}
+.nav__list a {
+  padding: 0.55rem 1rem;
+  border-radius: var(--r-pill);
+  font-weight: 600;
+  font-size: var(--fs-sm);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.nav__list a:hover,
+.nav__list a[aria-current="page"] {
+  background: color-mix(in oklab, var(--moss) 12%, transparent);
+  color: var(--moss);
+}
+.nav__cta { display: none; }
+.nav__toggle {
+  display: inline-grid; place-items: center;
+  width: 2.5rem; height: 2.5rem;
+  border-radius: var(--r-pill);
+  background: color-mix(in oklab, var(--moss) 10%, transparent);
+  color: var(--moss);
+}
+.nav__toggle svg { width: 1.25rem; height: 1.25rem; }
+
+/* Mobile dropdown */
+.nav-mobile {
+  display: none;
+  margin: 0.75rem 1rem 0;
+  padding: 1rem;
+  background: rgba(253, 252, 248, 0.95);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--timber);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-float);
+}
+.nav-mobile[data-open="true"] { display: block; }
+.nav-mobile ul { display: grid; gap: 0.25rem; }
+.nav-mobile a {
+  display: block;
+  padding: 0.85rem 1rem;
+  border-radius: var(--r-md);
+  font-weight: 600;
+}
+.nav-mobile a:hover { background: color-mix(in oklab, var(--moss) 10%, transparent); }
+
+@media (min-width: 820px) {
+  .nav__list { display: inline-flex; }
+  .nav__cta { display: inline-flex; }
+  .nav__toggle { display: none; }
+  .nav-mobile { display: none !important; }
+}
+
+/* --- Buttons --------------------------------------------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.6rem;
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  border-radius: var(--r-pill);
+  border: 2px solid transparent;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+.btn--primary {
+  background: var(--moss);
+  color: var(--moss-fg);
+  box-shadow: var(--shadow-soft);
+}
+.btn--primary:hover { transform: scale(1.04); box-shadow: var(--shadow-lift); color: var(--moss-fg); }
+.btn--outline {
+  background: transparent;
+  color: var(--terracotta);
+  border-color: var(--terracotta);
+}
+.btn--outline:hover { background: var(--terracotta); color: var(--terracotta-fg); transform: scale(1.04); }
+.btn--ghost { background: transparent; color: var(--moss); }
+.btn--ghost:hover { background: color-mix(in oklab, var(--moss) 10%, transparent); }
+.btn--lg { padding: 1.05rem 2rem; font-size: var(--fs-base); }
+.btn:active { transform: scale(0.97); }
+
+/* --- Cards ----------------------------------------------- */
+.card {
+  background: var(--card-bg);
+  border: 1px solid color-mix(in oklab, var(--timber) 60%, transparent);
+  border-radius: var(--r-lg);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex; flex-direction: column; gap: 0.85rem;
+  height: 100%;
+}
+.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lift); }
+.card__icon {
+  width: 3.25rem; height: 3.25rem;
+  display: grid; place-items: center;
+  background: color-mix(in oklab, var(--moss) 12%, transparent);
+  color: var(--moss);
+  border-radius: var(--r-md);
+}
+.card__icon svg { width: 1.5rem; height: 1.5rem; }
+.card h3 { font-size: var(--fs-lg); }
+.card p { color: var(--dried-grass); font-size: var(--fs-sm); }
+.card__cta {
+  margin-top: auto;
+  font-weight: 700;
+  color: var(--moss);
+  display: inline-flex; align-items: center; gap: 0.4rem;
+}
+.card__cta::after { content: "→"; transition: transform 0.25s ease; }
+.card:hover .card__cta::after { transform: translateX(4px); }
+
+/* Asymmetric blob radii rotation */
+.card--shape-a { border-radius: 2rem 4rem 2rem 2rem; }
+.card--shape-b { border-radius: 2rem 2rem 4rem 2rem; }
+.card--shape-c { border-radius: 4rem 2rem 2rem 2rem; }
+.card--shape-d { border-radius: 2rem 2rem 2rem 4rem; }
+
+/* Grids */
+.grid { display: grid; gap: 1.5rem; }
+.grid--2 { grid-template-columns: 1fr; }
+.grid--3 { grid-template-columns: 1fr; }
+.grid--4 { grid-template-columns: 1fr 1fr; }
+@media (min-width: 640px) {
+  .grid--2 { grid-template-columns: 1fr 1fr; }
+  .grid--3 { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 960px) {
+  .grid--3 { grid-template-columns: repeat(3, 1fr); }
+  .grid--4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* --- Blobs (decorative) ---------------------------------- */
+.blob {
+  position: absolute;
+  filter: blur(60px);
+  opacity: 0.45;
+  z-index: 0;
+  pointer-events: none;
+}
+.blob--moss { background: var(--moss); }
+.blob--clay { background: var(--terracotta); }
+.blob--sand { background: var(--sand); }
+.blob--a { border-radius: var(--r-blob-a); }
+.blob--b { border-radius: var(--r-blob-b); }
+.blob--c { border-radius: var(--r-blob-c); }
+
+/* --- Form ------------------------------------------------ */
+.field { display: grid; gap: 0.4rem; margin-bottom: 1.1rem; }
+.field label { font-weight: 700; font-size: var(--fs-sm); color: var(--bark); }
+.field input,
+.field textarea {
+  padding: 0.95rem 1.25rem;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid var(--timber);
+  border-radius: var(--r-pill);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.field textarea {
+  border-radius: var(--r-md);
+  min-height: 9rem;
+  resize: vertical;
+  line-height: 1.5;
+}
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--moss);
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--moss) 25%, transparent);
+}
+.field__error { color: var(--burnt-sienna); font-size: var(--fs-xs); min-height: 1em; }
+
+.form-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid color-mix(in oklab, var(--timber) 70%, transparent);
+  border-radius: var(--r-xl);
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  box-shadow: var(--shadow-float);
+}
+
+/* --- Footer ---------------------------------------------- */
+.site-footer {
+  margin-top: var(--space-section);
+  background: color-mix(in oklab, var(--stone) 70%, transparent);
+  border-top: 1px solid var(--timber);
+  padding: 3.5rem 0 2rem;
+}
+.footer-grid {
+  display: grid;
+  gap: 2.5rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 720px) {
+  .footer-grid { grid-template-columns: 1.4fr 1fr 1fr; }
+}
+.footer-col h4 {
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--bark);
+  margin-bottom: 1rem;
+}
+.footer-col ul { display: grid; gap: 0.55rem; }
+.footer-col a { color: var(--dried-grass); font-size: var(--fs-sm); }
+.footer-col a:hover { color: var(--moss); }
+.footer-bottom {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--timber);
+  display: flex; flex-wrap: wrap; gap: 1rem;
+  justify-content: space-between;
+  font-size: var(--fs-xs);
+  color: var(--dried-grass);
+}
+
+/* --- Social pills (about page) --------------------------- */
+.social-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
+.social-pill {
+  display: inline-flex; align-items: center; gap: 0.55rem;
+  padding: 0.7rem 1.25rem;
+  border: 2px solid var(--timber);
+  border-radius: var(--r-pill);
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  transition: all 0.25s ease;
+  background: var(--card-bg);
+}
+.social-pill:hover {
+  border-color: var(--moss);
+  background: var(--moss);
+  color: var(--moss-fg);
+  transform: scale(1.04);
+  box-shadow: var(--shadow-soft);
+}
+.social-pill svg { width: 1.1rem; height: 1.1rem; }
