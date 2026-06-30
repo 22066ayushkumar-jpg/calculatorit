@@ -1,0 +1,200 @@
+/* ============================================================
+   Page-specific styles
+   ============================================================ */
+
+/* --- Hero (home) ----------------------------------------- */
+.hero {
+  position: relative;
+  padding-block: clamp(4rem, 9vw, 7rem);
+  overflow: hidden;
+}
+.hero__inner {
+  position: relative;
+  text-align: center;
+  max-width: 52rem;
+  margin-inline: auto;
+}
+.hero h1 { margin-bottom: 1.25rem; }
+.hero p.lede {
+  font-size: var(--fs-lg);
+  color: var(--dried-grass);
+  max-width: 38rem;
+  margin: 0 auto 2rem;
+}
+.hero__ctas {
+  display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center;
+}
+.hero .blob--1 { width: 24rem; height: 24rem; top: -6rem; left: -8rem; }
+.hero .blob--2 { width: 22rem; height: 22rem; bottom: -8rem; right: -6rem; }
+
+/* --- Stats strip ----------------------------------------- */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+@media (min-width: 720px) { .stats { grid-template-columns: repeat(4, 1fr); } }
+.stat {
+  text-align: center;
+  padding: 1.25rem;
+  border-radius: var(--r-md);
+}
+.stat__num {
+  font-family: var(--font-display);
+  font-size: var(--fs-2xl);
+  font-weight: 800;
+  color: var(--moss);
+  line-height: 1;
+}
+.stat__label {
+  margin-top: 0.5rem;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--dried-grass);
+}
+
+/* --- Section heading block ------------------------------- */
+.section__head {
+  text-align: center;
+  max-width: 44rem;
+  margin: 0 auto 3rem;
+}
+.section__head p { margin: 1rem auto 0; color: var(--dried-grass); font-size: var(--fs-lg); }
+
+/* --- Hub state-card grid --------------------------------- */
+.state-card {
+  background: var(--card-bg);
+  border: 1px solid color-mix(in oklab, var(--timber) 60%, transparent);
+  border-radius: var(--r-lg);
+  padding: 1.5rem;
+  display: flex; flex-direction: column; gap: 0.6rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  box-shadow: var(--shadow-soft);
+  position: relative;
+}
+.state-card:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in oklab, var(--moss) 50%, var(--timber));
+  box-shadow: var(--shadow-lift);
+}
+.state-card__abbr {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--terracotta);
+  letter-spacing: 0.05em;
+}
+.state-card__name {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  color: var(--text-loam);
+}
+.state-card__cta {
+  margin-top: auto;
+  font-weight: 700;
+  color: var(--moss);
+  font-size: var(--fs-sm);
+  display: inline-flex; align-items: center; gap: 0.35rem;
+}
+.state-card__cta::after { content: "→"; transition: transform 0.25s ease; }
+.state-card:hover .state-card__cta::after { transform: translateX(4px); }
+
+.state-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 560px) { .state-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 860px) { .state-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 1100px) { .state-grid { grid-template-columns: repeat(4, 1fr); } }
+
+/* Hub search */
+.hub-search {
+  max-width: 28rem;
+  margin: 0 auto 2.5rem;
+}
+.hub-search input {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--timber);
+  border-radius: var(--r-pill);
+}
+.hub-search input:focus {
+  outline: none;
+  border-color: var(--moss);
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--moss) 25%, transparent);
+}
+
+/* --- About page ------------------------------------------ */
+.about-grid {
+  display: grid;
+  gap: 3rem;
+  align-items: center;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 860px) { .about-grid { grid-template-columns: 1fr 1.3fr; } }
+.about-portrait {
+  width: 100%;
+  max-width: 22rem;
+  aspect-ratio: 1;
+  margin-inline: auto;
+  background: linear-gradient(135deg, var(--moss), var(--terracotta));
+  border-radius: var(--r-blob-a);
+  display: grid; place-items: center;
+  color: var(--moss-fg);
+  font-family: var(--font-display);
+  font-size: 5rem;
+  font-weight: 800;
+  box-shadow: var(--shadow-lift);
+  border: 6px solid var(--card-bg);
+  transform: rotate(-2deg);
+}
+
+/* --- Contact page ---------------------------------------- */
+.contact-grid {
+  display: grid;
+  gap: 2.5rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 860px) { .contact-grid { grid-template-columns: 1fr 1.3fr; } }
+.contact-aside .btn { margin-top: 1.25rem; }
+
+/* --- Legal / prose --------------------------------------- */
+.prose { max-width: var(--container-prose); margin-inline: auto; }
+.prose h2 {
+  font-size: var(--fs-2xl);
+  margin: 2.5rem 0 1rem;
+}
+.prose h3 { font-size: var(--fs-lg); margin: 2rem 0 0.75rem; }
+.prose p, .prose li { color: var(--bark); line-height: 1.75; margin-bottom: 1rem; }
+.prose ul { list-style: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
+.prose a { color: var(--moss); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.prose__meta {
+  display: inline-block;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--dried-grass);
+  margin-bottom: 1rem;
+}
+
+/* --- Final CTA band -------------------------------------- */
+.cta-band {
+  position: relative;
+  text-align: center;
+  border-radius: var(--r-2xl);
+  padding: clamp(2.5rem, 6vw, 4.5rem) 1.5rem;
+  background: var(--moss);
+  color: var(--moss-fg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lift);
+}
+.cta-band h2 { color: var(--moss-fg); margin-bottom: 1rem; }
+.cta-band p { color: color-mix(in oklab, var(--moss-fg) 88%, transparent); margin: 0 auto 1.75rem; max-width: 36rem; }
+.cta-band .blob { opacity: 0.3; }
+.cta-band .blob--1 { width: 18rem; height: 18rem; top: -6rem; left: -4rem; background: var(--terracotta); }
+.cta-band .blob--2 { width: 14rem; height: 14rem; bottom: -4rem; right: -4rem; background: var(--sand); }

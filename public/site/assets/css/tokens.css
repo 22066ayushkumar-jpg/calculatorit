@@ -1,0 +1,56 @@
+/* ============================================================
+   CalculateIt — Design Tokens (Organic / Wabi-Sabi)
+   All design primitives live here. Components reference vars only.
+   ============================================================ */
+:root {
+  /* Color palette — forest floor, clay, unbleached paper */
+  --bg-rice-paper: #FDFCF8;
+  --text-loam: #2C2C24;
+  --moss: #5D7052;
+  --moss-fg: #F3F4F1;
+  --terracotta: #C18C5D;
+  --terracotta-fg: #FFFFFF;
+  --sand: #E6DCCD;
+  --stone: #F0EBE5;
+  --timber: #DED8CF;
+  --bark: #4A4A40;
+  --dried-grass: #78786C;
+  --burnt-sienna: #A85448;
+  --card-bg: #FEFEFA;
+
+  /* Typography */
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body: 'Nunito', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+
+  /* Fluid scale */
+  --fs-xs: clamp(0.78rem, 0.76rem + 0.1vw, 0.85rem);
+  --fs-sm: clamp(0.88rem, 0.85rem + 0.15vw, 0.95rem);
+  --fs-base: clamp(1rem, 0.96rem + 0.2vw, 1.1rem);
+  --fs-lg: clamp(1.15rem, 1.08rem + 0.4vw, 1.35rem);
+  --fs-xl: clamp(1.4rem, 1.25rem + 0.7vw, 1.75rem);
+  --fs-2xl: clamp(1.75rem, 1.5rem + 1.2vw, 2.4rem);
+  --fs-3xl: clamp(2.2rem, 1.8rem + 2vw, 3.2rem);
+  --fs-hero: clamp(2.6rem, 2rem + 3.5vw, 4.5rem);
+
+  /* Radii */
+  --r-sm: 0.75rem;
+  --r-md: 1rem;
+  --r-lg: 2rem;
+  --r-xl: 2.5rem;
+  --r-2xl: 3rem;
+  --r-pill: 999px;
+  --r-blob-a: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  --r-blob-b: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  --r-blob-c: 50% 50% 20% 80% / 25% 80% 20% 75%;
+
+  /* Shadows — color tinted, never pure black */
+  --shadow-soft: 0 4px 20px -2px rgba(93, 112, 82, 0.15);
+  --shadow-float: 0 10px 40px -10px rgba(193, 140, 93, 0.20);
+  --shadow-lift: 0 20px 40px -10px rgba(93, 112, 82, 0.18);
+
+  /* Layout */
+  --container: 76rem;
+  --container-narrow: 56rem;
+  --container-prose: 42rem;
+  --space-section: clamp(4rem, 8vw, 8rem);
+}
