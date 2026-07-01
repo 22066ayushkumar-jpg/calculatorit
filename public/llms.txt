@@ -1,0 +1,15 @@
+# CalculateIt
+
+> Free, instant, and accurate vehicle, insurance, and title fee calculators for all 50 US states.
+
+## Pages
+
+- [Home](/index.html): Overview of CalculateIt's vehicle and title fee calculators.
+- [Vehicle Calculators](/vehicles.html): 50-state vehicle tax, title, and registration fee calculators.
+- [About](/about.html): The vision behind CalculateIt and founder Chetan Kumar.
+- [Contact](/contact.html): Get in touch with the CalculateIt team.
+
+## Optional
+
+- [Privacy Policy](/privacy.html)
+- [Disclaimer](/disclaimer.html)
