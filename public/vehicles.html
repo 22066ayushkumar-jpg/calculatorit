@@ -120,8 +120,10 @@
   var html = '';
   for (var i = 0; i < STATES.length; i++) {
     var s = STATES[i];
-    var slug = s[1].toLowerCase().replace(/\s+/g,'-');
-    html += '<a class="state-card" data-state-card data-name="' + s[1] + '" href="https://calculateit.net/vehicle-registration/' + slug + '">' +
+    var href = (s[0] === 'CA')
+      ? 'https://calculateit.net/california-dmv-fee-calculator.html'
+      : 'https://calculateit.net/vehicle-registration/' + s[1].toLowerCase().replace(/\s+/g,'-');
+    html += '<a class="state-card" data-state-card data-name="' + s[1] + '" href="' + href + '">' +
       '<span class="state-card__abbr">' + s[0] + '</span>' +
       '<span class="state-card__name">' + s[1] + '</span>' +
       '<span class="state-card__cta">Estimate fees</span>' +
