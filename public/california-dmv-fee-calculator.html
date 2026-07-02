@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>California DMV Fee Calculator - With Real Rates 2026</title>
+<meta name="description" content="Calculate your exact costs with our California DMV fee calculator. You can easily estimate registration fees for used cars, as well as your annual renewal rates." />
+<link rel="canonical" href="https://calculateit.net/california-dmv-fee-calculator.html" />
+<meta property="og:title" content="California DMV Fee Calculator - With Real Rates 2026" />
+<meta property="og:description" content="Estimate California DMV registration, VLF, TIF, CHP, and county fees instantly with real 2026 rates." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://calculateit.net/california-dmv-fee-calculator.html" />
+<meta name="twitter:card" content="summary" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Nunito:wght@400;600;700&display=swap" />
+<link rel="stylesheet" href="./assets/css/tokens.css" />
+<link rel="stylesheet" href="./assets/css/base.css" />
+<link rel="stylesheet" href="./assets/css/components.css" />
+<link rel="stylesheet" href="./assets/css/pages.css" />
+<style>
+  .calc-wrap{max-width:900px;margin:0 auto;padding:1.25rem;background:var(--surface,#fff);border-radius:28px;box-shadow:0 8px 30px rgba(60,60,50,.08);border:1px solid rgba(120,120,108,.15)}
+  .calc-grid{display:grid;grid-template-columns:1fr;gap:.9rem}
+  @media(min-width:640px){.calc-grid{grid-template-columns:1fr 1fr}}
+  .calc-field label{display:block;font-weight:600;margin-bottom:.35rem;font-size:.95rem}
+  .calc-field input,.calc-field select{width:100%;padding:.7rem .85rem;border-radius:14px;border:1px solid rgba(120,120,108,.35);background:#FDFCF8;font:inherit}
+  .calc-field input:focus,.calc-field select:focus{outline:2px solid #5D7052;outline-offset:1px}
+  .calc-result{margin-top:1.25rem;padding:1.1rem 1.2rem;border-radius:22px;background:linear-gradient(135deg,rgba(93,112,82,.10),rgba(193,140,93,.10));border:1px solid rgba(93,112,82,.25)}
+  .calc-result h3{margin:.1rem 0 .7rem;font-family:Fraunces,serif}
+  .calc-line{display:flex;justify-content:space-between;padding:.35rem 0;border-bottom:1px dashed rgba(120,120,108,.3);font-size:.95rem}
+  .calc-line:last-child{border:0}
+  .calc-total{font-weight:700;font-size:1.25rem;color:#5D7052}
+  .fee-table{width:100%;border-collapse:collapse;margin:1rem 0;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.04)}
+  .fee-table th,.fee-table td{padding:.7rem .85rem;text-align:left;border-bottom:1px solid rgba(120,120,108,.15);font-size:.93rem}
+  .fee-table th{background:#DED8CF;font-family:Fraunces,serif}
+  details.faq{border:1px solid rgba(120,120,108,.2);border-radius:16px;padding:.8rem 1rem;margin:.6rem 0;background:#FDFCF8}
+  details.faq summary{cursor:pointer;font-weight:700;font-family:Fraunces,serif;font-size:1.05rem}
+  details.faq[open] summary{color:#5D7052}
+  details.faq p{margin:.6rem 0 .1rem;line-height:1.6}
+  .hero--calc{padding-top:5.5rem;padding-bottom:2rem}
+  .hero--calc h1{font-size:clamp(1.7rem,4vw,2.6rem);margin-bottom:.5rem}
+  .hero--calc .lede{margin-bottom:1.25rem;font-size:1rem}
+  .note{font-size:.82rem;color:#78786C;margin-top:.7rem;line-height:1.5}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Does DMV refund registration fees in California?","acceptedAnswer":{"@type":"Answer","text":"The California DMV generally does not refund registration fees once paid. Limited refunds may be issued for duplicate payments, DMV errors, or in specific total-loss cases via a partial VLF refund service ($28 fee)."}},
+{"@type":"Question","name":"How does California DMV calculate registration fees?","acceptedAnswer":{"@type":"Answer","text":"CA DMV combines a base registration fee ($76), CHP fee ($34), Vehicle License Fee (0.65% of vehicle value), Transportation Improvement Fee (tiered by value), plus county/district fees and any weight fees for commercial vehicles."}},
+{"@type":"Question","name":"What is a weight fee for the California DMV?","acceptedAnswer":{"@type":"Answer","text":"The weight fee applies to commercial vehicles and is based on the unladen or declared gross vehicle weight (GVW) and number of axles. Standard passenger cars do not pay a weight fee."}},
+{"@type":"Question","name":"Will California DMV waive late fees?","acceptedAnswer":{"@type":"Answer","text":"The DMV does not offer a grace period and rarely waives late fees. Penalties start at 10% of VLF plus $20 in flat fees for 1–10 days late, and escalate up to 160% of VLF for payments more than two years overdue."}}
+]}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <nav class="nav" data-nav aria-label="Primary">
+    <a class="nav__brand" href="./index.html">
+      <span class="nav__logo" aria-hidden="true">C</span>
+      <span>CalculateIt</span>
+    </a>
+    <ul class="nav__list">
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="./vehicles.html">Vehicle Hub</a></li>
+      <li><a href="./about.html">About</a></li>
+      <li><a href="./contact.html">Contact</a></li>
+    </ul>
+    <a class="btn btn--primary nav__cta" href="./vehicles.html">All 50-state calculators</a>
+    <button class="nav__toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </nav>
+  <div class="nav-mobile" id="nav-mobile" data-nav-mobile data-open="false">
+    <ul>
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="./vehicles.html">Vehicle Hub</a></li>
+      <li><a href="./about.html">About</a></li>
+      <li><a href="./contact.html">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ===== Hero with Calculator (above the fold) ===== -->
+  <section class="hero hero--calc">
+    <div class="container">
+      <span class="eyebrow">Rates last updated: July 2026 · Source: CA DMV</span>
+      <h1>California DMV Fee Calculator</h1>
+      <p class="lede">Estimate your California registration, renewal, VLF, CHP, and Transportation Improvement fees in seconds — with real 2026 DMV rates.</p>
+
+      <form class="calc-wrap" id="caCalc" aria-labelledby="calcHeading">
+        <h2 id="calcHeading" style="margin:.1rem 0 1rem;font-family:Fraunces,serif;font-size:1.25rem">Your DMV fee estimate</h2>
+        <div class="calc-grid">
+          <div class="calc-field">
+            <label for="txType">Transaction type</label>
+            <select id="txType">
+              <option value="new">New / first-time registration</option>
+              <option value="used">Used vehicle purchase</option>
+              <option value="renewal" selected>Annual renewal</option>
+              <option value="nonresident">Out-of-state (new to CA)</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="vehValue">Vehicle value / purchase price ($)</label>
+            <input id="vehValue" type="number" inputmode="numeric" min="0" step="100" value="20000" />
+          </div>
+          <div class="calc-field">
+            <label for="vehYear">Vehicle model year</label>
+            <input id="vehYear" type="number" inputmode="numeric" min="1900" max="2027" value="2022" />
+          </div>
+          <div class="calc-field">
+            <label for="fuel">Fuel type</label>
+            <select id="fuel">
+              <option value="gas" selected>Gasoline / Diesel / Hybrid</option>
+              <option value="zev">Zero-emission (EV, FCEV)</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="county">County fee estimate ($)</label>
+            <input id="county" type="number" inputmode="numeric" min="0" step="1" value="27" />
+          </div>
+          <div class="calc-field">
+            <label for="late">Days late</label>
+            <select id="late">
+              <option value="0" selected>On time</option>
+              <option value="10">1–10 days late</option>
+              <option value="30">11–30 days late</option>
+              <option value="365">31 days – 1 year late</option>
+              <option value="730">1–2 years late</option>
+              <option value="1000">More than 2 years late</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="calc-result" aria-live="polite">
+          <h3>Estimated total: <span class="calc-total" id="rTotal">$0</span></h3>
+          <div class="calc-line"><span>Registration fee</span><span id="rReg">$0</span></div>
+          <div class="calc-line"><span>California Highway Patrol (CHP)</span><span id="rChp">$0</span></div>
+          <div class="calc-line"><span>Vehicle License Fee (VLF, 0.65%)</span><span id="rVlf">$0</span></div>
+          <div class="calc-line"><span>Transportation Improvement Fee (TIF)</span><span id="rTif">$0</span></div>
+          <div class="calc-line"><span>Road Improvement Fee (ZEV, if applicable)</span><span id="rRif">$0</span></div>
+          <div class="calc-line"><span>County / district fee</span><span id="rCounty">$0</span></div>
+          <div class="calc-line"><span>Late penalties</span><span id="rLate">$0</span></div>
+        </div>
+        <p class="note">Estimate only. Actual DMV fees may vary by county, weight class, special plates, and unpaid violations. Verify with the <a href="https://www.dmv.ca.gov/" rel="nofollow noopener">California DMV</a> before payment.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== How to use ===== -->
+  <section class="section">
+    <div class="container" style="max-width:900px">
+      <h2>How to use the California DMV Fee Calculator</h2>
+      <ol>
+        <li><strong>Pick your transaction type</strong> — new registration, used-car purchase, annual renewal, or bringing a vehicle in from another state.</li>
+        <li><strong>Enter the vehicle value</strong> — for used cars, use the purchase price; for renewals, the DMV depreciates it automatically (the calculator uses the current market value).</li>
+        <li><strong>Add your model year and fuel type</strong> — 2020+ zero-emission vehicles pay a $121 Road Improvement Fee at renewal.</li>
+        <li><strong>Enter your county fee</strong> — this varies by county (typical: $1–$27). Check your last renewal notice.</li>
+        <li><strong>Select late days</strong> if you missed the deadline — CA DMV does not offer a grace period.</li>
+      </ol>
+
+      <h2>What are the fees at the California DMV?</h2>
+      <p>Every California registration is a bundle of five to seven line items. Here is what each one is, why it exists, and where the money goes:</p>
+
+      <table class="fee-table">
+        <thead><tr><th>Fee</th><th>2026 Amount</th><th>Purpose</th></tr></thead>
+        <tbody>
+          <tr><td>Registration fee</td><td>$76</td><td>Base DMV administrative fee (includes $3 Alternative Fuel/Technology fee). Funds DMV operations.</td></tr>
+          <tr><td>California Highway Patrol (CHP)</td><td>$34</td><td>Funds CHP enforcement, road patrol, and safety programs.</td></tr>
+          <tr><td>Vehicle License Fee (VLF)</td><td>0.65% of vehicle value</td><td>Property tax in lieu of local personal-property tax. Funds cities and counties. Tax-deductible on federal returns.</td></tr>
+          <tr><td>Transportation Improvement Fee (TIF)</td><td>$33 – $231</td><td>Tiered by vehicle value. Repairs roads, bridges, and highway maintenance (SB1 gas-tax package).</td></tr>
+          <tr><td>Road Improvement Fee (RIF)</td><td>$121</td><td>Charged only on 2020+ zero-emission vehicles at renewal. Offsets lost gas-tax revenue.</td></tr>
+          <tr><td>County / district fee</td><td>Varies ($1–$27+)</td><td>Local air-quality, abandoned-vehicle, and fingerprint-ID programs. Set per county.</td></tr>
+          <tr><td>Weight fee</td><td>Varies</td><td>Commercial vehicles only. Based on unladen or declared gross vehicle weight and axle count.</td></tr>
+          <tr><td>Late penalty (VLF + weight)</td><td>10% – 160%</td><td>Escalating penalty tied to how long payment is overdue.</td></tr>
+          <tr><td>Late registration flat fee</td><td>$10 – $100</td><td>Flat late fee added on top of the VLF penalty.</td></tr>
+          <tr><td>Late CHP flat fee</td><td>$10 – $100</td><td>Late fee routed to CHP funding.</td></tr>
+        </tbody>
+      </table>
+
+      <h3>TIF tiers (by vehicle value)</h3>
+      <table class="fee-table">
+        <thead><tr><th>Vehicle value</th><th>TIF</th></tr></thead>
+        <tbody>
+          <tr><td>$0 – $4,999</td><td>$33</td></tr>
+          <tr><td>$5,000 – $24,999</td><td>$66</td></tr>
+          <tr><td>$25,000 – $34,999</td><td>$132</td></tr>
+          <tr><td>$35,000 – $59,999</td><td>$198</td></tr>
+          <tr><td>$60,000 and up</td><td>$231</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Frequently asked questions</h2>
+      <details class="faq"><summary>Does DMV refund registration fees in California?</summary>
+        <p>The California DMV generally does <strong>not</strong> refund registration fees once paid. Limited exceptions exist: duplicate payments, verified DMV errors, and total-loss vehicles that qualify for a <em>partial VLF refund service</em> ($28 processing fee). File the request within the same registration year.</p>
+      </details>
+      <details class="faq"><summary>How does California DMV calculate registration fees?</summary>
+        <p>The CA DMV stacks several line items: a base <strong>$76 registration fee</strong>, a <strong>$34 CHP fee</strong>, a <strong>Vehicle License Fee of 0.65%</strong> of the vehicle's purchase price or current value, a <strong>Transportation Improvement Fee</strong> that scales from $33 to $231 by value, plus your county fee and any applicable weight fee. Zero-emission vehicles from model year 2020 or later pay an additional $121 Road Improvement Fee at renewal.</p>
+      </details>
+      <details class="faq"><summary>What is a weight fee for the California DMV?</summary>
+        <p>The weight fee applies to <strong>commercial vehicles</strong> (pickups used commercially, trucks, tractors). It is calculated from the vehicle's unladen or declared gross vehicle weight (GVW) and the number of axles. Standard passenger cars, SUVs, and non-commercial pickups do not pay a weight fee.</p>
+      </details>
+      <details class="faq"><summary>Will California DMV waive late fees?</summary>
+        <p>The DMV does not provide a grace period and only waives late fees in narrow circumstances — typically documented DMV error, military deployment (SCRA), or a Planned Non-Operation (PNO) filed before the expiration date. Standard penalties start at <strong>10% of the VLF + $20</strong> in flat fees (1–10 days late) and escalate to <strong>160% of the VLF + $200</strong> flat when payment is more than two years overdue.</p>
+      </details>
+
+      <p style="margin-top:2rem"><a class="btn btn--primary" href="./vehicles.html">See all 50-state vehicle calculators →</a></p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2026 CalculateIt.net · <a href="./privacy.html">Privacy</a> · <a href="./disclaimer.html">Disclaimer</a> · <a href="./contact.html">Contact</a></p>
+  </div>
+</footer>
+
+<script src="./assets/js/main.js" defer></script>
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  var fmt=function(n){return "$"+Math.round(n).toLocaleString()};
+  function tifFor(v){
+    if(v<5000)return 33;
+    if(v<25000)return 66;
+    if(v<35000)return 132;
+    if(v<60000)return 198;
+    return 231;
+  }
+  function latePct(d){
+    d=+d; if(d<=0)return {vlf:0,reg:0,chp:0};
+    if(d<=10)return {vlf:.10,reg:10,chp:10};
+    if(d<=30)return {vlf:.20,reg:15,chp:15};
+    if(d<=365)return {vlf:.60,reg:30,chp:30};
+    if(d<=730)return {vlf:.80,reg:50,chp:50};
+    return {vlf:1.60,reg:100,chp:100};
+  }
+  function calc(){
+    var v=Math.max(0,+$("vehValue").value||0);
+    var year=+$("vehYear").value||new Date().getFullYear();
+    var fuel=$("fuel").value;
+    var county=Math.max(0,+$("county").value||0);
+    var tx=$("txType").value;
+    var lateDays=$("late").value;
+
+    var reg=76, chp=34;
+    var vlf=v*0.0065;
+    var tif=tifFor(v);
+    var rif=(fuel==="zev" && year>=2020 && tx!=="new")?121:0;
+
+    var lp=latePct(lateDays);
+    var latePenalty=vlf*lp.vlf + lp.reg + lp.chp;
+
+    var total=reg+chp+vlf+tif+rif+county+latePenalty;
+
+    $("rReg").textContent=fmt(reg);
+    $("rChp").textContent=fmt(chp);
+    $("rVlf").textContent=fmt(vlf);
+    $("rTif").textContent=fmt(tif);
+    $("rRif").textContent=fmt(rif);
+    $("rCounty").textContent=fmt(county);
+    $("rLate").textContent=fmt(latePenalty);
+    $("rTotal").textContent=fmt(total);
+  }
+  document.getElementById("caCalc").addEventListener("input",calc);
+  document.getElementById("caCalc").addEventListener("change",calc);
+  calc();
+})();
+</script>
+</body>
+</html>
