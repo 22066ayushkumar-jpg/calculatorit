@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Utah Vehicle Registration Fees Calculator / Estimator 2026</title>
+<meta name="description" content="Estimate Utah vehicle registration fees with our calculator. See cost factors, examples, and how fees are calculated." />
+<link rel="canonical" href="https://calculateit.net/vehicle-registration-fee-calculator/utah/" />
+<meta property="og:title" content="Utah Vehicle Registration Fees Calculator 2026" />
+<meta property="og:description" content="Estimate Utah vehicle registration fees with our calculator. See cost factors, examples, and how fees are calculated." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://calculateit.net/vehicle-registration-fee-calculator/utah/" />
+<meta name="twitter:card" content="summary" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Nunito:wght@400;600;700&display=swap" />
+<link rel="stylesheet" href="/assets/css/tokens.css" />
+<link rel="stylesheet" href="/assets/css/base.css" />
+<link rel="stylesheet" href="/assets/css/components.css" />
+<link rel="stylesheet" href="/assets/css/pages.css" />
+<style>
+  .hero--calc{padding-top:5.5rem;padding-bottom:1.5rem}
+  .hero--calc h1{font-size:clamp(1.7rem,4vw,2.6rem);margin-bottom:.5rem}
+  .hero--calc .lede{margin-bottom:1.25rem;font-size:1rem}
+  #ut-dmv-app{max-width:960px;margin:0 auto;padding:1.1rem;background:var(--card-bg,#FEFEFA);border-radius:26px;box-shadow:0 8px 30px rgba(60,60,50,.08);border:1px solid rgba(120,120,108,.15)}
+  #ut-dmv-app .dashboard{background:linear-gradient(135deg,rgba(93,112,82,.10),rgba(193,140,93,.10));border:1px solid rgba(93,112,82,.25);border-radius:20px;padding:1rem 1.1rem;margin-bottom:1rem}
+  #ut-dmv-app .dashboard-main{text-align:center;padding:.4rem 0 .8rem}
+  #ut-dmv-app .dashboard-main .label{font-size:.85rem;color:#78786C;text-transform:uppercase;letter-spacing:.06em}
+  #ut-dmv-app .dashboard-main .value{font-family:Fraunces,serif;font-weight:700;font-size:2.2rem;color:#5D7052;margin:.15rem 0}
+  #ut-dmv-app .dashboard-main .sub{font-size:.8rem;color:#78786C}
+  #ut-dmv-app .dashboard-grid{display:flex;gap:1rem;justify-content:space-around;text-align:center;flex-wrap:wrap}
+  #ut-dmv-app .dash-item{flex:1;min-width:110px;padding:.4rem .3rem;position:relative}
+  #ut-dmv-app .dash-item:not(:last-child)::after{content:"";position:absolute;right:0;top:20%;height:60%;width:1px;background:rgba(120,120,108,.25)}
+  #ut-dmv-app .dash-item .k{font-size:.78rem;color:#78786C;text-transform:uppercase;letter-spacing:.05em}
+  #ut-dmv-app .dash-item .v{font-family:Fraunces,serif;font-weight:700;font-size:1.15rem;color:#2C2C24;margin-top:.15rem}
+  #ut-dmv-app h3.section-title{font-family:Fraunces,serif;font-size:1.05rem;margin:.9rem 0 .5rem;color:#4A4A40}
+  #ut-dmv-app .grid-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.75rem}
+  #ut-dmv-app .form-group{display:flex;flex-direction:column}
+  #ut-dmv-app .form-group label{font-weight:600;font-size:.9rem;margin-bottom:.3rem}
+  #ut-dmv-app .form-group input,#ut-dmv-app .form-group select{padding:.6rem .75rem;border-radius:12px;border:1px solid rgba(120,120,108,.35);background:#FDFCF8;font:inherit}
+  #ut-dmv-app .form-group input:focus,#ut-dmv-app .form-group select:focus{outline:2px solid #5D7052;outline-offset:1px}
+  #ut-dmv-app .form-group .hint{font-size:.75rem;color:#78786C;margin-top:.25rem}
+  #ut-dmv-app .input-prefix{position:relative}
+  #ut-dmv-app .input-prefix span{position:absolute;left:.7rem;top:50%;transform:translateY(-50%);color:#78786C;font-size:.9rem}
+  #ut-dmv-app .input-prefix input{padding-left:1.6rem}
+  #ut-dmv-app .input-suffix{position:relative}
+  #ut-dmv-app .input-suffix span{position:absolute;right:.7rem;top:50%;transform:translateY(-50%);color:#78786C;font-size:.9rem}
+  #ut-dmv-app .actions{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+  #ut-dmv-app .actions button{padding:.6rem 1rem;border-radius:12px;border:1px solid rgba(93,112,82,.4);background:#fff;color:#4A4A40;font:inherit;font-weight:600;cursor:pointer}
+  #ut-dmv-app .actions button.primary{background:#5D7052;color:#fff;border-color:#5D7052}
+  #ut-dmv-app .results{margin-top:1.1rem;background:#fff;border:1px solid rgba(120,120,108,.2);border-radius:18px;padding:1rem}
+  #ut-dmv-app .results-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem}
+  #ut-dmv-app .results-head h3{font-family:Fraunces,serif;margin:0;font-size:1.1rem}
+  #ut-dmv-app .badge{background:#5D7052;color:#fff;padding:.25rem .6rem;border-radius:999px;font-size:.78rem;font-weight:600}
+  #ut-dmv-app table.fees{width:100%;border-collapse:collapse}
+  #ut-dmv-app table.fees td{padding:.45rem .5rem;border-bottom:1px dashed rgba(120,120,108,.25);font-size:.92rem}
+  #ut-dmv-app table.fees tr.sub-fee td{padding-left:1.5rem;color:#78786C;font-size:.85rem}
+  #ut-dmv-app table.fees tr.section-divider td{border:0;padding:.15rem 0}
+  #ut-dmv-app table.fees tr.total-row td{font-weight:700;font-size:1.05rem;color:#5D7052;border-top:2px solid #5D7052;border-bottom:0;padding-top:.6rem}
+  #ut-dmv-app .schedule{margin-top:1rem;background:#F0EBE5;border-radius:16px;padding:1rem;font-size:.88rem;display:none}
+  #ut-dmv-app .schedule h4{font-family:Fraunces,serif;margin:0 0 .5rem;font-size:1rem;color:#4A4A40}
+  #ut-dmv-app .schedule-grid{display:flex;gap:1rem;flex-wrap:wrap}
+  #ut-dmv-app .schedule-grid > div{flex:1;min-width:220px}
+  #ut-dmv-app .schedule ul{margin:.3rem 0 .6rem 1rem;padding:0}
+  #ut-dmv-app .schedule .callout{background:#fff;border-left:3px solid #C18C5D;padding:.6rem .8rem;margin-top:.6rem;border-radius:8px}
+  #ut-dmv-app .disclaimer{font-size:.78rem;color:#78786C;margin-top:.7rem;line-height:1.5}
+  @media (max-width:600px){
+    #ut-dmv-app .grid-row{grid-template-columns:1fr}
+    #ut-dmv-app .dashboard-main .value{font-size:1.9rem}
+    #ut-dmv-app .dash-item:not(:last-child)::after{display:none}
+  }
+  .fee-table{width:100%;border-collapse:collapse;margin:1rem 0;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.04)}
+  .fee-table th,.fee-table td{padding:.7rem .85rem;text-align:left;border-bottom:1px solid rgba(120,120,108,.15);font-size:.93rem}
+  .fee-table th{background:#DED8CF;font-family:Fraunces,serif}
+  details.faq{border:1px solid rgba(120,120,108,.2);border-radius:16px;padding:.8rem 1rem;margin:.6rem 0;background:#FDFCF8}
+  details.faq summary{cursor:pointer;font-weight:700;font-family:Fraunces,serif;font-size:1.05rem}
+  details.faq[open] summary{color:#5D7052}
+  details.faq p{margin:.6rem 0 .1rem;line-height:1.6}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Can registration fees in Utah change every year?","acceptedAnswer":{"@type":"Answer","text":"Yes. Utah's uniform age-based fee steps down as a vehicle ages (crossing tiers at 3, 6, 9, and 12 years), and the legislature can adjust base registration, alternative fuel, and corridor fees. SB 91 raised the registration fee schedule effective 1/1/2026."}},
+{"@type":"Question","name":"How much does it cost to renew vehicle registration in Utah?","acceptedAnswer":{"@type":"Answer","text":"A typical Utah passenger renewal is the $75.50 registration package plus the uniform age fee ($10–$150) and any alternative fuel fee ($25 hybrid, $64 PHEV, $180 EV). Add $10 corridor fee in 11 counties. Most renewals fall between $85 and $260."}},
+{"@type":"Question","name":"Can I use this calculator for a new car and a used car in Utah?","acceptedAnswer":{"@type":"Answer","text":"Yes. Select 'New Registration (Purchase)' for either a new or used vehicle purchase to include sales tax, title, plate, and lien fees. Choose 'Renewal Only' to estimate an annual renewal without purchase-side costs."}}
+]}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <nav class="nav" data-nav aria-label="Primary">
+    <a class="nav__brand" href="/index.html">
+      <span class="nav__logo" aria-hidden="true">C</span>
+      <span>CalculateIt</span>
+    </a>
+    <ul class="nav__list">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/vehicles.html">Vehicle Hub</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <a class="btn btn--primary nav__cta" href="/vehicles.html">All 50-state calculators</a>
+    <button class="nav__toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </nav>
+  <div class="nav-mobile" id="nav-mobile" data-nav-mobile data-open="false">
+    <ul>
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/vehicles.html">Vehicle Hub</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero hero--calc">
+    <div class="container">
+      <span class="eyebrow">Rates last updated: 2026 · Source: Utah DMV (SB 91)</span>
+      <h1>Utah Vehicle Registration Fees Calculator / Estimator 2026</h1>
+      <p class="lede">Estimate uniform age fees, registration components, corridor fees, alt-fuel surcharges, sales tax, title, plates, and liens — instantly.</p>
+
+      <div id="ut-dmv-app">
+        <div class="dashboard">
+          <div class="dashboard-main">
+            <div class="label">Est. Total Due (1st Year)</div>
+            <div class="value" id="resTotal">$0.00</div>
+            <div class="sub">Uniform Fee + Registration + Plates + Taxes</div>
+          </div>
+          <div class="dashboard-grid">
+            <div class="dash-item"><div class="k">Uniform Age Fee</div><div class="v" id="resUniform">$0.00</div></div>
+            <div class="dash-item"><div class="k">Registration Fees</div><div class="v" id="resReg">$0.00</div></div>
+            <div class="dash-item"><div class="k">Sales Tax (Est)</div><div class="v" id="resTax">$0.00</div></div>
+          </div>
+        </div>
+
+        <h3 class="section-title">Vehicle Information</h3>
+        <div class="grid-row">
+          <div class="form-group">
+            <label for="utType">Vehicle Type</label>
+            <select id="utType" onchange="calculateUTFees()">
+              <option value="pass">Passenger Car</option>
+              <option value="truck">Light Truck / SUV / Van</option>
+              <option value="moto">Motorcycle</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="utYear">Model Year</label>
+            <select id="utYear" onchange="calculateUTFees()"></select>
+          </div>
+          <div class="form-group">
+            <label for="utFuel">Fuel Type</label>
+            <select id="utFuel" onchange="calculateUTFees()">
+              <option value="gas">Gas / Diesel</option>
+              <option value="hybrid">Hybrid (HEV) +$25</option>
+              <option value="phev">Plug-in Hybrid (PHEV) +$64</option>
+              <option value="ev">Electric (EV) +$180</option>
+            </select>
+          </div>
+        </div>
+
+        <h3 class="section-title">Location &amp; Transaction</h3>
+        <div class="grid-row">
+          <div class="form-group">
+            <label for="utCounty">County</label>
+            <select id="utCounty" onchange="calculateUTFees()">
+              <option value="10">Salt Lake County (+$10 corridor)</option>
+              <option value="10">Utah County (+$10 corridor)</option>
+              <option value="10">Davis County (+$10 corridor)</option>
+              <option value="10">Weber County (+$10 corridor)</option>
+              <option value="10">Box Elder County (+$10 corridor)</option>
+              <option value="10">Tooele County (+$10 corridor)</option>
+              <option value="10">Washington County (+$10 corridor)</option>
+              <option value="10">Morgan County (+$10 corridor)</option>
+              <option value="10">Rich County (+$10 corridor)</option>
+              <option value="10">Wasatch County (+$10 corridor)</option>
+              <option value="0">Other County (no corridor fee)</option>
+            </select>
+            <div class="hint">*11 UT counties charge a $10 corridor fee</div>
+          </div>
+          <div class="form-group">
+            <label for="utTrans">Transaction Type</label>
+            <select id="utTrans" onchange="calculateUTFees()">
+              <option value="new">New Registration (Purchase)</option>
+              <option value="renewal">Renewal Only</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="utTaxRate">Sales Tax Rate (%)</label>
+            <div class="input-suffix"><input id="utTaxRate" type="number" step="0.01" min="0" value="7.25" oninput="calculateUTFees()" /><span>%</span></div>
+            <div class="hint">*UT range: 6.85% – 9.05% by city</div>
+          </div>
+        </div>
+
+        <div id="groupPurchase">
+          <h3 class="section-title">Purchase Details</h3>
+          <div class="grid-row">
+            <div class="form-group">
+              <label for="utPrice">Purchase Price ($)</label>
+              <div class="input-prefix"><span>$</span><input id="utPrice" type="number" min="0" step="100" value="25000" oninput="calculateUTFees()" /></div>
+            </div>
+            <div class="form-group">
+              <label for="utCredit">Trade-In &amp; Rebates ($)</label>
+              <div class="input-prefix"><span>$</span><input id="utCredit" type="number" min="0" step="100" value="0" oninput="calculateUTFees()" /></div>
+              <div class="hint">*Reduces taxable amount</div>
+            </div>
+            <div class="form-group">
+              <label for="utPlate">Plate Type</label>
+              <select id="utPlate" onchange="calculateUTFees()">
+                <option value="12.50">Standard Plate ($12.50)</option>
+                <option value="21.50">Special Group Plate ($21.50)</option>
+                <option value="16.50">Replacement Plate ($16.50)</option>
+                <option value="0">No New Plate Needed</option>
+              </select>
+            </div>
+          </div>
+          <div class="grid-row">
+            <div class="form-group">
+              <label for="utTitleType">Title Transfer</label>
+              <select id="utTitleType" onchange="calculateUTFees()">
+                <option value="new">New Title ($6.00)</option>
+                <option value="transfer">Out-of-State Title Transfer ($6.00)</option>
+                <option value="duplicate">Duplicate Title ($6.00)</option>
+                <option value="none">No Title Needed</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="utLien">Lien Recordings</label>
+              <select id="utLien" onchange="calculateUTFees()">
+                <option value="0">No Liens ($0.00)</option>
+                <option value="1">1 Lien ($2.00)</option>
+                <option value="2">2 Liens ($4.00)</option>
+                <option value="3">3 Liens ($6.00)</option>
+              </select>
+              <div class="hint">*$2.00 per lien recording</div>
+            </div>
+            <div class="form-group"><label>&nbsp;</label></div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="button" class="primary" onclick="calculateUTFees()">Calculate</button>
+          <button type="button" onclick="resetUTFees()">Reset Calculator</button>
+          <button type="button" onclick="printUTFees()">Print Estimate</button>
+          <button type="button" onclick="toggleSchedule()">View Fee Schedule</button>
+        </div>
+
+        <div class="results" aria-live="polite">
+          <div class="results-head">
+            <h3>Detailed Fee Breakdown</h3>
+            <span class="badge" id="utBadge">2026 Rates</span>
+          </div>
+          <table class="fees">
+            <tbody id="utResultsBody"></tbody>
+            <tfoot>
+              <tr class="total-row"><td>Total Amount Due</td><td id="tableTotal">$0.00</td></tr>
+            </tfoot>
+          </table>
+
+          <div class="schedule" id="feeSchedule">
+            <h4>2026 Utah DMV Fee Schedule Reference</h4>
+            <div class="schedule-grid">
+              <div>
+                <strong>Uniform Age-Based Fees (Passenger/Truck/SUV)</strong>
+                <ul>
+                  <li>Less than 3 yrs (2024–2026): $150</li>
+                  <li>3 to 6 yrs (2021–2023): $110</li>
+                  <li>6 to 9 yrs (2018–2020): $80</li>
+                  <li>9 to 12 yrs (2015–2017): $50</li>
+                  <li>12+ yrs (2014 &amp; older): $10</li>
+                </ul>
+                <strong>Motorcycle Uniform Fees</strong>
+                <ul>
+                  <li>&lt;3 yrs: $95 | 3–6: $70 | 6–9: $50</li>
+                  <li>9–12: $35 | 12+: $10</li>
+                </ul>
+              </div>
+              <div>
+                <strong>Registration Fee Components (2026)</strong>
+                <ul>
+                  <li>Base Registration: $58.75</li>
+                  <li>Additional Registration: $7.25</li>
+                  <li>Air Pollution Control (APC): $3.00</li>
+                  <li>Electronic Registration: $3.00</li>
+                  <li>Driver Education: $2.50 (moto exempt)</li>
+                  <li>Uninsured Motorist ID: $1.00</li>
+                </ul>
+                <div>Passenger Total Reg: <strong>$75.50</strong> · Motorcycle Total Reg: <strong>$73.00</strong></div>
+              </div>
+              <div>
+                <strong>Alternative Fuel Fees</strong>
+                <ul>
+                  <li>Electric (EV): $180.00</li>
+                  <li>Plug-in Hybrid (PHEV): $64.00</li>
+                  <li>Hybrid (HEV): $25.00</li>
+                </ul>
+                <strong>Other Fees</strong>
+                <ul>
+                  <li>Title (new/dup/transfer): $6.00</li>
+                  <li>Standard Plate: $12.50 · Special: $21.50 · Replacement: $16.50</li>
+                  <li>Lien Recording: $2.00/lien · Corridor Fee: $10 (11 counties)</li>
+                </ul>
+              </div>
+            </div>
+            <div class="callout"><strong>EV Road Usage Charge (RUC):</strong> EV owners may opt into Utah's RUC program (1.5¢/mile) instead of the flat $180 fee. Breakeven is ~12,000 miles/year — if you drive less, RUC saves money.</div>
+          </div>
+
+          <p class="disclaimer">* Estimates based on 2026 Utah DMV fee schedules. Sales tax varies by city (6.85%–9.05%). APC fee is $3 in emissions counties. Registration fee increase effective 1/1/2026 per SB 91. Verify with the <a href="https://dmv.utah.gov/" rel="nofollow noopener">Utah DMV</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width:900px">
+      <p>The <strong>Utah vehicle registration fees calculator</strong> gives you a fast, mobile-friendly estimate of what you'll owe the Utah DMV in 2026. Utah uses a uniform <em>age-based</em> fee that decreases as your car gets older, layered on top of a fixed registration package ($75.50 for passenger cars, $73.00 for motorcycles), an alternative-fuel surcharge for hybrids and EVs, and a $10 corridor preservation fee in 11 counties. If you're buying a new or used vehicle, the calculator also adds Utah state and local sales tax (6.85%–9.05%), a $6 title fee, plate fee, and $2 per lien recording — everything you need to budget before you visit the DMV.</p>
+
+      <h2>How fees are calculated in Utah</h2>
+      <p>Utah stacks several fixed and variable charges. The uniform age fee is the biggest single line item and drops in tiers at 3, 6, 9, and 12 years of vehicle age. Registration components are flat and add to $75.50 (passenger) or $73.00 (motorcycle). Alt-fuel vehicles pay a flat annual surcharge that offsets lost gas-tax revenue. On a purchase, taxable amount = purchase price − trade-in − rebates, multiplied by your combined state + local rate.</p>
+
+      <table class="fee-table">
+        <thead><tr><th>Fee</th><th>2026 Amount</th><th>Purpose</th></tr></thead>
+        <tbody>
+          <tr><td>Uniform age-based fee (passenger)</td><td>$10 – $150 tiered</td><td>In lieu of personal property tax; funds local government.</td></tr>
+          <tr><td>Base registration</td><td>$58.75</td><td>Core DMV administrative fee (SB 91, effective 1/1/2026).</td></tr>
+          <tr><td>Additional registration</td><td>$7.25</td><td>Statewide transportation funding.</td></tr>
+          <tr><td>Air Pollution Control (APC)</td><td>$3.00</td><td>Charged in emissions counties for air-quality programs.</td></tr>
+          <tr><td>Electronic registration</td><td>$3.00</td><td>Funds DMV online systems.</td></tr>
+          <tr><td>Driver Education</td><td>$2.50</td><td>Funds high-school driver ed (motorcycles exempt).</td></tr>
+          <tr><td>Uninsured Motorist ID</td><td>$1.00</td><td>Funds Utah's UMID insurance verification database.</td></tr>
+          <tr><td>Corridor preservation fee</td><td>$10.00</td><td>Charged in 11 counties; funds future road corridors.</td></tr>
+          <tr><td>Alternative fuel surcharge</td><td>$25 / $64 / $180</td><td>Hybrid / PHEV / EV — offsets lost gas-tax revenue.</td></tr>
+          <tr><td>Sales tax (purchase only)</td><td>6.85% – 9.05%</td><td>State + local sales tax on taxable purchase price.</td></tr>
+          <tr><td>Title</td><td>$6.00</td><td>New title, transfer, or duplicate.</td></tr>
+          <tr><td>Plate fees</td><td>$12.50 – $21.50</td><td>Standard, special-group, or replacement plates.</td></tr>
+          <tr><td>Lien recording</td><td>$2.00 per lien</td><td>Recording lender security interest on the title.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>What affects your registration in Utah?</h2>
+      <ul>
+        <li><strong>Vehicle age.</strong> The uniform fee tier is the single biggest variable — a 2-year-old car pays $150, a 13-year-old car pays $10.</li>
+        <li><strong>Fuel type.</strong> EVs add $180, PHEVs $64, and hybrids $25 annually.</li>
+        <li><strong>County.</strong> Salt Lake, Utah, Davis, Weber, Box Elder, Tooele, Washington, Morgan, Rich, Wasatch, and one additional county add a $10 corridor fee.</li>
+        <li><strong>Purchase price minus trade-in / rebates.</strong> Drives sales tax on new purchases.</li>
+        <li><strong>Local sales tax rate.</strong> Ranges 6.85%–9.05% depending on city.</li>
+        <li><strong>Plate, title, and lien selections</strong> for new registrations.</li>
+      </ul>
+
+      <h2>Estimated examples</h2>
+      <table class="fee-table">
+        <thead><tr><th>Scenario</th><th>Line items</th><th>Approx. total</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>2024 gas SUV renewal · Salt Lake County</td>
+            <td>$150 uniform + $75.50 reg + $10 corridor</td>
+            <td><strong>$235.50</strong></td>
+          </tr>
+          <tr>
+            <td>2019 gas sedan renewal · Non-corridor county</td>
+            <td>$80 uniform + $75.50 reg</td>
+            <td><strong>$155.50</strong></td>
+          </tr>
+          <tr>
+            <td>2025 EV new purchase, $45,000, Utah County, 7.25% tax</td>
+            <td>$150 uniform + $75.50 reg + $10 corridor + $180 EV + $3,262.50 sales tax + $6 title + $12.50 plate</td>
+            <td><strong>≈ $3,696.50</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>What this calculator may not include</h2>
+      <ul>
+        <li>Commercial vehicle weight or IRP apportioned fees.</li>
+        <li>Personalized / vanity plate surcharges beyond the standard/special/replacement options.</li>
+        <li>Safety and emissions inspection charges (paid to inspection stations, not DMV).</li>
+        <li>County-specific administrative surcharges outside the corridor fee.</li>
+        <li>Late-registration penalties or reinstatement fees.</li>
+        <li>Federal Heavy Vehicle Use Tax (HVUT) for trucks over 55,000 lbs GVW.</li>
+      </ul>
+
+      <h2>Frequently asked questions</h2>
+      <details class="faq"><summary>Can registration fees in Utah change every year?</summary>
+        <p>Yes. Your <strong>uniform age fee</strong> drops as your car crosses the 3-, 6-, 9-, and 12-year tiers, so the same vehicle costs less to register over time. The Utah Legislature can also adjust base rates — <strong>SB 91</strong>, effective 1/1/2026, raised the registration package to $75.50 for passenger cars. EV and PHEV fees are also indexed and can change annually.</p>
+      </details>
+      <details class="faq"><summary>How much does it cost to renew vehicle registration in Utah?</summary>
+        <p>A typical passenger renewal is the <strong>$75.50 registration package</strong> plus the <strong>uniform age fee ($10–$150)</strong>, any <strong>alt-fuel surcharge</strong> ($25 hybrid, $64 PHEV, $180 EV), and a <strong>$10 corridor fee</strong> in 11 counties. Most passenger renewals fall between <strong>$85 and $260</strong>. Use the calculator above with "Renewal Only" for your exact estimate.</p>
+      </details>
+      <details class="faq"><summary>Can I use this calculator for a new car and a used car in Utah?</summary>
+        <p>Yes. Choose <strong>New Registration (Purchase)</strong> for either a brand-new or used vehicle purchase — the calculator adds Utah sales tax on (purchase price − trade-in − rebates), plus the $6 title, plate, and lien fees. Choose <strong>Renewal Only</strong> to skip purchase-side costs and estimate just the annual DMV renewal.</p>
+      </details>
+
+      <p style="margin-top:2rem"><a class="btn btn--primary" href="/vehicles.html">See all 50-state vehicle calculators →</a></p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2026 CalculateIt.net · <a href="/privacy.html">Privacy</a> · <a href="/disclaimer.html">Disclaimer</a> · <a href="/contact.html">Contact</a></p>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js" defer></script>
+<script>
+(function() {
+    'use strict';
+
+    const currentYear = new Date().getFullYear();
+    const yearSelect = document.getElementById("utYear");
+    yearSelect.innerHTML = "";
+    for(let y = currentYear + 1; y >= currentYear - 25; y--) {
+        let opt = document.createElement('option');
+        opt.value = y;
+        opt.text = y;
+        if(y === currentYear) opt.selected = true;
+        yearSelect.add(opt);
+    }
+
+    window.calculateUTFees = function() {
+        const type = document.getElementById('utType').value;
+        const modelYear = parseInt(document.getElementById('utYear').value);
+        const fuel = document.getElementById('utFuel').value;
+        const price = parseFloat(document.getElementById('utPrice').value) || 0;
+        const credit = parseFloat(document.getElementById('utCredit').value) || 0;
+        const taxRate = parseFloat(document.getElementById('utTaxRate').value) || 7.25;
+        const trans = document.getElementById('utTrans').value;
+        const countyFee = parseInt(document.getElementById('utCounty').value);
+        const plateFee = parseFloat(document.getElementById('utPlate').value) || 0;
+        const titleType = document.getElementById('utTitleType').value;
+        const lienCount = parseInt(document.getElementById('utLien').value) || 0;
+
+        const purchGroup = document.getElementById('groupPurchase');
+        purchGroup.style.display = (trans === 'new') ? 'block' : 'none';
+
+        let age = currentYear - modelYear;
+        if (age < 0) age = 0;
+
+        let uniformFee = 0, ageTier = "";
+        if (type === 'moto') {
+            if (age < 3) { uniformFee = 95; ageTier = "<3 yrs"; }
+            else if (age < 6) { uniformFee = 70; ageTier = "3-6 yrs"; }
+            else if (age < 9) { uniformFee = 50; ageTier = "6-9 yrs"; }
+            else if (age < 12) { uniformFee = 35; ageTier = "9-12 yrs"; }
+            else { uniformFee = 10; ageTier = "12+ yrs"; }
+        } else {
+            if (age < 3) { uniformFee = 150; ageTier = "<3 yrs"; }
+            else if (age < 6) { uniformFee = 110; ageTier = "3-6 yrs"; }
+            else if (age < 9) { uniformFee = 80; ageTier = "6-9 yrs"; }
+            else if (age < 12) { uniformFee = 50; ageTier = "9-12 yrs"; }
+            else { uniformFee = 10; ageTier = "12+ yrs"; }
+        }
+
+        const baseReg = 58.75, addlReg = 7.25, apcFee = 3.00, electronicFee = 3.00;
+        const driverEdFee = (type === 'moto') ? 0 : 2.50;
+        const uninsuredFee = 1.00;
+        const regSubtotal = baseReg + addlReg + apcFee + electronicFee + driverEdFee + uninsuredFee;
+
+        const corridorFee = countyFee;
+
+        let fuelFee = 0, fuelLabel = "";
+        if (fuel === 'ev') { fuelFee = 180.00; fuelLabel = "Electric Vehicle Fee"; }
+        else if (fuel === 'hybrid') { fuelFee = 25.00; fuelLabel = "Hybrid Vehicle Fee"; }
+        else if (fuel === 'phev') { fuelFee = 64.00; fuelLabel = "Plug-In Hybrid Fee"; }
+
+        let salesTax = 0;
+        if (trans === 'new' && price > 0) {
+            let taxable = price - credit;
+            if (taxable < 0) taxable = 0;
+            salesTax = taxable * (taxRate / 100);
+        }
+
+        let titleFee = 0, titleLabel = "";
+        if (trans === 'new') {
+            if (titleType === 'new') { titleFee = 6.00; titleLabel = "New Title"; }
+            else if (titleType === 'transfer') { titleFee = 6.00; titleLabel = "Out-of-State Title Transfer"; }
+            else if (titleType === 'duplicate') { titleFee = 6.00; titleLabel = "Duplicate Title"; }
+        }
+
+        let plateFeeVal = (trans === 'new') ? plateFee : 0;
+        let lienFee = (trans === 'new' && lienCount > 0) ? lienCount * 2.00 : 0;
+
+        const regTotal = regSubtotal + corridorFee + fuelFee;
+        const totalDue = uniformFee + regTotal + salesTax + titleFee + plateFeeVal + lienFee;
+
+        const toUSD = (num) => '$' + num.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+
+        document.getElementById('resTotal').innerText = toUSD(totalDue);
+        document.getElementById('resUniform').innerText = toUSD(uniformFee);
+        document.getElementById('resReg').innerText = toUSD(regTotal);
+        document.getElementById('resTax').innerText = toUSD(salesTax);
+        document.getElementById('tableTotal').innerText = toUSD(totalDue);
+
+        let html = '';
+        html += `<tr><td>Uniform Age-Based Fee (${type === 'moto' ? 'Moto' : 'Passenger'}, ${ageTier})</td><td>${toUSD(uniformFee)}</td></tr>`;
+        html += `<tr class="section-divider"><td colspan="2"></td></tr>`;
+        html += `<tr><td>Registration Fees</td><td>${toUSD(regSubtotal)}</td></tr>`;
+        html += `<tr class="sub-fee"><td>Base Registration</td><td>${toUSD(baseReg)}</td></tr>`;
+        html += `<tr class="sub-fee"><td>Additional Registration</td><td>${toUSD(addlReg)}</td></tr>`;
+        html += `<tr class="sub-fee"><td>Air Pollution Control (APC)</td><td>${toUSD(apcFee)}</td></tr>`;
+        html += `<tr class="sub-fee"><td>Electronic Registration</td><td>${toUSD(electronicFee)}</td></tr>`;
+        if (driverEdFee > 0) html += `<tr class="sub-fee"><td>Driver Education Fee</td><td>${toUSD(driverEdFee)}</td></tr>`;
+        html += `<tr class="sub-fee"><td>Uninsured Motorist ID Fee</td><td>${toUSD(uninsuredFee)}</td></tr>`;
+        if (corridorFee > 0) html += `<tr><td>Corridor Preservation Fee</td><td>${toUSD(corridorFee)}</td></tr>`;
+        if (fuelFee > 0) html += `<tr><td>${fuelLabel}</td><td>${toUSD(fuelFee)}</td></tr>`;
+        if (trans === 'new') {
+            html += `<tr class="section-divider"><td colspan="2"></td></tr>`;
+            if (salesTax > 0) html += `<tr><td>Sales Tax (${taxRate}%)</td><td>${toUSD(salesTax)}</td></tr>`;
+            if (titleFee > 0) html += `<tr><td>${titleLabel}</td><td>${toUSD(titleFee)}</td></tr>`;
+            if (plateFeeVal > 0) html += `<tr><td>License Plate Fee</td><td>${toUSD(plateFeeVal)}</td></tr>`;
+            if (lienFee > 0) html += `<tr><td>Lien Recording (${lienCount} lien${lienCount > 1 ? 's' : ''})</td><td>${toUSD(lienFee)}</td></tr>`;
+        }
+        document.getElementById('utResultsBody').innerHTML = html;
+
+        const badge = document.getElementById('utBadge');
+        if (fuel === 'ev') badge.innerText = "EV Rate Applied";
+        else if (fuel === 'phev') badge.innerText = "PHEV Rate Applied";
+        else if (fuel === 'hybrid') badge.innerText = "Hybrid Rate Applied";
+        else badge.innerText = "2026 Rates";
+    }
+
+    window.resetUTFees = function() {
+        document.getElementById('utPrice').value = "0";
+        document.getElementById('utCredit').value = "0";
+        document.getElementById('utType').value = "pass";
+        document.getElementById('utTrans').value = "new";
+        document.getElementById('utFuel').value = "gas";
+        document.getElementById('utCounty').selectedIndex = 0;
+        document.getElementById('utPlate').value = "12.50";
+        document.getElementById('utTitleType').value = "new";
+        document.getElementById('utLien').value = "0";
+        document.getElementById('utTaxRate').value = "7.25";
+        document.getElementById('utYear').value = currentYear;
+        window.calculateUTFees();
+    }
+
+    window.printUTFees = function() { window.print(); }
+
+    window.toggleSchedule = function(e) {
+        const sched = document.getElementById('feeSchedule');
+        const btn = (e && e.target) || event.target;
+        if (sched.style.display === 'none' || !sched.style.display) {
+            sched.style.display = 'block';
+            btn.innerText = 'Hide Fee Schedule';
+        } else {
+            sched.style.display = 'none';
+            btn.innerText = 'View Fee Schedule';
+        }
+    }
+
+    calculateUTFees();
+})();
+</script>
+</body>
+</html>
