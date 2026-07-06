@@ -120,9 +120,14 @@
   var html = '';
   for (var i = 0; i < STATES.length; i++) {
     var s = STATES[i];
-    var href = (s[0] === 'CA')
-      ? 'https://calculateit.net/california-dmv-fee-calculator.html'
-      : 'https://calculateit.net/vehicle-registration/' + s[1].toLowerCase().replace(/\s+/g,'-');
+    var href;
+    if (s[0] === 'CA') {
+      href = 'https://calculateit.net/california-dmv-fee-calculator.html';
+    } else if (s[0] === 'UT') {
+      href = 'https://calculateit.net/utah-vehicle-registration-fee-calculator.html';
+    } else {
+      href = 'https://calculateit.net/vehicle-registration/' + s[1].toLowerCase().replace(/\s+/g,'-');
+    }
     html += '<a class="state-card" data-state-card data-name="' + s[1] + '" href="' + href + '">' +
       '<span class="state-card__abbr">' + s[0] + '</span>' +
       '<span class="state-card__name">' + s[1] + '</span>' +
