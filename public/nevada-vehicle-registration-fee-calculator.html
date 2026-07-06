@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Nevada Vehicle Registration Fees Calculator / Estimator 2026</title>
+<meta name="description" content="Estimate Nevada vehicle registration fees with our calculator. See cost factors, examples, and how fees are calculated." />
+<link rel="canonical" href="https://calculateit.net/nevada-vehicle-registration-fee-calculator.html" />
+<meta property="og:title" content="Nevada Vehicle Registration Fees Calculator 2026" />
+<meta property="og:description" content="Estimate Nevada vehicle registration fees with our calculator. See cost factors, examples, and how fees are calculated." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://calculateit.net/nevada-vehicle-registration-fee-calculator.html" />
+<meta name="twitter:card" content="summary" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Nunito:wght@400;600;700&display=swap" />
+<link rel="stylesheet" href="/assets/css/tokens.css" />
+<link rel="stylesheet" href="/assets/css/base.css" />
+<link rel="stylesheet" href="/assets/css/components.css" />
+<link rel="stylesheet" href="/assets/css/pages.css" />
+<style>
+  .hero--calc{padding-top:5.5rem;padding-bottom:1.5rem}
+  .hero--calc h1{font-size:clamp(1.7rem,4vw,2.6rem);margin-bottom:.5rem}
+  .hero--calc .lede{margin-bottom:1.25rem;font-size:1rem}
+  #nv-dmv-app{max-width:960px;margin:0 auto;padding:1.1rem;background:var(--card-bg,#FEFEFA);border-radius:26px;box-shadow:0 8px 30px rgba(60,60,50,.08);border:1px solid rgba(120,120,108,.15)}
+  #nv-dmv-app .nv-dashboard{background:linear-gradient(135deg,rgba(93,112,82,.10),rgba(193,140,93,.10));border:1px solid rgba(93,112,82,.25);border-radius:20px;padding:1rem 1.1rem;margin-bottom:1rem}
+  #nv-dmv-app .nv-dash-main{text-align:center;padding:.4rem 0 .8rem}
+  #nv-dmv-app .nv-dash-main .nv-label{font-size:.85rem;color:#78786C;text-transform:uppercase;letter-spacing:.06em}
+  #nv-dmv-app .nv-dash-value{font-family:Fraunces,serif;font-weight:700;font-size:2.2rem;color:#5D7052;margin:.15rem 0}
+  #nv-dmv-app .nv-dash-main .nv-sub{font-size:.8rem;color:#78786C}
+  #nv-dmv-app .nv-dash-grid{display:flex;gap:1rem;justify-content:space-around;text-align:center;flex-wrap:wrap}
+  #nv-dmv-app .nv-dash-item{flex:1;min-width:110px;padding:.4rem .3rem;position:relative}
+  #nv-dmv-app .nv-dash-item:not(:last-child)::after{content:"";position:absolute;right:0;top:20%;height:60%;width:1px;background:rgba(120,120,108,.25)}
+  #nv-dmv-app .nv-dash-item .nv-k{font-size:.78rem;color:#78786C;text-transform:uppercase;letter-spacing:.05em}
+  #nv-dmv-app .nv-dash-item .nv-v{font-family:Fraunces,serif;font-weight:700;font-size:1.15rem;color:#2C2C24;margin-top:.15rem}
+  #nv-dmv-app h3.nv-title{font-family:Fraunces,serif;font-size:1.05rem;margin:.9rem 0 .5rem;color:#4A4A40}
+  #nv-dmv-app .nv-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.75rem}
+  #nv-dmv-app .nv-fg{display:flex;flex-direction:column}
+  #nv-dmv-app .nv-fg label{font-weight:600;font-size:.9rem;margin-bottom:.3rem}
+  #nv-dmv-app .nv-fg input,#nv-dmv-app .nv-fg select{padding:.6rem .75rem;border-radius:12px;border:1px solid rgba(120,120,108,.35);background:#FDFCF8;font:inherit}
+  #nv-dmv-app .nv-fg input:focus,#nv-dmv-app .nv-fg select:focus{outline:2px solid #5D7052;outline-offset:1px}
+  #nv-dmv-app .nv-fg .nv-hint{font-size:.75rem;color:#78786C;margin-top:.25rem}
+  #nv-dmv-app .nv-pre{position:relative}
+  #nv-dmv-app .nv-pre span{position:absolute;left:.7rem;top:50%;transform:translateY(-50%);color:#78786C;font-size:.9rem}
+  #nv-dmv-app .nv-pre input{padding-left:1.6rem}
+  #nv-dmv-app .nv-suf{position:relative}
+  #nv-dmv-app .nv-suf span{position:absolute;right:.7rem;top:50%;transform:translateY(-50%);color:#78786C;font-size:.9rem}
+  #nv-dmv-app .nv-radios{display:flex;gap:1rem;flex-wrap:wrap;padding:.4rem 0}
+  #nv-dmv-app .nv-radios label{font-weight:500;display:inline-flex;align-items:center;gap:.35rem}
+  #nv-dmv-app .nv-actions{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+  #nv-dmv-app .nv-actions button{padding:.6rem 1rem;border-radius:12px;border:1px solid rgba(93,112,82,.4);background:#fff;color:#4A4A40;font:inherit;font-weight:600;cursor:pointer}
+  #nv-dmv-app .nv-actions button.nv-primary{background:#5D7052;color:#fff;border-color:#5D7052}
+  #nv-dmv-app .nv-results{margin-top:1.1rem;background:#fff;border:1px solid rgba(120,120,108,.2);border-radius:18px;padding:1rem}
+  #nv-dmv-app .nv-rhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem}
+  #nv-dmv-app .nv-rhead h3{font-family:Fraunces,serif;margin:0;font-size:1.1rem}
+  #nv-dmv-app .nv-badge{background:#5D7052;color:#fff;padding:.25rem .6rem;border-radius:999px;font-size:.78rem;font-weight:600}
+  #nv-dmv-app table.nv-fees{width:100%;border-collapse:collapse}
+  #nv-dmv-app table.nv-fees td{padding:.45rem .5rem;border-bottom:1px dashed rgba(120,120,108,.25);font-size:.92rem}
+  #nv-dmv-app table.nv-fees tr.nv-sub-fee td{padding-left:1.5rem;color:#78786C;font-size:.85rem}
+  #nv-dmv-app table.nv-fees tr.nv-divider td{border:0;padding:.15rem 0}
+  #nv-dmv-app table.nv-fees tr.nv-total-row td{font-weight:700;font-size:1.05rem;color:#5D7052;border-top:2px solid #5D7052;border-bottom:0;padding-top:.6rem}
+  #nv-dmv-app .nv-schedule{margin-top:1rem;background:#F0EBE5;border-radius:16px;padding:1rem;font-size:.88rem;display:none}
+  #nv-dmv-app .nv-schedule h4{font-family:Fraunces,serif;margin:0 0 .5rem;font-size:1rem;color:#4A4A40}
+  #nv-dmv-app .nv-sched-grid{display:flex;gap:1rem;flex-wrap:wrap}
+  #nv-dmv-app .nv-sched-grid > div{flex:1;min-width:220px}
+  #nv-dmv-app .nv-schedule ul{margin:.3rem 0 .6rem 1rem;padding:0}
+  #nv-dmv-app .nv-callout{background:#fff;border-left:3px solid #C18C5D;padding:.6rem .8rem;margin-top:.6rem;border-radius:8px}
+  #nv-dmv-app .nv-disclaimer{font-size:.78rem;color:#78786C;margin-top:.7rem;line-height:1.5}
+  #nv-dmv-app .nv-dist{margin-top:1rem;background:#FDFCF8;border-radius:14px;padding:.8rem 1rem;border:1px dashed rgba(120,120,108,.25)}
+  #nv-dmv-app .nv-dist h4{margin:0 0 .3rem;font-family:Fraunces,serif;font-size:.98rem;color:#4A4A40}
+  #nv-dmv-app .nv-dist ul{margin:.3rem 0 0 1rem;padding:0}
+  @media (max-width:700px){
+    #nv-dmv-app .nv-grid-3{grid-template-columns:1fr;gap:15px}
+    #nv-dmv-app .nv-dash-grid{flex-direction:column;gap:15px}
+    #nv-dmv-app .nv-dash-item:not(:last-child)::after{display:none}
+    #nv-dmv-app .nv-dash-value{font-size:1.9rem}
+    #nv-dmv-app .nv-sched-grid{flex-direction:column}
+  }
+  @media (max-width:700px) and (min-width:481px){
+    #nv-dmv-app .nv-grid-3{grid-template-columns:1fr 1fr}
+  }
+  .fee-table{width:100%;border-collapse:collapse;margin:1rem 0;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.04)}
+  .fee-table th,.fee-table td{padding:.7rem .85rem;text-align:left;border-bottom:1px solid rgba(120,120,108,.15);font-size:.93rem}
+  .fee-table th{background:#DED8CF;font-family:Fraunces,serif}
+  details.faq{border:1px solid rgba(120,120,108,.2);border-radius:16px;padding:.8rem 1rem;margin:.6rem 0;background:#FDFCF8}
+  details.faq summary{cursor:pointer;font-weight:700;font-family:Fraunces,serif;font-size:1.05rem}
+  details.faq[open] summary{color:#5D7052}
+  details.faq p{margin:.6rem 0 .1rem;line-height:1.6}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Is this calculator accurate for all vehicles in Nevada?","acceptedAnswer":{"@type":"Answer","text":"It covers the vast majority of passenger cars, motorcycles, light trucks, mopeds, and travel trailers registered under NRS 371 using 2026 Nevada DMV rates. Commercial IRP-apportioned vehicles, farm plates, and specialty exemptions may fall outside standard schedules and should be verified with the Nevada DMV."}},
+{"@type":"Question","name":"How much does it cost to renew vehicle registration in Nevada?","acceptedAnswer":{"@type":"Answer","text":"A typical passenger renewal includes the base registration fee ($33 for cars under 6,000 lbs), the 4% Governmental Services Tax (minimum $16) on the depreciated DMV valuation (35% of MSRP), and an additional 1% Supplemental GST in Clark, Washoe, and Churchill counties. Most renewals fall between $80 and $500 depending on vehicle value and county."}},
+{"@type":"Question","name":"How is the Nevada vehicle registration fee calculated?","acceptedAnswer":{"@type":"Answer","text":"Nevada combines a weight-based registration fee, a 4% Governmental Services Tax on a depreciated DMV valuation equal to 35% of MSRP (5% depreciation in year 2, then 10% per year to a 15% floor), an optional 1% Supplemental GST in some counties, and one-time title, plate, lien, and VIN inspection fees. Sales tax (6.85%–8.375%) applies to dealer purchases only."}}
+]}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <nav class="nav" data-nav aria-label="Primary">
+    <a class="nav__brand" href="/index.html">
+      <span class="nav__logo" aria-hidden="true">C</span>
+      <span>CalculateIt</span>
+    </a>
+    <ul class="nav__list">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/vehicles.html">Vehicle Hub</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <a class="btn btn--primary nav__cta" href="/vehicles.html">All 50-state calculators</a>
+    <button class="nav__toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </nav>
+  <div class="nav-mobile" id="nav-mobile" data-nav-mobile data-open="false">
+    <ul>
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/vehicles.html">Vehicle Hub</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero hero--calc">
+    <div class="container">
+      <span class="eyebrow">Rates last updated: 2026 · Source: Nevada DMV (NRS 371)</span>
+      <h1>Nevada Vehicle Registration Fees Calculator / Estimator 2026</h1>
+      <p class="lede">Estimate registration, Governmental Services Tax, Supplemental GST, title, plates, liens, and sales tax — instantly and mobile-first.</p>
+
+      <div id="nv-dmv-app">
+        <div class="nv-dashboard">
+          <div class="nv-dash-main">
+            <div class="nv-label">Est. First Year Total</div>
+            <div class="nv-dash-value" id="resTotal">$0.00</div>
+            <div class="nv-sub">Reg Fee + GST + SGST + Title + Plates</div>
+          </div>
+          <div class="nv-dash-grid">
+            <div class="nv-dash-item"><div class="nv-k">5-Year Projection</div><div class="nv-v" id="res5Year">$0.00</div></div>
+            <div class="nv-dash-item"><div class="nv-k">Base Reg. Fee</div><div class="nv-v" id="resBase">$0.00</div></div>
+            <div class="nv-dash-item"><div class="nv-k">Annual GST</div><div class="nv-v" id="resGST">$0.00</div></div>
+          </div>
+        </div>
+
+        <h3 class="nv-title">Vehicle Status</h3>
+        <div class="nv-radios">
+          <label><input type="radio" name="vehStatus" id="typeNew" value="new" checked /> New Vehicle</label>
+          <label><input type="radio" name="vehStatus" value="used" /> Used Vehicle</label>
+        </div>
+
+        <h3 class="nv-title">Vehicle Specifications</h3>
+        <div class="nv-grid-3">
+          <div class="nv-fg">
+            <label for="nvVehType">Vehicle Type</label>
+            <select id="nvVehType">
+              <option value="car">Passenger Car</option>
+              <option value="moto">Motorcycle (+$6 safety)</option>
+              <option value="trailer">Travel Trailer ($27)</option>
+              <option value="moped">Moped ($33)</option>
+              <option value="low">Low-Speed Vehicle ($33)</option>
+            </select>
+          </div>
+          <div class="nv-fg">
+            <label for="nvWeight">Weight Class</label>
+            <select id="nvWeight">
+              <option value="5999">Passenger Car (under 6,000 lbs)</option>
+              <option value="8499">Mid-Size (6,000-8,499 lbs)</option>
+              <option value="10000">Large (8,500-10,000 lbs)</option>
+              <option value="11000">Truck (10,001-11,000 lbs)</option>
+              <option value="12000">Truck (11,001-12,000 lbs)</option>
+              <option value="13000">Truck (12,001-13,000 lbs)</option>
+              <option value="14000">Truck (13,001-14,000 lbs)</option>
+              <option value="26000">Heavy Truck (10,001-26,000 lbs)</option>
+              <option value="80000">Heavy Truck (26,001-80,000 lbs)</option>
+            </select>
+          </div>
+          <div class="nv-fg">
+            <label for="nvPlate">Plate Type</label>
+            <select id="nvPlate">
+              <option value="0">Standard Plate</option>
+              <option value="35">Specialty Plate ($35)</option>
+              <option value="42">Personalized Plate ($42)</option>
+              <option value="10">Replacement Plate ($10)</option>
+            </select>
+          </div>
+        </div>
+
+        <h3 class="nv-title">Valuation and Location</h3>
+        <div class="nv-grid-3">
+          <div class="nv-fg">
+            <label for="nvPrice">Original MSRP</label>
+            <div class="nv-pre"><span>$</span><input id="nvPrice" type="number" min="0" step="100" value="40000" /></div>
+            <div class="nv-hint">Must use original MSRP, not purchase price.</div>
+          </div>
+          <div class="nv-fg">
+            <label for="nvCounty">County</label>
+            <select id="nvCounty">
+              <option value="clark">Clark (Las Vegas)</option>
+              <option value="washoe">Washoe (Reno)</option>
+              <option value="churchill">Churchill</option>
+              <option value="other">All Other Counties</option>
+            </select>
+            <div class="nv-hint">Clark, Washoe, and Churchill charge +1% SGST</div>
+          </div>
+          <div class="nv-fg" id="groupYear">
+            <label for="nvYear">Model Year</label>
+            <select id="nvYear"></select>
+          </div>
+        </div>
+
+        <h3 class="nv-title">Purchase and Title Fees</h3>
+        <div class="nv-grid-3">
+          <div class="nv-fg">
+            <label for="nvPurchase">Purchase Price</label>
+            <div class="nv-pre"><span>$</span><input id="nvPurchase" type="number" min="0" step="100" value="0" /></div>
+            <div class="nv-hint">For sales tax (dealer purchases only)</div>
+          </div>
+          <div class="nv-fg">
+            <label for="nvTaxRate">Sales Tax Rate</label>
+            <div class="nv-suf"><input id="nvTaxRate" type="number" step="0.01" min="0" value="8.375" /><span>%</span></div>
+            <div class="nv-hint">NV range: 6.85% to 8.375%</div>
+          </div>
+          <div class="nv-fg">
+            <label for="nvTradeIn">Trade-In or Rebates</label>
+            <div class="nv-pre"><span>$</span><input id="nvTradeIn" type="number" min="0" step="100" value="0" /></div>
+            <div class="nv-hint">Reduces taxable amount</div>
+          </div>
+        </div>
+        <div class="nv-grid-3">
+          <div class="nv-fg">
+            <label for="nvTitleType">Title Type</label>
+            <select id="nvTitleType">
+              <option value="standard">Standard Title ($28.25)</option>
+              <option value="nonresident">Non-NV Resident ($43.25)</option>
+              <option value="duplicate">Duplicate Title ($20)</option>
+              <option value="none">No Title Needed</option>
+            </select>
+          </div>
+          <div class="nv-fg">
+            <label for="nvLien">Lien Recording</label>
+            <select id="nvLien">
+              <option value="0">No Lien ($0)</option>
+              <option value="20">1 Lien ($20)</option>
+              <option value="40">2 Liens ($40)</option>
+            </select>
+            <div class="nv-hint">$20 per lien</div>
+          </div>
+          <div class="nv-fg">
+            <label for="nvVIN">VIN Inspection</label>
+            <select id="nvVIN">
+              <option value="0">Not Required ($0)</option>
+              <option value="2">Needed ($2)</option>
+            </select>
+            <div class="nv-hint">For out-of-state titles</div>
+          </div>
+        </div>
+
+        <div class="nv-actions">
+          <button type="button" class="nv-primary" onclick="calcNVFees()">Calculate</button>
+          <button type="button" onclick="resetNVFees()">Reset</button>
+          <button type="button" onclick="printNVFees()">Print Estimate</button>
+          <button type="button" onclick="toggleNVSchedule()">View Fee Schedule</button>
+        </div>
+
+        <div class="nv-results" aria-live="polite">
+          <div class="nv-rhead">
+            <h3>Detailed Fee Breakdown</h3>
+            <span class="nv-badge" id="nvBadge">2026 Rates</span>
+          </div>
+          <table class="nv-fees">
+            <tbody id="nvResultsBody"></tbody>
+            <tfoot>
+              <tr class="nv-total-row"><td>Total Amount Due (Year 1)</td><td id="tableTotal">$0.00</td></tr>
+            </tfoot>
+          </table>
+
+          <h3 class="nv-title" style="margin-top:1.2rem">5-Year Cost Projection</h3>
+          <table class="nv-fees">
+            <tbody id="yearTableBody"></tbody>
+            <tfoot>
+              <tr class="nv-total-row"><td>5-Year Total</td><td id="table5Total">$0.00</td></tr>
+            </tfoot>
+          </table>
+
+          <div class="nv-dist">
+            <h4>Where does your money go?</h4>
+            <p style="margin:.2rem 0 .3rem;font-size:.85rem;color:#78786C">Based on the 5-year total:</p>
+            <ul>
+              <li>State Highways and DMV: <strong id="distState">$0</strong></li>
+              <li>County and Local Roads: <strong id="distCounty">$0</strong></li>
+              <li>City Planning: <strong id="distCity">$0</strong></li>
+            </ul>
+          </div>
+
+          <div class="nv-schedule" id="nvFeeSchedule">
+            <h4>2026 Nevada DMV Fee Schedule Reference</h4>
+            <div class="nv-sched-grid">
+              <div>
+                <strong>Registration Fees (by weight)</strong>
+                <ul>
+                  <li>Passenger Car (under 6,000 lbs): $33</li>
+                  <li>Mid-Size (6,000–8,499 lbs): $38</li>
+                  <li>Large (8,500–10,000 lbs): $48</li>
+                  <li>Truck (10,001–26,000 lbs): $12/1,000 lbs</li>
+                  <li>Heavy Truck (26,001+): $17/1,000 lbs</li>
+                </ul>
+                <strong>Other Vehicle Types</strong>
+                <ul>
+                  <li>Motorcycle: $33 + $6 safety fee</li>
+                  <li>Moped: $33 · Travel Trailer: $27</li>
+                  <li>Golf Cart Permit: $10</li>
+                </ul>
+              </div>
+              <div>
+                <strong>Governmental Services Tax (GST)</strong>
+                <ul>
+                  <li>Rate: 4% of depreciated DMV valuation</li>
+                  <li>DMV Valuation = 35% of MSRP</li>
+                  <li>Minimum GST: $16.00</li>
+                  <li>Year 1: 100% · Year 2: 95%</li>
+                  <li>Year 3+: 10%/yr additional</li>
+                  <li>Floor: 15% of DMV valuation</li>
+                </ul>
+                <strong>Supplemental GST (SGST)</strong>
+                <ul>
+                  <li>Rate: 1% of depreciated valuation</li>
+                  <li>Counties: Clark, Washoe, Churchill</li>
+                </ul>
+              </div>
+              <div>
+                <strong>Title and One-Time Fees</strong>
+                <ul>
+                  <li>Standard Title: $28.25</li>
+                  <li>Non-Resident Title: $43.25</li>
+                  <li>Duplicate Title: $20.00</li>
+                  <li>Lien Recording: $20.00/lien</li>
+                  <li>VIN Inspection: $2.00</li>
+                  <li>Specialty Plate: $35 · Personalized: $42</li>
+                </ul>
+                <strong>Sales Tax (2026)</strong>
+                <ul>
+                  <li>State Rate: 6.85%</li>
+                  <li>Clark County: 8.375%</li>
+                  <li>Range: 6.85% – 8.375%</li>
+                  <li>Private party: Exempt</li>
+                </ul>
+              </div>
+            </div>
+            <div class="nv-callout"><strong>Late Penalty:</strong> $6/month on the registration fee plus a 10% penalty on past-due GST/SGST. Nevada has <strong>no grace period</strong>. Verify at the <a href="https://dmv.nv.gov/" rel="nofollow noopener">Nevada DMV</a>.</div>
+          </div>
+
+          <p class="nv-disclaimer">Estimates based on 2026 Nevada DMV fee schedules (NRS 371). GST = 4% of depreciated DMV valuation (35% of MSRP). SGST = +1% in Clark, Washoe, Churchill. Private party sales exempt from sales tax. Verify at the <a href="https://dmv.nv.gov/" rel="nofollow noopener">Nevada DMV</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width:900px">
+      <p>The <strong>Nevada vehicle registration fees calculator</strong> gives you a fast, mobile-first estimate of what you'll owe the Nevada DMV in 2026. Nevada charges a weight-based registration fee, a 4% Governmental Services Tax (GST) on a depreciated DMV valuation equal to 35% of your vehicle's original MSRP, and — in Clark, Washoe, and Churchill counties — an additional 1% Supplemental GST. On a dealer purchase you also pay state and local sales tax (6.85%–8.375%), a title fee, plate fee, lien recording ($20 per lien), and an optional $2 VIN inspection for out-of-state titles. Use the <strong>Nevada vehicle registration fees calculator</strong> above for a line-by-line breakdown.</p>
+
+      <h2>How fees are calculated in Nevada</h2>
+      <p>Nevada stacks several charges under <em>NRS 371</em>. Registration is a flat fee tied to vehicle weight class. The GST equals 4% of a depreciated DMV valuation, where valuation starts at 35% of MSRP, drops 5% in year 2, and 10% each year after, floored at 15%. A minimum GST of $16 applies. The optional SGST adds 1% in three counties. For dealer purchases, taxable amount = purchase price − trade-in and rebates, multiplied by your county's combined sales tax rate.</p>
+
+      <h2>What affects your registration in Nevada?</h2>
+      <ul>
+        <li><strong>MSRP.</strong> Higher MSRP means a higher DMV valuation and a higher GST/SGST bill.</li>
+        <li><strong>Vehicle age.</strong> Depreciation reduces GST each year until the 15% floor.</li>
+        <li><strong>County.</strong> Clark, Washoe, and Churchill add 1% Supplemental GST; Clark also has the highest 8.375% sales tax.</li>
+        <li><strong>Weight class.</strong> Heavier vehicles pay higher base registration.</li>
+        <li><strong>Vehicle type.</strong> Motorcycles add a $6 safety fee; trailers and mopeds have their own flat fees.</li>
+        <li><strong>Title, plate, lien, and VIN inspection choices</strong> apply once at initial registration.</li>
+      </ul>
+
+      <h2>Estimated examples</h2>
+      <table class="fee-table">
+        <thead><tr><th>Scenario</th><th>Line items</th><th>Approx. total</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>2024 passenger car · $30,000 MSRP · Clark County · renewal</td>
+            <td>$33 reg + $420 GST + $105 SGST</td>
+            <td><strong>≈ $558</strong></td>
+          </tr>
+          <tr>
+            <td>2019 sedan · $25,000 MSRP · non-SGST county · renewal</td>
+            <td>$33 reg + $70 GST (min applied on low residuals)</td>
+            <td><strong>≈ $103</strong></td>
+          </tr>
+          <tr>
+            <td>2026 new SUV purchase · $45,000 MSRP · Clark County · 8.375% tax</td>
+            <td>$33 reg + $630 GST + $157.50 SGST + $28.25 title + $3,768.75 sales tax</td>
+            <td><strong>≈ $4,617.50</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>What this calculator may not include</h2>
+      <ul>
+        <li>Commercial IRP-apportioned vehicles and farm plates.</li>
+        <li>Emissions test fees (paid to inspection stations, not DMV).</li>
+        <li>City / district-specific surcharges outside SGST.</li>
+        <li>Late-registration penalties beyond the $6/month + 10% GST schedule.</li>
+        <li>Special disability, veteran, and antique-plate discounts or waivers.</li>
+        <li>Federal Heavy Vehicle Use Tax (HVUT) for trucks over 55,000 lbs GVW.</li>
+      </ul>
+
+      <h2>Frequently asked questions</h2>
+      <details class="faq"><summary>Is this calculator accurate for all vehicles in Nevada?</summary>
+        <p>It covers the vast majority of passenger cars, motorcycles, light trucks, mopeds, and travel trailers registered under <strong>NRS 371</strong> using 2026 Nevada DMV rates. Commercial IRP-apportioned vehicles, farm plates, and specialty exemptions can fall outside standard schedules — verify those with the Nevada DMV.</p>
+      </details>
+      <details class="faq"><summary>How much does it cost to renew vehicle registration in Nevada?</summary>
+        <p>A typical passenger renewal is the <strong>$33 base registration</strong> + the <strong>4% GST</strong> on your depreciated DMV valuation (minimum $16) + <strong>1% SGST</strong> if you live in Clark, Washoe, or Churchill county. Most renewals fall between <strong>$80 and $500</strong> depending on MSRP and county.</p>
+      </details>
+      <details class="faq"><summary>How is the Nevada vehicle registration fee calculated?</summary>
+        <p>Nevada combines a <strong>weight-based registration fee</strong>, a <strong>4% Governmental Services Tax</strong> on a depreciated DMV valuation equal to <strong>35% of MSRP</strong> (5% depreciation in year 2, then 10%/yr to a 15% floor), an optional <strong>1% Supplemental GST</strong> in some counties, and one-time <strong>title, plate, lien, and VIN inspection</strong> fees. Sales tax (6.85%–8.375%) applies to dealer purchases only.</p>
+      </details>
+
+      <p style="margin-top:2rem"><a class="btn btn--primary" href="/vehicles.html">See all 50-state vehicle calculators →</a></p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2026 CalculateIt.net · <a href="/privacy.html">Privacy</a> · <a href="/disclaimer.html">Disclaimer</a> · <a href="/contact.html">Contact</a></p>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js" defer></script>
+<script>
+(function() {
+    'use strict';
+
+    var currentYear = new Date().getFullYear();
+    var yearSelect = document.getElementById("nvYear");
+    if (yearSelect) {
+        yearSelect.innerHTML = "";
+        for (var y = currentYear; y >= currentYear - 15; y--) {
+            var opt = document.createElement('option');
+            opt.value = y;
+            opt.text = y;
+            yearSelect.add(opt);
+        }
+    }
+
+    function toUSD(num) {
+        return '$' + num.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+    }
+
+    function getDepreciationFactor(yearsOld) {
+        if (yearsOld < 1) return 1.0;
+        if (yearsOld === 1) return 0.95;
+        var factor = 0.95 - (yearsOld - 1) * 0.10;
+        if (factor < 0.15) factor = 0.15;
+        return factor;
+    }
+
+    window.calcNVFees = function() {
+        var vehType = document.getElementById('nvVehType').value;
+        var weight = parseInt(document.getElementById('nvWeight').value);
+        var price = parseFloat(document.getElementById('nvPrice').value) || 0;
+        var purchasePrice = parseFloat(document.getElementById('nvPurchase').value) || 0;
+        var tradeIn = parseFloat(document.getElementById('nvTradeIn').value) || 0;
+        var taxRate = parseFloat(document.getElementById('nvTaxRate').value) || 8.375;
+        var county = document.getElementById('nvCounty').value;
+        var plateFee = parseFloat(document.getElementById('nvPlate').value) || 0;
+        var titleType = document.getElementById('nvTitleType').value;
+        var lienFee = parseFloat(document.getElementById('nvLien').value) || 0;
+        var vinFee = parseFloat(document.getElementById('nvVIN').value) || 0;
+        var status = document.querySelector('input[name="vehStatus"]:checked').value;
+        var modelYear = parseInt(yearSelect.value) || currentYear;
+
+        var groupYear = document.getElementById('groupYear');
+        groupYear.style.display = (status === 'used') ? 'flex' : 'none';
+
+        // 1. Registration Fee
+        var regFee = 33;
+        if (vehType === 'moto') { regFee = 39; }
+        else if (vehType === 'moped') { regFee = 33; }
+        else if (vehType === 'trailer') { regFee = 27; }
+        else if (vehType === 'low') { regFee = 33; }
+        else {
+            if (weight === 8499) regFee = 38;
+            else if (weight === 10000) regFee = 48;
+            else if (weight >= 10001 && weight <= 26000) regFee = Math.floor((weight / 1000) * 12);
+            else if (weight > 26000) regFee = Math.min(Math.floor((weight / 1000) * 17), 1360);
+        }
+
+        // 2. DMV Valuation and GST
+        var dmvValuation = price * 0.35;
+        var yearDiff = currentYear - modelYear;
+        var startAge = (status === 'used') ? Math.max(0, yearDiff) : 0;
+        var y1Factor = getDepreciationFactor(startAge);
+        var depValuationY1 = dmvValuation * y1Factor;
+        var gstY1 = depValuationY1 * 0.04;
+        if (gstY1 < 16) gstY1 = 16;
+
+        var sgstRate = (county === 'clark' || county === 'washoe' || county === 'churchill') ? 0.01 : 0;
+        var sgstY1 = depValuationY1 * sgstRate;
+
+        // 3. Title Fee
+        var titleFee = 0;
+        var titleLabel = '';
+        if (titleType === 'standard') { titleFee = 28.25; titleLabel = 'Standard Title'; }
+        else if (titleType === 'nonresident') { titleFee = 43.25; titleLabel = 'Non-Resident Title'; }
+        else if (titleType === 'duplicate') { titleFee = 20.00; titleLabel = 'Duplicate Title'; }
+
+        // 4. Sales Tax
+        var salesTax = 0;
+        if (purchasePrice > 0) {
+            var taxable = purchasePrice - tradeIn;
+            if (taxable < 0) taxable = 0;
+            salesTax = taxable * (taxRate / 100);
+        }
+
+        // 5. 5-Year Projection
+        var years = [];
+        for (var i = 0; i < 5; i++) {
+            var age = startAge + i;
+            var factor = getDepreciationFactor(age);
+            var depVal = dmvValuation * factor;
+            var gst = depVal * 0.04;
+            if (gst < 16) gst = 16;
+            var sgst = depVal * sgstRate;
+
+            var annualTitle = (i === 0) ? titleFee : 0;
+            var annualPlate = (i === 0) ? plateFee : 0;
+            var annualLien = (i === 0) ? lienFee : 0;
+            var annualVIN = (i === 0) ? vinFee : 0;
+            var annualSalesTax = (i === 0) ? salesTax : 0;
+
+            var annualTotal = regFee + gst + sgst + annualTitle + annualPlate + annualLien + annualVIN + annualSalesTax;
+            years.push(annualTotal);
+        }
+
+        var totalY1 = years[0];
+        var total5 = 0;
+        for (var j = 0; j < years.length; j++) { total5 += years[j]; }
+
+        // Render Dashboard
+        document.getElementById('resTotal').innerText = toUSD(totalY1);
+        document.getElementById('resBase').innerText = toUSD(regFee);
+        document.getElementById('resGST').innerText = toUSD(gstY1 + sgstY1);
+        document.getElementById('res5Year').innerText = toUSD(total5);
+        document.getElementById('tableTotal').innerText = toUSD(totalY1);
+        document.getElementById('table5Total').innerText = toUSD(total5);
+
+        // Fee Breakdown Table
+        var html = '';
+        html += '<tr class="nv-divider"><td colspan="2"></td></tr>';
+        html += '<tr><td>Registration Fee (' + (vehType === 'moto' ? 'Moto + Safety' : 'Base') + ')</td><td>' + toUSD(regFee) + '</td></tr>';
+        html += '<tr class="nv-divider"><td colspan="2"></td></tr>';
+        html += '<tr><td>Governmental Services Tax (4%)</td><td>' + toUSD(gstY1) + '</td></tr>';
+        html += '<tr class="nv-sub-fee"><td>DMV Valuation (35% of MSRP)</td><td>' + toUSD(dmvValuation) + '</td></tr>';
+        html += '<tr class="nv-sub-fee"><td>Depreciated Value (Year ' + (startAge + 1) + ')</td><td>' + toUSD(depValuationY1) + '</td></tr>';
+        if (sgstY1 > 0) {
+            html += '<tr><td>Supplemental GST (1%)</td><td>' + toUSD(sgstY1) + '</td></tr>';
+        }
+        if (titleFee > 0) {
+            html += '<tr class="nv-divider"><td colspan="2"></td></tr>';
+            html += '<tr><td>' + titleLabel + '</td><td>' + toUSD(titleFee) + '</td></tr>';
+        }
+        if (plateFee > 0) {
+            html += '<tr><td>License Plate Fee</td><td>' + toUSD(plateFee) + '</td></tr>';
+        }
+        if (lienFee > 0) {
+            html += '<tr><td>Lien Recording Fee</td><td>' + toUSD(lienFee) + '</td></tr>';
+        }
+        if (vinFee > 0) {
+            html += '<tr><td>VIN Inspection Fee</td><td>' + toUSD(vinFee) + '</td></tr>';
+        }
+        if (salesTax > 0) {
+            html += '<tr class="nv-divider"><td colspan="2"></td></tr>';
+            html += '<tr><td>Sales Tax (' + taxRate + '%)</td><td>' + toUSD(salesTax) + '</td></tr>';
+            var taxableAmount = Math.max(0, purchasePrice - tradeIn);
+            html += '<tr class="nv-sub-fee"><td>Taxable Amount (after trade-in)</td><td>' + toUSD(taxableAmount) + '</td></tr>';
+        }
+        document.getElementById('nvResultsBody').innerHTML = html;
+
+        // 5-Year Projection Table
+        var yearHTML = '';
+        for (var k = 0; k < years.length; k++) {
+            var label = (k === 0) ? (currentYear + ' (Year 1)') : ((currentYear + k) + ' (Year ' + (k + 1) + ')');
+            yearHTML += '<tr><td>' + label + '</td><td>' + toUSD(years[k]) + '</td></tr>';
+        }
+        document.getElementById('yearTableBody').innerHTML = yearHTML;
+
+        // Revenue Distribution
+        var regForFive = regFee * 5;
+        var valoremFor5 = total5 - regForFive;
+        var distState = regForFive + (valoremFor5 * 0.06);
+        var distCounty = (valoremFor5 * 0.94) * 0.65;
+        var distCity = total5 - (distState + distCounty);
+
+        document.getElementById('distState').innerText = toUSD(distState);
+        document.getElementById('distCounty').innerText = toUSD(distCounty);
+        document.getElementById('distCity').innerText = toUSD(distCity);
+
+        // Badge
+        var badge = document.getElementById('nvBadge');
+        if (county === 'clark' || county === 'washoe' || county === 'churchill') {
+            badge.innerText = 'SGST County';
+        } else {
+            badge.innerText = '2026 Rates';
+        }
+    };
+
+    window.resetNVFees = function() {
+        document.getElementById('nvPrice').value = '40000';
+        document.getElementById('nvPurchase').value = '0';
+        document.getElementById('nvTradeIn').value = '0';
+        document.getElementById('nvTaxRate').value = '8.375';
+        document.getElementById('nvVehType').value = 'car';
+        document.getElementById('nvWeight').value = '5999';
+        document.getElementById('nvCounty').value = 'clark';
+        document.getElementById('nvPlate').value = '0';
+        document.getElementById('nvTitleType').value = 'standard';
+        document.getElementById('nvLien').value = '0';
+        document.getElementById('nvVIN').value = '0';
+        document.getElementById('typeNew').checked = true;
+        yearSelect.value = currentYear;
+        window.calcNVFees();
+    };
+
+    window.printNVFees = function() { window.print(); };
+
+    window.toggleNVSchedule = function() {
+        var sched = document.getElementById('nvFeeSchedule');
+        var btn = event.target;
+        if (sched.style.display === 'none' || !sched.style.display) {
+            sched.style.display = 'block';
+            btn.innerText = 'Hide Fee Schedule';
+        } else {
+            sched.style.display = 'none';
+            btn.innerText = 'View Fee Schedule';
+        }
+    };
+
+    // Event Listeners
+    var app = document.getElementById('nv-dmv-app');
+    if (app) {
+        var inputs = app.querySelectorAll('input, select');
+        for (var idx = 0; idx < inputs.length; idx++) {
+            inputs[idx].addEventListener('change', window.calcNVFees);
+            inputs[idx].addEventListener('input', window.calcNVFees);
+        }
+    }
+
+    window.calcNVFees();
+})();
+</script>
+</body>
+</html>
