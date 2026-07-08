@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Colorado Vehicle Registration Fees Calculator / Estimator 2026</title>
+<meta name="description" content="Estimate Colorado vehicle registration fees with our calculator. See cost factors, examples, and how fees are calculated." />
+<link rel="canonical" href="https://calculateit.net/colorado-vehicle-registration-fee-calculator.html" />
+<meta property="og:title" content="Colorado Vehicle Registration Fees Calculator 2026" />
+<meta property="og:description" content="Estimate Colorado vehicle registration fees with our calculator. See cost factors, examples, and how fees are calculated." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://calculateit.net/colorado-vehicle-registration-fee-calculator.html" />
+<meta name="twitter:card" content="summary" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Nunito:wght@400;600;700&display=swap" />
+<link rel="stylesheet" href="/assets/css/tokens.css" />
+<link rel="stylesheet" href="/assets/css/base.css" />
+<link rel="stylesheet" href="/assets/css/components.css" />
+<link rel="stylesheet" href="/assets/css/pages.css" />
+<style>
+  .hero--calc{padding-top:5.5rem;padding-bottom:1.5rem}
+  .hero--calc h1{font-size:clamp(1.7rem,4vw,2.6rem);margin-bottom:.5rem}
+  .hero--calc .lede{margin-bottom:1.25rem;font-size:1rem}
+  #co-dmv-app{max-width:960px;margin:0 auto;padding:1.1rem;background:var(--card-bg,#FEFEFA);border-radius:26px;box-shadow:0 8px 30px rgba(60,60,50,.08);border:1px solid rgba(120,120,108,.15)}
+  #co-dmv-app .co-dash{background:linear-gradient(135deg,rgba(93,112,82,.10),rgba(193,140,93,.10));border:1px solid rgba(93,112,82,.25);border-radius:20px;padding:1rem 1.1rem;margin-bottom:1rem;text-align:center}
+  #co-dmv-app .co-label{font-size:.85rem;color:#78786C;text-transform:uppercase;letter-spacing:.06em}
+  #co-dmv-app .co-value{font-family:Fraunces,serif;font-weight:700;font-size:2.2rem;color:#5D7052;margin:.15rem 0}
+  #co-dmv-app .co-sub{font-size:.8rem;color:#78786C}
+  #co-dmv-app .co-mini{display:flex;gap:1rem;justify-content:space-around;flex-wrap:wrap;margin-top:.6rem}
+  #co-dmv-app .co-mini > div{flex:1;min-width:120px;padding:.4rem}
+  #co-dmv-app .co-mini .co-k{font-size:.78rem;color:#78786C;text-transform:uppercase;letter-spacing:.05em}
+  #co-dmv-app .co-mini .co-v{font-family:Fraunces,serif;font-weight:700;font-size:1.15rem;color:#2C2C24;margin-top:.15rem}
+  #co-dmv-app .co-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+  #co-dmv-app .co-fg{display:flex;flex-direction:column;margin-bottom:.7rem}
+  #co-dmv-app .co-fg label{font-weight:600;font-size:.9rem;margin-bottom:.3rem}
+  #co-dmv-app .co-fg input,#co-dmv-app .co-fg select{padding:.6rem .75rem;border-radius:12px;border:1px solid rgba(120,120,108,.35);background:#FDFCF8;font:inherit}
+  #co-dmv-app .co-fg .hint{font-size:.75rem;color:#78786C;margin-top:.25rem}
+  #co-dmv-app .co-toggle{display:flex;align-items:center;gap:.5rem;font-size:.9rem;padding:.4rem 0}
+  #co-dmv-app h3.co-title{font-family:Fraunces,serif;font-size:1.05rem;margin:.9rem 0 .5rem;color:#4A4A40}
+  #co-dmv-app .co-results{margin-top:1.1rem;background:#fff;border:1px solid rgba(120,120,108,.2);border-radius:18px;padding:1rem}
+  #co-dmv-app table.co-fees{width:100%;border-collapse:collapse}
+  #co-dmv-app table.co-fees th,#co-dmv-app table.co-fees td{padding:.5rem .5rem;border-bottom:1px dashed rgba(120,120,108,.25);font-size:.9rem;text-align:left}
+  #co-dmv-app table.co-fees th{background:#DED8CF;font-family:Fraunces,serif}
+  #co-dmv-app .t-right{text-align:right}
+  #co-dmv-app .co-total td{font-weight:700;font-size:1.05rem;color:#5D7052;border-top:2px solid #5D7052;padding-top:.6rem}
+  #co-dmv-app .badge{background:#5D7052;color:#fff;padding:.15rem .5rem;border-radius:999px;font-size:.72rem;font-weight:700;margin-left:.35rem;vertical-align:middle;display:none}
+  #co-dmv-app .breakdown-item{display:flex;justify-content:space-between;padding:.25rem 0;font-size:.88rem}
+  #co-dmv-app .breakdown-item.subtotal{font-weight:700;border-top:1px solid rgba(120,120,108,.2);padding-top:.4rem;margin-top:.3rem;color:#4A4A40}
+  #co-dmv-app .co-callout{background:#fff;border-left:3px solid #C18C5D;padding:.6rem .8rem;margin-top:.8rem;border-radius:8px;font-size:.82rem;color:#4A4A40}
+  @media (max-width:600px){
+    #co-dmv-app .co-value{font-size:1.9rem}
+    #co-dmv-app .co-grid{grid-template-columns:1fr}
+  }
+  .fee-table{width:100%;border-collapse:collapse;margin:1rem 0;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.04)}
+  .fee-table th,.fee-table td{padding:.7rem .85rem;text-align:left;border-bottom:1px solid rgba(120,120,108,.15);font-size:.93rem}
+  .fee-table th{background:#DED8CF;font-family:Fraunces,serif}
+  details.faq{border:1px solid rgba(120,120,108,.2);border-radius:16px;padding:.8rem 1rem;margin:.6rem 0;background:#FDFCF8}
+  details.faq summary{cursor:pointer;font-weight:700;font-family:Fraunces,serif;font-size:1.05rem}
+  details.faq[open] summary{color:#5D7052}
+  details.faq p{margin:.6rem 0 .1rem;line-height:1.6}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What factors affect vehicle registration fees in Colorado?","acceptedAnswer":{"@type":"Answer","text":"Colorado registration is driven by the Specific Ownership Tax (based on MSRP and vehicle age), the empty weight of the vehicle, its fuel type (EV and plug-in hybrids owe road-usage fees under SB21-260), whether it is registered in an emissions program area, and mandatory statewide surcharges like FASTER Road & Bridge Safety."}},
+{"@type":"Question","name":"Is this calculator accurate for all vehicles in Colorado?","acceptedAnswer":{"@type":"Answer","text":"It covers most private passenger cars, SUVs, and light trucks (up to 16,000 lbs) using 2026 Colorado DMV rates. Commercial fleet vehicles, motor homes, trailers, apportioned IRP registrations, and specialty plates use different schedules and county-specific charges may apply."}},
+{"@type":"Question","name":"Can I use this calculator for a new car and a used car in Colorado?","acceptedAnswer":{"@type":"Answer","text":"Yes. The tool works for both. Colorado's Specific Ownership Tax is always based on the original MSRP and the vehicle's age (not on your purchase price), so an older used car pays a much lower ownership tax than a brand-new one with the same MSRP."}}
+]}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <nav class="nav" data-nav aria-label="Primary">
+    <a class="nav__brand" href="/index.html">
+      <span class="nav__logo" aria-hidden="true">C</span>
+      <span>CalculateIt</span>
+    </a>
+    <ul class="nav__list">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/vehicles.html">Vehicle Hub</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <a class="btn btn--primary nav__cta" href="/vehicles.html">All 50-state calculators</a>
+    <button class="nav__toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </nav>
+  <div class="nav-mobile" id="nav-mobile" data-nav-mobile data-open="false">
+    <ul>
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/vehicles.html">Vehicle Hub</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero hero--calc">
+    <div class="container">
+      <span class="eyebrow">Rates last updated: 2026 · Source: Colorado DMV (C.R.S. 42-3)</span>
+      <h1>Colorado Vehicle Registration Fee Calculator / Estimator 2026</h1>
+      <p class="lede">Estimate your Specific Ownership Tax, weight-based registration fee, FASTER surcharges, EV road-usage fee, and 5-year projection — instantly.</p>
+
+      <div id="co-dmv-app">
+        <div class="co-dash">
+          <div class="co-label">Est. First-Year Total</div>
+          <div class="co-value" id="resTotal">$0.00</div>
+          <div class="co-sub">Specific Ownership Tax + All Registration Fees</div>
+          <div class="co-mini">
+            <div><div class="co-k">Ownership Tax</div><div class="co-v" id="resTax">$0.00</div></div>
+            <div><div class="co-k">5-Year Total</div><div class="co-v" id="res5Year">$0.00</div></div>
+          </div>
+        </div>
+
+        <h3 class="co-title">Vehicle Details</h3>
+
+        <div class="co-fg">
+          <label for="coPrice">Original Sticker Price (MSRP)</label>
+          <input type="number" id="coPrice" min="0" step="500" value="35000" />
+          <div class="hint">Use original MSRP, not purchase price. Required for Specific Ownership Tax (C.R.S. 42-3-107).</div>
+        </div>
+
+        <div class="co-grid">
+          <div class="co-fg">
+            <label for="coType">Vehicle Type</label>
+            <select id="coType">
+              <option value="car">Passenger Car / SUV</option>
+              <option value="truck">Truck / Pickup (≤16k lbs)</option>
+            </select>
+          </div>
+          <div class="co-fg">
+            <label for="coYear">Model Year</label>
+            <select id="coYear"></select>
+          </div>
+        </div>
+
+        <div class="co-fg">
+          <label for="coWeight">Empty Weight (lbs)</label>
+          <input type="number" id="coWeight" min="500" step="50" value="3800" />
+          <div class="hint">Empty weight from registration or title. Used for statutory weight fees (C.R.S. 42-3-306).</div>
+        </div>
+
+        <div class="co-grid">
+          <div class="co-fg">
+            <label for="coFuel">Fuel Type</label>
+            <select id="coFuel">
+              <option value="gas">Gas / Diesel</option>
+              <option value="ev">All-Electric</option>
+              <option value="phev">Plug-in Hybrid</option>
+            </select>
+          </div>
+          <div class="co-fg">
+            <label for="coEmissions">Registration Area</label>
+            <select id="coEmissions">
+              <option value="0">Statewide (No Emissions Area)</option>
+              <option value="1">Emissions Program Area (Denver/Metro)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="co-toggle"><input type="checkbox" id="coWildPass" checked /> <label for="coWildPass">Keep Colorado Wild Pass ($29)</label></div>
+        <div class="co-toggle"><input type="checkbox" id="coIsNew" checked /> <label for="coIsNew">First-time Registration (Title Fee $7.20)</label></div>
+
+        <div class="co-results">
+          <h3 class="co-title" style="margin-top:0">5-Year Cost Projection <span class="badge" id="ageBadge">Flat $3.00 SOT</span></h3>
+          <table class="co-fees">
+            <thead><tr><th>Year</th><th class="t-right">Ownership Tax</th><th class="t-right">Registration</th><th class="t-right">Surcharges</th><th class="t-right">Total</th></tr></thead>
+            <tbody id="projectionBody"></tbody>
+            <tfoot><tr class="co-total"><td>5-Year Total</td><td class="t-right" id="footTax">$0.00</td><td class="t-right" id="footReg">$0.00</td><td class="t-right" id="footSur">$0.00</td><td class="t-right" id="footTotal">$0.00</td></tr></tfoot>
+          </table>
+
+          <h3 class="co-title">First-Year Fee Breakdown</h3>
+          <div id="breakdownBody"></div>
+
+          <div class="co-callout">
+            Disclaimer: Estimates based on C.R.S. 42-3-306, 42-3-107, 42-3-304, 43-4-804, 42-4-805, and SB21-260. Does not include sales tax, late fees, specialty plate surcharges, or county-specific variations. Confirm with your county motor vehicle office.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <p>The <strong>Colorado vehicle registration fees calculator</strong> gives you a quick estimate of what the Colorado DMV will charge to register a car or light truck. Colorado is different from most states — your biggest line item is usually the Specific Ownership Tax (SOT), which is calculated from your vehicle's <em>original MSRP</em> and its age (not the price you actually paid). On top of that, Colorado adds a weight-based registration fee, FASTER Road and Bridge Safety surcharges, an EV or plug-in hybrid road-usage fee if applicable, emissions program fees in the Denver metro area, and the optional Keep Colorado Wild Pass. Use this Colorado vehicle registration fees calculator to preview those costs before you visit your county motor vehicle office.</p>
+
+      <h2>How fees are calculated in Colorado</h2>
+      <p>Colorado registration is built from several statutory pieces:</p>
+      <ul>
+        <li><strong>Specific Ownership Tax (C.R.S. 42-3-107)</strong> — 2.10% of the taxable value in year 1, stepping down to 1.50%, 1.20%, 0.90%, 0.45%, and a flat $3.00 after 10 years. Taxable value is 85% of MSRP for passenger cars and 75% for trucks.</li>
+        <li><strong>Weight-based registration fee (C.R.S. 42-3-306)</strong> — increases with empty weight; trucks pay a higher schedule than passenger cars.</li>
+        <li><strong>FASTER surcharges (C.R.S. 43-4-804 &amp; 42-4-805)</strong> — Road Safety and Bridge Safety fees scaled by vehicle weight.</li>
+        <li><strong>EV road-usage fee (SB21-260)</strong> — annual, inflation-adjusted fee for all-electric and plug-in hybrid vehicles.</li>
+        <li><strong>Emissions, clerk hire, EMS, POST, insurance, and material fees</strong> — small mandatory line items on every registration.</li>
+      </ul>
+
+      <h2>What affects your registration in Colorado?</h2>
+      <table class="fee-table">
+        <thead><tr><th>Factor</th><th>Impact</th></tr></thead>
+        <tbody>
+          <tr><td>Original MSRP</td><td>Directly sets the Specific Ownership Tax.</td></tr>
+          <tr><td>Vehicle age</td><td>SOT rate drops sharply each year, reaching a $3 flat rate at 10+ years.</td></tr>
+          <tr><td>Vehicle type</td><td>Passenger cars use 85% of MSRP; trucks use 75%.</td></tr>
+          <tr><td>Empty weight</td><td>Raises the base registration fee and FASTER surcharges.</td></tr>
+          <tr><td>Fuel type</td><td>EVs and plug-in hybrids owe an added road-usage fee.</td></tr>
+          <tr><td>County</td><td>Emissions program areas (Denver metro) add small air-quality fees.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Estimated examples</h2>
+      <ul>
+        <li><strong>New Toyota RAV4 (MSRP $32,000, 3,600 lbs, gas):</strong> ~$571 SOT + ~$34 weight fee + ~$52 FASTER + surcharges ≈ <strong>$700 first year</strong>.</li>
+        <li><strong>3-year-old Ford F-150 (MSRP $52,000, 4,700 lbs, gas):</strong> ~$175 SOT + ~$25 truck fee + ~$52 FASTER + surcharges ≈ <strong>$285 first year</strong>.</li>
+        <li><strong>New Tesla Model Y (MSRP $48,000, 4,400 lbs, EV, Denver):</strong> ~$857 SOT + weight fee + FASTER + $16 EV fee + emissions ≈ <strong>$975 first year</strong>.</li>
+      </ul>
+
+      <h2>What this calculator may not include</h2>
+      <p>This estimator focuses on standard private-use registrations. It does not calculate Colorado state and local sales/use tax on the vehicle purchase (2.9% state plus local rates that can exceed 8% combined), late renewal penalties, personalized-plate premiums, specialty plate surcharges, county-specific processing fees, IRP apportioned commercial registrations, motor homes, trailers, or dealer plates. Always confirm the final total with your Colorado county motor vehicle office.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <details class="faq"><summary>What factors affect vehicle registration fees in Colorado?</summary>
+        <p>Colorado ties fees to your original MSRP (via Specific Ownership Tax), the vehicle's age, its empty weight, fuel type (EVs and plug-in hybrids owe SB21-260 road-usage fees), whether you register in an emissions program area, and mandatory statewide surcharges like FASTER Road &amp; Bridge Safety.</p>
+      </details>
+      <details class="faq"><summary>Is this calculator accurate for all vehicles in Colorado?</summary>
+        <p>It covers most private passenger cars, SUVs, and light trucks up to 16,000 lbs using 2026 Colorado DMV rates. Commercial fleets, apportioned IRP registrations, motor homes, trailers, and specialty plates use different schedules and county charges may vary.</p>
+      </details>
+      <details class="faq"><summary>Can I use this calculator for a new car and a used car in Colorado?</summary>
+        <p>Yes. Colorado's Specific Ownership Tax is always based on the vehicle's original MSRP and its age — not on your purchase price — so an older used car will pay a much lower ownership tax than a brand-new one with the same MSRP.</p>
+      </details>
+
+      <p style="margin-top:2rem"><a class="btn btn--secondary" href="/vehicles.html">← Back to all 50-state calculators</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a class="nav__brand" href="/index.html" style="margin-bottom:1rem;"><span class="nav__logo" aria-hidden="true">C</span><span>CalculateIt</span></a>
+        <p style="color:var(--dried-grass); font-size: var(--fs-sm); max-width: 30ch;">A calm, human hub for vehicle calculators.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Site</h4>
+        <ul>
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/vehicles.html">Vehicle Hub</a></li>
+          <li><a href="/about.html">About Us</a></li>
+          <li><a href="/contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/privacy.html">Privacy Policy</a></li>
+          <li><a href="/disclaimer.html">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> CalculateIt. Crafted with care.</span>
+      <span>Made by Chetan Kumar</span>
+    </div>
+  </div>
+</footer>
+
+<script defer src="/assets/js/main.js"></script>
+<script>
+(function() {
+  document.addEventListener('DOMContentLoaded', function() {
+    var app = document.getElementById('co-dmv-app');
+    if (!app) return;
+    var priceInput = document.getElementById('coPrice');
+    var typeSelect = document.getElementById('coType');
+    var yearSelect = document.getElementById('coYear');
+    var weightInput = document.getElementById('coWeight');
+    var fuelSelect = document.getElementById('coFuel');
+    var emissionsSelect = document.getElementById('coEmissions');
+    var wildPassToggle = document.getElementById('coWildPass');
+    var isNewToggle = document.getElementById('coIsNew');
+    var tableBody = document.getElementById('projectionBody');
+    var breakdownBody = document.getElementById('breakdownBody');
+
+    var currentYear = new Date().getFullYear();
+    var yearOptions = '';
+    for (var i = 0; i <= 12; i++) {
+      var y = currentYear - i;
+      var lbl = i === 0 ? y + ' (Current Model Year)' : (i === 12 ? y + ' or older' : y);
+      yearOptions += '<option value="' + y + '">' + lbl + '</option>';
+    }
+    yearSelect.innerHTML = yearOptions;
+
+    var toUSD = function(n){ return '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','); };
+
+    function getWeightCategory(w){ if(w<=2000)return 0; if(w<=5000)return 1; if(w<=10000)return 2; if(w<=16000)return 3; return 4; }
+    function calcRegistrationFee(type, w){
+      if (type === 'car') {
+        if (w <= 2000) return 6.00;
+        if (w <= 4500) return 6.00 + Math.ceil((w - 2000) / 100) * 0.20;
+        return 12.50 + Math.ceil((w - 4500) / 100) * 0.60;
+      }
+      if (w <= 2000) return 7.60;
+      if (w <= 5000) return 7.60 + Math.ceil((w - 2000) / 100) * 0.17;
+      if (w <= 10000) return 15.50 + Math.ceil((w - 5000) / 100) * 0.45;
+      if (w <= 16000) return 38.00 + Math.ceil((w - 10000) / 100) * 1.20;
+      return 110.00 + Math.ceil((w - 16000) / 100) * 1.50;
+    }
+    function calcAgeBasedFee(d){ if(d<7)return 9.00; if(d<10)return 7.00; return 5.00; }
+    function calcFASTER(w){
+      var c = getWeightCategory(w);
+      return { roadSafety: [12.30,19.30,24.30,33.30,35.30][c], bridgeSafety: [13.00,18.00,23.00,29.00,32.00][c] };
+    }
+    function calcEVFee(fuel){
+      if (fuel === 'gas') return 0;
+      if (fuel === 'ev') return 16;
+      if (fuel === 'phev') return 11;
+      return 0;
+    }
+    function calcSOT(tv, d){
+      if (d >= 9) return 3.00;
+      var rate = 0;
+      if (d < 1) rate = 0.0210;
+      else if (d === 1) rate = 0.0150;
+      else if (d === 2) rate = 0.0120;
+      else if (d === 3) rate = 0.0090;
+      else if (d >= 4 && d <= 8) rate = 0.0045;
+      return Math.max(3.00, tv * rate);
+    }
+    function calcFixedSurcharges(w, inEmissions){
+      var f = {
+        clerk:4.00,
+        countyRoadBridge: w>2000?1.50:2.50,
+        ems:2.00, post:1.00, insurance:0.50, miidb:0.10,
+        materialYear:0.33, materialMonth:0.30,
+        emissionsAir: inEmissions?1.50:0,
+        emissionsCounty: inEmissions?0.70:0,
+        emissionsState:0.50
+      };
+      var total = 0;
+      for (var k in f) total += f[k];
+      f.total = total;
+      return f;
+    }
+
+    function calculate(){
+      var price = Math.max(0, parseInt(priceInput.value,10) || 0);
+      var type = typeSelect.value;
+      var modelYear = parseInt(yearSelect.value,10);
+      var weight = Math.max(0, parseInt(weightInput.value,10) || 0);
+      var fuel = fuelSelect.value;
+      var inEmissions = emissionsSelect.value === '1';
+      var wildPass = wildPassToggle.checked;
+      var isNew = isNewToggle.checked;
+      var yearDiff = currentYear - modelYear;
+
+      var taxableValue = type === 'car' ? price * 0.85 : price * 0.75;
+      var fixed = calcFixedSurcharges(weight, inEmissions);
+      var faster = calcFASTER(weight);
+      var evFee = calcEVFee(fuel);
+      var titleFee = isNew ? 7.20 : 0;
+      var wildPassFee = wildPass ? 29.00 : 0;
+
+      var total5=0, totalTax5=0, totalReg5=0, totalSur5=0;
+      var rowsHTML = '';
+      var firstYearBreakdown = [];
+      var firstYearSOT=0, firstYearReg=0, firstYearSur=0, firstYearTotal=0;
+
+      for (var i = 0; i < 5; i++) {
+        var d = yearDiff + i;
+        var lbl = i === 0 ? currentYear + ' (Year 1)' : 'Year ' + (i+1);
+        var sot = calcSOT(taxableValue, d);
+        var regFee = calcRegistrationFee(type, weight);
+        var ageFee = calcAgeBasedFee(d);
+        var sur = {
+          titleFee: i===0?titleFee:0,
+          roadSafety: faster.roadSafety,
+          bridgeSafety: faster.bridgeSafety,
+          ageFee: ageFee,
+          clerk: fixed.clerk,
+          countyRB: fixed.countyRoadBridge,
+          ems: fixed.ems, post: fixed.post, insurance: fixed.insurance,
+          miidb: fixed.miidb, material: fixed.materialYear + fixed.materialMonth,
+          ev: evFee,
+          emAir: fixed.emissionsAir, emCounty: fixed.emissionsCounty, emState: fixed.emissionsState,
+          wildPass: wildPassFee
+        };
+        var surTotal = 0; for (var k in sur) surTotal += sur[k];
+        var yearTotal = sot + regFee + surTotal;
+        total5 += yearTotal; totalTax5 += sot; totalReg5 += regFee; totalSur5 += surTotal;
+
+        if (i === 0) {
+          firstYearSOT = sot; firstYearReg = regFee; firstYearSur = surTotal; firstYearTotal = yearTotal;
+          firstYearBreakdown = [
+            {label:'Specific Ownership Tax (SOT)', value:sot, isSubtotal:true},
+            {label:'Taxable Value (' + (type==='car'?'85%':'75%') + ' of MSRP)', value:taxableValue},
+            '',
+            {label:'Registration Base Fee', value:regFee, isSubtotal:true},
+            {label:'Weight-based (' + weight + ' lbs)', value:regFee},
+            {label:'Age-based add-on', value:ageFee},
+            '',
+            {label:'Mandatory Surcharges', value:surTotal, isSubtotal:true},
+            {label:'FASTER Road Safety', value:faster.roadSafety},
+            {label:'FASTER Bridge Safety', value:faster.bridgeSafety},
+            {label:'Clerk Hire', value:fixed.clerk},
+            {label:'County Road & Bridge', value:fixed.countyRoadBridge},
+            {label:'Emergency Medical Services', value:fixed.ems},
+            {label:'POST Training', value:fixed.post},
+            {label:'Insurance Database', value:fixed.insurance},
+            {label:'MIIDB', value:fixed.miidb},
+            {label:'Material Tabs', value:fixed.materialYear + fixed.materialMonth},
+            {label:'Statewide Air Account', value:fixed.emissionsState}
+          ];
+          if (inEmissions) {
+            firstYearBreakdown.push({label:'Emissions Air Account', value:fixed.emissionsAir});
+            firstYearBreakdown.push({label:'Emissions County', value:fixed.emissionsCounty});
+          }
+          if (evFee > 0) firstYearBreakdown.push({label:'EV Road Usage Fee', value:evFee});
+          if (wildPassFee > 0) firstYearBreakdown.push({label:'Keep Colorado Wild Pass', value:wildPassFee});
+          if (titleFee > 0) firstYearBreakdown.push({label:'Title Fee (one-time)', value:titleFee});
+        }
+
+        rowsHTML += '<tr><td>' + lbl + '</td><td class="t-right">' + toUSD(sot) + '</td><td class="t-right">' + toUSD(regFee) + '</td><td class="t-right">' + toUSD(surTotal) + '</td><td class="t-right">' + toUSD(yearTotal) + '</td></tr>';
+      }
+
+      tableBody.innerHTML = rowsHTML;
+      document.getElementById('resTotal').innerText = toUSD(firstYearTotal);
+      document.getElementById('resTax').innerText = toUSD(firstYearSOT);
+      document.getElementById('res5Year').innerText = toUSD(total5);
+      document.getElementById('footTax').innerText = toUSD(totalTax5);
+      document.getElementById('footReg').innerText = toUSD(totalReg5);
+      document.getElementById('footSur').innerText = toUSD(totalSur5);
+      document.getElementById('footTotal').innerText = toUSD(total5);
+
+      var badge = document.getElementById('ageBadge');
+      if (yearDiff >= 9) { badge.style.display='inline-block'; badge.innerText='Flat $3.00 SOT (10+ Years)'; }
+      else if (yearDiff >= 4) { badge.style.display='inline-block'; badge.innerText='0.45% SOT Rate'; }
+      else { badge.style.display='none'; }
+
+      var bd = '';
+      for (var j = 0; j < firstYearBreakdown.length; j++) {
+        var it = firstYearBreakdown[j];
+        if (it === '') { bd += '<div style="height:6px"></div>'; }
+        else if (it.isSubtotal) { bd += '<div class="breakdown-item subtotal"><span>' + it.label + '</span><span>' + toUSD(it.value) + '</span></div>'; }
+        else { bd += '<div class="breakdown-item"><span style="padding-left:10px;color:#5A5A50">' + it.label + '</span><span>' + toUSD(it.value) + '</span></div>'; }
+      }
+      bd += '<div class="breakdown-item subtotal" style="border-top:2px solid #5D7052;margin-top:8px;padding-top:10px;color:#5D7052"><span>First-Year Total</span><span>' + toUSD(firstYearTotal) + '</span></div>';
+      breakdownBody.innerHTML = bd;
+    }
+
+    [priceInput, weightInput].forEach(function(el){ el.addEventListener('input', calculate); });
+    [typeSelect, yearSelect, fuelSelect, emissionsSelect, wildPassToggle, isNewToggle].forEach(function(el){ el.addEventListener('change', calculate); });
+    calculate();
+  });
+})();
+</script>
+</body>
+</html>
