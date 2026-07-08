@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Florida Vehicle Registration Fees Calculator / Estimator 2026</title>
+<meta name="description" content="Estimate Florida vehicle registration fees with our calculator. See cost factors, examples, and how fees are calculated." />
+<link rel="canonical" href="https://calculateit.net/florida-vehicle-registration-fee-calculator.html" />
+<meta property="og:title" content="Florida Vehicle Registration Fees Calculator 2026" />
+<meta property="og:description" content="Estimate Florida vehicle registration fees with our calculator. See cost factors, examples, and how fees are calculated." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://calculateit.net/florida-vehicle-registration-fee-calculator.html" />
+<meta name="twitter:card" content="summary" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Nunito:wght@400;600;700&display=swap" />
+<link rel="stylesheet" href="/assets/css/tokens.css" />
+<link rel="stylesheet" href="/assets/css/base.css" />
+<link rel="stylesheet" href="/assets/css/components.css" />
+<link rel="stylesheet" href="/assets/css/pages.css" />
+<style>
+  .hero--calc{padding-top:5.5rem;padding-bottom:1.5rem}
+  .hero--calc h1{font-size:clamp(1.7rem,4vw,2.6rem);margin-bottom:.5rem}
+  .hero--calc .lede{margin-bottom:1.25rem;font-size:1rem}
+  #fl-dmv-wp{max-width:960px;margin:0 auto;padding:1.1rem;background:var(--card-bg,#FEFEFA);border-radius:26px;box-shadow:0 8px 30px rgba(60,60,50,.08);border:1px solid rgba(120,120,108,.15)}
+  #fl-dmv-wp .fl-dash{background:linear-gradient(135deg,rgba(93,112,82,.10),rgba(193,140,93,.10));border:1px solid rgba(93,112,82,.25);border-radius:20px;padding:1rem 1.1rem;margin-bottom:1rem;text-align:center}
+  #fl-dmv-wp .fl-label{font-size:.85rem;color:#78786C;text-transform:uppercase;letter-spacing:.06em}
+  #fl-dmv-wp .fl-value{font-family:Fraunces,serif;font-weight:700;font-size:2.2rem;color:#5D7052;margin:.15rem 0}
+  #fl-dmv-wp .fl-sub{font-size:.8rem;color:#78786C}
+  #fl-dmv-wp .fl-mini{display:flex;gap:1rem;justify-content:space-around;flex-wrap:wrap;margin-top:.6rem}
+  #fl-dmv-wp .fl-mini > div{flex:1;min-width:120px;padding:.4rem}
+  #fl-dmv-wp .fl-mini .fl-k{font-size:.78rem;color:#78786C;text-transform:uppercase;letter-spacing:.05em}
+  #fl-dmv-wp .fl-mini .fl-v{font-family:Fraunces,serif;font-weight:700;font-size:1.15rem;color:#2C2C24;margin-top:.15rem}
+  #fl-dmv-wp .fl-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+  #fl-dmv-wp .fl-fg{display:flex;flex-direction:column;margin-bottom:.7rem}
+  #fl-dmv-wp .fl-fg label{font-weight:600;font-size:.9rem;margin-bottom:.3rem}
+  #fl-dmv-wp .fl-fg select{padding:.6rem .75rem;border-radius:12px;border:1px solid rgba(120,120,108,.35);background:#FDFCF8;font:inherit}
+  #fl-dmv-wp .fl-fg select:focus{outline:2px solid #5D7052;outline-offset:1px}
+  #fl-dmv-wp h3.fl-title{font-family:Fraunces,serif;font-size:1.05rem;margin:.9rem 0 .5rem;color:#4A4A40}
+  #fl-dmv-wp .fl-actions{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem}
+  #fl-dmv-wp .fl-actions button{padding:.6rem 1rem;border-radius:12px;border:1px solid rgba(93,112,82,.4);background:#fff;color:#4A4A40;font:inherit;font-weight:600;cursor:pointer}
+  #fl-dmv-wp .fl-results{margin-top:1.1rem;background:#fff;border:1px solid rgba(120,120,108,.2);border-radius:18px;padding:1rem}
+  #fl-dmv-wp table.fl-fees{width:100%;border-collapse:collapse}
+  #fl-dmv-wp table.fl-fees th,#fl-dmv-wp table.fl-fees td{padding:.55rem .6rem;border-bottom:1px dashed rgba(120,120,108,.25);font-size:.93rem;text-align:left}
+  #fl-dmv-wp table.fl-fees th{background:#DED8CF;font-family:Fraunces,serif}
+  #fl-dmv-wp .t-right{text-align:right}
+  #fl-dmv-wp .fl-total td{font-weight:700;font-size:1.05rem;color:#5D7052;border-top:2px solid #5D7052;padding-top:.6rem}
+  #fl-dmv-wp .fl-forecast{margin-top:.9rem;background:#F0EBE5;border-radius:14px;padding:.8rem 1rem}
+  #fl-dmv-wp .fl-forecast h4{margin:0 0 .3rem;font-family:Fraunces,serif;font-size:1rem;color:#4A4A40}
+  #fl-dmv-wp .fl-forecast .fl-row{display:flex;justify-content:space-between;font-size:.92rem;padding:.2rem 0}
+  #fl-dmv-wp .fl-callout{background:#fff;border-left:3px solid #C18C5D;padding:.6rem .8rem;margin-top:.8rem;border-radius:8px;font-size:.88rem}
+  #fl-dmv-wp .badge{background:#5D7052;color:#fff;padding:.15rem .5rem;border-radius:999px;font-size:.72rem;font-weight:700;margin-left:.35rem;vertical-align:middle}
+  @media (max-width:600px){
+    #fl-dmv-wp .fl-value{font-size:1.9rem}
+    #fl-dmv-wp .fl-grid{grid-template-columns:1fr}
+  }
+  .fee-table{width:100%;border-collapse:collapse;margin:1rem 0;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.04)}
+  .fee-table th,.fee-table td{padding:.7rem .85rem;text-align:left;border-bottom:1px solid rgba(120,120,108,.15);font-size:.93rem}
+  .fee-table th{background:#DED8CF;font-family:Fraunces,serif}
+  details.faq{border:1px solid rgba(120,120,108,.2);border-radius:16px;padding:.8rem 1rem;margin:.6rem 0;background:#FDFCF8}
+  details.faq summary{cursor:pointer;font-weight:700;font-family:Fraunces,serif;font-size:1.05rem}
+  details.faq[open] summary{color:#5D7052}
+  details.faq p{margin:.6rem 0 .1rem;line-height:1.6}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Is this calculator accurate for all vehicles in Florida?","acceptedAnswer":{"@type":"Answer","text":"It covers most private passenger cars and trucks registered under Florida statutes using 2026 FLHSMV rates. Commercial IRP-apportioned vehicles, motor homes, mobile homes, dealer plates, and antique or specialty registrations follow different schedules and should be verified with your local Florida tax collector office."}},
+{"@type":"Question","name":"How much does it cost to renew vehicle registration in Florida?","acceptedAnswer":{"@type":"Answer","text":"A typical Florida passenger renewal is the annual license tax ($14.50–$32.50 for private autos based on weight) plus about $13.60 in statutory service fees. Most passenger renewals fall between $28 and $46 per year. Trucks pay more based on net weight."}},
+{"@type":"Question","name":"How is the Florida vehicle registration fee calculated?","acceptedAnswer":{"@type":"Answer","text":"Florida combines a weight-based annual license tax, statutory service fees, and a one-time $225 Initial Registration Fee when a new plate is issued (waived for trucks over 5,000 lbs). Title and plate/mailing fees apply on first registration, and transferring an existing plate avoids the $225 initial fee."}}
+]}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <nav class="nav" data-nav aria-label="Primary">
+    <a class="nav__brand" href="/index.html">
+      <span class="nav__logo" aria-hidden="true">C</span>
+      <span>CalculateIt</span>
+    </a>
+    <ul class="nav__list">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/vehicles.html">Vehicle Hub</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <a class="btn btn--primary nav__cta" href="/vehicles.html">All 50-state calculators</a>
+    <button class="nav__toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </nav>
+  <div class="nav-mobile" id="nav-mobile" data-nav-mobile data-open="false">
+    <ul>
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/vehicles.html">Vehicle Hub</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero hero--calc">
+    <div class="container">
+      <span class="eyebrow">Rates last updated: 2026 · Source: Florida FLHSMV</span>
+      <h1>Florida Vehicle Registration Fees Calculator / Estimator 2026</h1>
+      <p class="lede">Estimate your annual license tax, $225 Initial Registration Fee, title, plate, and service fees — mobile-first and instant.</p>
+
+      <div id="fl-dmv-wp">
+        <div class="fl-dash">
+          <div class="fl-label">Est. Total Due (Current Year)</div>
+          <div class="fl-value" id="resTotal">$0.00</div>
+          <div class="fl-sub">Registration + Initial Fee + Service Fees</div>
+          <div class="fl-mini">
+            <div><div class="fl-k">Annual License Tax</div><div class="fl-v" id="resAnnual">$0.00</div></div>
+            <div><div class="fl-k">Initial Reg. Fee</div><div class="fl-v" id="resInitial">$0.00</div></div>
+          </div>
+        </div>
+
+        <h3 class="fl-title">Vehicle Details</h3>
+        <div class="fl-grid">
+          <div class="fl-fg">
+            <label for="flType">Vehicle Type</label>
+            <select id="flType">
+              <option value="auto">Automobile (Private)</option>
+              <option value="truck">Truck (Private / Commercial)</option>
+            </select>
+          </div>
+          <div class="fl-fg">
+            <label for="flStatus">Plate Status</label>
+            <select id="flStatus">
+              <option value="new">New Plate (First Registration)</option>
+              <option value="transfer">Transfer Plate (From Old Car)</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="auto-group" class="fl-fg">
+          <label for="flWeightAuto">Auto Weight Class</label>
+          <select id="flWeightAuto">
+            <option value="2499">Up to 2,499 lbs ($14.50)</option>
+            <option value="3499">2,500 - 3,499 lbs ($22.50)</option>
+            <option value="3500" selected>3,500 lbs or more ($32.50)</option>
+          </select>
+        </div>
+
+        <div id="truck-group" class="fl-fg" style="display:none">
+          <label for="flWeightTruck">Truck Net Weight</label>
+          <select id="flWeightTruck">
+            <option value="1999">Up to 1,999 lbs ($14.50)</option>
+            <option value="3000">2,000 - 3,000 lbs ($22.50)</option>
+            <option value="5000">3,001 - 5,000 lbs ($32.50)</option>
+            <option value="5999">5,001 - 5,999 lbs ($60.75)</option>
+            <option value="7999" selected>6,000 - 7,999 lbs ($87.75)</option>
+            <option value="9999">8,000 - 9,999 lbs ($103.00)</option>
+            <option value="14999">10,000 - 14,999 lbs ($118.00)</option>
+            <option value="19999">15,000 - 19,999 lbs ($177.00)</option>
+            <option value="26000">20,000 - 26,000 lbs ($251.00)</option>
+            <option value="34999">26,001 - 34,999 lbs ($324.00)</option>
+            <option value="43999">35,000 - 43,999 lbs ($405.00)</option>
+            <option value="54999">44,000 - 54,999 lbs ($773.00)</option>
+            <option value="61999">55,000 - 61,999 lbs ($916.00)</option>
+            <option value="71999">62,000 - 71,999 lbs ($1,080.00)</option>
+            <option value="72000">72,000 lbs or more ($1,322.00)</option>
+          </select>
+        </div>
+
+        <div class="fl-actions">
+          <button type="button" id="flReset">Reset Calculator</button>
+        </div>
+
+        <div class="fl-results">
+          <table class="fl-fees">
+            <thead><tr><th>Fee Breakdown</th><th class="t-right">Amount</th></tr></thead>
+            <tbody id="breakdownBody"></tbody>
+            <tfoot><tr class="fl-total"><td>Total Due Today</td><td class="t-right" id="tableTotal">$0.00</td></tr></tfoot>
+          </table>
+
+          <div class="fl-forecast">
+            <h4>Future Renewal Estimates</h4>
+            <div class="fl-row"><span>Year 2 Renewal:</span><span id="renewYear2">$0.00</span></div>
+            <div class="fl-row"><span>Year 3 Renewal:</span><span id="renewYear3">$0.00</span></div>
+          </div>
+
+          <div class="fl-callout">
+            <strong>2026 Rules:</strong> The $225 Initial Registration Fee applies to new plates but is waived for trucks over 5,000 lbs. Transferring an existing plate avoids the $225 fee.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <p>The <strong>Florida vehicle registration fees calculator</strong> gives you a fast, mobile-first estimate of what you will owe the Florida Department of Highway Safety and Motor Vehicles (FLHSMV) when you register a car or light truck. Florida does not tax vehicles by market value like some states — instead, your annual license tax is a flat rate based on vehicle type and weight class, plus a handful of statutory service fees. First-time registrants also owe a one-time $225 Initial Registration Fee unless they are transferring a plate from another Florida-titled vehicle. Use this Florida vehicle registration fees calculator to preview those costs before you visit your county tax collector.</p>
+
+      <h2>How fees are calculated in Florida</h2>
+      <p>Florida registration is built from three pieces:</p>
+      <ul>
+        <li><strong>Annual License Tax</strong> — a flat, weight-based fee ($14.50–$32.50 for autos; $14.50–$1,322 for trucks).</li>
+        <li><strong>Statutory Service Fees</strong> — roughly $13.60 for most passenger vehicles, higher for heavier trucks.</li>
+        <li><strong>Initial Registration Fee</strong> — a one-time $225 charge on the first Florida registration of a plate. Transferring a plate avoids it; heavy trucks (>5,000 lbs) are exempt.</li>
+      </ul>
+      <p>Title and mailing fees ($87.25 for a new title + $28 metal plate + $5.45 mail) apply on first registration; transfers pay $75.25 title + $4.10 transfer.</p>
+
+      <h2>What affects your registration in Florida?</h2>
+      <table class="fee-table">
+        <thead><tr><th>Factor</th><th>Impact</th></tr></thead>
+        <tbody>
+          <tr><td>Vehicle type</td><td>Autos and trucks use different weight tables.</td></tr>
+          <tr><td>Net weight</td><td>Higher weight class = higher annual license tax.</td></tr>
+          <tr><td>Plate status</td><td>New plate triggers $225 initial fee; transfer does not.</td></tr>
+          <tr><td>Truck exemption</td><td>Trucks over 5,000 lbs are exempt from the $225 initial fee.</td></tr>
+          <tr><td>County</td><td>Local tax collectors may add small branch/processing fees.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Estimated examples</h2>
+      <ul>
+        <li><strong>New Honda Civic (3,000 lbs), new plate:</strong> $22.50 license tax + $13.60 service + $225 initial + $120.70 title/plate ≈ <strong>$381.80</strong> first year, ~$36 renewals.</li>
+        <li><strong>Used Toyota Camry (3,500 lbs), plate transfer:</strong> $32.50 license tax + $13.60 service + $79.35 transfer/title ≈ <strong>$125.45</strong> today.</li>
+        <li><strong>New F-250 pickup (7,500 lbs), new plate:</strong> $87.75 license tax + $12.10 service + $0 initial (exempt) + $120.70 title/plate ≈ <strong>$220.55</strong> first year.</li>
+      </ul>
+
+      <h2>What this calculator may not include</h2>
+      <p>This estimator focuses on standard private-use registrations. It does not calculate: Florida sales/use tax (6% state + county discretionary surtax up to 1.5% on the first $5,000) charged on dealer purchases, IRP apportioned commercial registrations, mobile homes, motor homes, specialty and antique plates, personalized-plate premiums, county-specific processing charges, or late/reinstatement penalties. Always confirm the final amount with your Florida county tax collector.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <details class="faq"><summary>Is this calculator accurate for all vehicles in Florida?</summary>
+        <p>It covers most private passenger cars and trucks under 2026 FLHSMV rates. Commercial IRP, motor homes, mobile homes, dealer plates, antique, and specialty registrations follow different schedules — confirm with your local tax collector.</p>
+      </details>
+      <details class="faq"><summary>How much does it cost to renew vehicle registration in Florida?</summary>
+        <p>A typical passenger renewal is the annual license tax ($14.50–$32.50 for autos by weight) plus about $13.60 in service fees, so most car renewals land between $28 and $46 per year. Trucks pay more based on net weight.</p>
+      </details>
+      <details class="faq"><summary>How is the Florida vehicle registration fee calculated?</summary>
+        <p>Florida uses a flat weight-based license tax plus statutory service fees. First-time plate issuance adds a one-time $225 Initial Registration Fee (waived for trucks over 5,000 lbs). Transferring a Florida plate avoids the $225 charge. Title and mailing fees apply on first registration.</p>
+      </details>
+
+      <p style="margin-top:2rem"><a class="btn btn--secondary" href="/vehicles.html">← Back to all 50-state calculators</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a class="nav__brand" href="/index.html" style="margin-bottom:1rem;"><span class="nav__logo" aria-hidden="true">C</span><span>CalculateIt</span></a>
+        <p style="color:var(--dried-grass); font-size: var(--fs-sm); max-width: 30ch;">A calm, human hub for vehicle calculators.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Site</h4>
+        <ul>
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/vehicles.html">Vehicle Hub</a></li>
+          <li><a href="/about.html">About Us</a></li>
+          <li><a href="/contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/privacy.html">Privacy Policy</a></li>
+          <li><a href="/disclaimer.html">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> CalculateIt. Crafted with care.</span>
+      <span>Made by Chetan Kumar</span>
+    </div>
+  </div>
+</footer>
+
+<script defer src="/assets/js/main.js"></script>
+<script>
+(function() {
+  'use strict';
+  const FEES = {
+    auto:  { '2499':14.50, '3499':22.50, '3500':32.50 },
+    truck: { '1999':14.50, '3000':22.50, '5000':32.50, '5999':60.75, '7999':87.75, '9999':103.00, '14999':118.00, '19999':177.00, '26000':251.00, '34999':324.00, '43999':405.00, '54999':773.00, '61999':916.00, '71999':1080.00, '72000':1322.00 }
+  };
+  const DOM = {
+    type: document.getElementById('flType'),
+    status: document.getElementById('flStatus'),
+    autoWeight: document.getElementById('flWeightAuto'),
+    truckWeight: document.getElementById('flWeightTruck'),
+    autoGroup: document.getElementById('auto-group'),
+    truckGroup: document.getElementById('truck-group'),
+    resTotal: document.getElementById('resTotal'),
+    resAnnual: document.getElementById('resAnnual'),
+    resInitial: document.getElementById('resInitial'),
+    tableTotal: document.getElementById('tableTotal'),
+    renewYear2: document.getElementById('renewYear2'),
+    renewYear3: document.getElementById('renewYear3'),
+    breakdownBody: document.getElementById('breakdownBody'),
+    resetBtn: document.getElementById('flReset')
+  };
+  const toUSD = n => new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(n);
+
+  function toggleWeightDisplay() {
+    const isAuto = DOM.type.value === 'auto';
+    DOM.autoGroup.style.display = isAuto ? 'flex' : 'none';
+    DOM.truckGroup.style.display = isAuto ? 'none' : 'flex';
+  }
+
+  function calculateFees() {
+    const type = DOM.type.value;
+    const status = DOM.status.value;
+    const weightValue = type === 'auto' ? DOM.autoWeight.value : DOM.truckWeight.value;
+    const weightClass = parseInt(weightValue, 10);
+    const weightFee = FEES[type][weightValue] || 0;
+
+    let serviceFee = 13.60;
+    if (type === 'truck') {
+      if (weightClass > 5000 && weightClass < 10000) serviceFee = 12.10;
+      else if (weightClass >= 10000) serviceFee = 22.10;
+    }
+
+    let initialFee = 0, plateFee = 0;
+    const isTruckExempt = (type === 'truck' && weightClass > 5000);
+    if (status === 'new') {
+      if (!isTruckExempt) initialFee = 225.00;
+      plateFee = 87.25 + 28.00 + 5.45;
+    } else {
+      plateFee = 75.25 + 4.10;
+    }
+
+    const annualRenewal = weightFee + serviceFee;
+    const totalDue = annualRenewal + initialFee + plateFee;
+
+    DOM.resTotal.innerText = toUSD(totalDue);
+    DOM.resAnnual.innerText = toUSD(annualRenewal);
+    DOM.resInitial.innerText = toUSD(initialFee);
+    DOM.tableTotal.innerText = toUSD(totalDue);
+    DOM.renewYear2.innerText = toUSD(annualRenewal);
+    DOM.renewYear3.innerText = toUSD(annualRenewal);
+
+    const rows = [
+      `<tr><td>License Tax (Weight Fee)</td><td class="t-right">${toUSD(weightFee)}</td></tr>`,
+      `<tr><td>Statutory Service Fees</td><td class="t-right">${toUSD(serviceFee)}</td></tr>`
+    ];
+    if (initialFee > 0) {
+      rows.push(`<tr><td>Initial Registration Fee <span class="badge">1st Time</span></td><td class="t-right">${toUSD(initialFee)}</td></tr>`);
+    } else if (status === 'new' && isTruckExempt) {
+      rows.push(`<tr><td>Initial Registration Fee</td><td class="t-right" style="color:#16a34a;">EXEMPT</td></tr>`);
+    }
+    const plateText = status === 'new' ? 'Title, Plate, & Mailing Fees' : 'Transfer & Title Fees';
+    rows.push(`<tr><td>${plateText}</td><td class="t-right">${toUSD(plateFee)}</td></tr>`);
+    DOM.breakdownBody.innerHTML = rows.join('');
+  }
+
+  function resetCalculator() {
+    DOM.type.value = 'auto';
+    DOM.status.value = 'new';
+    DOM.autoWeight.value = '3500';
+    DOM.truckWeight.value = '7999';
+    toggleWeightDisplay();
+    calculateFees();
+  }
+
+  [DOM.type, DOM.status, DOM.autoWeight, DOM.truckWeight].forEach(el => {
+    el.addEventListener('change', () => { toggleWeightDisplay(); calculateFees(); });
+  });
+  DOM.resetBtn.addEventListener('click', resetCalculator);
+  toggleWeightDisplay();
+  calculateFees();
+})();
+</script>
+</body>
+</html>
