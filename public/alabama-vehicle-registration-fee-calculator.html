@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Alabama Vehicle Registration Fee Calculator / Estimator 2026</title>
+<meta name="description" content="Estimate Alabama vehicle registration fees with our calculator. See cost factors, examples, and how fees are calculated." />
+<link rel="canonical" href="https://calculateit.net/alabama-vehicle-registration-fee-calculator.html" />
+<meta property="og:title" content="Alabama Vehicle Registration Fee Calculator 2026" />
+<meta property="og:description" content="Estimate Alabama vehicle registration fees with our calculator. See cost factors, examples, and how fees are calculated." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://calculateit.net/alabama-vehicle-registration-fee-calculator.html" />
+<meta name="twitter:card" content="summary" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Nunito:wght@400;600;700&display=swap" />
+<link rel="stylesheet" href="/assets/css/tokens.css" />
+<link rel="stylesheet" href="/assets/css/base.css" />
+<link rel="stylesheet" href="/assets/css/components.css" />
+<link rel="stylesheet" href="/assets/css/pages.css" />
+<style>
+  .hero--calc{padding-top:5.5rem;padding-bottom:1.5rem}
+  .hero--calc h1{font-size:clamp(1.7rem,4vw,2.6rem);margin-bottom:.5rem}
+  .hero--calc .lede{margin-bottom:1.25rem;font-size:1rem}
+  #al-dmv-app{max-width:960px;margin:0 auto;padding:1.1rem;background:var(--card-bg,#FEFEFA);border-radius:26px;box-shadow:0 8px 30px rgba(60,60,50,.08);border:1px solid rgba(120,120,108,.15)}
+  #al-dmv-app .dashboard-header{background:linear-gradient(135deg,rgba(93,112,82,.10),rgba(193,140,93,.10));border:1px solid rgba(93,112,82,.25);border-radius:20px;padding:1rem 1.1rem;margin-bottom:1rem}
+  #al-dmv-app .dash-main{text-align:center;padding:.4rem 0 .8rem}
+  #al-dmv-app .dash-label{font-size:.85rem;color:#78786C;text-transform:uppercase;letter-spacing:.06em}
+  #al-dmv-app .dash-value{font-family:Fraunces,serif;font-weight:700;font-size:2.2rem;color:#5D7052;margin:.15rem 0}
+  #al-dmv-app .dash-sub{font-size:.8rem;color:#78786C}
+  #al-dmv-app .dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;text-align:center;margin-top:.6rem}
+  #al-dmv-app .dash-item{padding:.4rem .3rem;border-top:1px solid rgba(120,120,108,.2)}
+  #al-dmv-app .dash-item .k{font-size:.78rem;color:#78786C;text-transform:uppercase;letter-spacing:.05em}
+  #al-dmv-app .dash-item .v{font-family:Fraunces,serif;font-weight:700;font-size:1.15rem;color:#2C2C24;margin-top:.15rem}
+  #al-dmv-app h3.al-title{font-family:Fraunces,serif;font-size:1.05rem;margin:.9rem 0 .5rem;color:#4A4A40}
+  #al-dmv-app .grid-row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+  #al-dmv-app .fg{display:flex;flex-direction:column;margin-bottom:.6rem}
+  #al-dmv-app .fg label{font-weight:600;font-size:.9rem;margin-bottom:.3rem}
+  #al-dmv-app .fg input,#al-dmv-app .fg select{padding:.6rem .75rem;border-radius:12px;border:1px solid rgba(120,120,108,.35);background:#FDFCF8;font:inherit}
+  #al-dmv-app .fg input:focus,#al-dmv-app .fg select:focus{outline:2px solid #5D7052;outline-offset:1px}
+  #al-dmv-app .fg .hint{font-size:.75rem;color:#78786C;margin-top:.25rem}
+  #al-dmv-app .pre{position:relative}
+  #al-dmv-app .pre span.prefix{position:absolute;left:.7rem;top:50%;transform:translateY(-50%);color:#78786C;font-size:.9rem}
+  #al-dmv-app .pre input{padding-left:1.6rem}
+  #al-dmv-app .check-row{display:flex;flex-direction:column;gap:.35rem;padding:.3rem 0}
+  #al-dmv-app .check-row label{font-weight:500;display:inline-flex;align-items:center;gap:.4rem;font-size:.9rem}
+  #al-dmv-app .info-box{background:#fff;border:1px solid rgba(120,120,108,.2);border-radius:16px;padding:1rem;margin-top:1rem}
+  #al-dmv-app table.al-fees{width:100%;border-collapse:collapse}
+  #al-dmv-app table.al-fees th,#al-dmv-app table.al-fees td{padding:.5rem;border-bottom:1px dashed rgba(120,120,108,.25);font-size:.92rem;text-align:left}
+  #al-dmv-app table.al-fees .t-right{text-align:right}
+  #al-dmv-app table.al-fees tfoot td{border-top:2px solid #5D7052;border-bottom:0;font-weight:700;color:#5D7052;font-size:1.05rem}
+  #al-dmv-app .al-disclaimer{font-size:.78rem;color:#78786C;margin-top:.7rem;line-height:1.5}
+  @media (max-width: 700px) {
+    #al-dmv-app .grid-row,
+    #al-dmv-app .dash-grid { grid-template-columns: 1fr; }
+    #al-dmv-app .dashboard-header { padding: 1.25rem; }
+    #al-dmv-app .t-right { text-align: right; }
+  }
+  .content-section{max-width:820px;margin:2rem auto}
+  .content-section h2{font-family:Fraunces,serif;font-size:1.5rem;margin:1.5rem 0 .6rem;color:#2C2C24}
+  .content-section p,.content-section li{line-height:1.65;color:#4A4A40}
+  .content-section ul{padding-left:1.2rem}
+  .fee-table{width:100%;border-collapse:collapse;margin-top:.5rem}
+  .fee-table th,.fee-table td{padding:.6rem;border-bottom:1px solid rgba(120,120,108,.25);text-align:left;font-size:.92rem}
+  details.faq{border:1px solid rgba(120,120,108,.25);border-radius:12px;padding:.7rem .9rem;margin-bottom:.6rem;background:#FDFCF8}
+  details.faq summary{font-weight:700;cursor:pointer;color:#2C2C24}
+  details.faq p{margin:.5rem 0 0}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <nav class="nav" data-nav aria-label="Primary">
+    <a class="nav__brand" href="/index.html">
+      <span class="nav__logo" aria-hidden="true">C</span>
+      <span>CalculateIt</span>
+    </a>
+    <ul class="nav__list">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/vehicles.html">Vehicle Hub</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <a class="btn btn--primary nav__cta" href="/vehicles.html">All 50-state calculators</a>
+    <button class="nav__toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </nav>
+  <div class="nav-mobile" id="nav-mobile" data-nav-mobile data-open="false">
+    <ul>
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/vehicles.html">Vehicle Hub</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero hero--calc">
+    <div class="container">
+      <span class="eyebrow">Rates updated: 2026 · Source: Alabama ADOR / county license offices</span>
+      <h1>Alabama Vehicle Registration Fee Calculator / Estimator 2026</h1>
+      <p class="lede">Estimate ad valorem tax, prorated registration, EV / PHEV add-ons, and optional title fees for any Alabama county.</p>
+
+      <div id="al-dmv-app">
+        <div class="dashboard-header">
+          <div class="dash-main">
+            <div class="dash-label">Total estimated registration cost</div>
+            <div class="dash-value" id="resTotal">$0.00</div>
+            <div class="dash-sub" id="resLabel">Ad valorem + registration + optional title</div>
+          </div>
+          <div class="dash-grid">
+            <div class="dash-item"><div class="k">Ad valorem tax</div><div class="v" id="resAdVal">$0.00</div></div>
+            <div class="dash-item"><div class="k">Prorated registration</div><div class="v" id="resTag">$0.00</div></div>
+          </div>
+        </div>
+
+        <h3 class="al-title">Vehicle details</h3>
+        <div class="grid-row">
+          <div class="fg">
+            <label for="alPrice">Market value</label>
+            <div class="pre"><span class="prefix">$</span><input id="alPrice" type="number" min="0" step="500" value="25000" /></div>
+          </div>
+          <div class="fg">
+            <label for="alPreset">Vehicle category</label>
+            <select id="alPreset">
+              <option value="carStandard">Passenger car / pickup — standard plate</option>
+              <option value="carMax">Passenger car / pickup — upper range</option>
+              <option value="motorcycle">Motorcycle</option>
+              <option value="commercialTrailer">Commercial trailer</option>
+              <option value="travelTrailer">Travel / utility trailer</option>
+              <option value="permanentTrailer">Permanent trailer</option>
+              <option value="truckMin">Truck / motor home — lower range</option>
+              <option value="truckMax">Truck / motor home — upper range</option>
+              <option value="custom">Custom exact state fee</option>
+            </select>
+            <div class="hint" id="alPresetHelp"></div>
+          </div>
+        </div>
+
+        <div class="grid-row">
+          <div class="fg">
+            <label for="alStateFee">Annual state registration fee</label>
+            <div class="pre"><span class="prefix">$</span><input id="alStateFee" type="number" min="0" step="1" value="23" /></div>
+          </div>
+          <div class="fg">
+            <label for="alFuel">Fuel type</label>
+            <select id="alFuel">
+              <option value="0">Gas / diesel / non-plug-in hybrid</option>
+              <option value="103">Plug-in hybrid (PHEV) — +$103</option>
+              <option value="203">Battery electric vehicle (EV) — +$203</option>
+              <option value="50">Low-speed electric vehicle — +$50</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid-row">
+          <div class="fg">
+            <label for="alName">Last name initial renewal month</label>
+            <select id="alName">
+              <option value="1">A, D — January</option>
+              <option value="2">B — February</option>
+              <option value="3">C, E — March</option>
+              <option value="4">F, G, N — April</option>
+              <option value="5">H, O — May</option>
+              <option value="6">M, I — June</option>
+              <option value="7">P, L — July</option>
+              <option value="8">J, K, R — August</option>
+              <option value="9">Q, S, T — September</option>
+              <option value="10">U–Z — October</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label>Optional title fees</label>
+            <div class="check-row">
+              <label><input type="checkbox" id="alIncludeTitle" /> Include title application ($15 + $1.50 agent)</label>
+              <label><input type="checkbox" id="alIncludeIssuerFee" /> Include possible issuing official commission (+$1.50)</label>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="al-title">Location</h3>
+        <div class="grid-row">
+          <div class="fg">
+            <label for="alCounty">County</label>
+            <select id="alCounty"></select>
+          </div>
+          <div class="fg" id="cityContainer">
+            <label for="alCity">City / district</label>
+            <select id="alCity"></select>
+          </div>
+        </div>
+
+        <div class="info-box">
+          <table class="al-fees">
+            <thead>
+              <tr><th>Fee breakdown</th><th class="t-right">Amount</th></tr>
+            </thead>
+            <tbody id="breakdownBody"></tbody>
+            <tfoot>
+              <tr><td>Total amount due</td><td class="t-right" id="tableTotal">$0.00</td></tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <p class="al-disclaimer">Estimate only. Alabama passenger cars and pickups are listed at $23 to $105, motorcycles at $15, commercial trailers at $20, travel and utility trailers at $12, permanent trailers at $60, and trucks or motor homes at $23 to $890. EV, PHEV, and low-speed EV add-on fees are $203, $103, and $50. Standard passenger guidance also references a $23 plate fee plus a $1.25 issuance fee. Title application is $15 plus a $1.50 designated-agent commission, and issuing officials may also collect an additional $1.50. Ad valorem is estimated here using 15% of market value times local millage, but actual assessment can vary by vehicle class.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container content-section">
+      <p>The <strong>Alabama vehicle registration fees calculator</strong> gives you a quick, honest estimate of what you will pay at your county license office. Alabama combines a small flat annual registration fee (usually $23 for a standard passenger car or pickup) with an <strong>ad valorem property tax</strong> based on your vehicle's market value and your local millage rate, which changes from one city and county to the next. EV owners add $203, plug-in hybrids add $103, and low-speed EVs add $50 on top of the base fee. Because Alabama uses staggered renewal months tied to the first letter of your last name, we also prorate the registration portion so the total reflects only the months remaining in your renewal cycle.</p>
+
+      <h2>How much will my tag and registration cost in Alabama?</h2>
+      <p>Most Alabama drivers pay somewhere between <strong>$50 and $600 per year</strong> depending on where they live and what they drive. A used sedan worth $12,000 in a rural county might come to $80–$120. A new $45,000 SUV in Jefferson or Shelby County can run $500 or more once ad valorem tax is added. EV and PHEV drivers pay an additional flat surcharge on top. The exact number always comes down to three inputs: your vehicle's market value, your county / city millage rate, and any fuel-type surcharge.</p>
+
+      <h2>How fees are calculated in Alabama</h2>
+      <p>Alabama registration has three moving parts:</p>
+      <ul>
+        <li><strong>Annual registration fee</strong> — a flat state fee ($23 for a standard passenger car / pickup, $15 motorcycle, $12 travel trailer, up to $890 for the heaviest trucks). EV / PHEV / low-speed EV surcharges are added here.</li>
+        <li><strong>Ad valorem tax</strong> — 15% of your vehicle's market value is treated as the assessed value, then multiplied by your local millage rate (state + county + city + school). This is where costs vary the most between Alabama counties.</li>
+        <li><strong>Optional title fees</strong> — $15 title application plus a $1.50 designated-agent commission (and sometimes a $1.50 issuing-official commission) when you first title the vehicle.</li>
+      </ul>
+      <p>The registration portion is prorated to the number of months left in your assigned renewal window.</p>
+
+      <h2>What affects your registration in Alabama?</h2>
+      <ul>
+        <li><strong>Market value</strong> of the vehicle (drives the ad valorem tax).</li>
+        <li><strong>County and city</strong> — millage rates range from about 25 mills in rural areas to 90+ mills in parts of Jefferson County.</li>
+        <li><strong>Vehicle category</strong> — passenger car, motorcycle, trailer, truck, or motor home.</li>
+        <li><strong>Fuel type</strong> — EVs, PHEVs, and low-speed EVs add flat annual surcharges.</li>
+        <li><strong>Renewal month</strong> — determined by the first letter of the primary owner's last name.</li>
+        <li><strong>Title status</strong> — first-time titling adds $15 plus agent commissions.</li>
+      </ul>
+
+      <h2>Estimated examples</h2>
+      <table class="fee-table">
+        <thead><tr><th>Scenario</th><th>Line items</th><th>Approx. total</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>2019 Toyota Camry · $15,000 value · Cullman County</td>
+            <td>$23 reg + $1.25 issuance + ~$89 ad valorem (38.5 mills)</td>
+            <td><strong>≈ $113</strong></td>
+          </tr>
+          <tr>
+            <td>2023 Ford F-150 · $45,000 value · Jefferson County (Birmingham)</td>
+            <td>$23 reg + $1.25 issuance + ~$489 ad valorem (72.5 mills)</td>
+            <td><strong>≈ $513</strong></td>
+          </tr>
+          <tr>
+            <td>2024 Tesla Model Y · $50,000 value · Madison County (Huntsville) · new title</td>
+            <td>$23 reg + $203 EV + ~$435 ad valorem + $16.50 title</td>
+            <td><strong>≈ $677</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>What this calculator may not include</h2>
+      <ul>
+        <li>County-specific issuance, mail, or online-processing fees.</li>
+        <li>Sales / use tax at the time of purchase.</li>
+        <li>Commercial IRP-apportioned registrations and farm plates.</li>
+        <li>Late-registration penalties and interest.</li>
+        <li>Specialty, personalized, disabled-veteran, or antique plate surcharges and discounts.</li>
+        <li>Actual assessment-ratio differences for certain commercial vehicle classes.</li>
+      </ul>
+
+      <h2>Frequently asked questions</h2>
+      <details class="faq"><summary>What factors affect vehicle registration fees in Alabama?</summary>
+        <p>Three main things: the <strong>market value</strong> of your vehicle (which drives ad valorem tax), your <strong>county and city millage rate</strong>, and the <strong>vehicle category and fuel type</strong> (EVs, PHEVs, and low-speed EVs pay flat surcharges). Your assigned renewal month also affects the prorated portion of the fee.</p>
+      </details>
+      <details class="faq"><summary>Is this calculator accurate for all vehicles in Alabama?</summary>
+        <p>It covers the most common passenger cars, pickups, motorcycles, trailers, and light trucks registered in Alabama using 2026 state fee schedules and county millage rates. Commercial IRP-apportioned vehicles, farm plates, and specialty exemptions can fall outside the standard formula — confirm those with your county license commissioner.</p>
+      </details>
+      <details class="faq"><summary>Can I use this calculator for a new car and a used car in Alabama?</summary>
+        <p>Yes. Alabama assesses ad valorem tax on the current <strong>market value</strong> of the vehicle, whether new or used. Enter the current market value (or purchase price for a new car) and the calculator will apply the 15% assessment ratio and your local millage the same way the county license office does.</p>
+      </details>
+
+      <p style="margin-top:2rem"><a class="btn btn--primary" href="/vehicles.html">See all 50-state vehicle calculators →</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2026 CalculateIt.net · <a href="/privacy.html">Privacy</a> · <a href="/disclaimer.html">Disclaimer</a> · <a href="/contact.html">Contact</a></p>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js" defer></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What factors affect vehicle registration fees in Alabama?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Alabama registration fees depend on the vehicle's market value (which drives the ad valorem tax), your county and city millage rate, the vehicle category, and the fuel type. EVs add $203, PHEVs add $103, and low-speed EVs add $50 on top of the base state fee."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this calculator accurate for all vehicles in Alabama?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It covers the most common passenger cars, pickups, motorcycles, trailers, and light trucks using 2026 Alabama fee schedules and county millage rates. Commercial IRP-apportioned vehicles, farm plates, and specialty exemptions may fall outside the standard formula."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this calculator for a new car and a used car in Alabama?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Alabama assesses ad valorem tax on the current market value of the vehicle whether new or used. Enter the current market value and the calculator applies the 15% assessment ratio and your local millage rate."
+      }
+    }
+  ]
+}
+</script>
+
+<script>
+(function () {
+  'use strict';
+
+  const millageData = {
+    "Autauga": { "Prattville": 31, "Autaugaville": 32, "Billingsley": 34, "Millbrook": 32, "All Other": 27 },
+    "Baldwin": { "Daphne": 46, "Fairhope": 46, "Foley": 33, "Gulf Shores": 33, "Spanish Fort": 36, "All Other": 28 },
+    "Barbour": { "Eufaula": 42.5, "Clayton": 39.5, "Clio": 39.5, "All Other": 29.5 },
+    "Bibb": { "Brent": 31, "Centerville": 31, "All Other": 26 },
+    "Blount": { "Oneonta": 45, "Blountsville": 38.5, "All Other": 32.5 },
+    "Calhoun": { "Anniston": 51.5, "Oxford": 47.5, "Jacksonville": 47.5, "All Other": 40 },
+    "Chilton": { "Clanton": 42, "Jemison": 45, "All Other": 39 },
+    "Coffee": { "Enterprise": 43.5, "Elba": 38, "All Other": 34 },
+    "Colbert": { "Muscle Shoals": 40.5, "Sheffield": 51.5, "Tuscumbia": 48, "All Other": 30 },
+    "Cullman": { "Cullman": 38.5, "Hanceville": 31, "All Other": 26 },
+    "Dale": { "Ozark": 50.5, "Daleville": 35.5, "Dothan": 35.5, "All Other": 30.5 },
+    "Dallas": { "Selma": 57.5, "All Other": 34 },
+    "DeKalb": { "Fort Payne": 45, "Rainsville": 40.5, "All Other": 35.5 },
+    "Elmore": { "Wetumpka": 30, "Millbrook": 30, "Prattville": 32, "All Other": 25 },
+    "Escambia": { "Atmore": 50, "Brewton": 50, "All Other": 35 },
+    "Etowah": { "Gadsden": 49, "Rainbow City": 41, "Southside": 41, "All Other": 36 },
+    "Houston": { "Dothan": 34.5, "Ashford": 34.5, "All Other": 29.5 },
+    "Jackson": { "Scottsboro": 48.5, "All Other": 30 },
+    "Jefferson": { "Birmingham": 72.5, "Hoover": 72.6, "Vestavia Hills": 92.6, "Homewood": 75, "Bessemer": 68.7, "Leeds": 59.3, "Trussville": 62.1, "All Other": 50.1 },
+    "Lauderdale": { "Florence": 49, "All Other": 35 },
+    "Lee": { "Auburn": 54, "Opelika": 54, "Phenix City": 60, "All Other": 41 },
+    "Limestone": { "Athens": 40, "Huntsville": 60.5, "Madison": 72, "All Other": 30 },
+    "Madison": { "Huntsville": 58, "Madison": 69.5, "All Other": 33.5 },
+    "Marshall": { "Albertville": 46.5, "Guntersville": 43, "Boaz": 50, "Arab": 40.5, "All Other": 37.5 },
+    "Mobile": { "Mobile": 63.5, "Saraland": 59.5, "Prichard": 61.5, "All Other": 48.5 },
+    "Montgomery": { "Montgomery": 48.5, "Pike Road": 60, "All Other": 41 },
+    "Morgan": { "Decatur": 45.3, "Hartselle": 39.4, "All Other": 37.4 },
+    "Shelby": { "Alabaster": 54, "Pelham": 58, "Hoover": 66.5, "Helena": 49, "Calera": 54, "All Other": 44 },
+    "St. Clair": { "Moody": 51, "Pell City": 41, "Springville": 51, "All Other": 31 },
+    "Talladega": { "Sylacauga": 50.5, "Talladega": 38.5, "Childersburg": 43.5, "All Other": 29 },
+    "Tuscaloosa": { "Tuscaloosa": 46, "Northport": 38.5, "All Other": 27 },
+    "Walker": { "Jasper": 40, "All Other": 25.5 },
+    "Generic": { "Average Rate": 45 }
+  };
+
+  const presets = {
+    carStandard: { fee: 23, issuanceFee: 1.25, help: "Standard passenger guidance uses a $23 plate fee plus a $1.25 issuance fee. Local fees, ad valorem tax, and other charges may apply." },
+    carMax: { fee: 105, issuanceFee: 0, help: "Using the upper end of the passenger car and pickup fee range." },
+    motorcycle: { fee: 15, issuanceFee: 0, help: "Motorcycle registration fee." },
+    commercialTrailer: { fee: 20, issuanceFee: 0, help: "Commercial trailer registration fee." },
+    travelTrailer: { fee: 12, issuanceFee: 0, help: "Travel or utility trailer registration fee." },
+    permanentTrailer: { fee: 60, issuanceFee: 0, help: "Permanent trailer registration fee." },
+    truckMin: { fee: 23, issuanceFee: 0, help: "Truck and motor home fees vary by gross weight. This uses the low end of the range." },
+    truckMax: { fee: 890, issuanceFee: 0, help: "Truck and motor home fees vary by gross weight. This uses the high end of the range." },
+    custom: { fee: 23, issuanceFee: 0, help: "Enter the exact annual state registration fee you want to use." }
+  };
+
+  const $ = (id) => document.getElementById(id);
+
+  const dom = {
+    price: $('alPrice'),
+    preset: $('alPreset'),
+    stateFee: $('alStateFee'),
+    fuel: $('alFuel'),
+    name: $('alName'),
+    county: $('alCounty'),
+    city: $('alCity'),
+    cityContainer: $('cityContainer'),
+    includeTitle: $('alIncludeTitle'),
+    includeIssuerFee: $('alIncludeIssuerFee'),
+    presetHelp: $('alPresetHelp'),
+    resTotal: $('resTotal'),
+    resAdVal: $('resAdVal'),
+    resTag: $('resTag'),
+    tableTotal: $('tableTotal'),
+    resLabel: $('resLabel'),
+    breakdownBody: $('breakdownBody')
+  };
+
+  const formatUSD = (v) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(Number.isFinite(v) ? v : 0);
+  const num = (v) => { const p = parseFloat(v); return Number.isFinite(p) ? p : 0; };
+  const int = (v, f = 1) => { const p = parseInt(v, 10); return Number.isFinite(p) ? p : f; };
+
+  const createOption = (value, label, selected = false) => {
+    const o = document.createElement('option');
+    o.value = String(value); o.textContent = label; o.selected = selected;
+    return o;
+  };
+
+  const getCurrentMonth = () => new Date().getMonth() + 1;
+  const calcMonthsDue = (cur, ren) => {
+    const m = ren > cur ? ren - cur : (12 - cur) + ren;
+    return m === 0 ? 12 : m;
+  };
+  const getSelectedPreset = () => presets[dom.preset.value] || presets.carStandard;
+
+  function populateCounties() {
+    const counties = Object.keys(millageData).sort();
+    dom.county.innerHTML = '';
+    counties.forEach((c) => dom.county.appendChild(createOption(c, c, c === 'Jefferson')));
+  }
+
+  function populateCities() {
+    const county = dom.county.value;
+    const cities = millageData[county] || millageData.Generic;
+    dom.city.innerHTML = '';
+    Object.entries(cities).forEach(([city, millage], i) => dom.city.appendChild(createOption(millage, city, i === 0)));
+    dom.cityContainer.style.display = '';
+  }
+
+  function syncPresetFee(force = false) {
+    const key = dom.preset.value;
+    const preset = getSelectedPreset();
+    dom.presetHelp.textContent = preset.help;
+    if (key !== 'custom' || force) {
+      dom.stateFee.value = preset.fee;
+      dom.stateFee.readOnly = key !== 'custom';
+      dom.stateFee.setAttribute('aria-readonly', String(key !== 'custom'));
+    } else {
+      dom.stateFee.readOnly = false;
+      dom.stateFee.setAttribute('aria-readonly', 'false');
+    }
+  }
+
+  function getValues() {
+    return {
+      marketValue: num(dom.price.value),
+      annualStateFee: num(dom.stateFee.value),
+      fuelFee: num(dom.fuel.value),
+      renewalMonth: int(dom.name.value, 1),
+      millage: num(dom.city.value),
+      includeTitle: dom.includeTitle.checked,
+      includeIssuerFee: dom.includeIssuerFee.checked,
+      issuanceFee: getSelectedPreset().issuanceFee || 0
+    };
+  }
+
+  function calculateFees(v) {
+    const assessedValue = v.marketValue * 0.15;
+    const adValorem = assessedValue * (v.millage / 1000);
+    const monthsDue = calcMonthsDue(getCurrentMonth(), v.renewalMonth);
+    const annualRegistration = v.annualStateFee + v.fuelFee + v.issuanceFee;
+    const proratedRegistration = (annualRegistration / 12) * monthsDue;
+    const titleApplicationFee = v.includeTitle ? 15 : 0;
+    const designatedAgentFee = v.includeTitle ? 1.5 : 0;
+    const issuingOfficialFee = v.includeTitle && v.includeIssuerFee ? 1.5 : 0;
+    const total = adValorem + proratedRegistration + titleApplicationFee + designatedAgentFee + issuingOfficialFee;
+    return { assessedValue, adValorem, monthsDue, annualRegistration, proratedRegistration, titleApplicationFee, designatedAgentFee, issuingOfficialFee, total };
+  }
+
+  function renderBreakdown(v, f) {
+    const rows = [
+      ['Assessed value (15% of market value)', f.assessedValue],
+      [`Estimated ad valorem tax (${v.millage} mills)`, f.adValorem],
+      ['Annual state registration fee', v.annualStateFee]
+    ];
+    if (v.issuanceFee > 0) rows.push(['Issuance fee', v.issuanceFee]);
+    if (v.fuelFee > 0) rows.push(['EV / PHEV / low-speed EV add-on', v.fuelFee]);
+    rows.push([`Prorated registration (${f.monthsDue} months)`, f.proratedRegistration]);
+    if (v.includeTitle) {
+      rows.push(['Title application fee', f.titleApplicationFee]);
+      rows.push(['Designated agent commission', f.designatedAgentFee]);
+    }
+    if (f.issuingOfficialFee > 0) rows.push(['Possible issuing official commission', f.issuingOfficialFee]);
+    dom.breakdownBody.innerHTML = rows.map(([label, amount]) => `<tr><td>${label}</td><td class="t-right">${formatUSD(amount)}</td></tr>`).join('');
+  }
+
+  function render() {
+    const v = getValues();
+    const f = calculateFees(v);
+    dom.resTotal.textContent = formatUSD(f.total);
+    dom.resAdVal.textContent = formatUSD(f.adValorem);
+    dom.resTag.textContent = formatUSD(f.proratedRegistration);
+    dom.tableTotal.textContent = formatUSD(f.total);
+    dom.resLabel.textContent = `Estimated ad valorem + ${f.monthsDue} months registration${v.includeTitle ? ' + title' : ''}`;
+    renderBreakdown(v, f);
+  }
+
+  function onInput(e) {
+    if (e.target.id === 'alPreset') syncPresetFee();
+    if (e.target.id === 'alCounty') populateCities();
+    render();
+  }
+
+  function init() {
+    populateCounties();
+    populateCities();
+    syncPresetFee(true);
+    [dom.price, dom.preset, dom.stateFee, dom.fuel, dom.name, dom.county, dom.city, dom.includeTitle, dom.includeIssuerFee].forEach((n) => {
+      n.addEventListener('input', onInput);
+      n.addEventListener('change', onInput);
+    });
+    render();
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
+
+</body>
+</html>
