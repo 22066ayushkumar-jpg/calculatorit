@@ -1,0 +1,886 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Alaska Vehicle Registration Fee Calculator / Estimator 2026</title>
+<meta name="description" content="Estimate Alaska vehicle registration fees with our calculator. See cost factors, examples, and how fees are calculated." />
+<link rel="canonical" href="https://calculateit.net/alaska-vehicle-registration-fee-calculator.html" />
+<meta property="og:title" content="Alaska Vehicle Registration Fee Calculator 2026" />
+<meta property="og:description" content="Estimate Alaska vehicle registration fees with our calculator. See cost factors, examples, and how fees are calculated." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://calculateit.net/alaska-vehicle-registration-fee-calculator.html" />
+<meta name="twitter:card" content="summary" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Nunito:wght@400;600;700&display=swap" />
+<link rel="stylesheet" href="/assets/css/tokens.css" />
+<link rel="stylesheet" href="/assets/css/base.css" />
+<link rel="stylesheet" href="/assets/css/components.css" />
+<link rel="stylesheet" href="/assets/css/pages.css" />
+<style>
+  .hero--calc{padding-top:5.5rem;padding-bottom:1.5rem}
+  .hero--calc h1{font-size:clamp(1.7rem,4vw,2.6rem);margin-bottom:.5rem}
+  .hero--calc .lede{margin-bottom:1.25rem;font-size:1rem}
+  #ak-dmv-app{max-width:960px;margin:0 auto;padding:1.1rem;background:var(--card-bg,#FEFEFA);border-radius:26px;box-shadow:0 8px 30px rgba(60,60,50,.08);border:1px solid rgba(120,120,108,.15)}
+  #ak-dmv-app .dashboard-header{background:linear-gradient(135deg,rgba(93,112,82,.10),rgba(193,140,93,.10));border:1px solid rgba(93,112,82,.25);border-radius:20px;padding:1rem 1.1rem;margin-bottom:1rem}
+  #ak-dmv-app .dashboard-main{text-align:center;padding:.4rem 0 .8rem}
+  #ak-dmv-app .dashboard-main .label{font-size:.85rem;color:#78786C;text-transform:uppercase;letter-spacing:.06em}
+  #ak-dmv-app .dashboard-main .value{font-family:Fraunces,serif;font-weight:700;font-size:2.2rem;color:#5D7052;margin:.15rem 0}
+  #ak-dmv-app .dashboard-main .sub{font-size:.8rem;color:#78786C}
+  #ak-dmv-app .dashboard-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;text-align:center;margin-top:.6rem}
+  #ak-dmv-app .dash-item{padding:.4rem .3rem;border-top:1px solid rgba(120,120,108,.2)}
+  #ak-dmv-app .dash-item .k{font-size:.78rem;color:#78786C;text-transform:uppercase;letter-spacing:.05em}
+  #ak-dmv-app .dash-item .v{font-family:Fraunces,serif;font-weight:700;font-size:1.05rem;color:#2C2C24;margin-top:.15rem}
+  #ak-dmv-app h3.ak-title{font-family:Fraunces,serif;font-size:1.05rem;margin:.9rem 0 .5rem;color:#4A4A40}
+  #ak-dmv-app .grid-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.75rem}
+  #ak-dmv-app .fg{display:flex;flex-direction:column;margin-bottom:.6rem}
+  #ak-dmv-app .fg label{font-weight:600;font-size:.9rem;margin-bottom:.3rem}
+  #ak-dmv-app .fg input,#ak-dmv-app .fg select{padding:.6rem .75rem;border-radius:12px;border:1px solid rgba(120,120,108,.35);background:#FDFCF8;font:inherit}
+  #ak-dmv-app .fg input:focus,#ak-dmv-app .fg select:focus{outline:2px solid #5D7052;outline-offset:1px}
+  #ak-dmv-app .fg .hint{font-size:.75rem;color:#78786C;margin-top:.25rem}
+  #ak-dmv-app .info-box{background:#fff;border:1px solid rgba(120,120,108,.2);border-radius:16px;padding:1rem;margin-top:1rem}
+  #ak-dmv-app .chart-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem;gap:.5rem}
+  #ak-dmv-app .chart-header h3{font-family:Fraunces,serif;font-size:1.05rem;color:#4A4A40;margin:0}
+  #ak-dmv-app .badge{background:#fff8e1;color:#b45309;border:1px solid #FFB612;border-radius:999px;padding:.2rem .7rem;font-size:.75rem;font-weight:700}
+  #ak-dmv-app table.ak-fees{width:100%;border-collapse:collapse}
+  #ak-dmv-app table.ak-fees th,#ak-dmv-app table.ak-fees td{padding:.5rem;border-bottom:1px dashed rgba(120,120,108,.25);font-size:.92rem;text-align:left}
+  #ak-dmv-app table.ak-fees .t-right{text-align:right}
+  #ak-dmv-app table.ak-fees tfoot td{border-top:2px solid #5D7052;border-bottom:0;font-weight:700;color:#5D7052;font-size:1.05rem}
+  #ak-dmv-app table.ak-fees tr.exempt-row td{color:#15803d;text-decoration:line-through;text-decoration-color:rgba(21,128,61,.5)}
+  #ak-dmv-app .savings-callout{display:flex;align-items:center;gap:.7rem;background:#f0fdf4;border:1px solid #86efac;border-radius:14px;padding:.7rem .9rem;margin-top:.8rem}
+  #ak-dmv-app .savings-callout .icon{font-size:1.5rem}
+  #ak-dmv-app .savings-callout .k{font-size:.75rem;color:#166534;text-transform:uppercase;letter-spacing:.05em}
+  #ak-dmv-app .savings-callout .v{font-weight:700;color:#166534}
+  #ak-dmv-app .savings-callout .desc{font-size:.78rem;color:#166534;margin-top:.15rem}
+  #ak-dmv-app .quick-ref{margin-top:.8rem}
+  #ak-dmv-app .quick-ref h3{font-family:Fraunces,serif;font-size:1rem;margin:0 0 .5rem;color:#4A4A40}
+  #ak-dmv-app .ref-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.4rem}
+  #ak-dmv-app .ref-item{background:#FDFCF8;border:1px solid rgba(120,120,108,.2);border-radius:10px;padding:.4rem .5rem;font-size:.78rem;color:#4A4A40}
+  #ak-dmv-app .ak-disclaimer{font-size:.75rem;color:#78786C;margin-top:.7rem;line-height:1.5}
+  #ak-dmv-app .btn-reset{background:#5D7052;color:#fff;border:0;border-radius:12px;padding:.6rem 1rem;font-weight:700;cursor:pointer;margin-top:.4rem}
+  #ak-dmv-app .btn-reset:hover{background:#4a5a42}
+  @media (max-width: 700px) {
+    #ak-dmv-app .grid-row,
+    #ak-dmv-app .dashboard-grid { grid-template-columns: 1fr; gap:.6rem; }
+    #ak-dmv-app .dashboard-main .value { font-size: 1.9rem; }
+    #ak-dmv-app .chart-header { flex-direction: column; align-items: flex-start; }
+  }
+  .content-section{max-width:820px;margin:2rem auto}
+  .content-section h2{font-family:Fraunces,serif;font-size:1.5rem;margin:1.5rem 0 .6rem;color:#2C2C24}
+  .content-section p,.content-section li{line-height:1.65;color:#4A4A40}
+  .content-section ul{padding-left:1.2rem}
+  .fee-table{width:100%;border-collapse:collapse;margin-top:.5rem}
+  .fee-table th,.fee-table td{padding:.6rem;border-bottom:1px solid rgba(120,120,108,.25);text-align:left;font-size:.92rem}
+  details.faq{border:1px solid rgba(120,120,108,.25);border-radius:12px;padding:.7rem .9rem;margin-bottom:.6rem;background:#FDFCF8}
+  details.faq summary{font-weight:700;cursor:pointer;color:#2C2C24}
+  details.faq p{margin:.5rem 0 0}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <nav class="nav" data-nav aria-label="Primary">
+    <a class="nav__brand" href="/index.html">
+      <span class="nav__logo" aria-hidden="true">C</span>
+      <span>CalculateIt</span>
+    </a>
+    <ul class="nav__list">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/vehicles.html">Vehicle Hub</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <a class="btn btn--primary nav__cta" href="/vehicles.html">All 50-state calculators</a>
+    <button class="nav__toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </nav>
+  <div class="nav-mobile" id="nav-mobile" data-nav-mobile data-open="false">
+    <ul>
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/vehicles.html">Vehicle Hub</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero hero--calc">
+    <div class="container">
+      <span class="eyebrow">Rates updated: 2026 · Source: Alaska DMV / AS 28.10.421</span>
+      <h1>Alaska Vehicle Registration Fee Calculator / Estimator 2026</h1>
+      <p class="lede">Estimate biennial registration, MVRT tax by borough, EV / PHEV surcharges, and optional plate, title, and Z-Tab fees.</p>
+
+      <div id="ak-dmv-app">
+        <div class="dashboard-header">
+          <div class="dashboard-main">
+            <div class="label">Estimated Total Due</div>
+            <div class="value" id="resTotal">$0.00</div>
+            <div class="sub" id="resSubText">2-Year Registration + Taxes &amp; Fees</div>
+          </div>
+          <div class="dashboard-grid">
+            <div class="dash-item"><div class="k">State Registration</div><div class="v" id="resState">$0.00</div></div>
+            <div class="dash-item"><div class="k">MVRT Tax</div><div class="v" id="resMvrt">$0.00</div></div>
+            <div class="dash-item"><div class="k">Title &amp; Plate Fees</div><div class="v" id="resExtra">$0.00</div></div>
+          </div>
+        </div>
+
+        <h3 class="ak-title">Ownership &amp; Exemption Status</h3>
+        <div class="grid-row">
+          <div class="fg">
+            <label for="akOwnership">Ownership Type</label>
+            <select id="akOwnership">
+              <option value="owned">Owned / Financed</option>
+              <option value="leased">Leased (Commercial Rate)</option>
+            </select>
+            <span class="hint">Leased vehicles are classified as "Commercial" in Alaska.</span>
+          </div>
+          <div class="fg">
+            <label for="akStatus">Exemption Status</label>
+            <select id="akStatus">
+              <option value="std">Standard (No Exemption)</option>
+              <option value="senior">Senior Citizen (65+)</option>
+              <option value="disability">Mobility Disability</option>
+              <option value="vet">Disabled Veteran (50%+)</option>
+              <option value="military">Active Duty Military</option>
+              <option value="guard">AK National Guard</option>
+              <option value="goldstar">Gold Star Family</option>
+              <option value="charity">Charitable Organization</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label for="akTerm">Registration Term</label>
+            <select id="akTerm">
+              <option value="biennial">Biennial (2 Years)</option>
+              <option value="annual">Annual (1 Year)</option>
+            </select>
+            <span class="hint">Commercial vehicles may choose annual or biennial.</span>
+          </div>
+        </div>
+
+        <h3 class="ak-title">Vehicle Information</h3>
+        <div class="grid-row">
+          <div class="fg">
+            <label for="akType">Vehicle Type</label>
+            <select id="akType">
+              <option value="passenger">Passenger / Pickup / Van</option>
+              <option value="moto">Motorcycle</option>
+              <option value="trailer">Non-Commercial Trailer</option>
+              <option value="commtrailer">Commercial Trailer (One-Time)</option>
+              <option value="motorhome">Motor Home</option>
+              <option value="taxi">Taxicab</option>
+              <option value="tourbus">Tour Bus</option>
+              <option value="farm">Farm Vehicle</option>
+              <option value="historic">Historic Vehicle</option>
+              <option value="apv">All-Purpose Vehicle (APV)</option>
+              <option value="ohv">Off-Highway Vehicle</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label for="akYear">Model Year</label>
+            <select id="akYear"></select>
+          </div>
+          <div class="fg">
+            <label for="akLoc">Location (Borough / City)</label>
+            <select id="akLoc">
+              <option value="none">No MVRT (Unorganized Borough)</option>
+              <optgroup label="Southcentral">
+                <option value="anchorage">Anchorage (MOA)</option>
+                <option value="matsu">Mat-Su Borough</option>
+                <option value="kenai">Kenai Peninsula Borough</option>
+                <option value="cordova">Cordova ($22 Flat)</option>
+                <option value="valdez">Valdez ($22 Flat)</option>
+                <option value="whittier">Whittier ($22 Flat)</option>
+              </optgroup>
+              <optgroup label="Southeast">
+                <option value="juneau">Juneau</option>
+                <option value="ketchikan">Ketchikan</option>
+                <option value="sitka">Sitka ($22 Flat)</option>
+                <option value="haines">Haines</option>
+                <option value="petersburg">Petersburg ($22 Flat)</option>
+                <option value="wrangell">Wrangell ($22 Flat)</option>
+              </optgroup>
+              <optgroup label="Southwest / Interior">
+                <option value="kodiak">Kodiak Island Borough</option>
+                <option value="bethel">Bethel</option>
+                <option value="bristolbay">Bristol Bay Borough</option>
+                <option value="dillingham">Dillingham ($22 Flat)</option>
+                <option value="unalaska">Unalaska / Dutch Harbor</option>
+                <option value="nenana">Nenana ($22 Flat)</option>
+                <option value="nome">Nome ($22 Flat)</option>
+              </optgroup>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid-row" id="groupCommWeight" style="display:none">
+          <div class="fg">
+            <label for="akWeight">Commercial Weight Class</label>
+            <select id="akWeight">
+              <option value="180">0 - 5,000 lbs</option>
+              <option value="260">5,001 - 12,000 lbs</option>
+              <option value="360">12,001 - 18,000 lbs</option>
+              <option value="500">Over 18,000 lbs</option>
+            </select>
+          </div>
+        </div>
+
+        <h3 class="ak-title">Transaction &amp; Plate Options</h3>
+        <div class="grid-row">
+          <div class="fg">
+            <label for="akTrans">Transaction Type</label>
+            <select id="akTrans">
+              <option value="renew">Renewal</option>
+              <option value="new">New / Transfer (Title Required)</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label for="akPlate">Plate Type</label>
+            <select id="akPlate">
+              <option value="std">Standard Plate</option>
+              <option value="pers">Personalized (+$30)</option>
+              <option value="bloodbank">Alaska Blood Bank</option>
+              <option value="chooselife">Choose Life</option>
+              <option value="ingod">In God We Trust</option>
+              <option value="nra">NRA</option>
+              <option value="profamily">Pro Family / Pro Choice</option>
+              <option value="troops">Support Our Troops</option>
+              <option value="veteran">Veteran Commemorative</option>
+              <option value="transfer">Specialty Plate Transfer (+$5)</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label for="akService">Service Method</label>
+            <select id="akService">
+              <option value="online">Online / Mail (No Surcharge)</option>
+              <option value="inperson">In-Person (+$10 Walk-In Fee)</option>
+            </select>
+          </div>
+        </div>
+
+        <h3 class="ak-title">Additional Fees &amp; Options</h3>
+        <div class="grid-row">
+          <div class="fg">
+            <label for="akLien">Lien Recording</label>
+            <select id="akLien">
+              <option value="no">No Lien</option>
+              <option value="yes">Record Lien (+$15)</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label for="akDuplicate">Duplicate Documents</label>
+            <select id="akDuplicate">
+              <option value="no">None</option>
+              <option value="reg">Duplicate Registration (+$2)</option>
+              <option value="plate">Duplicate Plate/Tab (+$5)</option>
+              <option value="both">Both Duplicates (+$7)</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label for="akZtab">Permanent Registration (Z-Tab)</label>
+            <select id="akZtab">
+              <option value="no">No (Standard Renewal)</option>
+              <option value="yes">Z-Tab Permanent (+$25)</option>
+            </select>
+            <span class="hint">Available for vehicles 8+ years old or trailers.</span>
+          </div>
+        </div>
+
+        <h3 class="ak-title">Fuel Type &amp; EV Surcharge (HB 104)</h3>
+        <div class="grid-row">
+          <div class="fg">
+            <label for="akFuel">Fuel Type</label>
+            <select id="akFuel">
+              <option value="gas">Gasoline / Diesel</option>
+              <option value="ev">Electric Vehicle (+$100/2yr)</option>
+              <option value="phev">Plug-in Hybrid (+$50/2yr)</option>
+              <option value="altfuel">Alternative Fuel (+$100/2yr)</option>
+            </select>
+            <span class="hint">EV/PHEV surcharges per AS 28.10.421(k). Halved for annual term.</span>
+          </div>
+          <div class="fg">
+            <label for="akOhvTerm">OHV Registration Term</label>
+            <select id="akOhvTerm">
+              <option value="2yr">2-Year ($10)</option>
+              <option value="4yr">4-Year ($20)</option>
+              <option value="6yr">6-Year ($30)</option>
+            </select>
+            <span class="hint">Only applies to Off-Highway Vehicles/Snowmachines.</span>
+          </div>
+          <div class="fg">
+            <label for="akSpecPlate">University / Specialty Plate</label>
+            <select id="akSpecPlate">
+              <option value="none">None</option>
+              <option value="univ">University Plate (+$50 init)</option>
+              <option value="dogmush">Dog Mushing Plate (+$50 init)</option>
+              <option value="breastcancer">Breast Cancer Awareness (+$50 init)</option>
+              <option value="childrenstrust">Children's Trust (+$100 init)</option>
+              <option value="vetcomm">Veteran Commemorative (+$100 init + $35/2yr)</option>
+              <option value="firefighter">Firefighter/EMS (+$30 init)</option>
+              <option value="fraternal">Fraternal Org. (+$50 init)</option>
+              <option value="olympics">Winter Olympics (+$60/2yr)</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="text-align:right">
+          <button type="button" class="btn-reset" id="akResetBtn">Reset Calculator</button>
+        </div>
+
+        <div class="info-box">
+          <div class="chart-header">
+            <h3>Complete Fee Breakdown</h3>
+            <span class="badge" id="akBadge">Biennial Rate</span>
+          </div>
+          <table class="ak-fees">
+            <thead><tr><th>Item</th><th class="t-right">Amount</th></tr></thead>
+            <tbody id="akResultsBody"></tbody>
+            <tfoot>
+              <tr><td>Total Amount Due</td><td class="t-right" id="tableTotal">$0.00</td></tr>
+            </tfoot>
+          </table>
+
+          <div class="savings-callout" id="savingsCallout" style="display:none">
+            <div class="icon">💰</div>
+            <div>
+              <div class="k">Potential Savings</div>
+              <div class="v" id="savingsAmount">$0.00</div>
+              <div class="desc" id="savingsDesc"></div>
+            </div>
+          </div>
+
+          <p class="ak-disclaimer">* Alaska registrations are biennial (2 years) for most vehicles. Leased vehicles are classified as Commercial. MVRT rates vary by borough / city and vehicle age. Senior (65+), disability, disabled veteran, active-duty military, National Guard, and Gold Star Family exemptions waive registration and MVRT fees. Z-Tab permanent registration is available for vehicles 8+ years old or trailers in eligible areas. EV / PHEV surcharges per HB 104 (AS 28.10.421(k), effective July 2023). Estimates only — verify with your local DMV office.</p>
+        </div>
+
+        <div class="quick-ref">
+          <h3>📋 Quick Fee Reference</h3>
+          <div class="ref-grid">
+            <div class="ref-item">Passenger (2yr) — $100</div>
+            <div class="ref-item">Motorcycle (2yr) — $60</div>
+            <div class="ref-item">Trailer (2yr) — $30</div>
+            <div class="ref-item">Title — $15</div>
+            <div class="ref-item">Lien Recording — $15</div>
+            <div class="ref-item">Walk-In Fee — $10</div>
+            <div class="ref-item">Duplicate Reg — $2</div>
+            <div class="ref-item">Dup. Plate/Tab — $5</div>
+            <div class="ref-item">Z-Tab — $25</div>
+            <div class="ref-item">Personalized Plate — $30</div>
+            <div class="ref-item">Spec. Plate Transfer — $5</div>
+            <div class="ref-item">Emissions Fee — $2</div>
+            <div class="ref-item">EV Surcharge — $100/2yr</div>
+            <div class="ref-item">PHEV Surcharge — $50/2yr</div>
+            <div class="ref-item">OHV (2yr) — $10</div>
+            <div class="ref-item">OHV (4yr) — $20</div>
+            <div class="ref-item">OHV (6yr) — $30</div>
+            <div class="ref-item">Univ. Plate — $50</div>
+            <div class="ref-item">Vet Comm. — $100 + $35/2yr</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container content-section">
+      <p>The <strong>Alaska vehicle registration fees calculator</strong> gives you a fast, transparent estimate of what you will owe the Alaska DMV at your next renewal. Alaska uses a mostly flat state registration fee — typically $100 biennial for a passenger car — combined with a <strong>Motor Vehicle Registration Tax (MVRT)</strong> collected on behalf of your borough or city. That MVRT starts high on newer vehicles and depreciates each year based on the local rate schedule, and it varies significantly between Anchorage, Mat-Su, Juneau, Kenai, and smaller flat-rate communities. EV owners add a biennial surcharge under HB 104, and Z-Tab permanent registration is available for older vehicles.</p>
+
+      <h2>How much will my tag and registration cost in Alaska?</h2>
+      <p>Most Alaska drivers pay between <strong>$100 and $300 every two years</strong> for a standard passenger car. A brand-new SUV in Anchorage or Juneau can push the total past $400 because MVRT is highest in the first year. A 10-year-old sedan in a flat-rate community like Sitka or Petersburg can be as low as $122 biennial. Motorcycles, trailers, and off-highway vehicles pay less; commercial and leased vehicles pay a 1.5x MVRT rate.</p>
+
+      <h2>How fees are calculated in Alaska</h2>
+      <ul>
+        <li><strong>State registration fee</strong> — flat by vehicle type: $100 passenger / pickup (2yr), $60 motorcycle, $30 trailer, $10 OHV, up to $300 tour bus.</li>
+        <li><strong>MVRT</strong> — starts at a base by borough (about $150 in Anchorage / Mat-Su, $151 in Juneau, $221 in Unalaska) and depreciates roughly $16–$25 per model year, floored at $10–$19. Flat-rate communities charge $22 regardless of age.</li>
+        <li><strong>EV / PHEV surcharge (HB 104)</strong> — $100 biennial for EVs, $50 for PHEVs, halved for annual terms.</li>
+        <li><strong>Optional add-ons</strong> — $15 title, $15 lien, $10 walk-in fee, $25 Z-Tab, $2 emissions, plus specialty plate fees.</li>
+      </ul>
+
+      <h2>What affects your registration in Alaska?</h2>
+      <ul>
+        <li><strong>Borough / city</strong> — MVRT rates and depreciation schedules differ.</li>
+        <li><strong>Model year</strong> — older vehicles pay less MVRT (down to a per-borough minimum).</li>
+        <li><strong>Vehicle category</strong> — passenger, motorcycle, trailer, motor home, taxicab, tour bus, farm, historic, APV, OHV.</li>
+        <li><strong>Ownership</strong> — leased vehicles are classified commercial and pay 1.5x MVRT.</li>
+        <li><strong>Fuel type</strong> — EVs, PHEVs, and alternative-fuel vehicles pay HB 104 surcharges.</li>
+        <li><strong>Exemption status</strong> — Senior (65+), disability, disabled veteran, National Guard, Gold Star Family, and active-duty military waive registration and MVRT.</li>
+        <li><strong>Service method</strong> — online / mail is free of surcharges; in-person adds $10.</li>
+      </ul>
+
+      <h2>Estimated examples</h2>
+      <table class="fee-table">
+        <thead><tr><th>Scenario</th><th>Line items</th><th>Approx. total</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>2024 Toyota RAV4 · Anchorage · renewal · biennial</td>
+            <td>$100 reg + ~$118 MVRT + $2 emissions</td>
+            <td><strong>≈ $220</strong></td>
+          </tr>
+          <tr>
+            <td>2016 Ford F-150 · Juneau · renewal · biennial</td>
+            <td>$100 reg + ~$23 MVRT + $2 emissions</td>
+            <td><strong>≈ $125</strong></td>
+          </tr>
+          <tr>
+            <td>2025 Tesla Model Y · Mat-Su · new title · biennial</td>
+            <td>$100 reg + $150 MVRT + $100 EV + $15 title + $2 emissions</td>
+            <td><strong>≈ $367</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>What this calculator may not include</h2>
+      <ul>
+        <li>City-specific fees outside the modeled boroughs.</li>
+        <li>Sales / use tax at the time of purchase (some Alaska municipalities).</li>
+        <li>IRP-apportioned commercial registrations.</li>
+        <li>Late-registration penalties and interest.</li>
+        <li>Rare specialty plates and antique / collector exemptions.</li>
+        <li>Weight-based commercial adjustments beyond the four listed brackets.</li>
+      </ul>
+
+      <h2>Frequently asked questions</h2>
+      <details class="faq"><summary>What factors affect vehicle registration fees in Alaska?</summary>
+        <p>The main factors are your <strong>borough or city</strong> (which sets the MVRT rate), the vehicle's <strong>model year</strong> (older vehicles depreciate to a floor), the <strong>vehicle category</strong>, the <strong>fuel type</strong> (EVs and PHEVs pay HB 104 surcharges), and whether the vehicle is <strong>owned or leased</strong> (leased vehicles are commercial and pay 1.5x MVRT). Exemptions for seniors, disability, veterans, active-duty military, and Gold Star families waive most of the total.</p>
+      </details>
+      <details class="faq"><summary>Is this calculator accurate for all vehicles in Alaska?</summary>
+        <p>It reflects 2025–2026 Alaska DMV schedules under AS 28.10.421 for the most common vehicle classes: passenger cars, motorcycles, trailers, motor homes, taxicabs, tour buses, farm and historic vehicles, and OHVs. IRP-apportioned commercial fleets and rare specialty exemptions may fall outside the standard formula — confirm those with the Alaska DMV.</p>
+      </details>
+      <details class="faq"><summary>Can I use this calculator for a new car and a used car in Alaska?</summary>
+        <p>Yes. Alaska's MVRT depreciates from a base value each model year, so the calculator handles new and used vehicles identically — just pick the correct <strong>model year</strong> and <strong>borough / city</strong>. Vehicles 8+ years old also unlock the optional Z-Tab permanent registration.</p>
+      </details>
+
+      <p style="margin-top:2rem"><a class="btn btn--primary" href="/vehicles.html">See all 50-state vehicle calculators →</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2026 CalculateIt.net · <a href="/privacy.html">Privacy</a> · <a href="/disclaimer.html">Disclaimer</a> · <a href="/contact.html">Contact</a></p>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js" defer></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What factors affect vehicle registration fees in Alaska?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Alaska registration fees depend on the borough or city (MVRT rate), the vehicle's model year (older vehicles depreciate to a per-borough floor), the vehicle category, the fuel type (EVs and PHEVs pay HB 104 surcharges), and whether the vehicle is owned or leased (leased vehicles are commercial and pay 1.5x MVRT)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this calculator accurate for all vehicles in Alaska?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It reflects 2025-2026 Alaska DMV schedules under AS 28.10.421 for passenger cars, motorcycles, trailers, motor homes, taxicabs, tour buses, farm and historic vehicles, and OHVs. IRP-apportioned commercial fleets and rare specialty exemptions may fall outside the standard formula."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this calculator for a new car and a used car in Alaska?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Alaska's MVRT depreciates from a base value each model year, so the calculator handles new and used vehicles identically. Vehicles 8+ years old also unlock the optional Z-Tab permanent registration."
+      }
+    }
+  ]
+}
+</script>
+
+<script>
+(function () {
+  'use strict';
+
+  var currentYear = new Date().getFullYear();
+
+  var mvrtRates = {
+    anchorage:  { base: 150, min: 19, step: 16, type: 'dep'  },
+    matsu:      { base: 150, min: 19, step: 16, type: 'dep'  },
+    juneau:     { base: 151, min: 19, step: 16, type: 'dep'  },
+    kenai:      { base: 145, min: 10, step: 17, type: 'dep'  },
+    kodiak:     { base: 145, min: 10, step: 17, type: 'dep'  },
+    bethel:     { base: 151, min: 19, step: 16, type: 'dep'  },
+    bristolbay: { base: 151, min: 19, step: 16, type: 'dep'  },
+    ketchikan:  { base: 152, min: 18, step: 17, type: 'dep'  },
+    unalaska:   { base: 221, min: 19, step: 25, type: 'dep'  },
+    haines:     { base: 22,  min: 16, step: 1,  type: 'dep'  },
+    cordova:    { base: 22,  min: 22, step: 0,  type: 'flat' },
+    nome:       { base: 22,  min: 22, step: 0,  type: 'flat' },
+    petersburg: { base: 22,  min: 22, step: 0,  type: 'flat' },
+    sitka:      { base: 22,  min: 22, step: 0,  type: 'flat' },
+    whittier:   { base: 22,  min: 22, step: 0,  type: 'flat' },
+    nenana:     { base: 22,  min: 22, step: 0,  type: 'flat' },
+    dillingham: { base: 22,  min: 22, step: 0,  type: 'flat' },
+    valdez:     { base: 22,  min: 22, step: 0,  type: 'flat' },
+    wrangell:   { base: 22,  min: 22, step: 0,  type: 'flat' },
+    none:       { base: 0,   min: 0,  step: 0,  type: 'none' }
+  };
+
+  var plateFees = {
+    std:        { purchase: 0,  renewal: 0  },
+    pers:       { purchase: 30, renewal: 30 },
+    bloodbank:  { purchase: 50, renewal: 25 },
+    chooselife: { purchase: 50, renewal: 25 },
+    ingod:      { purchase: 50, renewal: 25 },
+    nra:        { purchase: 50, renewal: 25 },
+    profamily:  { purchase: 50, renewal: 25 },
+    troops:     { purchase: 50, renewal: 25 },
+    veteran:    { purchase: 50, renewal: 25 },
+    transfer:   { purchase: 5,  renewal: 5  }
+  };
+
+  var vehicleFees = {
+    passenger:   { biennial: 100, annual: 50  },
+    moto:        { biennial: 60,  annual: 30  },
+    trailer:     { biennial: 30,  annual: 15  },
+    commtrailer: { biennial: 20,  annual: 20  },
+    motorhome:   { biennial: 100, annual: 50  },
+    taxi:        { biennial: 160, annual: 80  },
+    tourbus:     { biennial: 300, annual: 150 },
+    farm:        { biennial: 68,  annual: 34  },
+    historic:    { biennial: 10,  annual: 10  },
+    apv:         { biennial: 30,  annual: 15  },
+    ohv:         { biennial: 10,  annual: 10  }
+  };
+
+  var exemptionTypes = {
+    std:        { level: 'none'      },
+    senior:     { level: 'full'      },
+    disability: { level: 'full'      },
+    vet:        { level: 'full'      },
+    military:   { level: 'mvrt_only' },
+    guard:      { level: 'full'      },
+    goldstar:   { level: 'full'      },
+    charity:    { level: 'partial'   }
+  };
+
+  function el(id) { return document.getElementById(id); }
+
+  function toUSD(num) {
+    return '$' + Number(num).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function populateYears() {
+    var yearSelect = el('akYear');
+    if (!yearSelect) return;
+    yearSelect.innerHTML = '';
+    for (var yi = currentYear + 1; yi >= currentYear - 25; yi--) {
+      var yopt = document.createElement('option');
+      yopt.value = yi;
+      yopt.text = yi + (yi === currentYear ? ' (Current)' : '');
+      if (yi === currentYear) yopt.selected = true;
+      yearSelect.add(yopt);
+    }
+    var oldOpt = document.createElement('option');
+    oldOpt.value = 'older';
+    oldOpt.text = 'Older (8+ yrs / Z-Tab eligible)';
+    yearSelect.add(oldOpt);
+  }
+
+  function bindEvents() {
+    var app = el('ak-dmv-app');
+    if (!app) return;
+    var fields = app.querySelectorAll('select, input');
+    fields.forEach(function (field) {
+      field.addEventListener('change', window.calculateAKFees);
+      field.addEventListener('input', window.calculateAKFees);
+    });
+    var resetBtn = el('akResetBtn');
+    if (resetBtn) resetBtn.addEventListener('click', window.resetAKFees);
+  }
+
+  window.calculateAKFees = function () {
+    var ownershipEl = el('akOwnership');
+    var statusEl = el('akStatus');
+    var typeEl = el('akType');
+    var yearEl = el('akYear');
+    var locEl = el('akLoc');
+    var transEl = el('akTrans');
+    var plateEl = el('akPlate');
+    var serviceEl = el('akService');
+    var lienEl = el('akLien');
+    var duplicateEl = el('akDuplicate');
+    var ztabEl = el('akZtab');
+    var termEl = el('akTerm');
+    var fuelEl = el('akFuel');
+    var ohvTermEl = el('akOhvTerm');
+    var specPlateEl = el('akSpecPlate');
+    var weightEl = el('akWeight');
+    var groupCommWeight = el('groupCommWeight');
+
+    if (!ownershipEl || !statusEl || !typeEl || !yearEl || !locEl || !transEl || !plateEl || !serviceEl || !lienEl || !duplicateEl || !ztabEl || !termEl || !fuelEl || !ohvTermEl || !specPlateEl || !weightEl || !groupCommWeight) return;
+
+    var ownership = ownershipEl.value;
+    var status = statusEl.value;
+    var type = typeEl.value;
+    var modelYear = yearEl.value;
+    var loc = locEl.value;
+    var trans = transEl.value;
+    var plate = plateEl.value;
+    var service = serviceEl.value;
+    var lien = lienEl.value;
+    var duplicate = duplicateEl.value;
+    var ztab = ztabEl.value;
+    var term = termEl.value;
+    var fuelType = fuelEl.value;
+    var ohvTermSel = ohvTermEl.value;
+    var specPlateSel = specPlateEl.value;
+    var weightFee = parseInt(weightEl.value, 10) || 0;
+
+    var isComm = ownership === 'leased';
+    var exemption = exemptionTypes[status] || exemptionTypes.std;
+
+    groupCommWeight.style.display = isComm ? 'grid' : 'none';
+
+    var baseFee = 0;
+    var regLabel = '';
+
+    if (isComm) {
+      baseFee = term === 'annual' ? Math.round(weightFee / 2) : weightFee;
+      regLabel = 'Commercial Registration (' + (term === 'annual' ? 'Annual' : 'Biennial') + ')';
+    } else if (type === 'ohv') {
+      if (ohvTermSel === '2yr') baseFee = 10;
+      else if (ohvTermSel === '4yr') baseFee = 20;
+      else baseFee = 30;
+      regLabel = 'OHV/Snowmachine Registration (' + ohvTermSel.toUpperCase() + ')';
+    } else {
+      var vf = vehicleFees[type] || vehicleFees.passenger;
+      baseFee = term === 'annual' ? vf.annual : vf.biennial;
+      regLabel = 'Registration Fee (' + (term === 'annual' ? 'Annual' : 'Biennial') + ')';
+      if (type === 'commtrailer') regLabel = 'Commercial Trailer (One-Time)';
+      if (type === 'historic') regLabel = 'Historic Vehicle (One-Time)';
+    }
+
+    var ztabFee = 0;
+    if (ztab === 'yes') {
+      ztabFee = 25;
+      baseFee = 0;
+      regLabel = 'Permanent Registration (Z-Tab)';
+    }
+
+    var regExempt = false;
+    if (exemption.level === 'full') {
+      baseFee = 0;
+      ztabFee = 0;
+      regExempt = true;
+    } else if (exemption.level === 'partial') {
+      baseFee = 10;
+    }
+
+    var age = 0;
+    if (modelYear === 'older') age = 10;
+    else {
+      age = currentYear - parseInt(modelYear, 10);
+      if (age < 0 || isNaN(age)) age = 0;
+    }
+
+    var taxInfo = mvrtRates[loc] || mvrtRates.none;
+    var mvrt = taxInfo.base - (age * taxInfo.step);
+    if (mvrt < taxInfo.min) mvrt = taxInfo.min;
+    if (taxInfo.type === 'flat') mvrt = taxInfo.base;
+    if (taxInfo.type === 'none') mvrt = 0;
+
+    var mvrtExempt = false;
+    if (exemption.level === 'full' || exemption.level === 'mvrt_only') {
+      mvrt = 0;
+      mvrtExempt = true;
+    }
+
+    if (isComm && mvrt > 0 && loc !== 'none') mvrt = Math.ceil(mvrt * 1.5);
+    if (type === 'moto' && mvrt > 0 && taxInfo.type === 'dep') mvrt = Math.ceil(mvrt * 0.5);
+    if ((type === 'trailer' || type === 'commtrailer') && mvrt > 0 && taxInfo.type === 'dep') {
+      mvrt = Math.max(taxInfo.min, Math.ceil(mvrt * 0.3));
+    }
+
+    var titleFee = trans === 'new' ? 15 : 0;
+    var plateInfo = plateFees[plate] || plateFees.std;
+    var plateFee = trans === 'new' ? plateInfo.purchase : plateInfo.renewal;
+    if (ztab === 'yes' && plate !== 'pers') plateFee = 0;
+
+    var serviceFee = service === 'inperson' ? 10 : 0;
+    var lienFee = lien === 'yes' && trans === 'new' ? 15 : 0;
+
+    var dupFee = 0;
+    if (duplicate === 'reg') dupFee = 2;
+    if (duplicate === 'plate') dupFee = 5;
+    if (duplicate === 'both') dupFee = 7;
+
+    var emissionsFee = 2;
+
+    var evSurcharge = 0;
+    if (fuelType === 'ev' || fuelType === 'altfuel') evSurcharge = term === 'annual' ? 50 : 100;
+    else if (fuelType === 'phev') evSurcharge = term === 'annual' ? 25 : 50;
+
+    var specPlateFee = 0;
+    var specPlateLabel = '';
+    if (specPlateSel === 'univ') { specPlateFee = trans === 'new' ? 50 : 0; specPlateLabel = 'University Plate'; }
+    if (specPlateSel === 'dogmush') { specPlateFee = trans === 'new' ? 50 : 0; specPlateLabel = 'Dog Mushing Plate'; }
+    if (specPlateSel === 'breastcancer') { specPlateFee = trans === 'new' ? 50 : 0; specPlateLabel = 'Breast Cancer Awareness Plate'; }
+    if (specPlateSel === 'childrenstrust') { specPlateFee = trans === 'new' ? 100 : 0; specPlateLabel = "Children's Trust Plate"; }
+    if (specPlateSel === 'vetcomm') { specPlateFee = trans === 'new' ? 100 : 0; specPlateLabel = 'Veteran Commemorative Plate'; }
+    if (specPlateSel === 'firefighter') { specPlateFee = trans === 'new' ? 30 : 0; specPlateLabel = 'Firefighter/EMS Plate'; }
+    if (specPlateSel === 'fraternal') { specPlateFee = trans === 'new' ? 50 : 0; specPlateLabel = 'Fraternal Organization Plate'; }
+    if (specPlateSel === 'olympics') { specPlateFee = 60; specPlateLabel = 'Winter Olympics Plate'; }
+
+    var vetCommBiennial = 0;
+    if (specPlateSel === 'vetcomm') vetCommBiennial = term === 'annual' ? 17.5 : 35;
+
+    var stateFees = baseFee + ztabFee;
+    var extraFees = titleFee + plateFee + serviceFee + lienFee + dupFee + emissionsFee + evSurcharge + specPlateFee + vetCommBiennial;
+    var totalDue = stateFees + mvrt + extraFees;
+
+    el('resTotal').innerText = toUSD(totalDue);
+    el('resState').innerText = toUSD(stateFees);
+    el('resMvrt').innerText = toUSD(mvrt);
+    el('resExtra').innerText = toUSD(extraFees);
+
+    var subText = (term === 'annual' ? '1-Year' : '2-Year') + ' Registration + Taxes & Fees';
+    if (ztab === 'yes') subText = 'Permanent Z-Tab Registration + Taxes & Fees';
+    if (fuelType !== 'gas') subText += ' (incl. EV Surcharge)';
+    if (regExempt) subText = 'Exemption Applied - ' + subText;
+    el('resSubText').innerText = subText;
+
+    var html = '';
+    var exemptClass = ' class="exempt-row"';
+
+    if (regExempt) {
+      html += '<tr' + exemptClass + '><td>' + regLabel + ' <span style="font-size:0.8rem;">(Exempt)</span></td><td class="t-right">' + toUSD(0) + '</td></tr>';
+    } else {
+      html += '<tr><td>' + regLabel + '</td><td class="t-right">' + toUSD(baseFee) + '</td></tr>';
+    }
+
+    if (ztabFee > 0) html += '<tr><td>Z-Tab Permanent Surcharge</td><td class="t-right">' + toUSD(ztabFee) + '</td></tr>';
+
+    var locName = locEl.options[locEl.selectedIndex].text;
+    var mvrtLabel = 'MVRT Tax (' + locName + ')';
+    if (isComm && mvrt > 0) mvrtLabel += ' (Commercial 1.5x)';
+
+    if (mvrtExempt) {
+      html += '<tr' + exemptClass + '><td>' + mvrtLabel + ' <span style="font-size:0.8rem;">(Exempt)</span></td><td class="t-right">' + toUSD(0) + '</td></tr>';
+    } else if (mvrt > 0) {
+      html += '<tr><td>' + mvrtLabel + '</td><td class="t-right">' + toUSD(mvrt) + '</td></tr>';
+    }
+
+    if (titleFee > 0) html += '<tr><td>Title Fee</td><td class="t-right">' + toUSD(titleFee) + '</td></tr>';
+    if (lienFee > 0) html += '<tr><td>Lien Recording</td><td class="t-right">' + toUSD(lienFee) + '</td></tr>';
+
+    if (plateFee > 0) {
+      var plateLabel = 'Specialty Plate Fee';
+      if (plate === 'pers') plateLabel = 'Personalized Plate Fee';
+      if (plate === 'transfer') plateLabel = 'Specialty Plate Transfer';
+      html += '<tr><td>' + plateLabel + '</td><td class="t-right">' + toUSD(plateFee) + '</td></tr>';
+    }
+
+    if (serviceFee > 0) html += '<tr><td>In-Person Walk-In Fee</td><td class="t-right">' + toUSD(serviceFee) + '</td></tr>';
+    if (dupFee > 0) html += '<tr><td>Duplicate Documents</td><td class="t-right">' + toUSD(dupFee) + '</td></tr>';
+    html += '<tr><td>Emissions Control Fee</td><td class="t-right">' + toUSD(emissionsFee) + '</td></tr>';
+
+    if (evSurcharge > 0) {
+      var evLabel = 'EV Surcharge (HB 104)';
+      if (fuelType === 'phev') evLabel = 'PHEV Surcharge (HB 104)';
+      if (fuelType === 'altfuel') evLabel = 'Alt. Fuel Surcharge (HB 104)';
+      html += '<tr><td>' + evLabel + '</td><td class="t-right">' + toUSD(evSurcharge) + '</td></tr>';
+    }
+
+    if (specPlateFee > 0) html += '<tr><td>' + specPlateLabel + '</td><td class="t-right">' + toUSD(specPlateFee) + '</td></tr>';
+    if (vetCommBiennial > 0) html += '<tr><td>Vet Commemorative Biennial Surcharge</td><td class="t-right">' + toUSD(vetCommBiennial) + '</td></tr>';
+
+    el('akResultsBody').innerHTML = html;
+    el('tableTotal').innerText = toUSD(totalDue);
+
+    var badge = el('akBadge');
+    if (regExempt) {
+      badge.innerText = 'Exemption Applied';
+      badge.style.background = '#dcfce7'; badge.style.color = '#15803d'; badge.style.borderColor = '#22c55e';
+    } else if (isComm) {
+      badge.innerText = 'Commercial Rate';
+      badge.style.background = '#fee2e2'; badge.style.color = '#991b1b'; badge.style.borderColor = '#ef4444';
+    } else if (ztab === 'yes') {
+      badge.innerText = 'Permanent Z-Tab';
+      badge.style.background = '#ede9fe'; badge.style.color = '#6b21a8'; badge.style.borderColor = '#8b5cf6';
+    } else {
+      badge.innerText = term === 'annual' ? 'Annual Rate' : 'Biennial Rate';
+      badge.style.background = '#fff8e1'; badge.style.color = '#b45309'; badge.style.borderColor = '#FFB612';
+    }
+
+    var savingsCallout = el('savingsCallout');
+    var savingsAmount = el('savingsAmount');
+    var savingsDesc = el('savingsDesc');
+
+    if (service === 'inperson') {
+      savingsCallout.style.display = 'flex';
+      savingsAmount.innerText = toUSD(10);
+      savingsDesc.innerText = 'Switch to online renewal to avoid the $10 walk-in fee.';
+    } else if (status === 'std' && ownership === 'owned' && fuelType === 'gas') {
+      var vehAge = modelYear === 'older' ? 10 : (currentYear - parseInt(modelYear, 10));
+      if (vehAge >= 8) {
+        savingsCallout.style.display = 'flex';
+        savingsAmount.innerText = toUSD(Math.max(0, baseFee + 10 - 25));
+        savingsDesc.innerText = 'Your vehicle is 8+ years old - eligible for Z-Tab permanent registration ($25 one-time) instead of recurring fees.';
+      } else {
+        savingsCallout.style.display = 'flex';
+        savingsAmount.innerText = toUSD(0);
+        savingsDesc.innerText = 'Select Senior (65+), Military, or Disability status to see exemption savings.';
+      }
+    } else {
+      savingsCallout.style.display = 'none';
+    }
+  };
+
+  window.resetAKFees = function () {
+    el('akOwnership').value = 'owned';
+    el('akStatus').value = 'std';
+    el('akType').value = 'passenger';
+    el('akLoc').value = 'anchorage';
+    el('akTrans').value = 'renew';
+    el('akPlate').value = 'std';
+    el('akService').value = 'online';
+    el('akLien').value = 'no';
+    el('akDuplicate').value = 'no';
+    el('akZtab').value = 'no';
+    el('akTerm').value = 'biennial';
+    el('akWeight').value = '180';
+    el('akFuel').value = 'gas';
+    el('akOhvTerm').value = '2yr';
+    el('akSpecPlate').value = 'none';
+
+    var ysel = el('akYear');
+    if (ysel) {
+      for (var i = 0; i < ysel.options.length; i++) {
+        if (String(ysel.options[i].value) === String(currentYear)) {
+          ysel.selectedIndex = i;
+          break;
+        }
+      }
+    }
+    window.calculateAKFees();
+  };
+
+  function initAKCalculator() {
+    if (!el('ak-dmv-app') || !el('akYear')) return;
+    populateYears();
+    bindEvents();
+    window.calculateAKFees();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAKCalculator);
+  } else {
+    initAKCalculator();
+  }
+})();
+</script>
+
+</body>
+</html>
