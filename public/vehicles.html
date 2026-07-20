@@ -163,7 +163,10 @@
             href = 'https://calculateit.net/colorado-vehicle-registration-fee-calculator.html';
           } else if (s[0] === 'FL') {
             href = 'https://calculateit.net/florida-vehicle-registration-fee-calculator.html';
-          }  else {
+          }  else if (s[0] === 'CT') {
+            href = 'https://calculateit.net/connecticut-vehicle-registration-fee-calculator.html';
+          }
+      else {
             href = 'https://calculateit.net/vehicle-registration/' + s[1].toLowerCase().replace(/\s+/g,'-');
           }
           html += '<a class="state-card" data-state-card data-name="' + s[1] + '" href="' + href + '">' +
