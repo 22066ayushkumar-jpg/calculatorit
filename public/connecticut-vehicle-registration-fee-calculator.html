@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Connecticut Vehicle Registration Fee Calculator / Estimator 2026</title>
+<meta name="description" content="Estimate Connecticut vehicle registration fees with our calculator. See cost factors, examples, and how fees are calculated." />
+<link rel="canonical" href="https://calculateit.net/connecticut-vehicle-registration-fee-calculator.html" />
+<meta property="og:title" content="Connecticut Vehicle Registration Fee Calculator 2026" />
+<meta property="og:description" content="Estimate Connecticut vehicle registration fees with our calculator. See cost factors, examples, and how fees are calculated." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://calculateit.net/connecticut-vehicle-registration-fee-calculator.html" />
+<meta name="twitter:card" content="summary" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Nunito:wght@400;600;700&display=swap" />
+<link rel="stylesheet" href="/assets/css/tokens.css" />
+<link rel="stylesheet" href="/assets/css/base.css" />
+<link rel="stylesheet" href="/assets/css/components.css" />
+<link rel="stylesheet" href="/assets/css/pages.css" />
+<style>
+  .hero--calc{padding-top:5.5rem;padding-bottom:1.5rem}
+  .hero--calc h1{font-size:clamp(1.7rem,4vw,2.6rem);margin-bottom:.5rem;text-align:center;}
+  .hero--calc .lede{margin-bottom:1.25rem;font-size:1rem;text-align:center;max-width:800px;margin-left:auto;margin-right:auto;}
+  
+  #ct-dmv-app{max-width:960px;margin:0 auto;padding:1.1rem;background:var(--card-bg,#FEFEFA);border-radius:26px;box-shadow:0 8px 30px rgba(60,60,50,.08);border:1px solid rgba(120,120,108,.15)}
+  #ct-dmv-app .dashboard-header{background:linear-gradient(135deg,rgba(93,112,82,.10),rgba(193,140,93,.10));border:1px solid rgba(93,112,82,.25);border-radius:20px;padding:1rem 1.1rem;margin-bottom:1rem}
+  #ct-dmv-app .dash-main{text-align:center;padding:.4rem 0 .8rem}
+  #ct-dmv-app .dash-label{font-size:.85rem;color:#78786C;text-transform:uppercase;letter-spacing:.06em}
+  #ct-dmv-app .dash-value{font-family:Fraunces,serif;font-weight:700;font-size:2.8rem;color:#5D7052;margin:.15rem 0}
+  #ct-dmv-app .dash-sub{font-size:.8rem;color:#78786C}
+  #ct-dmv-app .dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;text-align:center;margin-top:.6rem}
+  #ct-dmv-app .dash-item{padding:.4rem .3rem;border-top:1px solid rgba(120,120,108,.2)}
+  #ct-dmv-app .dash-item .k{font-size:.78rem;color:#78786C;text-transform:uppercase;letter-spacing:.05em}
+  #ct-dmv-app .dash-item .v{font-family:Fraunces,serif;font-weight:700;font-size:1.3rem;color:#2C2C24;margin-top:.15rem}
+  
+  #ct-dmv-app h3.ct-title{font-family:Fraunces,serif;font-size:1.05rem;margin:.9rem 0 .5rem;color:#4A4A40}
+  #ct-dmv-app .grid-row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+  #ct-dmv-app .fg{display:flex;flex-direction:column;margin-bottom:.6rem}
+  #ct-dmv-app .fg label{font-weight:600;font-size:.9rem;margin-bottom:.3rem;color:#2C2C24;}
+  #ct-dmv-app .fg input,#ct-dmv-app .fg select{padding:.6rem .75rem;border-radius:12px;border:1px solid rgba(120,120,108,.35);background:#FDFCF8;font:inherit;width:100%}
+  #ct-dmv-app .fg input:focus,#ct-dmv-app .fg select:focus{outline:2px solid #5D7052;outline-offset:1px}
+  #ct-dmv-app .fg .hint{font-size:.75rem;color:#78786C;margin-top:.25rem}
+  #ct-dmv-app .pre{position:relative}
+  #ct-dmv-app .pre span.prefix{position:absolute;left:.7rem;top:50%;transform:translateY(-50%);color:#78786C;font-size:.9rem}
+  #ct-dmv-app .pre input{padding-left:1.6rem}
+  
+  #ct-dmv-app .check-row{display:flex;flex-direction:column;gap:.35rem;padding:.3rem 0;margin-top:.5rem;}
+  #ct-dmv-app .check-row label{font-weight:500;display:inline-flex;align-items:center;gap:.4rem;font-size:.9rem;cursor:pointer;}
+  
+  #ct-dmv-app .info-box{background:#fff;border:1px solid rgba(120,120,108,.2);border-radius:16px;padding:1rem;margin-top:1rem}
+  #ct-dmv-app table.ct-fees{width:100%;border-collapse:collapse}
+  #ct-dmv-app table.ct-fees th,#ct-dmv-app table.ct-fees td{padding:.6rem;border-bottom:1px dashed rgba(120,120,108,.25);font-size:.92rem;text-align:left}
+  #ct-dmv-app table.ct-fees .t-right{text-align:right}
+  #ct-dmv-app table.ct-fees tfoot td{border-top:2px solid #5D7052;border-bottom:0;font-weight:700;color:#5D7052;font-size:1.05rem}
+  
+  #ct-dmv-app .projection-box{background:#fff;border:1px solid rgba(120,120,108,.2);border-radius:16px;padding:1.25rem;margin-top:1rem;}
+  #ct-dmv-app .proj-title{font-family:Fraunces,serif;font-size:1.05rem;color:#4A4A40;margin:0 0 .5rem;}
+  #ct-dmv-app .proj-sub{font-size:.85rem;color:#78786C;margin:0 0 1.5rem;line-height:1.4;}
+  #ct-dmv-app .chart{display:flex;align-items:flex-end;gap:10px;height:160px;padding-top:20px;border-bottom:1px solid rgba(120,120,108,.25);}
+  #ct-dmv-app .bar-wrapper{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;position:relative;}
+  #ct-dmv-app .bar{width:100%;background:linear-gradient(to top,rgba(193,140,93,.7),#5D7052);border-radius:4px 4px 0 0;min-height:4px;transition:height 0.8s ease;}
+  #ct-dmv-app .bar-val{position:absolute;top:-22px;font-size:.8rem;font-weight:700;color:#5D7052;}
+  #ct-dmv-app .bar-yr{font-size:.75rem;font-weight:600;color:#78786C;margin-top:8px;}
+  
+  #ct-dmv-app .ct-disclaimer{font-size:.78rem;color:#78786C;margin-top:1rem;line-height:1.5;padding:0 .5rem;}
+  
+  @media (max-width: 700px) {
+    #ct-dmv-app .grid-row,
+    #ct-dmv-app .dash-grid { grid-template-columns: 1fr; }
+    #ct-dmv-app .dashboard-header { padding: 1.25rem; }
+    #ct-dmv-app .t-right { text-align: right; }
+    #ct-dmv-app .dash-value{font-size:2.4rem;}
+  }
+
+  .content-section{max-width:820px;margin:2rem auto}
+  .content-section h2{font-family:Fraunces,serif;font-size:1.5rem;margin:1.5rem 0 .6rem;color:#2C2C24}
+  .content-section p,.content-section li{line-height:1.65;color:#4A4A40}
+  .content-section ul{padding-left:1.2rem}
+  .fee-table-content{width:100%;border-collapse:collapse;margin-top:.5rem}
+  .fee-table-content th,.fee-table-content td{padding:.6rem;border-bottom:1px solid rgba(120,120,108,.25);text-align:left;font-size:.92rem}
+  details.faq{border:1px solid rgba(120,120,108,.25);border-radius:12px;padding:.7rem .9rem;margin-bottom:.6rem;background:#FDFCF8}
+  details.faq summary{font-weight:700;cursor:pointer;color:#2C2C24}
+  details.faq p{margin:.5rem 0 0}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <nav class="nav" data-nav aria-label="Primary">
+    <a class="nav__brand" href="/index.html">
+      <span class="nav__logo" aria-hidden="true">C</span>
+      <span>CalculateIt</span>
+    </a>
+    <ul class="nav__list">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/vehicles.html">Vehicle Hub</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <a class="btn btn--primary nav__cta" href="/vehicles.html">All 50-state calculators</a>
+    <button class="nav__toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </nav>
+  <div class="nav-mobile" id="nav-mobile" data-nav-mobile data-open="false">
+    <ul>
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/vehicles.html">Vehicle Hub</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero hero--calc">
+    <div class="container">
+      <h1>Connecticut Vehicle Registration Fee Calculator / Estimator 2026</h1>
+      <p class="lede">Estimate your true ongoing vehicle costs with our Connecticut vehicle registration fees calculator. Calculate your exact municipal motor vehicle property tax based on your town's mill rate and the state's MSRP depreciation schedule.</p>
+
+      <div id="ct-dmv-app">
+        
+        <div class="dashboard-header">
+          <div class="dash-main">
+            <div class="dash-label">Estimated Annual Property Tax</div>
+            <div class="dash-value" id="resTotal">$0.00</div>
+            <div class="dash-sub">Based on 70% Assessment & Mill Rate</div>
+          </div>
+          <div class="dash-grid">
+            <div class="dash-item"><div class="k">Assessed Value (70%)</div><div class="v" id="resAssessed">$0</div></div>
+            <div class="dash-item"><div class="k">5-Year Total Tax</div><div class="v" id="resProjTotal">$0</div></div>
+          </div>
+        </div>
+
+        <h3 class="ct-title">Vehicle details</h3>
+        <div class="grid-row">
+          <div class="fg" style="grid-column: 1 / -1;">
+            <label for="ctMSRP">Original Sticker Price (MSRP)</label>
+            <div class="pre">
+              <span class="prefix">$</span>
+              <input type="number" id="ctMSRP" value="35000" min="0" step="500">
+            </div>
+            <div class="hint">As of Oct 2024, CT values vehicles strictly by their original MSRP.</div>
+          </div>
+        </div>
+
+        <div class="grid-row">
+          <div class="fg">
+            <label for="ctAge">Vehicle Age (Years)</label>
+            <input type="number" id="ctAge" value="1" min="1" max="25" step="1">
+            <div class="hint">Age 1 is a brand new/current model year vehicle.</div>
+          </div>
+          <div class="fg">
+            <label for="ctMillRate">Town Mill Rate</label>
+            <input type="number" id="ctMillRate" value="32.46" min="10" max="50" step="0.01">
+            <div class="hint">The CT Motor Vehicle Mill Rate is capped at 32.46.</div>
+          </div>
+        </div>
+
+        <div class="check-row">
+          <label><input type="checkbox" id="ctAltDep"> My town uses the Alternative Depreciation Schedule (+5%)</label>
+        </div>
+
+        <h3 class="ct-title" style="margin-top: 1.5rem;">CT Property Tax Breakdown</h3>
+        <div class="info-box">
+          <table class="ct-fees">
+            <thead>
+              <tr><th>Line Item</th><th class="t-right">Amount</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Original MSRP</td><td class="t-right" id="tableMSRP">$0</td></tr>
+              <tr><td>Depreciated MSRP Value (<span id="tableDepPct">85%</span>)</td><td class="t-right" id="tableDepValue">$0</td></tr>
+              <tr><td>Statewide Assessment Ratio</td><td class="t-right">70%</td></tr>
+            </tbody>
+            <tfoot>
+              <tr><td>Taxable Assessed Value</td><td class="t-right" id="tableAssessed">$0</td></tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <div class="projection-box">
+          <h5 class="proj-title">5-Year Tax Depreciation Projection</h5>
+          <p class="proj-sub">Connecticut lowers your vehicle's assessed value as it ages. Here is what you can expect to pay over the next 5 years.</p>
+          <div class="chart" id="ctChart">
+              <!-- Populated via JS -->
+          </div>
+        </div>
+        
+        <p class="ct-disclaimer">* <strong>Methodology (Public Act 22-118):</strong> CT assesses vehicles at 70% of their depreciated MSRP value. The standard depreciation schedule starts at 85% for Year 1 and drops 5% annually down to a 15% floor. The assessed value is multiplied by the mill rate and divided by 1,000. Minimum assessed value for vehicles 20+ years old is $500.</p>
+        
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container content-section">
+      <h2>How much will my tag and registration cost in Connecticut?</h2>
+      <p>In Connecticut, your ongoing vehicle costs are split into two distinct parts. First, there is a flat <strong>DMV tag fee</strong> of $120 every three years for standard passenger vehicles (which breaks down to just $40 per year). However, the most significant cost is the annual <strong>municipal motor vehicle property tax</strong>. Depending on your town's mill rate and your car's original MSRP, this property tax can cost anywhere from $150 to over $1,000 every single year. Because the property tax is assessed locally, your neighbor in the next town over could drive the exact same car and pay hundreds of dollars less.</p>
+
+      <h2>How fees are calculated in Connecticut</h2>
+      <p>Under Public Act 22-118, Connecticut standardized how local towns calculate motor vehicle property taxes across the state. The calculation follows a strict formula:</p>
+      <ul>
+        <li><strong>Depreciated MSRP:</strong> The state starts with the vehicle's original base MSRP. A brand-new car (Age 1) is valued at 85% of its MSRP. The value drops by 5% every year until it hits a 15% floor.</li>
+        <li><strong>70% Assessment Ratio:</strong> Connecticut universally assesses motor vehicles at 70% of their current depreciated value.</li>
+        <li><strong>The Mill Rate:</strong> The assessed value is divided by 1,000 and multiplied by your town's specific mill rate. The state has capped the motor vehicle mill rate at 32.46, though some towns have lower rates.</li>
+      </ul>
+      <p>On top of this annual tax, the DMV collects a triennial (every three years) flat registration fee of $120, plus a $15 Clean Air Act fee and a $24 Passport to the Parks fee.</p>
+
+      <h2>What affects your registration in Connecticut?</h2>
+      <ul>
+        <li><strong>Town Mill Rate:</strong> The single biggest variable. Cities like Hartford cap out at 32.46, while Greenwich might be as low as 12.</li>
+        <li><strong>Original MSRP:</strong> Your property tax is tied directly to the original sticker price of the vehicle, regardless of what you actually paid for it.</li>
+        <li><strong>Vehicle Age:</strong> Because the assessed value drops 5% annually, older vehicles are significantly cheaper to keep on the road.</li>
+        <li><strong>Vehicle Class:</strong> Commercial vehicles, heavy trucks, and campers have different DMV base fee structures, mostly determined by gross weight.</li>
+      </ul>
+
+      <h2>Estimated examples</h2>
+      <table class="fee-table-content">
+        <thead>
+          <tr>
+            <th>Scenario</th>
+            <th>VLT Property Tax Formula</th>
+            <th>Approx. Property Tax</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>New SUV</strong> ($45,000 MSRP) in Hartford</td>
+            <td>(45k × 85% × 70%) × (32.46 / 1000)</td>
+            <td><strong>≈ $869 / yr</strong></td>
+          </tr>
+          <tr>
+            <td><strong>5-Year-Old Sedan</strong> ($25,000 MSRP) in Greenwich</td>
+            <td>(25k × 65% × 70%) × (12.04 / 1000)</td>
+            <td><strong>≈ $137 / yr</strong></td>
+          </tr>
+          <tr>
+            <td><strong>12-Year-Old Truck</strong> ($38,000 MSRP) in Stamford</td>
+            <td>(38k × 30% × 70%) × (25.00 / 1000)</td>
+            <td><strong>≈ $199 / yr</strong></td>
+          </tr>
+        </tbody>
+      </table>
+      <p><em>*Note: You must also account for the separate $120 / 3-year DMV tag fee.</em></p>
+
+      <h2>What this calculator may not include</h2>
+      <ul>
+        <li>The flat state-level DMV registration fee ($120 every 3 years).</li>
+        <li>The one-time state sales tax (6.35% for vehicles under $50k, 7.75% for vehicles over $50k).</li>
+        <li>One-time title and lien fees ($25).</li>
+        <li>The Passport to the Parks ($24) and Clean Air Act ($15) fees assessed during DMV renewals.</li>
+        <li>Late penalties or emissions test fees.</li>
+      </ul>
+
+      <h2>Frequently asked questions</h2>
+      <details class="faq"><summary>How much is the average car registration in Connecticut?</summary>
+        <p>The DMV fee itself averages out to roughly $50 a year (paid as ~$150 every three years with park/air fees included). However, the average driver pays an additional $300 to $600 annually in municipal motor vehicle property taxes, making the total effective cost much higher.</p>
+      </details>
+      <details class="faq"><summary>Is this calculator accurate for all vehicles in Connecticut?</summary>
+        <p>This calculator is highly accurate for standard passenger vehicles following the new Public Act 22-118 depreciation schedules. Heavy commercial vehicles, farm equipment, and classic cars (which often have a capped assessment value of $500) follow different rules.</p>
+      </details>
+      <details class="faq"><summary>Can registration fees in Connecticut change every year?</summary>
+        <p>While the DMV flat fee is locked in for a 3-year term, your town property tax bill will change every year. It typically decreases annually as your vehicle's depreciation factor drops by 5% each year.</p>
+      </details>
+      <details class="faq"><summary>Can I use this calculator for a new car and a used car in Connecticut?</summary>
+        <p>Yes. Connecticut calculates the property tax based on the vehicle's original MSRP and its current age from the model year. Enter the original MSRP and adjust the "Vehicle Age" to reflect how old the used car is.</p>
+      </details>
+
+      <p style="margin-top:2rem"><a class="btn btn--primary" href="/vehicles.html">See all 50-state vehicle calculators →</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2026 CalculateIt.net · <a href="/privacy.html">Privacy</a> · <a href="/disclaimer.html">Disclaimer</a> · <a href="/contact.html">Contact</a></p>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js" defer></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much is the average car registration in Connecticut?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The DMV fee itself averages out to roughly $50 a year (paid as ~$150 every three years with park/air fees included). However, the average driver pays an additional $300 to $600 annually in municipal motor vehicle property taxes, making the total effective cost much higher."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this calculator accurate for all vehicles in Connecticut?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This calculator is highly accurate for standard passenger vehicles following the new Public Act 22-118 depreciation schedules. Heavy commercial vehicles, farm equipment, and classic cars (which often have a capped assessment value of $500) follow different rules."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can registration fees in Connecticut change every year?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "While the DMV flat fee is locked in for a 3-year term, your town property tax bill will change every year. It typically decreases annually as your vehicle's depreciation factor drops by 5% each year."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this calculator for a new car and a used car in Connecticut?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Connecticut calculates the property tax based on the vehicle's original MSRP and its current age from the model year. Enter the original MSRP and adjust the \"Vehicle Age\" to reflect how old the used car is."
+      }
+    }
+  ]
+}
+</script>
+
+<script>
+(function () {
+  'use strict';
+
+  const dom = {
+    msrp: document.getElementById('ctMSRP'),
+    age: document.getElementById('ctAge'),
+    millRate: document.getElementById('ctMillRate'),
+    altDep: document.getElementById('ctAltDep'),
+    resTotal: document.getElementById('resTotal'),
+    resAssessed: document.getElementById('resAssessed'),
+    resProjTotal: document.getElementById('resProjTotal'),
+    tableMSRP: document.getElementById('tableMSRP'),
+    tableDepPct: document.getElementById('tableDepPct'),
+    tableDepValue: document.getElementById('tableDepValue'),
+    tableAssessed: document.getElementById('tableAssessed'),
+    chart: document.getElementById('ctChart')
+  };
+
+  const formatUSD = (n) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(Number(n) || 0);
+  const formatNoCents = (n) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(Number(n) || 0);
+
+  function getDepreciationFactor(age, useAltSchedule) {
+    const baseline = useAltSchedule ? 0.90 : 0.85; 
+    let currentPct = baseline - ((age - 1) * 0.05);
+    const floor = useAltSchedule ? 0.20 : 0.15;
+    if (currentPct < floor) currentPct = floor;
+    return currentPct;
+  }
+
+  function calculateTax(msrp, age, millRate, useAlt) {
+    const depFactor = getDepreciationFactor(age, useAlt);
+    const depreciatedValue = msrp * depFactor;
+    
+    let assessedValue = depreciatedValue * 0.70;
+    if (age >= 20) assessedValue = Math.max(assessedValue, 500);
+
+    const tax = (assessedValue * millRate) / 1000;
+
+    return {
+      depPct: (depFactor * 100).toFixed(0),
+      depreciatedValue: depreciatedValue,
+      assessedValue: assessedValue,
+      tax: tax
+    };
+  }
+
+  function render() {
+    const msrp = Math.max(0, parseFloat(dom.msrp.value) || 0);
+    const currentAge = Math.max(1, parseInt(dom.age.value) || 1);
+    const millRate = Math.max(0, parseFloat(dom.millRate.value) || 0);
+    const useAlt = dom.altDep.checked;
+
+    const current = calculateTax(msrp, currentAge, millRate, useAlt);
+    
+    const forecast = [];
+    let total5YearTax = 0;
+    
+    for (let i = 0; i < 5; i++) {
+      const futureAge = currentAge + i;
+      const calc = calculateTax(msrp, futureAge, millRate, useAlt);
+      total5YearTax += calc.tax;
+      forecast.push({
+        yearOffset: i,
+        age: futureAge,
+        tax: calc.tax
+      });
+    }
+
+    dom.resTotal.textContent = formatUSD(current.tax);
+    dom.resAssessed.textContent = formatNoCents(current.assessedValue);
+    dom.resProjTotal.textContent = formatNoCents(total5YearTax);
+
+    dom.tableMSRP.textContent = formatNoCents(msrp);
+    dom.tableDepPct.textContent = current.depPct + "%";
+    dom.tableDepValue.textContent = formatNoCents(current.depreciatedValue);
+    dom.tableAssessed.textContent = formatNoCents(current.assessedValue);
+
+    dom.chart.innerHTML = "";
+    const maxTax = Math.max(...forecast.map(f => f.tax));
+    
+    forecast.forEach(f => {
+      const heightPct = maxTax > 0 ? Math.max((f.tax / maxTax) * 100, 5) : 5; 
+      const barHTML = `
+        <div class="bar-wrapper">
+          <div class="bar-val">${formatNoCents(f.tax)}</div>
+          <div class="bar" style="height: ${heightPct}%;"></div>
+          <div class="bar-yr">Year ${f.age}</div>
+        </div>
+      `;
+      dom.chart.innerHTML += barHTML;
+    });
+  }
+
+  function init() {
+    [dom.msrp, dom.age, dom.millRate, dom.altDep].forEach(input => {
+      input.addEventListener('input', render);
+      input.addEventListener('change', render);
+    });
+    render();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>
