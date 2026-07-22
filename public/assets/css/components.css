@@ -90,7 +90,7 @@
 
 @media (min-width: 820px) {
   .nav__list { display: inline-flex; }
-  .nav__cta { display: inline-flex; }
+  .nav__cta { display: inline-flex !important; }
   .nav__toggle { display: none; }
   .nav-mobile { display: none !important; }
 }
