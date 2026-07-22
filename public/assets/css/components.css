@@ -57,7 +57,7 @@
   background: color-mix(in oklab, var(--moss) 12%, transparent);
   color: var(--moss);
 }
-.nav__cta { display: none; }
+.nav__cta { display: none !important; }
 .nav__toggle {
   display: inline-grid; place-items: center;
   width: 2.5rem; height: 2.5rem;
@@ -90,7 +90,7 @@
 
 @media (min-width: 820px) {
   .nav__list { display: inline-flex; }
-  .nav__cta { display: inline-flex; }
+  .nav__cta { display: inline-flex !important; }
   .nav__toggle { display: none; }
   .nav-mobile { display: none !important; }
 }
@@ -282,3 +282,18 @@
   box-shadow: var(--shadow-soft);
 }
 .social-pill svg { width: 1.1rem; height: 1.1rem; }
+
+/* ---- Mobile calculator safety net ---- */
+@media (max-width: 700px) {
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .grid-row { grid-template-columns: 1fr !important; }
+  #az-dmv-app, #ak-dmv-app, #nv-dmv-app, #co-dmv-app, #al-dmv-app,
+  #fl-dmv-app, #ut-dmv-app, #ca-dmv-app { padding: 0.85rem !important; }
+  #az-dmv-app select, #ak-dmv-app select, #nv-dmv-app select,
+  #co-dmv-app select, #al-dmv-app select, #fl-dmv-app select,
+  #ut-dmv-app select, #ca-dmv-app select,
+  #az-dmv-app input, #ak-dmv-app input, #nv-dmv-app input,
+  #co-dmv-app input, #al-dmv-app input, #fl-dmv-app input,
+  #ut-dmv-app input, #ca-dmv-app input { max-width: 100%; }
+  table { max-width: 100%; }
+}
