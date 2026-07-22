@@ -57,7 +57,7 @@
   background: color-mix(in oklab, var(--moss) 12%, transparent);
   color: var(--moss);
 }
-.nav__cta { display: none; }
+.nav__cta { display: none !important; }
 .nav__toggle {
   display: inline-grid; place-items: center;
   width: 2.5rem; height: 2.5rem;
