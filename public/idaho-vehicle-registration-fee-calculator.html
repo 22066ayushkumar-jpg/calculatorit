@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Idaho Vehicle Registration Fee Calculator / Estimator 2026</title>
+<meta name="description" content="Estimate Idaho vehicle registration fees with our calculator. See cost factors, examples, and how fees are calculated." />
+<link rel="canonical" href="https://calculateit.net/idaho-vehicle-registration-fee-calculator.html" />
+<meta property="og:title" content="Idaho Vehicle Registration Fee Calculator 2026" />
+<meta property="og:description" content="Estimate Idaho vehicle registration fees with our calculator. See cost factors, examples, and how fees are calculated." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://calculateit.net/idaho-vehicle-registration-fee-calculator.html" />
+<meta name="twitter:card" content="summary" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Nunito:wght@400;600;700&display=swap" />
+<link rel="stylesheet" href="/assets/css/tokens.css" />
+<link rel="stylesheet" href="/assets/css/base.css" />
+<link rel="stylesheet" href="/assets/css/components.css" />
+<link rel="stylesheet" href="/assets/css/pages.css" />
+<style>
+  .hero--calc{padding-top:5.5rem;padding-bottom:1.5rem}
+  .hero--calc h1{font-size:clamp(1.7rem,4vw,2.6rem);margin-bottom:.5rem;text-align:center;}
+  .hero--calc .lede{margin-bottom:1.25rem;font-size:1rem;text-align:center;max-width:800px;margin-left:auto;margin-right:auto;}
+  
+  #id-dmv-app{max-width:960px;margin:0 auto;padding:1.1rem;background:var(--card-bg,#FEFEFA);border-radius:26px;box-shadow:0 8px 30px rgba(60,60,50,.08);border:1px solid rgba(120,120,108,.15)}
+  #id-dmv-app .dashboard-header{background:linear-gradient(135deg,rgba(93,112,82,.10),rgba(193,140,93,.10));border:1px solid rgba(93,112,82,.25);border-radius:20px;padding:1rem 1.1rem;margin-bottom:1rem}
+  #id-dmv-app .dash-main{text-align:center;padding:.4rem 0 .8rem}
+  #id-dmv-app .dash-label{font-size:.85rem;color:#78786C;text-transform:uppercase;letter-spacing:.06em}
+  #id-dmv-app .dash-value{font-family:Fraunces,serif;font-weight:700;font-size:2.8rem;color:#5D7052;margin:.15rem 0}
+  #id-dmv-app .dash-sub{font-size:.8rem;color:#78786C}
+  #id-dmv-app .dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;text-align:center;margin-top:.6rem}
+  #id-dmv-app .dash-item{padding:.4rem .3rem;border-top:1px solid rgba(120,120,108,.2)}
+  #id-dmv-app .dash-item .k{font-size:.78rem;color:#78786C;text-transform:uppercase;letter-spacing:.05em}
+  #id-dmv-app .dash-item .v{font-family:Fraunces,serif;font-weight:700;font-size:1.3rem;color:#2C2C24;margin-top:.15rem}
+  
+  #id-dmv-app h3.id-title{font-family:Fraunces,serif;font-size:1.05rem;margin:.9rem 0 .5rem;color:#4A4A40}
+  #id-dmv-app .grid-row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+  #id-dmv-app .fg{display:flex;flex-direction:column;margin-bottom:.6rem}
+  #id-dmv-app .fg label{font-weight:600;font-size:.9rem;margin-bottom:.3rem;color:#2C2C24;}
+  #id-dmv-app .fg input,#id-dmv-app .fg select{padding:.6rem .75rem;border-radius:12px;border:1px solid rgba(120,120,108,.35);background:#FDFCF8;font:inherit;width:100%}
+  #id-dmv-app .fg input:focus,#id-dmv-app .fg select:focus{outline:2px solid #5D7052;outline-offset:1px}
+  #id-dmv-app .fg .hint{font-size:.75rem;color:#78786C;margin-top:.25rem}
+  #id-dmv-app .pre{position:relative}
+  #id-dmv-app .pre span.prefix{position:absolute;left:.8rem;top:50%;transform:translateY(-50%);color:#78786C;font-size:.9rem}
+  #id-dmv-app .pre input{padding-left:1.6rem}
+  
+  #id-dmv-app .info-box{background:#fff;border:1px solid rgba(120,120,108,.2);border-radius:16px;padding:1rem;margin-top:1rem}
+  #id-dmv-app table.id-fees{width:100%;border-collapse:collapse}
+  #id-dmv-app table.id-fees th,#id-dmv-app table.id-fees td{padding:.6rem;border-bottom:1px dashed rgba(120,120,108,.25);font-size:.92rem;text-align:left}
+  #id-dmv-app table.id-fees .t-right{text-align:right}
+  #id-dmv-app table.id-fees tfoot td{border-top:2px solid #5D7052;border-bottom:0;font-weight:700;color:#5D7052;font-size:1.05rem}
+  
+  #id-dmv-app .id-note-box{background:rgba(193,140,93,.12);border:1px solid rgba(193,140,93,.3);border-radius:12px;padding:.8rem 1rem;margin-top:1rem;font-size:.88rem;color:#2C2C24;}
+  #id-dmv-app .id-note-box:empty{display:none;}
+  #id-dmv-app .id-disclaimer{font-size:.78rem;color:#78786C;margin-top:1rem;line-height:1.5;padding:0 .5rem;}
+  
+  @media (max-width: 700px) {
+    #id-dmv-app .grid-row,
+    #id-dmv-app .dash-grid { grid-template-columns: 1fr; }
+    #id-dmv-app .dashboard-header { padding: 1.25rem; }
+    #id-dmv-app .t-right { text-align: right; }
+    #id-dmv-app .dash-value{font-size:2.4rem;}
+  }
+
+  .content-section{max-width:820px;margin:2rem auto}
+  .content-section h2{font-family:Fraunces,serif;font-size:1.5rem;margin:1.5rem 0 .6rem;color:#2C2C24}
+  .content-section p,.content-section li{line-height:1.65;color:#4A4A40}
+  .content-section ul{padding-left:1.2rem}
+  .fee-table-content{width:100%;border-collapse:collapse;margin-top:.5rem}
+  .fee-table-content th,.fee-table-content td{padding:.6rem;border-bottom:1px solid rgba(120,120,108,.25);text-align:left;font-size:.92rem}
+  details.faq{border:1px solid rgba(120,120,108,.25);border-radius:12px;padding:.7rem .9rem;margin-bottom:.6rem;background:#FDFCF8}
+  details.faq summary{font-weight:700;cursor:pointer;color:#2C2C24}
+  details.faq p{margin:.5rem 0 0}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <nav class="nav" data-nav aria-label="Primary">
+    <a class="nav__brand" href="/index.html">
+      <span class="nav__logo" aria-hidden="true">C</span>
+      <span>CalculateIt</span>
+    </a>
+    <ul class="nav__list">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/vehicles.html">Vehicle Hub</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <a class="btn btn--primary nav__cta" href="/vehicles.html">All 50-state calculators</a>
+    <button class="nav__toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </nav>
+  <div class="nav-mobile" id="nav-mobile" data-nav-mobile data-open="false">
+    <ul>
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/vehicles.html">Vehicle Hub</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero hero--calc">
+    <div class="container">
+      <h1>Idaho Vehicle Registration Fee Calculator / Estimator 2026</h1>
+      <p class="lede">Looking for an accurate <strong>Idaho vehicle registration fees calculator</strong>? Whether you are a new resident moving to the Gem State or just renewing your local tags, our 2026 estimator helps you determine your exact out-of-pocket costs.</p>
+
+      <div id="id-dmv-app">
+        
+        <div class="dashboard-header">
+          <!-- Required Calculator Banner -->
+          <div style="text-align:center; margin-bottom: 1rem;">
+            <span style="display:inline-block; background:rgba(93,112,82,.15); color:#5D7052; font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.05em; padding:.3rem .8rem; border-radius:99px;">
+              No sign ups just fill in your details. 2026 updated.
+            </span>
+          </div>
+
+          <div class="dash-main">
+            <div class="dash-label">Total Estimated Due</div>
+            <div class="dash-value" id="resTotal">$0.00</div>
+            <div class="dash-sub">Includes state base fee, EMS, and county admin costs</div>
+          </div>
+          <div class="dash-grid">
+            <div class="dash-item"><div class="k">State Taxes & Fees</div><div class="v" id="resState">$0.00</div></div>
+            <div class="dash-item"><div class="k">County & Local Fees</div><div class="v" id="resCounty">$0.00</div></div>
+          </div>
+        </div>
+
+        <h3 class="id-title">Vehicle details</h3>
+        <div class="grid-row">
+          <div class="fg">
+            <label for="id-vehicleType">Vehicle Type</label>
+            <select id="id-vehicleType">
+              <option value="passenger">Passenger Vehicle (=8,000 lbs)</option>
+              <option value="motorcycle">Motorcycle</option>
+              <option value="schoolbus">School Bus</option>
+              <option value="utilitytrailer">Utility Trailer</option>
+              <option value="truck">Truck (8,001–60,000 lbs)</option>
+            </select>
+          </div>
+          
+          <div class="fg" id="wrap-age">
+            <label for="id-vehicleAge">Vehicle Age Band</label>
+            <select id="id-vehicleAge">
+              <option value="69">1–2 years old</option>
+              <option value="57">3–6 years old</option>
+              <option value="45">7+ years old</option>
+            </select>
+          </div>
+
+          <div class="fg" id="wrap-truck" style="display:none;">
+            <label for="id-truckWeight">Truck Gross Weight</label>
+            <select id="id-truckWeight">
+              <option value="73">8,001–16,000 lbs</option>
+              <option value="86.08">16,001–26,000 lbs</option>
+              <option value="116.68">26,001–30,000 lbs</option>
+              <option value="155.08">30,001–40,000 lbs</option>
+              <option value="213.28">40,001–50,000 lbs</option>
+              <option value="336.88">50,001–60,000 lbs</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid-row">
+          <div class="fg">
+            <label for="id-county">County of Residence</label>
+            <select id="id-county">
+              <option value="Ada">Ada</option>
+              <option value="Adams">Adams</option>
+              <option value="Bannock">Bannock</option>
+              <option value="Bear Lake">Bear Lake</option>
+              <option value="Benewah">Benewah</option>
+              <option value="Bingham">Bingham</option>
+              <option value="Blaine">Blaine</option>
+              <option value="Boise">Boise</option>
+              <option value="Bonner">Bonner</option>
+              <option value="Bonneville">Bonneville</option>
+              <option value="Boundary">Boundary</option>
+              <option value="Butte">Butte</option>
+              <option value="Camas">Camas</option>
+              <option value="Canyon">Canyon</option>
+              <option value="Caribou">Caribou</option>
+              <option value="Cassia">Cassia</option>
+              <option value="Clark">Clark</option>
+              <option value="Clearwater">Clearwater</option>
+              <option value="Custer">Custer</option>
+              <option value="Elmore">Elmore</option>
+              <option value="Franklin">Franklin</option>
+              <option value="Fremont">Fremont</option>
+              <option value="Gem">Gem</option>
+              <option value="Gooding">Gooding</option>
+              <option value="Idaho">Idaho</option>
+              <option value="Jefferson">Jefferson</option>
+              <option value="Jerome">Jerome</option>
+              <option value="Kootenai">Kootenai</option>
+              <option value="Latah">Latah</option>
+              <option value="Lemhi">Lemhi</option>
+              <option value="Lewis">Lewis</option>
+              <option value="Lincoln">Lincoln</option>
+              <option value="Madison">Madison</option>
+              <option value="Minidoka">Minidoka</option>
+              <option value="Nez Perce">Nez Perce</option>
+              <option value="Oneida">Oneida</option>
+              <option value="Owyhee">Owyhee</option>
+              <option value="Payette">Payette</option>
+              <option value="Power">Power</option>
+              <option value="Shoshone">Shoshone</option>
+              <option value="Teton">Teton</option>
+              <option value="Twin Falls">Twin Falls</option>
+              <option value="Valley">Valley</option>
+              <option value="Washington">Washington</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label for="id-fuelType">Fuel Type</label>
+            <select id="id-fuelType">
+              <option value="gas">Gas / Diesel</option>
+              <option value="phev">Plug-in Hybrid (PHEV)</option>
+              <option value="ev">Fully Electric Vehicle (EV)</option>
+              <option value="nev">Neighborhood Electric Vehicle (NEV)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid-row">
+          <div class="fg">
+            <label for="id-titleNeeded">Title Transaction Required?</label>
+            <select id="id-titleNeeded">
+              <option value="no">No (Renewal Only)</option>
+              <option value="yes">Yes (New Purchase / Transfer)</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label for="id-newPlates">New Plates Needed?</label>
+            <select id="id-newPlates">
+              <option value="no">No (I have plates)</option>
+              <option value="yes">Yes (Need new metal plates)</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="grid-row">
+          <div class="fg" style="grid-column: 1 / 2;">
+            <label for="id-mailFee">Mail / Postage Fee</label>
+            <div class="pre">
+              <span class="prefix">$</span>
+              <input type="number" id="id-mailFee" value="0.00" min="0" step="0.01">
+            </div>
+            <div class="hint">Leave at 0 unless ordering via mail.</div>
+          </div>
+        </div>
+
+        <h3 class="id-title" style="margin-top: 1.5rem;">Itemized Fee Breakdown</h3>
+        <div class="info-box">
+          <table class="id-fees">
+            <thead>
+              <tr><th>Fee Line Item</th><th class="t-right">Amount</th></tr>
+            </thead>
+            <tbody id="breakdownBody"></tbody>
+            <tfoot>
+              <tr><td>Total Estimated Due</td><td class="t-right" id="tableTotal">$0.00</td></tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <div class="id-note-box" id="idNote"></div>
+
+        <p class="id-disclaimer">Estimate only. This tool uses ITD’s official age-based and weight-based registration fees, the official county registration/title admin fee tables, and Idaho’s statutory EV surcharges. Some counties or specific transaction types may add extra local processing fees.</p>
+        
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container content-section">
+      <h2>How much will my tag and registration cost in Idaho?</h2>
+      <p>For most Idaho drivers, the annual registration fee for a standard passenger car is very affordable, ranging from <strong>$45 to $69</strong> depending entirely on the age of the vehicle. However, your total out-of-pocket cost at the DMV will also include local county administrative fees, which vary by location. If you live in Ada County (Boise), you will also pay a local highway district fee. Fully electric vehicles and plug-in hybrids face additional flat surcharges to offset state gas taxes.</p>
+
+      <h2>How are fees calculated in Idaho?</h2>
+      <p>Unlike states that tax based on a vehicle's MSRP or its curb weight, Idaho simplifies passenger vehicle registration by using three flat age tiers:</p>
+      <ul>
+        <li><strong>1 to 2 years old:</strong> $69.00</li>
+        <li><strong>3 to 6 years old:</strong> $57.00</li>
+        <li><strong>7 years and older:</strong> $45.00</li>
+      </ul>
+      <p>On top of this base fee, every registration includes a $1.25 EMS (Emergency Medical Services) fee. Individual counties then attach their own administrative fees for registration and titling.</p>
+
+      <h2>What affects your registration in Idaho?</h2>
+      <ul>
+        <li><strong>Vehicle Age:</strong> The primary factor for passenger cars. The older your car gets, the less it costs to register.</li>
+        <li><strong>Vehicle Type:</strong> Motorcycles ($25) and utility trailers ($5) have low flat rates, while heavy commercial trucks pay based on gross vehicle weight.</li>
+        <li><strong>County of Residence:</strong> Each county sets its own administrative fees (ranging from $3.00 to $14.00). Ada County also assesses a dedicated highway district fee based on vehicle age.</li>
+        <li><strong>Fuel Type:</strong> Fully electric vehicles (EVs) pay a $140 annual surcharge. Plug-in hybrids (PHEVs) pay $75.</li>
+      </ul>
+
+      <h2>Estimated examples</h2>
+      <table class="fee-table-content">
+        <thead>
+          <tr>
+            <th>Scenario</th>
+            <th>Primary Factors</th>
+            <th>Approx. Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>New Gas SUV</strong> (1 year old) · Ada County</td>
+            <td>$69 Base + $1.25 EMS + $40 Ada Highway + $9.50 County Reg</td>
+            <td><strong>˜ $119.75</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Used Sedan</strong> (8 years old) · Canyon County</td>
+            <td>$45 Base + $1.25 EMS + $9.50 County Reg</td>
+            <td><strong>˜ $55.75</strong></td>
+          </tr>
+          <tr>
+            <td><strong>New EV</strong> (2 years old) · Kootenai County</td>
+            <td>$69 Base + $140 EV Fee + $1.25 EMS + $14 County Reg</td>
+            <td><strong>˜ $224.25</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>What this calculator may not include</h2>
+      <ul>
+        <li>The 6% Idaho state sales tax on newly purchased vehicles.</li>
+        <li>Special plates (e.g., personalized, wildlife, veteran) which carry additional initial and annual renewal fees.</li>
+        <li>Idaho State Police (ISP) or Parks and Recreation vendor fees on specific off-highway vehicles.</li>
+        <li>Late registration penalties.</li>
+      </ul>
+
+      <h2>Frequently asked questions</h2>
+      <details class="faq"><summary>How much is the car registration fee in Idaho?</summary>
+        <p>For a standard passenger car, the state fee is $69 for vehicles 1-2 years old, $57 for 3-6 years old, and $45 for vehicles 7 years or older. Local county admin and highway fees typically add about $10 to $50 to this base.</p>
+      </details>
+      <details class="faq"><summary>Is this calculator accurate for all vehicles in Idaho?</summary>
+        <p>It is highly accurate for standard passenger vehicles, motorcycles, school buses, utility trailers, and standard trucks up to 60,000 lbs. Specialized commercial vehicles, RV motorhomes, and ATVs have different fee schedules and valuations.</p>
+      </details>
+      <details class="faq"><summary>Can registration fees in Idaho change every year?</summary>
+        <p>Yes, but usually in your favor! Because Idaho uses an age-based tier system for passenger cars, your base registration fee will drop when your car turns 3 years old, and again when it turns 7 years old.</p>
+      </details>
+      <details class="faq"><summary>Can I use this calculator for a new car and a used car in Idaho?</summary>
+        <p>Yes. Simply select the correct "Vehicle Age Band" and mark whether you need a new title transaction or new metal plates. The calculator will automatically adjust the base fees to match the used car's age bracket.</p>
+      </details>
+
+      <p style="margin-top:2rem"><a class="btn btn--primary" href="/vehicles.html">See all 50-state vehicle calculators ?</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2026 CalculateIt.net · <a href="/privacy.html">Privacy</a> · <a href="/disclaimer.html">Disclaimer</a> · <a href="/contact.html">Contact</a></p>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js" defer></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much is the car registration fee in Idaho?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For a standard passenger car, the state fee is $69 for vehicles 1-2 years old, $57 for 3-6 years old, and $45 for vehicles 7 years or older. Local county admin and highway fees typically add about $10 to $50 to this base."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this calculator accurate for all vehicles in Idaho?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is highly accurate for standard passenger vehicles, motorcycles, school buses, utility trailers, and standard trucks up to 60,000 lbs. Specialized commercial vehicles, RV motorhomes, and ATVs have different fee schedules and valuations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can registration fees in Idaho change every year?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, but usually in your favor! Because Idaho uses an age-based tier system for passenger cars, your base registration fee will drop when your car turns 3 years old, and again when it turns 7 years old."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this calculator for a new car and a used car in Idaho?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Simply select the correct \"Vehicle Age Band\" and mark whether you need a new title transaction or new metal plates. The calculator will automatically adjust the base fees to match the used car's age bracket."
+      }
+    }
+  ]
+}
+</script>
+
+<script>
+(function () {
+  'use strict';
+
+  const dom = {
+    vehicleType: document.getElementById('id-vehicleType'),
+    vehicleAge: document.getElementById('id-vehicleAge'),
+    truckWeight: document.getElementById('id-truckWeight'),
+    fuelType: document.getElementById('id-fuelType'),
+    county: document.getElementById('id-county'),
+    titleNeeded: document.getElementById('id-titleNeeded'),
+    newPlates: document.getElementById('id-newPlates'),
+    mailFee: document.getElementById('id-mailFee'),
+    
+    wrapAge: document.getElementById('wrap-age'),
+    wrapTruck: document.getElementById('wrap-truck'),
+    
+    resTotal: document.getElementById('resTotal'),
+    resState: document.getElementById('resState'),
+    resCounty: document.getElementById('resCounty'),
+    breakdownBody: document.getElementById('breakdownBody'),
+    tableTotal: document.getElementById('tableTotal'),
+    note: document.getElementById('idNote')
+  };
+
+  const countyFees = {
+    "Ada": { reg: 9.50, title: 7.00 },
+    "Adams": { reg: 7.50, title: 6.00 },
+    "Bannock": { reg: 7.00, title: 0.00 },
+    "Bear Lake": { reg: 4.00, title: 6.00 },
+    "Benewah": { reg: 7.00, title: 7.00 },
+    "Bingham": { reg: 7.15, title: 6.00 },
+    "Blaine": { reg: 7.25, title: 18.75 },
+    "Boise": { reg: 9.50, title: 0.00 },
+    "Bonner": { reg: 9.50, title: 10.00 },
+    "Bonneville": { reg: 8.00, title: 6.00 },
+    "Boundary": { reg: 6.50, title: 6.00 },
+    "Butte": { reg: 3.75, title: 3.00 },
+    "Camas": { reg: 3.50, title: 0.00 },
+    "Canyon": { reg: 9.50, title: 7.00 },
+    "Caribou": { reg: 3.50, title: 0.00 },
+    "Cassia": { reg: 8.00, title: 6.00 },
+    "Clark": { reg: 6.00, title: 0.00 },
+    "Clearwater": { reg: 7.00, title: 5.50 },
+    "Custer": { reg: 5.00, title: 6.00 },
+    "Elmore": { reg: 8.50, title: 7.00 },
+    "Franklin": { reg: 6.00, title: 6.00 },
+    "Fremont": { reg: 7.00, title: 7.00 },
+    "Gem": { reg: 9.50, title: 11.50 },
+    "Gooding": { reg: 5.50, title: 11.00 },
+    "Idaho": { reg: 5.00, title: 5.00 },
+    "Jefferson": { reg: 6.00, title: 7.00 },
+    "Jerome": { reg: 6.00, title: 4.00 },
+    "Kootenai": { reg: 14.00, title: 10.00 },
+    "Latah": { reg: 8.00, title: 7.00 },
+    "Lemhi": { reg: 5.00, title: 6.00 },
+    "Lewis": { reg: 3.00, title: 5.00 },
+    "Lincoln": { reg: 8.30, title: 10.00 },
+    "Madison": { reg: 6.00, title: 6.00 },
+    "Minidoka": { reg: 12.00, title: 6.00 },
+    "Nez Perce": { reg: 7.00, title: 11.00 },
+    "Oneida": { reg: 5.00, title: 6.00 },
+    "Owyhee": { reg: 7.50, title: 7.00 },
+    "Payette": { reg: 4.00, title: 7.00 },
+    "Power": { reg: 5.00, title: 0.00 },
+    "Shoshone": { reg: 6.00, title: 10.00 },
+    "Teton": { reg: 8.50, title: 5.00 },
+    "Twin Falls": { reg: 7.25, title: 2.00 },
+    "Valley": { reg: 8.25, title: 15.00 },
+    "Washington": { reg: 5.00, title: 6.00 }
+  };
+
+  const formatUSD = (n) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(Number(n) || 0);
+
+  function getAdaHighwayFee(vehicleType, vehicleAge, county) {
+    if (county !== "Ada") return 0;
+    if (vehicleType === "motorcycle") return 8.00;
+    if (vehicleType !== "passenger") return 0;
+    
+    if (vehicleAge === "69") return 40.00;
+    if (vehicleAge === "57") return 36.00;
+    return 24.00; // Age 45 tier (7+ years)
+  }
+
+  function calculate() {
+    const vType = dom.vehicleType.value;
+    const vAge = dom.vehicleAge.value;
+    const tWeight = dom.truckWeight.value;
+    const fType = dom.fuelType.value;
+    const cty = dom.county.value;
+    const tNeeded = dom.titleNeeded.value;
+    const pNeeded = dom.newPlates.value;
+    const mailFee = parseFloat(dom.mailFee.value) || 0;
+
+    // Toggle Input Display
+    dom.wrapAge.style.display = (vType === 'passenger') ? 'flex' : 'none';
+    dom.wrapTruck.style.display = (vType === 'truck') ? 'flex' : 'none';
+
+    let baseFee = 0;
+    let emsFee = 1.25;
+    let evFee = 0;
+    let titleFee = 0;
+    let plateFee = 0;
+    let adaFee = 0;
+
+    const countyRegFee = countyFees[cty].reg;
+    const countyTitleFee = countyFees[cty].title;
+
+    // Base Fee & EMS Setup
+    if (vType === "passenger") {
+      baseFee = parseFloat(vAge);
+    } else if (vType === "motorcycle") {
+      baseFee = 25.00;
+    } else if (vType === "schoolbus") {
+      baseFee = 24.00;
+    } else if (vType === "utilitytrailer") {
+      baseFee = 5.00;
+      emsFee = 0; 
+    } else if (vType === "truck") {
+      baseFee = parseFloat(tWeight);
+    }
+
+    // EV Surcharge
+    if (fType === "ev" && vType === "passenger") evFee = 140.00;
+    if (fType === "phev" && vType === "passenger") evFee = 75.00;
+
+    // Title & Plate Fees
+    if (tNeeded === "yes") {
+      titleFee = 14.00 + countyTitleFee;
+    }
+    if (pNeeded === "yes") {
+      plateFee = 7.50;
+    }
+
+    // Ada County Highway District
+    adaFee = getAdaHighwayFee(vType, vAge, cty);
+
+    // Totals Grouping
+    const stateTotal = baseFee + emsFee + evFee + (tNeeded === "yes" ? 14.00 : 0) + plateFee;
+    const countyTotal = countyRegFee + adaFee + (tNeeded === "yes" ? countyTitleFee : 0) + mailFee;
+    const grandTotal = stateTotal + countyTotal;
+
+    // Update Dashboard
+    dom.resTotal.textContent = formatUSD(grandTotal);
+    dom.resState.textContent = formatUSD(stateTotal);
+    dom.resCounty.textContent = formatUSD(countyTotal);
+    dom.tableTotal.textContent = formatUSD(grandTotal);
+
+    // Update Table
+    let rows = '';
+    const addRow = (label, val) => `<tr><td>${label}</td><td class="t-right">${formatUSD(val)}</td></tr>`;
+
+    rows += addRow('Base Registration Fee', baseFee);
+    
+    if (emsFee > 0) rows += addRow('EMS / State Police Fee', emsFee);
+    
+    rows += addRow('County Registration Admin Fee', countyRegFee);
+    
+    if (evFee > 0) rows += addRow('EV / PHEV State Surcharge', evFee);
+    if (adaFee > 0) rows += addRow('Ada County Highway District Fee', adaFee);
+    if (titleFee > 0) rows += addRow(`Title Fee ($14 State + ${formatUSD(countyTitleFee)} County)`, titleFee);
+    if (plateFee > 0) rows += addRow('New Plate Fee', plateFee);
+    if (mailFee > 0) rows += addRow('Mail / Postage Fee', mailFee);
+
+    dom.breakdownBody.innerHTML = rows;
+
+    dom.note.innerHTML = `<strong>Accuracy note:</strong> This estimate uses ITD’s official 2026 age and weight-based registration schedules, and official county administrative fee tables. Some local districts may charge additional nominal processing fees.`;
+  }
+
+  function init() {
+    [dom.vehicleType, dom.vehicleAge, dom.truckWeight, dom.fuelType, dom.county, dom.titleNeeded, dom.newPlates, dom.mailFee].forEach((el) => {
+      el.addEventListener('input', calculate);
+      el.addEventListener('change', calculate);
+    });
+    calculate();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>
