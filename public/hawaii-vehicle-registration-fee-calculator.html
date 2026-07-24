@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Hawaii Vehicle Registration Fee Calculator / Estimator 2026</title>
+<meta name="description" content="Estimate Hawaii vehicle registration fees with our calculator. See cost factors, examples, and how fees are calculated." />
+<link rel="canonical" href="https://calculateit.net/hawaii-vehicle-registration-fee-calculator.html" />
+<meta property="og:title" content="Hawaii Vehicle Registration Fee Calculator 2026" />
+<meta property="og:description" content="Estimate Hawaii vehicle registration fees with our calculator. See cost factors, examples, and how fees are calculated." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://calculateit.net/hawaii-vehicle-registration-fee-calculator.html" />
+<meta name="twitter:card" content="summary" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Nunito:wght@400;600;700&display=swap" />
+<link rel="stylesheet" href="/assets/css/tokens.css" />
+<link rel="stylesheet" href="/assets/css/base.css" />
+<link rel="stylesheet" href="/assets/css/components.css" />
+<link rel="stylesheet" href="/assets/css/pages.css" />
+<style>
+  .hero--calc{padding-top:5.5rem;padding-bottom:1.5rem}
+  .hero--calc h1{font-size:clamp(1.7rem,4vw,2.6rem);margin-bottom:.5rem;text-align:center;}
+  .hero--calc .lede{margin-bottom:1.25rem;font-size:1rem;text-align:center;max-width:800px;margin-left:auto;margin-right:auto;}
+  
+  #hi-dmv-app{max-width:960px;margin:0 auto;padding:1.1rem;background:var(--card-bg,#FEFEFA);border-radius:26px;box-shadow:0 8px 30px rgba(60,60,50,.08);border:1px solid rgba(120,120,108,.15)}
+  #hi-dmv-app .dashboard-header{background:linear-gradient(135deg,rgba(93,112,82,.10),rgba(193,140,93,.10));border:1px solid rgba(93,112,82,.25);border-radius:20px;padding:1rem 1.1rem;margin-bottom:1rem}
+  #hi-dmv-app .dash-main{text-align:center;padding:.4rem 0 .8rem}
+  #hi-dmv-app .dash-label{font-size:.85rem;color:#78786C;text-transform:uppercase;letter-spacing:.06em}
+  #hi-dmv-app .dash-value{font-family:Fraunces,serif;font-weight:700;font-size:2.8rem;color:#5D7052;margin:.15rem 0}
+  #hi-dmv-app .dash-sub{font-size:.8rem;color:#78786C}
+  #hi-dmv-app .dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;text-align:center;margin-top:.6rem}
+  #hi-dmv-app .dash-item{padding:.4rem .3rem;border-top:1px solid rgba(120,120,108,.2)}
+  #hi-dmv-app .dash-item .k{font-size:.78rem;color:#78786C;text-transform:uppercase;letter-spacing:.05em}
+  #hi-dmv-app .dash-item .v{font-family:Fraunces,serif;font-weight:700;font-size:1.3rem;color:#2C2C24;margin-top:.15rem}
+  
+  #hi-dmv-app h3.hi-title{font-family:Fraunces,serif;font-size:1.05rem;margin:.9rem 0 .5rem;color:#4A4A40}
+  #hi-dmv-app .grid-row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+  #hi-dmv-app .fg{display:flex;flex-direction:column;margin-bottom:.6rem}
+  #hi-dmv-app .fg label{font-weight:600;font-size:.9rem;margin-bottom:.3rem;color:#2C2C24;}
+  #hi-dmv-app .fg input,#hi-dmv-app .fg select{padding:.6rem .75rem;border-radius:12px;border:1px solid rgba(120,120,108,.35);background:#FDFCF8;font:inherit;width:100%}
+  #hi-dmv-app .fg input:focus,#hi-dmv-app .fg select:focus{outline:2px solid #5D7052;outline-offset:1px}
+  #hi-dmv-app .fg .hint{font-size:.75rem;color:#78786C;margin-top:.25rem}
+  #hi-dmv-app .pre{position:relative}
+  #hi-dmv-app .pre span.suffix{position:absolute;right:.8rem;top:50%;transform:translateY(-50%);color:#78786C;font-size:.9rem}
+  
+  #hi-dmv-app .check-row{display:flex;flex-direction:column;gap:.35rem;padding:.3rem 0;margin-top:.5rem;}
+  #hi-dmv-app .check-row label{font-weight:500;display:inline-flex;align-items:center;gap:.4rem;font-size:.9rem;cursor:pointer;}
+  
+  #hi-dmv-app .info-box{background:#fff;border:1px solid rgba(120,120,108,.2);border-radius:16px;padding:1rem;margin-top:1rem}
+  #hi-dmv-app table.hi-fees{width:100%;border-collapse:collapse}
+  #hi-dmv-app table.hi-fees th,#hi-dmv-app table.hi-fees td{padding:.6rem;border-bottom:1px dashed rgba(120,120,108,.25);font-size:.92rem;text-align:left}
+  #hi-dmv-app table.hi-fees .t-right{text-align:right}
+  #hi-dmv-app table.hi-fees tfoot td{border-top:2px solid #5D7052;border-bottom:0;font-weight:700;color:#5D7052;font-size:1.05rem}
+  
+  #hi-dmv-app .hi-note-box{background:rgba(193,140,93,.12);border:1px solid rgba(193,140,93,.3);border-radius:12px;padding:.8rem 1rem;margin-top:1rem;font-size:.88rem;color:#2C2C24;}
+  #hi-dmv-app .hi-note-box:empty{display:none;}
+  #hi-dmv-app .hi-disclaimer{font-size:.78rem;color:#78786C;margin-top:1rem;line-height:1.5;padding:0 .5rem;}
+  
+  @media (max-width: 700px) {
+    #hi-dmv-app .grid-row,
+    #hi-dmv-app .dash-grid { grid-template-columns: 1fr; }
+    #hi-dmv-app .dashboard-header { padding: 1.25rem; }
+    #hi-dmv-app .t-right { text-align: right; }
+    #hi-dmv-app .dash-value{font-size:2.4rem;}
+  }
+
+  .content-section{max-width:820px;margin:2rem auto}
+  .content-section h2{font-family:Fraunces,serif;font-size:1.5rem;margin:1.5rem 0 .6rem;color:#2C2C24}
+  .content-section p,.content-section li{line-height:1.65;color:#4A4A40}
+  .content-section ul{padding-left:1.2rem}
+  .fee-table-content{width:100%;border-collapse:collapse;margin-top:.5rem}
+  .fee-table-content th,.fee-table-content td{padding:.6rem;border-bottom:1px solid rgba(120,120,108,.25);text-align:left;font-size:.92rem}
+  details.faq{border:1px solid rgba(120,120,108,.25);border-radius:12px;padding:.7rem .9rem;margin-bottom:.6rem;background:#FDFCF8}
+  details.faq summary{font-weight:700;cursor:pointer;color:#2C2C24}
+  details.faq p{margin:.5rem 0 0}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <nav class="nav" data-nav aria-label="Primary">
+    <a class="nav__brand" href="/index.html">
+      <span class="nav__logo" aria-hidden="true">C</span>
+      <span>CalculateIt</span>
+    </a>
+    <ul class="nav__list">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/vehicles.html">Vehicle Hub</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <a class="btn btn--primary nav__cta" href="/vehicles.html">All 50-state calculators</a>
+    <button class="nav__toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </nav>
+  <div class="nav-mobile" id="nav-mobile" data-nav-mobile data-open="false">
+    <ul>
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/vehicles.html">Vehicle Hub</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero hero--calc">
+    <div class="container">
+      <h1>Hawaii Vehicle Registration Fee Calculator / Estimator 2026</h1>
+      <p class="lede">Are you moving your car to the islands or renewing your local tags? Our <strong>Hawaii vehicle registration fees calculator</strong> helps you estimate your exact out-of-pocket costs. Unlike states that use a vehicle's MSRP, Hawaii bases its taxes entirely on vehicle weight.</p>
+
+      <div id="hi-dmv-app">
+        
+        <div class="dashboard-header">
+          <!-- Required Calculator Banner -->
+          <div style="text-align:center; margin-bottom: 1rem;">
+            <span style="display:inline-block; background:rgba(93,112,82,.15); color:#5D7052; font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.05em; padding:.3rem .8rem; border-radius:99px;">
+              No sign ups just fill in your details. 2026 updated.
+            </span>
+          </div>
+
+          <div class="dash-main">
+            <div class="dash-label">Total Estimated Fees</div>
+            <div class="dash-value" id="resTotal">$0.00</div>
+            <div class="dash-sub">Includes state and county weight taxes</div>
+          </div>
+          <div class="dash-grid">
+            <div class="dash-item"><div class="k">State Taxes & Fees</div><div class="v" id="resState">$0.00</div></div>
+            <div class="dash-item"><div class="k">County Taxes & Fees</div><div class="v" id="resCounty">$0.00</div></div>
+          </div>
+        </div>
+
+        <h3 class="hi-title">Registration details</h3>
+        <div class="grid-row">
+          <div class="fg">
+            <label for="hiCounty">Island / County</label>
+            <select id="hiCounty">
+              <option value="honolulu">Honolulu County (O?ahu)</option>
+              <option value="maui">Maui County</option>
+              <option value="hawaii">Hawai?i County (Big Island)</option>
+              <option value="kauai">Kaua?i County</option>
+            </select>
+            <div class="hint">County weight tax rates vary significantly.</div>
+          </div>
+          <div class="fg">
+            <label for="hiWeight">Net Vehicle Weight</label>
+            <div class="pre">
+              <input type="number" id="hiWeight" value="3320" min="1">
+              <span class="suffix">lbs</span>
+            </div>
+            <div class="hint">Use the unladen (empty) weight of the vehicle.</div>
+          </div>
+        </div>
+
+        <div class="grid-row">
+          <div class="fg">
+            <label for="hiClass">Vehicle Class</label>
+            <select id="hiClass">
+              <option value="passenger">Passenger / Noncommercial</option>
+              <option value="commercial">Commercial / Freight</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label for="hiFuel">Fuel Type</label>
+            <select id="hiFuel">
+              <option value="gas">Gasoline / Diesel</option>
+              <option value="hybrid">Hybrid</option>
+              <option value="ev">Fully Electric Vehicle (EV)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="check-row">
+          <label><input type="checkbox" id="hiTransfer"> I am transferring ownership (buying/selling)</label>
+          <label id="wrapLate" style="display:none; margin-left: 1.5rem;"><input type="checkbox" id="hiLateTransfer"> This transfer is over 30 days late (Penalty)</label>
+        </div>
+
+        <h3 class="hi-title" style="margin-top: 1.5rem;">Itemized Fee Breakdown</h3>
+        <div class="info-box">
+          <table class="hi-fees">
+            <thead>
+              <tr><th>Fee Line Item</th><th class="t-right">Amount</th></tr>
+            </thead>
+            <tbody id="breakdownBody"></tbody>
+            <tfoot>
+              <tr><td>Total Estimated Due</td><td class="t-right" id="tableTotal">$0.00</td></tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <div class="hi-note-box" id="hiNote"></div>
+
+        <p class="hi-disclaimer">Estimate only. This tool uses official statewide weight tax formulas and individual county weight tax schedules. Because taxes are calculated per pound, exact amounts may vary slightly due to rounding at the DMV. A safety inspection fee is typically required separately before registration can be processed.</p>
+        
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container content-section">
+      <h2>How much will my tag and registration cost in Hawaii?</h2>
+      <p>Because Hawaii registration is determined almost entirely by the weight of your vehicle and the island you live on, the cost varies widely. For a typical mid-sized sedan weighing 3,300 lbs in Honolulu, expect to pay around $350 per year. For a heavier 4,500 lbs SUV in Maui, that cost can climb over $400. If you drive a fully electric vehicle, state (and sometimes county) surcharges are added to compensate for the lack of gas taxes.</p>
+
+      <h2>How are fees calculated in Hawaii?</h2>
+      <p>Hawaii uses a dual-tax system where both the state and your local county levy their own flat fees and weight-based taxes:</p>
+      <ul>
+        <li><strong>State Flat Fees:</strong> Every vehicle pays a $46.00 state registration fee, a $7.00 highway beautification fee, and a $0.50 emblem fee.</li>
+        <li><strong>State Weight Tax:</strong> 1.75 cents per pound for vehicles up to 4,000 lbs; 2.00 cents per pound for vehicles 4,001 to 7,000 lbs; 2.25 cents per pound for 7,001 to 10,000 lbs.</li>
+        <li><strong>County Flat Fees:</strong> Usually $20 (or $12 in Hawai?i County).</li>
+        <li><strong>County Weight Tax:</strong> This is the largest variable. Honolulu charges 7 cents per pound, while Hawai?i County charges only 1.25 cents per pound.</li>
+      </ul>
+
+      <h2>What affects your registration in Hawaii?</h2>
+      <ul>
+        <li><strong>Net Vehicle Weight:</strong> The heavier the car, the exponentially higher both the state and county taxes become.</li>
+        <li><strong>County of Residence:</strong> Honolulu has the highest county weight tax for passenger cars. Hawai?i County (the Big Island) has the lowest.</li>
+        <li><strong>Fuel Type:</strong> The state adds a flat $50 annual surcharge for EVs. Maui County adds an *additional* local EV surcharge of $100 (and $50 for standard hybrids).</li>
+        <li><strong>Commercial vs. Passenger:</strong> Commercial freight vehicles have their own specific county weight tax multipliers.</li>
+      </ul>
+
+      <h2>Estimated examples</h2>
+      <table class="fee-table-content">
+        <thead>
+          <tr>
+            <th>Scenario</th>
+            <th>Primary Drivers</th>
+            <th>Approx. Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Honda Civic (3,000 lbs)</strong> · Honolulu County</td>
+            <td>State Wt ($52.50) + County Wt ($210) + State/County Flat Fees ($73.50)</td>
+            <td><strong>˜ $336.00</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Ford F-150 (4,800 lbs)</strong> · Maui County</td>
+            <td>State Wt ($96.00) + County Wt ($168) + State/County Flat Fees ($73.50)</td>
+            <td><strong>˜ $337.50</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Tesla Model Y (4,400 lbs) EV</strong> · Kaua?i County</td>
+            <td>State Wt ($88) + County Wt ($88) + Flat Fees ($73.50) + State EV Surcharge ($50)</td>
+            <td><strong>˜ $299.50</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>What this calculator may not include</h2>
+      <ul>
+        <li><strong>Safety Inspection Fees:</strong> Hawaii requires an annual safety check ($20-$25 paid directly to an authorized inspection station) before you can renew your tags.</li>
+        <li>Replacement costs for lost or damaged metal license plates.</li>
+        <li>State sales or use tax if you are importing a newly purchased vehicle from the mainland.</li>
+      </ul>
+
+      <h2>Frequently asked questions</h2>
+      <details class="faq"><summary>How much is the average car registration in Hawaii?</summary>
+        <p>The average car in Hawaii weighs between 3,000 and 4,000 pounds, resulting in an average total registration cost of $300 to $400 per year, depending heavily on the county you live in.</p>
+      </details>
+      <details class="faq"><summary>Is this calculator accurate for all vehicles in Hawaii?</summary>
+        <p>This calculator is accurate for standard passenger cars, light trucks, SUVs, and commercial freight vehicles up to 10,000 lbs. Special vehicles, mopeds, trailers, and antique plates have different fee structures.</p>
+      </details>
+      <details class="faq"><summary>Can registration fees in Hawaii change every year?</summary>
+        <p>Your fee will remain fairly consistent year after year unless the state legislature or your local county council votes to increase the weight tax multiplier per pound, or if you transfer the vehicle to a new owner.</p>
+      </details>
+      <details class="faq"><summary>Can I use this calculator for a new car and a used car in Hawaii?</summary>
+        <p>Yes. Hawaii does not base registration on the vehicle's age, value, or MSRP. The registration fees for a brand-new 3,500 lb vehicle are exactly the same as they are for a 15-year-old 3,500 lb vehicle. If you are buying a used car, simply check the "Transfer Ownership" box to account for the title transfer fees.</p>
+      </details>
+
+      <p style="margin-top:2rem"><a class="btn btn--primary" href="/vehicles.html">See all 50-state vehicle calculators ?</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2026 CalculateIt.net · <a href="/privacy.html">Privacy</a> · <a href="/disclaimer.html">Disclaimer</a> · <a href="/contact.html">Contact</a></p>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js" defer></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much is the average car registration in Hawaii?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The average car in Hawaii weighs between 3,000 and 4,000 pounds, resulting in an average total registration cost of $300 to $400 per year, depending heavily on the county you live in."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this calculator accurate for all vehicles in Hawaii?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This calculator is accurate for standard passenger cars, light trucks, SUVs, and commercial freight vehicles up to 10,000 lbs. Special vehicles, mopeds, trailers, and antique plates have different fee structures."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can registration fees in Hawaii change every year?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your fee will remain fairly consistent year after year unless the state legislature or your local county council votes to increase the weight tax multiplier per pound, or if you transfer the vehicle to a new owner."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this calculator for a new car and a used car in Hawaii?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Hawaii does not base registration on the vehicle's age, value, or MSRP. The registration fees for a brand-new 3,500 lb vehicle are exactly the same as they are for a 15-year-old 3,500 lb vehicle. If you are buying a used car, simply check the \"Transfer Ownership\" box to account for the title transfer fees."
+      }
+    }
+  ]
+}
+</script>
+
+<script>
+(function () {
+  'use strict';
+
+  const dom = {
+    county: document.getElementById('hiCounty'),
+    vehicleClass: document.getElementById('hiClass'),
+    weight: document.getElementById('hiWeight'),
+    fuelType: document.getElementById('hiFuel'),
+    transfer: document.getElementById('hiTransfer'),
+    lateWrap: document.getElementById('wrapLate'),
+    lateTransfer: document.getElementById('hiLateTransfer'),
+    
+    resTotal: document.getElementById('resTotal'),
+    resState: document.getElementById('resState'),
+    resCounty: document.getElementById('resCounty'),
+    breakdownBody: document.getElementById('breakdownBody'),
+    tableTotal: document.getElementById('tableTotal'),
+    note: document.getElementById('hiNote')
+  };
+
+  const formatUSD = (n) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(Number(n) || 0);
+
+  function getStateWeightTax(weight) {
+    if (weight <= 4000) return weight * 0.0175;
+    if (weight <= 7000) return weight * 0.02;
+    if (weight <= 10000) return weight * 0.0225;
+    return 300;
+  }
+
+  function getCountyWeightTax(county, vehicleClass, weight) {
+    const passengerRates = { honolulu: 0.07, maui: 0.035, hawaii: 0.0125, kauai: 0.02 };
+    const commercialRates = { honolulu: 0.075, maui: 0.0536, hawaii: 0.025, kauai: 0.03 };
+
+    const rate = vehicleClass === 'commercial' ? commercialRates[county] : passengerRates[county];
+    let tax = weight * rate;
+
+    // Minimum weight tax for Hawaii and Kauai counties on passenger vehicles
+    if ((county === 'hawaii' || county === 'kauai') && vehicleClass === 'passenger') {
+      tax = Math.max(tax, 12);
+    }
+    return tax;
+  }
+
+  function getCountyRegistrationFee(county) {
+    const fees = { honolulu: 20, maui: 20, hawaii: 12, kauai: 20 };
+    return fees[county] || 20;
+  }
+
+  function getTransferFee(county) {
+    const fees = { honolulu: 10, maui: 20, hawaii: 5, kauai: 10 };
+    return fees[county] || 10;
+  }
+
+  function calculate() {
+    const county = dom.county.value;
+    const vehicleClass = dom.vehicleClass.value;
+    const weight = parseFloat(dom.weight.value) || 0;
+    const fuelType = dom.fuelType.value;
+    const isTransfer = dom.transfer.checked;
+    
+    // Toggle late transfer checkbox visibility
+    dom.lateWrap.style.display = isTransfer ? 'inline-flex' : 'none';
+    const isLate = isTransfer && dom.lateTransfer.checked;
+
+    const stateRegistrationFee = 46.00;
+    const stateBeautificationFee = 7.00;
+    const emblemFee = 0.50;
+
+    const stateWeightTax = getStateWeightTax(weight);
+    const countyWeightTax = getCountyWeightTax(county, vehicleClass, weight);
+    const countyRegistrationFee = getCountyRegistrationFee(county);
+
+    let stateEVFee = 0;
+    let countyEVFee = 0;
+
+    if (fuelType === 'ev') {
+      stateEVFee = 50.00;
+      if (county === 'maui') countyEVFee = 100.00;
+    }
+    if (fuelType === 'hybrid' && county === 'maui') {
+      countyEVFee = 50.00;
+    }
+
+    let transferFee = 0;
+    let latePenalty = 0;
+
+    if (isTransfer) {
+      transferFee = getTransferFee(county);
+      if (isLate) latePenalty = 50.00;
+    }
+
+    // Totals Grouping
+    const stateTotal = stateRegistrationFee + stateBeautificationFee + emblemFee + stateWeightTax + stateEVFee;
+    const countyTotal = countyRegistrationFee + countyWeightTax + countyEVFee + transferFee + latePenalty;
+    const grandTotal = stateTotal + countyTotal;
+
+    // Update Dashboard
+    dom.resTotal.textContent = formatUSD(grandTotal);
+    dom.resState.textContent = formatUSD(stateTotal);
+    dom.resCounty.textContent = formatUSD(countyTotal);
+    dom.tableTotal.textContent = formatUSD(grandTotal);
+
+    // Update Table
+    let rows = '';
+    const addRow = (label, val) => `<tr><td>${label}</td><td class="t-right">${formatUSD(val)}</td></tr>`;
+
+    rows += addRow('State Registration Fee', stateRegistrationFee);
+    rows += addRow('State Highway Beautification Fee', stateBeautificationFee);
+    rows += addRow('State Emblem Fee', emblemFee);
+    rows += addRow(`State Weight Tax (${weight} lbs)`, stateWeightTax);
+    
+    if (stateEVFee > 0) rows += addRow('State EV Road-Use Surcharge', stateEVFee);
+    
+    rows += addRow('County Registration Fee', countyRegistrationFee);
+    rows += addRow(`County Weight Tax (${weight} lbs)`, countyWeightTax);
+    
+    if (countyEVFee > 0) rows += addRow('County EV / Hybrid Surcharge', countyEVFee);
+    if (transferFee > 0) rows += addRow('County Ownership Transfer Fee', transferFee);
+    if (latePenalty > 0) rows += addRow('Late Transfer Penalty', latePenalty);
+
+    dom.breakdownBody.innerHTML = rows;
+
+    // Update Note
+    const countyNames = {
+      honolulu: "Honolulu",
+      maui: "Maui",
+      hawaii: "Hawai?i",
+      kauai: "Kaua?i"
+    };
+
+    dom.note.innerHTML = `<strong>Accuracy note:</strong> This estimate uses official statewide weight tax formulas and ${countyNames[county]} County-specific tax schedules. If your county office adds a local plate, inspection, or transaction fee, that will be charged separately.`;
+  }
+
+  function init() {
+    [dom.county, dom.vehicleClass, dom.weight, dom.fuelType, dom.transfer, dom.lateTransfer].forEach((el) => {
+      el.addEventListener('input', calculate);
+      el.addEventListener('change', calculate);
+    });
+    calculate();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>
