@@ -126,7 +126,6 @@
     <!-- ===== Inline data + render: keeps payload tiny, no extra request ===== -->
     <script>
       (function () {
-        // Compact list. Slug pattern is a placeholder; swap base when real URLs are known.
         var STATES = [
           ['AL','Alabama'],['AK','Alaska'],['AZ','Arizona'],['AR','Arkansas'],
           ['CA','California'],['CO','Colorado'],['CT','Connecticut'],['DE','Delaware'],
@@ -143,48 +142,34 @@
           ['WV','West Virginia'],['WI','Wisconsin'],['WY','Wyoming']
         ];
         var grid = document.getElementById('state-grid');
-        var html = '';
-        for (var i = 0; i < STATES.length; i++) {
-          var s = STATES[i];
-          var href;
-          if (s[0] === 'AL') {
-            href = 'https://calculateit.net/alabama-vehicle-registration-fee-calculator.html';
-          } else if (s[0] === 'AK') {
-            href = 'https://calculateit.net/alaska-vehicle-registration-fee-calculator.html';
-          } else if (s[0] === 'AZ') {
-            href = 'https://calculateit.net/arizona-vehicle-registration-fee-calculator.html';
-          } else if (s[0] === 'CA') {
-            href = 'https://calculateit.net/california-dmv-fee-calculator.html';
-          } else if (s[0] === 'UT') {
-            href = 'https://calculateit.net/utah-vehicle-registration-fee-calculator.html';
-          } else if (s[0] === 'NV') {
-            href = 'https://calculateit.net/nevada-vehicle-registration-fee-calculator.html';
-          } else if (s[0] === 'CO') {
-            href = 'https://calculateit.net/colorado-vehicle-registration-fee-calculator.html';
-          } else if (s[0] === 'FL') {
-            href = 'https://calculateit.net/florida-vehicle-registration-fee-calculator.html';
-          }  else if (s[0] === 'CT') {
-            href = 'https://calculateit.net/connecticut-vehicle-registration-fee-calculator.html';
+
+        function render(published) {
+          published = published || {};
+          var html = '';
+          for (var i = 0; i < STATES.length; i++) {
+            var s = STATES[i];
+            var href = published[s[0]] ||
+              ('https://calculateit.net/vehicle-registration/' + s[1].toLowerCase().replace(/\s+/g,'-'));
+            var live = !!published[s[0]];
+            html += '<a class="state-card" data-state-card data-name="' + s[1] + '"' +
+              (live ? '' : ' data-coming-soon="true"') +
+              ' href="' + href + '">' +
+              '<span class="state-card__abbr">' + s[0] + '</span>' +
+              '<span class="state-card__name">' + s[1] + '</span>' +
+              '<span class="state-card__cta">' + (live ? 'Estimate fees' : 'Coming soon') + '</span>' +
+            '</a>';
           }
-            else if (s[0] === 'GA') {
-            href = 'https://calculateit.net/georgia-vehicle-registration-fee-calculator.html';
-          }
-            else if (s[0] === 'HI') {
-            href = 'https://calculateit.net/hawaii-vehicle-registration-fee-calculator.html';
-          }
-            else if (s[0] === 'ID') {
-            href = 'https://calculateit.net/idaho-vehicle-registration-fee-calculator.html';
-          }
-      else {
-            href = 'https://calculateit.net/vehicle-registration/' + s[1].toLowerCase().replace(/\s+/g,'-');
-          }
-          html += '<a class="state-card" data-state-card data-name="' + s[1] + '" href="' + href + '">' +
-            '<span class="state-card__abbr">' + s[0] + '</span>' +
-            '<span class="state-card__name">' + s[1] + '</span>' +
-            '<span class="state-card__cta">Estimate fees</span>' +
-          '</a>';
+          grid.innerHTML = html;
         }
-        grid.innerHTML = html;
+
+        // Auto-link states that have a published calculator page. The manifest
+        // (public/calculators.json) is regenerated on every build by
+        // scripts/generate-sitemap.mjs, so new state pages appear here with no
+        // HTML edits.
+        fetch('./calculators.json', { cache: 'no-cache' })
+          .then(function (r) { return r.ok ? r.json() : {}; })
+          .then(render)
+          .catch(function () { render({}); });
       })();
     </script>
   </body>
