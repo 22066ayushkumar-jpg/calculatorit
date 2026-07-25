@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Illinois Vehicle Registration Fee Calculator / Estimator 2026</title>
+<meta name="description" content="Estimate Illinois vehicle registration fees with our calculator. See cost factors, examples, and how fees are calculated." />
+<link rel="canonical" href="https://calculateit.net/illinois-vehicle-registration-fee-calculator.html" />
+<meta property="og:title" content="Illinois Vehicle Registration Fee Calculator 2026" />
+<meta property="og:description" content="Estimate Illinois vehicle registration fees with our calculator. See cost factors, examples, and how fees are calculated." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://calculateit.net/illinois-vehicle-registration-fee-calculator.html" />
+<meta name="twitter:card" content="summary" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Nunito:wght@400;600;700&display=swap" />
+<link rel="stylesheet" href="/assets/css/tokens.css" />
+<link rel="stylesheet" href="/assets/css/base.css" />
+<link rel="stylesheet" href="/assets/css/components.css" />
+<link rel="stylesheet" href="/assets/css/pages.css" />
+<style>
+  .hero--calc{padding-top:5.5rem;padding-bottom:1.5rem}
+  .hero--calc h1{font-size:clamp(1.7rem,4vw,2.6rem);margin-bottom:.5rem;text-align:center;}
+  .hero--calc .lede{margin-bottom:1.25rem;font-size:1rem;text-align:center;max-width:800px;margin-left:auto;margin-right:auto;}
+  
+  #il-dmv-app{max-width:960px;margin:0 auto;padding:1.1rem;background:var(--card-bg,#FEFEFA);border-radius:26px;box-shadow:0 8px 30px rgba(60,60,50,.08);border:1px solid rgba(120,120,108,.15)}
+  #il-dmv-app .dashboard-header{background:linear-gradient(135deg,rgba(93,112,82,.10),rgba(193,140,93,.10));border:1px solid rgba(93,112,82,.25);border-radius:20px;padding:1rem 1.1rem;margin-bottom:1rem}
+  #il-dmv-app .dash-main{text-align:center;padding:.4rem 0 .8rem}
+  #il-dmv-app .dash-label{font-size:.85rem;color:#78786C;text-transform:uppercase;letter-spacing:.06em}
+  #il-dmv-app .dash-value{font-family:Fraunces,serif;font-weight:700;font-size:2.8rem;color:#5D7052;margin:.15rem 0}
+  #il-dmv-app .dash-sub{font-size:.8rem;color:#78786C}
+  #il-dmv-app .dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;text-align:center;margin-top:.6rem}
+  #il-dmv-app .dash-item{padding:.4rem .3rem;border-top:1px solid rgba(120,120,108,.2)}
+  #il-dmv-app .dash-item .k{font-size:.78rem;color:#78786C;text-transform:uppercase;letter-spacing:.05em}
+  #il-dmv-app .dash-item .v{font-family:Fraunces,serif;font-weight:700;font-size:1.3rem;color:#2C2C24;margin-top:.15rem}
+  
+  #il-dmv-app h3.il-title{font-family:Fraunces,serif;font-size:1.05rem;margin:.9rem 0 .5rem;color:#4A4A40}
+  #il-dmv-app .grid-row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+  #il-dmv-app .fg{display:flex;flex-direction:column;margin-bottom:.6rem}
+  #il-dmv-app .fg label{font-weight:600;font-size:.9rem;margin-bottom:.3rem;color:#2C2C24;}
+  #il-dmv-app .fg input,#il-dmv-app .fg select{padding:.6rem .75rem;border-radius:12px;border:1px solid rgba(120,120,108,.35);background:#FDFCF8;font:inherit;width:100%}
+  #il-dmv-app .fg input:focus,#il-dmv-app .fg select:focus{outline:2px solid #5D7052;outline-offset:1px}
+  #il-dmv-app .fg .hint{font-size:.75rem;color:#78786C;margin-top:.25rem}
+  
+  #il-dmv-app .info-box{background:#fff;border:1px solid rgba(120,120,108,.2);border-radius:16px;padding:1rem;margin-top:1rem}
+  #il-dmv-app table.il-fees{width:100%;border-collapse:collapse}
+  #il-dmv-app table.il-fees th,#il-dmv-app table.il-fees td{padding:.6rem;border-bottom:1px dashed rgba(120,120,108,.25);font-size:.92rem;text-align:left}
+  #il-dmv-app table.il-fees .t-right{text-align:right}
+  #il-dmv-app table.il-fees tfoot td{border-top:2px solid #5D7052;border-bottom:0;font-weight:700;color:#5D7052;font-size:1.05rem}
+  
+  #il-dmv-app .il-note-box{background:rgba(193,140,93,.12);border:1px solid rgba(193,140,93,.3);border-radius:12px;padding:.8rem 1rem;margin-top:1rem;font-size:.88rem;color:#2C2C24;}
+  #il-dmv-app .il-note-box:empty{display:none;}
+  #il-dmv-app .il-disclaimer{font-size:.78rem;color:#78786C;margin-top:1rem;line-height:1.5;padding:0 .5rem;}
+  
+  @media (max-width: 700px) {
+    #il-dmv-app .grid-row,
+    #il-dmv-app .dash-grid { grid-template-columns: 1fr; }
+    #il-dmv-app .dashboard-header { padding: 1.25rem; }
+    #il-dmv-app .t-right { text-align: right; }
+    #il-dmv-app .dash-value{font-size:2.4rem;}
+  }
+
+  .content-section{max-width:820px;margin:2rem auto}
+  .content-section h2{font-family:Fraunces,serif;font-size:1.5rem;margin:1.5rem 0 .6rem;color:#2C2C24}
+  .content-section p,.content-section li{line-height:1.65;color:#4A4A40}
+  .content-section ul{padding-left:1.2rem}
+  .fee-table-content{width:100%;border-collapse:collapse;margin-top:.5rem}
+  .fee-table-content th,.fee-table-content td{padding:.6rem;border-bottom:1px solid rgba(120,120,108,.25);text-align:left;font-size:.92rem}
+  details.faq{border:1px solid rgba(120,120,108,.25);border-radius:12px;padding:.7rem .9rem;margin-bottom:.6rem;background:#FDFCF8}
+  details.faq summary{font-weight:700;cursor:pointer;color:#2C2C24}
+  details.faq p{margin:.5rem 0 0}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <nav class="nav" data-nav aria-label="Primary">
+    <a class="nav__brand" href="/index.html">
+      <span class="nav__logo" aria-hidden="true">C</span>
+      <span>CalculateIt</span>
+    </a>
+    <ul class="nav__list">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/vehicles.html">Vehicle Hub</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <a class="btn btn--primary nav__cta" href="/vehicles.html">All 50-state calculators</a>
+    <button class="nav__toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </nav>
+  <div class="nav-mobile" id="nav-mobile" data-nav-mobile data-open="false">
+    <ul>
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/vehicles.html">Vehicle Hub</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero hero--calc">
+    <div class="container">
+      <h1>Illinois Vehicle Registration Fee Calculator / Estimator 2026</h1>
+      <p class="lede">Estimate Indiana vehicle registration fees with our calculator. See cost factors, examples, and how fees are calculated.</p>
+
+      <div id="il-dmv-app">
+        
+        <div class="dashboard-header">
+          <!-- Required Calculator Banner -->
+          <div style="text-align:center; margin-bottom: 1rem;">
+            <span style="display:inline-block; background:rgba(93,112,82,.15); color:#5D7052; font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.05em; padding:.3rem .8rem; border-radius:99px;">
+              No sign ups just fill in your details. 2026 updated.
+            </span>
+          </div>
+
+          <div class="dash-main">
+            <div class="dash-label">Total Estimated Due</div>
+            <div class="dash-value" id="resTotal">$0.00</div>
+            <div class="dash-sub">Official ILSOS registration & transaction fees</div>
+          </div>
+          <div class="dash-grid">
+            <div class="dash-item"><div class="k">Base Registration</div><div class="v" id="resBase">$0.00</div></div>
+            <div class="dash-item"><div class="k">Title & Add-on Fees</div><div class="v" id="resAddons">$0.00</div></div>
+          </div>
+        </div>
+
+        <h3 class="il-title">Vehicle & Registration Options</h3>
+        <div class="grid-row">
+          <div class="fg">
+            <label for="vehicleType">Vehicle Type</label>
+            <select id="vehicleType">
+              <option value="passenger">Passenger Vehicle ($151)</option>
+              <option value="btruck">B-Truck ($151)</option>
+              <option value="ctruck">C-Truck ($218)</option>
+              <option value="motorcycle">Motorcycle ($41)</option>
+              <option value="rt3000">Recreational Trailer = 3,000 lbs ($18)</option>
+              <option value="rt8000">Recreational Trailer 3,001–8,000 lbs ($30)</option>
+              <option value="rt10000">Recreational Trailer 8,001–10,000 lbs ($38)</option>
+              <option value="rtover10000">Recreational Trailer 10,001+ lbs ($50)</option>
+              <option value="rvunder8000">Recreational Vehicle < 8,000 lbs ($101)</option>
+              <option value="rv8001to10000">Recreational Vehicle 8,001–10,000 lbs ($90)</option>
+              <option value="rvover10000">Recreational Vehicle > 10,000 lbs ($102)</option>
+            </select>
+          </div>
+
+          <div class="fg">
+            <label for="fuelType">Fuel Type</label>
+            <select id="fuelType">
+              <option value="gas">Gas / Diesel / Hybrid / PHEV</option>
+              <option value="ev">Battery Electric Vehicle (+$100 EV Surcharge)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid-row">
+          <div class="fg">
+            <label for="titleNeeded">Title / Transfer Needed</label>
+            <select id="titleNeeded">
+              <option value="no">No Title Needed (Renewal)</option>
+              <option value="yes">Yes - New Title ($165)</option>
+              <option value="duplicate">Duplicate / Corrected Title ($50)</option>
+            </select>
+          </div>
+
+          <div class="fg">
+            <label for="plateTransfer">Plate Transfer</label>
+            <select id="plateTransfer">
+              <option value="no">No</option>
+              <option value="yes">Yes - Transfer Existing Plates ($25)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid-row">
+          <div class="fg">
+            <label for="replacementType">Replacement Option</label>
+            <select id="replacementType">
+              <option value="none">None</option>
+              <option value="sticker">Replacement Sticker ($20)</option>
+              <option value="oneplate">Replacement 1 Plate ($6)</option>
+              <option value="twoplates">Replacement 2 Plates ($9)</option>
+              <option value="oneplate_sticker">1 Plate + Sticker ($26)</option>
+              <option value="twoplates_sticker">2 Plates + Sticker ($29)</option>
+              <option value="regcard">Replacement Registration Card ($3)</option>
+            </select>
+          </div>
+
+          <div class="fg">
+            <label for="lateRenewal">Late Renewal (30+ Days)</label>
+            <select id="lateRenewal">
+              <option value="no">No</option>
+              <option value="yes">Yes - Lapsed Tag Penalty (+$20)</option>
+            </select>
+          </div>
+        </div>
+
+        <h3 class="il-title" style="margin-top: 1.5rem;">Itemized Fee Breakdown</h3>
+        <div class="info-box">
+          <table class="il-fees">
+            <thead>
+              <tr><th>Fee Line Item</th><th class="t-right">Amount</th></tr>
+            </thead>
+            <tbody id="breakdownBody"></tbody>
+            <tfoot>
+              <tr><td>Total Estimated Due</td><td class="t-right" id="tableTotal">$0.00</td></tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <div class="il-note-box" id="ilNote"></div>
+
+        <p class="il-disclaimer">Estimate only. Illinois registration operates mostly on a flat-fee system by vehicle class. The official Secretary of State fee schedule supports the base registration, title, EV surcharge, and common replacement fees shown here. Sales tax or private-party use tax (RUT-50) on vehicle purchases are calculated separately from annual registration renewal fees.</p>
+        
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container content-section">
+      <h2>How much will my tag and registration cost in Illinois?</h2>
+      <p>For standard passenger vehicles and B-trucks (8,000 lbs or less), the annual license plate renewal fee in Illinois is a flat <strong>$151</strong>. If you drive a battery electric vehicle (BEV), an additional $100 EV surcharge brings your annual renewal to <strong>$251</strong>. If you are registering a newly acquired car, you must also factor in the <strong>$165 title fee</strong>, making the standard total $316 for new registrations.</p>
+
+      <h2>How are fees calculated in Illinois</h2>
+      <p>Illinois Secretary of State (ILSOS) determines vehicle registration fees primarily based on vehicle classification and gross weight rather than vehicle value or model year:</p>
+      <ul>
+        <li><strong>Standard Passenger Cars & B-Trucks:</strong> Flat $151 annual registration fee.</li>
+        <li><strong>Motorcycles:</strong> Flat $41 annual registration fee.</li>
+        <li><strong>Battery Electric Vehicles (BEV):</strong> Standard $151 base fee plus a mandatory $100 annual EV surcharge ($251 total).</li>
+        <li><strong>Titling Fees:</strong> A one-time $165 fee for new or transferred titles; $50 for duplicate or corrected titles.</li>
+        <li><strong>Plate Transfers:</strong> A $25 transfer fee when moving valid license plates to another vehicle.</li>
+        <li><strong>Recreational Vehicles & Trailers:</strong> Tiered flat rates based on gross weight ratings (ranging from $18 for light trailers up to $102 for large motorhomes).</li>
+      </ul>
+
+      <h2>What affects your registration in Illinois?</h2>
+      <ul>
+        <li><strong>Vehicle Classification:</strong> Commercial C-trucks ($218) and heavier motorhomes carry higher base rates than standard passenger cars ($151).</li>
+        <li><strong>Fuel Type / Powertrain:</strong> Pure electric vehicles carry a $100 annual surcharge to support state road funds in lieu of gas taxes.</li>
+        <li><strong>Transaction Type:</strong> Transferring existing valid plates ($25) is significantly cheaper upfront than issuing brand-new plates ($151).</li>
+        <li><strong>Timeliness:</strong> Renewing a expired registration more than 30 days late triggers a $20 late penalty fee.</li>
+      </ul>
+
+      <h2>Estimated examples</h2>
+      <table class="fee-table-content">
+        <thead>
+          <tr>
+            <th>Scenario</th>
+            <th>Primary Drivers</th>
+            <th>Approx. Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Gas Sedan Renewal</strong> (On-time)</td>
+            <td>Base Passenger Registration Fee ($151.00)</td>
+            <td><strong>$151.00</strong></td>
+          </tr>
+          <tr>
+            <td><strong>New Tesla Model Y</strong> (First-time registration)</td>
+            <td>Base Reg ($151) + EV Surcharge ($100) + New Title ($165)</td>
+            <td><strong>$416.00</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Used Car Purchase</strong> (Transferring existing plates)</td>
+            <td>Plate Transfer Fee ($25) + New Title ($165)</td>
+            <td><strong>$190.00</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>What this calculator may not include</h2>
+      <ul>
+        <li><strong>Sales / Use Taxes:</strong> Dealership sales tax or Illinois Department of Revenue RUT-50 / RUT-25 private party transaction taxes.</li>
+        <li><strong>Local City Stickers:</strong> Municipal wheel taxes, such as the Chicago City Vehicle Sticker ($100+ annually).</li>
+        <li><strong>Specialty & Vanity License Plates:</strong> Personalized, military, or organizational specialty plate initialization and renewal fees.</li>
+        <li><strong>Emissions Inspection Fees:</strong> While Illinois air testing is free for qualifying vehicles, repair costs needed to pass testing before renewal are separate.</li>
+      </ul>
+
+      <h2>FAQS</h2>
+      <details class="faq"><summary>How much is the car registration fee in Illinois?</summary>
+        <p>The standard annual registration renewal fee for a regular passenger car, SUV, or B-truck (up to 8,000 lbs) in Illinois is $151.</p>
+      </details>
+      <details class="faq"><summary>Is this calculator accurate for all vehicles in Illinois?</summary>
+        <p>This calculator covers standard passenger vehicles, B/C trucks, motorcycles, recreational trailers, and RVs using official ILSOS fee rates. Commercial fleets and heavy trucks over 10,000 lbs operate under separate mileage or gross-weight schedules.</p>
+      </details>
+      <details class="faq"><summary>Can registration fees in Illinois change every year?</summary>
+        <p>Registration fees remain set at fixed statutory rates unless altered by state legislation. Fee structures like the $151 base tag fee and $100 EV surcharge are established by Illinois state law and apply consistently year to year.</p>
+      </details>
+      <details class="faq"><summary>Can I use this calculator for a new car and a used car in Illinois?</summary>
+        <p>Yes. Illinois charges the same flat $151 registration fee regardless of whether a car is brand-new or 20 years old. If you bought a car (new or used), simply select "Yes" under Title / Transfer Needed to add the required $165 title fee.</p>
+      </details>
+
+      <p style="margin-top:2rem"><a class="btn btn--primary" href="/vehicles.html">See all 50-state vehicle calculators ?</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2026 CalculateIt.net · <a href="/privacy.html">Privacy</a> · <a href="/disclaimer.html">Disclaimer</a> · <a href="/contact.html">Contact</a></p>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js" defer></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much is the car registration fee in Illinois?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The standard annual registration renewal fee for a regular passenger car, SUV, or B-truck (up to 8,000 lbs) in Illinois is $151."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this calculator accurate for all vehicles in Illinois?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This calculator covers standard passenger vehicles, B/C trucks, motorcycles, recreational trailers, and RVs using official ILSOS fee rates. Commercial fleets and heavy trucks over 10,000 lbs operate under separate mileage or gross-weight schedules."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can registration fees in Illinois change every year?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Registration fees remain set at fixed statutory rates unless altered by state legislation. Fee structures like the $151 base tag fee and $100 EV surcharge are established by Illinois state law and apply consistently year to year."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this calculator for a new car and a used car in Illinois?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Illinois charges the same flat $151 registration fee regardless of whether a car is brand-new or 20 years old. If you bought a car (new or used), simply select \"Yes\" under Title / Transfer Needed to add the required $165 title fee."
+      }
+    }
+  ]
+}
+</script>
+
+<script>
+(function () {
+  'use strict';
+
+  const dom = {
+    vehicleType: document.getElementById('vehicleType'),
+    fuelType: document.getElementById('fuelType'),
+    titleNeeded: document.getElementById('titleNeeded'),
+    plateTransfer: document.getElementById('plateTransfer'),
+    replacementType: document.getElementById('replacementType'),
+    lateRenewal: document.getElementById('lateRenewal'),
+    
+    resTotal: document.getElementById('resTotal'),
+    resBase: document.getElementById('resBase'),
+    resAddons: document.getElementById('resAddons'),
+    breakdownBody: document.getElementById('breakdownBody'),
+    tableTotal: document.getElementById('tableTotal'),
+    note: document.getElementById('ilNote')
+  };
+
+  const formatUSD = (n) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(Number(n) || 0);
+
+  function getBaseFee(vehicleType) {
+    const fees = {
+      passenger: 151.00,
+      btruck: 151.00,
+      ctruck: 218.00,
+      motorcycle: 41.00,
+      rt3000: 18.00,
+      rt8000: 30.00,
+      rt10000: 38.00,
+      rtover10000: 50.00,
+      rvunder8000: 101.00,
+      rv8001to10000: 90.00,
+      rvover10000: 102.00
+    };
+    return fees[vehicleType] || 0;
+  }
+
+  function getReplacementFee(replacementType) {
+    const fees = {
+      none: 0.00,
+      sticker: 20.00,
+      oneplate: 6.00,
+      twoplates: 9.00,
+      oneplate_sticker: 26.00,
+      twoplates_sticker: 29.00,
+      regcard: 3.00
+    };
+    return fees[replacementType] || 0;
+  }
+
+  function calculate() {
+    const vehicleType = dom.vehicleType.value;
+    const fuelType = dom.fuelType.value;
+    const titleNeeded = dom.titleNeeded.value;
+    const plateTransfer = dom.plateTransfer.value;
+    const replacementType = dom.replacementType.value;
+    const lateRenewal = dom.lateRenewal.value;
+
+    const baseFee = getBaseFee(vehicleType);
+    const replacementFee = getReplacementFee(replacementType);
+
+    let evFee = 0;
+    let titleFee = 0;
+    let plateTransferFee = 0;
+    let lateFee = 0;
+
+    if (fuelType === "ev" && (vehicleType === "passenger" || vehicleType === "btruck")) {
+      evFee = 100.00;
+    }
+
+    if (titleNeeded === "yes") {
+      titleFee = 165.00;
+    } else if (titleNeeded === "duplicate") {
+      titleFee = 50.00;
+    }
+
+    if (plateTransfer === "yes") {
+      plateTransferFee = 25.00;
+    }
+
+    if (lateRenewal === "yes") {
+      lateFee = 20.00;
+    }
+
+    const addonsTotal = evFee + titleFee + plateTransferFee + replacementFee + lateFee;
+    const grandTotal = baseFee + addonsTotal;
+
+    // Update Dashboard
+    dom.resTotal.textContent = formatUSD(grandTotal);
+    dom.resBase.textContent = formatUSD(baseFee);
+    dom.resAddons.textContent = formatUSD(addonsTotal);
+    dom.tableTotal.textContent = formatUSD(grandTotal);
+
+    // Update Table Breakdown
+    let rows = '';
+    const addRow = (label, val) => `<tr><td>${label}</td><td class="t-right">${formatUSD(val)}</td></tr>`;
+
+    rows += addRow('Base Registration Fee', baseFee);
+    if (evFee > 0) rows += addRow('Battery EV Surcharge', evFee);
+    if (titleFee > 0) {
+      rows += addRow(titleNeeded === "duplicate" ? "Duplicate / Corrected Title Fee" : "Certificate of Title Fee", titleFee);
+    }
+    if (plateTransferFee > 0) rows += addRow('Plate Transfer Fee', plateTransferFee);
+    if (replacementFee > 0) rows += addRow('Replacement Option Fee', replacementFee);
+    if (lateFee > 0) rows += addRow('Late Renewal Penalty (30+ Days)', lateFee);
+
+    dom.breakdownBody.innerHTML = rows;
+
+    // Contextual Note
+    dom.note.innerHTML = `<strong>Accuracy note:</strong> Illinois registration is mostly a flat-fee system by vehicle class. The official Secretary of State fee schedule supports the base registration, title, EV surcharge, and common replacement fees shown here. Taxes on purchase or private-sale use tax (RUT-50) are separate from annual registration renewal.`;
+  }
+
+  function init() {
+    [dom.vehicleType, dom.fuelType, dom.titleNeeded, dom.plateTransfer, dom.replacementType, dom.lateRenewal].forEach((el) => {
+      el.addEventListener('input', calculate);
+      el.addEventListener('change', calculate);
+    });
+    calculate();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>
