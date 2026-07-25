@@ -52,3 +52,32 @@ const xml =
 const out = join(PUBLIC_DIR, "sitemap.xml");
 writeFileSync(out, xml);
 console.log(`sitemap.xml written with ${entries.length} entries -> ${out}`);
+
+// ---------- calculators.json (state code -> URL) ----------
+// Lets vehicles.html auto-link states to their published calculator pages
+// without editing HTML each time a new state calculator ships.
+const STATES = [
+  ["AL","Alabama"],["AK","Alaska"],["AZ","Arizona"],["AR","Arkansas"],
+  ["CA","California"],["CO","Colorado"],["CT","Connecticut"],["DE","Delaware"],
+  ["DC","District of Columbia"],["FL","Florida"],["GA","Georgia"],["HI","Hawaii"],
+  ["ID","Idaho"],["IL","Illinois"],["IN","Indiana"],["IA","Iowa"],
+  ["KS","Kansas"],["KY","Kentucky"],["LA","Louisiana"],["ME","Maine"],
+  ["MD","Maryland"],["MA","Massachusetts"],["MI","Michigan"],["MN","Minnesota"],
+  ["MS","Mississippi"],["MO","Missouri"],["MT","Montana"],["NE","Nebraska"],
+  ["NV","Nevada"],["NH","New Hampshire"],["NJ","New Jersey"],["NM","New Mexico"],
+  ["NY","New York"],["NC","North Carolina"],["ND","North Dakota"],["OH","Ohio"],
+  ["OK","Oklahoma"],["OR","Oregon"],["PA","Pennsylvania"],["RI","Rhode Island"],
+  ["SC","South Carolina"],["SD","South Dakota"],["TN","Tennessee"],["TX","Texas"],
+  ["UT","Utah"],["VT","Vermont"],["VA","Virginia"],["WA","Washington"],
+  ["WV","West Virginia"],["WI","Wisconsin"],["WY","Wyoming"],
+];
+const calculatorFiles = htmlFiles.filter((f) => /-calculator\.html$/.test(f));
+const calculators = {};
+for (const [code, name] of STATES) {
+  const slug = name.toLowerCase().replace(/\s+/g, "-");
+  const match = calculatorFiles.find((f) => f.startsWith(`${slug}-`));
+  if (match) calculators[code] = `${BASE_URL}/${match}`;
+}
+const manifestOut = join(PUBLIC_DIR, "calculators.json");
+writeFileSync(manifestOut, JSON.stringify(calculators, null, 2) + "\n");
+console.log(`calculators.json written with ${Object.keys(calculators).length} states -> ${manifestOut}`);
