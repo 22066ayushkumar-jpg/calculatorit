@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Indiana Vehicle Registration Fee Calculator / Estimator 2026</title>
+<meta name="description" content="Estimate Indiana vehicle registration fees with our calculator. See cost factors, examples, and how fees are calculated." />
+<link rel="canonical" href="https://calculateit.net/indiana-vehicle-registration-fee-calculator.html" />
+<meta property="og:title" content="Indiana Vehicle Registration Fee Calculator 2026" />
+<meta property="og:description" content="Estimate Indiana vehicle registration fees with our calculator. See cost factors, examples, and how fees are calculated." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://calculateit.net/indiana-vehicle-registration-fee-calculator.html" />
+<meta name="twitter:card" content="summary" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Nunito:wght@400;600;700&display=swap" />
+<link rel="stylesheet" href="/assets/css/tokens.css" />
+<link rel="stylesheet" href="/assets/css/base.css" />
+<link rel="stylesheet" href="/assets/css/components.css" />
+<link rel="stylesheet" href="/assets/css/pages.css" />
+<style>
+  .hero--calc{padding-top:5.5rem;padding-bottom:1.5rem}
+  .hero--calc h1{font-size:clamp(1.7rem,4vw,2.6rem);margin-bottom:.5rem;text-align:center;}
+  .hero--calc .lede{margin-bottom:1.25rem;font-size:1rem;text-align:center;max-width:800px;margin-left:auto;margin-right:auto;}
+  
+  #in-bmv-app{max-width:960px;margin:0 auto;padding:1.1rem;background:var(--card-bg,#FEFEFA);border-radius:26px;box-shadow:0 8px 30px rgba(60,60,50,.08);border:1px solid rgba(120,120,108,.15)}
+  #in-bmv-app .dashboard-header{background:linear-gradient(135deg,rgba(93,112,82,.10),rgba(193,140,93,.10));border:1px solid rgba(93,112,82,.25);border-radius:20px;padding:1rem 1.1rem;margin-bottom:1rem}
+  #in-bmv-app .dash-main{text-align:center;padding:.4rem 0 .8rem}
+  #in-bmv-app .dash-label{font-size:.85rem;color:#78786C;text-transform:uppercase;letter-spacing:.06em}
+  #in-bmv-app .dash-value{font-family:Fraunces,serif;font-weight:700;font-size:2.8rem;color:#5D7052;margin:.15rem 0}
+  #in-bmv-app .dash-sub{font-size:.8rem;color:#78786C}
+  #in-bmv-app .dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;text-align:center;margin-top:.6rem}
+  #in-bmv-app .dash-item{padding:.4rem .3rem;border-top:1px solid rgba(120,120,108,.2)}
+  #in-bmv-app .dash-item .k{font-size:.78rem;color:#78786C;text-transform:uppercase;letter-spacing:.05em}
+  #in-bmv-app .dash-item .v{font-family:Fraunces,serif;font-weight:700;font-size:1.3rem;color:#2C2C24;margin-top:.15rem}
+  
+  #in-bmv-app h3.in-title{font-family:Fraunces,serif;font-size:1.05rem;margin:.9rem 0 .5rem;color:#4A4A40}
+  #in-bmv-app .grid-row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+  #in-bmv-app .fg{display:flex;flex-direction:column;margin-bottom:.6rem}
+  #in-bmv-app .fg label{font-weight:600;font-size:.9rem;margin-bottom:.3rem;color:#2C2C24;}
+  #in-bmv-app .fg input,#in-bmv-app .fg select{padding:.6rem .75rem;border-radius:12px;border:1px solid rgba(120,120,108,.35);background:#FDFCF8;font:inherit;width:100%}
+  #in-bmv-app .fg input:focus,#in-bmv-app .fg select:focus{outline:2px solid #5D7052;outline-offset:1px}
+  #in-bmv-app .fg .hint{font-size:.75rem;color:#78786C;margin-top:.25rem}
+  #in-bmv-app .pre{position:relative}
+  #in-bmv-app .pre span.prefix{position:absolute;left:.8rem;top:50%;transform:translateY(-50%);color:#78786C;font-size:.9rem}
+  #in-bmv-app .pre input{padding-left:1.6rem}
+  
+  #in-bmv-app .info-box{background:#fff;border:1px solid rgba(120,120,108,.2);border-radius:16px;padding:1rem;margin-top:1rem}
+  #in-bmv-app table.in-fees{width:100%;border-collapse:collapse}
+  #in-bmv-app table.in-fees th,#in-bmv-app table.in-fees td{padding:.6rem;border-bottom:1px dashed rgba(120,120,108,.25);font-size:.92rem;text-align:left}
+  #in-bmv-app table.in-fees .t-right{text-align:right}
+  #in-bmv-app table.in-fees tfoot td{border-top:2px solid #5D7052;border-bottom:0;font-weight:700;color:#5D7052;font-size:1.05rem}
+  
+  #in-bmv-app .in-note-box{background:rgba(193,140,93,.12);border:1px solid rgba(193,140,93,.3);border-radius:12px;padding:.8rem 1rem;margin-top:1rem;font-size:.88rem;color:#2C2C24;}
+  #in-bmv-app .in-note-box:empty{display:none;}
+  #in-bmv-app .in-disclaimer{font-size:.78rem;color:#78786C;margin-top:1rem;line-height:1.5;padding:0 .5rem;}
+  
+  @media (max-width: 700px) {
+    #in-bmv-app .grid-row,
+    #in-bmv-app .dash-grid { grid-template-columns: 1fr; }
+    #in-bmv-app .dashboard-header { padding: 1.25rem; }
+    #in-bmv-app .t-right { text-align: right; }
+    #in-bmv-app .dash-value{font-size:2.4rem;}
+  }
+
+  .content-section{max-width:820px;margin:2rem auto}
+  .content-section h2{font-family:Fraunces,serif;font-size:1.5rem;margin:1.5rem 0 .6rem;color:#2C2C24}
+  .content-section p,.content-section li{line-height:1.65;color:#4A4A40}
+  .content-section ul{padding-left:1.2rem}
+  .fee-table-content{width:100%;border-collapse:collapse;margin-top:.5rem}
+  .fee-table-content th,.fee-table-content td{padding:.6rem;border-bottom:1px solid rgba(120,120,108,.25);text-align:left;font-size:.92rem}
+  details.faq{border:1px solid rgba(120,120,108,.25);border-radius:12px;padding:.7rem .9rem;margin-bottom:.6rem;background:#FDFCF8}
+  details.faq summary{font-weight:700;cursor:pointer;color:#2C2C24}
+  details.faq p{margin:.5rem 0 0}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <nav class="nav" data-nav aria-label="Primary">
+    <a class="nav__brand" href="/index.html">
+      <span class="nav__logo" aria-hidden="true">C</span>
+      <span>CalculateIt</span>
+    </a>
+    <ul class="nav__list">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/vehicles.html">Vehicle Hub</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <a class="btn btn--primary nav__cta" href="/vehicles.html">All 50-state calculators</a>
+    <button class="nav__toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </nav>
+  <div class="nav-mobile" id="nav-mobile" data-nav-mobile data-open="false">
+    <ul>
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/vehicles.html">Vehicle Hub</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero hero--calc">
+    <div class="container">
+      <h1>Indiana Vehicle Registration Fee Calculator / Estimator 2026</h1>
+      <p class="lede">Estimate Indiana vehicle registration fees with our calculator. See cost factors, examples, and how fees are calculated.</p>
+
+      <div id="in-bmv-app">
+        
+        <div class="dashboard-header">
+          <!-- Required Calculator Banner -->
+          <div style="text-align:center; margin-bottom: 1rem;">
+            <span style="display:inline-block; background:rgba(93,112,82,.15); color:#5D7052; font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.05em; padding:.3rem .8rem; border-radius:99px;">
+              No sign ups just fill in your details. 2026 updated.
+            </span>
+          </div>
+
+          <div class="dash-main">
+            <div class="dash-label">Total Estimated Due</div>
+            <div class="dash-value" id="resTotal">$0.00</div>
+            <div class="dash-sub">State BMV fees + Variable Excise/Local Taxes</div>
+          </div>
+          <div class="dash-grid">
+            <div class="dash-item"><div class="k">Fixed BMV Fees</div><div class="v" id="resState">$0.00</div></div>
+            <div class="dash-item"><div class="k">Variable Taxes</div><div class="v" id="resLocal">$0.00</div></div>
+          </div>
+        </div>
+
+        <h3 class="in-title">Vehicle Information</h3>
+        <div class="grid-row">
+          <div class="fg">
+            <label for="inVehicleType">Vehicle Type</label>
+            <select id="inVehicleType">
+              <option value="passenger">Passenger Vehicle</option>
+              <option value="motorcycle">Motorcycle / Motor Driven Cycle</option>
+              <option value="truck11000">Truck (= 11,000 lbs)</option>
+              <option value="trailer3000">Trailer (= 3,000 lbs)</option>
+              <option value="trailer9000">Trailer (= 9,000 lbs)</option>
+              <option value="rv">Recreational Vehicle (RV)</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label for="inFuelType">Fuel / Powertrain Type</label>
+            <select id="inFuelType">
+              <option value="gas">Gasoline / Diesel</option>
+              <option value="hybrid">Hybrid (HEV / PHEV)</option>
+              <option value="ev">Fully Electric Vehicle (BEV)</option>
+            </select>
+          </div>
+        </div>
+        
+        <h3 class="in-title">Variable Taxes (Refer to your renewal notice)</h3>
+        <div class="grid-row">
+          <div class="fg">
+            <label for="inExciseTax">Annual Vehicle Excise Tax</label>
+            <div class="pre">
+              <span class="prefix">$</span>
+              <input type="number" id="inExciseTax" value="150.00" min="0" step="0.01">
+            </div>
+            <div class="hint">Age & value-based tax (Avg is $150, range $12–$532).</div>
+          </div>
+          <div class="fg">
+            <label for="inLocalTax">County / Municipal Tax</label>
+            <div class="pre">
+              <span class="prefix">$</span>
+              <input type="number" id="inLocalTax" value="25.00" min="0" step="0.01">
+            </div>
+            <div class="hint">Wheel/Surtax if your county applies one (Avg $25).</div>
+          </div>
+        </div>
+
+        <h3 class="in-title">Transactions & Penalties</h3>
+        <div class="grid-row">
+          <div class="fg">
+            <label for="inTitleNeeded">Need a New Title?</label>
+            <select id="inTitleNeeded">
+              <option value="no">No</option>
+              <option value="yes">Yes (Standard Title +$15)</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label for="inSpeedTitle">Expedite Title Processing?</label>
+            <select id="inSpeedTitle">
+              <option value="no">No</option>
+              <option value="yes">Yes (Speed Title +$25)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid-row">
+          <div class="fg">
+            <label for="inPlateTransfer">Plate Transfer / Duplicate</label>
+            <select id="inPlateTransfer">
+              <option value="no">No</option>
+              <option value="yes">Yes (+$9.50)</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label for="inPersonalizedPlate">Personalized Plate Message?</label>
+            <select id="inPersonalizedPlate">
+              <option value="no">No</option>
+              <option value="yes">Yes (+$45.00)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid-row">
+          <div class="fg">
+            <label for="inLateReg">Late Registration Penalty</label>
+            <select id="inLateReg">
+              <option value="no">No</option>
+              <option value="yes">Yes (+$15.00)</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label for="inLateTitle">Late Title Penalty</label>
+            <select id="inLateTitle">
+              <option value="no">No</option>
+              <option value="yes">Yes (+$30.00)</option>
+            </select>
+          </div>
+        </div>
+
+        <h3 class="in-title" style="margin-top: 1.5rem;">Itemized Fee Breakdown</h3>
+        <div class="info-box">
+          <table class="in-fees">
+            <thead>
+              <tr><th>Fee Line Item</th><th class="t-right">Amount</th></tr>
+            </thead>
+            <tbody id="breakdownBody"></tbody>
+            <tfoot>
+              <tr><td>Total Estimated Due</td><td class="t-right" id="tableTotal">$0.00</td></tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <div class="in-note-box" id="inNote"></div>
+
+        <p class="in-disclaimer">Estimate only. Indiana registration is most accurate when you enter the actual excise tax and any county or municipal tax directly from your renewal notice or BMV quote. The official BMV confirms that excise tax varies by vehicle value class and age, and local taxes depend strictly on where the vehicle is registered.</p>
+        
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container content-section">
+      <h2>How much will my tag and registration cost in Indiana?</h2>
+      <p>For a standard passenger vehicle, the fixed BMV base registration fee in Indiana is extremely low at just <strong>$21.35</strong>, plus a mandatory $15.00 Transportation Infrastructure Improvement Fee (TIIF). However, the real cost of registering your vehicle is driven by the <strong>annual vehicle excise tax</strong>. This tax is based on your vehicle's original retail value (MSRP) and its age, meaning a brand-new $35,000 SUV could cost over $400 to register, while an eight-year-old compact car might cost less than $70 total.</p>
+
+      <h2>How are fees calculated in Indiana</h2>
+      <p>The Indiana Bureau of Motor Vehicles (BMV) calculates your annual registration by stacking state flat fees, local flat fees, and a value-based tax schedule:</p>
+      <ul>
+        <li><strong>Base Registration & TIIF:</strong> A fixed $21.35 standard passenger fee plus a fixed $15.00 TIIF fee applies to all vehicles.</li>
+        <li><strong>Vehicle Excise Tax:</strong> Indiana groups vehicles into 17 value "classes" based on original MSRP. The tax begins high in Year 1 and declines every year until the vehicle is 10 years old, at which point it bottoms out (between $12 and $50).</li>
+        <li><strong>County / Municipal Taxes:</strong> Also known as a Wheel Tax or Surtax, these are enacted at the local level. Some counties charge a flat $25, while others charge a percentage of the excise tax.</li>
+        <li><strong>Supplemental Fuel Fees:</strong> To make up for lost gas tax revenue, fully electric vehicles (BEVs) are assessed an annual $242.00 surcharge, while hybrids and plug-in hybrids (PHEVs) are assessed an $81.00 surcharge.</li>
+      </ul>
+
+      <h2>What affects your registration in Indiana?</h2>
+      <ul>
+        <li><strong>Vehicle Age & Original Value:</strong> This dictates your excise tax. A luxury car will stay in a higher excise tax bracket for far longer than an economy car.</li>
+        <li><strong>Your Home County:</strong> Because local municipalities can enact wheel and surtaxes, registering the exact same car in Marion County might cost more than registering it in a neighboring rural county.</li>
+        <li><strong>Powertrain:</strong> EV and Hybrid surcharges add significant fixed costs to your yearly renewal.</li>
+        <li><strong>Timeliness:</strong> Indiana imposes steep administrative penalties if you are late. A late registration adds $15, and a late title application adds $30.</li>
+      </ul>
+
+      <h2>Estimated examples</h2>
+      <table class="fee-table-content">
+        <thead>
+          <tr>
+            <th>Scenario</th>
+            <th>Fee Breakdown</th>
+            <th>Approx. Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>New Gas SUV</strong> (Year 1, $32,000 MSRP)</td>
+            <td>$36.35 (Reg + TIIF) + ~$353 (Excise) + ~$25 (Local)</td>
+            <td><strong>˜ $414.35</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Used Gas Sedan</strong> (Year 8, $20,000 MSRP)</td>
+            <td>$36.35 (Reg + TIIF) + $65 (Excise) + ~$25 (Local)</td>
+            <td><strong>˜ $126.35</strong></td>
+          </tr>
+          <tr>
+            <td><strong>New EV</strong> (Year 2, $45,000 MSRP)</td>
+            <td>$36.35 (Reg/TIIF) + $398 (Excise) + $242 (EV Fee) + ~$25 (Local)</td>
+            <td><strong>˜ $701.35</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>What this calculator may not include</h2>
+      <ul>
+        <li>State sales tax (7%) which is due when transferring a title on a newly purchased vehicle.</li>
+        <li>Specific premium fees for specialty license plates (e.g., universities, sports teams, military branches).</li>
+        <li>Unique weight-class taxes for commercial trucks over 11,000 lbs.</li>
+      </ul>
+
+      <h2>Frequently asked questions</h2>
+      <details class="faq"><summary>How much is the car registration fee in Indiana?</summary>
+        <p>The flat registration fee is $21.35 plus a $15.00 infrastructure fee, totaling $36.35. However, nearly all owners also must pay an annual excise tax that ranges from $12 to $532 depending on the vehicle's age and original price.</p>
+      </details>
+      <details class="faq"><summary>Is this calculator accurate for all vehicles in Indiana?</summary>
+        <p>This calculator is accurate for calculating your total checkout price, provided you have your specific excise and local tax numbers from your BMV renewal notice. It supports standard passenger cars, motorcycles, light trucks, trailers, and RVs.</p>
+      </details>
+      <details class="faq"><summary>Can registration fees in Indiana change every year?</summary>
+        <p>Yes, your total cost will change every year. Because Indiana's excise tax is based on a declining age scale, your registration renewal should get slightly cheaper every year until the vehicle is 10 years old.</p>
+      </details>
+      <details class="faq"><summary>Can I use this calculator for a new car and a used car in Indiana?</summary>
+        <p>Yes. If you are buying a car, just change the "Need a New Title?" dropdown to "Yes". Be aware that if you are buying a used car, the excise tax will be significantly lower than it is for a brand-new car, so adjust the Excise Tax input field accordingly.</p>
+      </details>
+
+      <p style="margin-top:2rem"><a class="btn btn--primary" href="/vehicles.html">See all 50-state vehicle calculators ?</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2026 CalculateIt.net · <a href="/privacy.html">Privacy</a> · <a href="/disclaimer.html">Disclaimer</a> · <a href="/contact.html">Contact</a></p>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js" defer></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much is the car registration fee in Indiana?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The flat registration fee is $21.35 plus a $15.00 infrastructure fee, totaling $36.35. However, nearly all owners also must pay an annual excise tax that ranges from $12 to $532 depending on the vehicle's age and original price."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this calculator accurate for all vehicles in Indiana?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This calculator is accurate for calculating your total checkout price, provided you have your specific excise and local tax numbers from your BMV renewal notice. It supports standard passenger cars, motorcycles, light trucks, trailers, and RVs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can registration fees in Indiana change every year?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, your total cost will change every year. Because Indiana's excise tax is based on a declining age scale, your registration renewal should get slightly cheaper every year until the vehicle is 10 years old."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this calculator for a new car and a used car in Indiana?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. If you are buying a car, just change the \"Need a New Title?\" dropdown to \"Yes\". Be aware that if you are buying a used car, the excise tax will be significantly lower than it is for a brand-new car, so adjust the Excise Tax input field accordingly."
+      }
+    }
+  ]
+}
+</script>
+
+<script>
+(function () {
+  'use strict';
+
+  const dom = {
+    vehicleType: document.getElementById('inVehicleType'),
+    fuelType: document.getElementById('inFuelType'),
+    exciseTax: document.getElementById('inExciseTax'),
+    localTax: document.getElementById('inLocalTax'),
+    titleNeeded: document.getElementById('inTitleNeeded'),
+    speedTitle: document.getElementById('inSpeedTitle'),
+    plateTransfer: document.getElementById('inPlateTransfer'),
+    lateReg: document.getElementById('inLateReg'),
+    lateTitle: document.getElementById('inLateTitle'),
+    personalizedPlate: document.getElementById('inPersonalizedPlate'),
+    
+    resTotal: document.getElementById('resTotal'),
+    resState: document.getElementById('resState'),
+    resLocal: document.getElementById('resLocal'),
+    breakdownBody: document.getElementById('breakdownBody'),
+    tableTotal: document.getElementById('tableTotal'),
+    note: document.getElementById('inNote')
+  };
+
+  const formatUSD = (n) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(Number(n) || 0);
+
+  function getBaseRegistrationFee(vType) {
+    const fees = {
+      passenger: 21.35,
+      motorcycle: 26.35,
+      truck11000: 30.35,
+      trailer3000: 16.35,
+      trailer9000: 25.35,
+      rv: 29.35
+    };
+    return fees[vType] || 0;
+  }
+
+  function getSupplementalFuelFee(fType, vType) {
+    if (fType === "ev" && vType !== "motorcycle") return 242.00;
+    if (fType === "hybrid" && vType !== "motorcycle") return 81.00;
+    return 0;
+  }
+
+  function calculate() {
+    const vehicleType = dom.vehicleType.value;
+    const fuelType = dom.fuelType.value;
+    const exciseTax = parseFloat(dom.exciseTax.value) || 0;
+    const localTax = parseFloat(dom.localTax.value) || 0;
+    
+    const titleNeeded = dom.titleNeeded.value === 'yes';
+    const speedTitle = dom.speedTitle.value === 'yes';
+    const plateTransfer = dom.plateTransfer.value === 'yes';
+    const lateReg = dom.lateReg.value === 'yes';
+    const lateTitle = dom.lateTitle.value === 'yes';
+    const personalizedPlate = dom.personalizedPlate.value === 'yes';
+
+    const baseRegFee = getBaseRegistrationFee(vehicleType);
+    const tiif = 15.00;
+    const fuelFee = getSupplementalFuelFee(fuelType, vehicleType);
+
+    let titleFee = 0;
+    let speedTitleFee = 0;
+    let plateTransferFee = 0;
+    let lateRegFee = 0;
+    let lateTitleFee = 0;
+    let personalizedPlateFee = 0;
+
+    if (titleNeeded) titleFee = 15.00;
+    if (speedTitle) speedTitleFee = 25.00;
+    if (plateTransfer) plateTransferFee = 9.50;
+    if (lateReg) lateRegFee = 15.00;
+    if (lateTitle) lateTitleFee = 30.00;
+    if (personalizedPlate) personalizedPlateFee = 45.00;
+
+    // Totals Grouping
+    const stateTotal = baseRegFee + tiif + fuelFee + titleFee + speedTitleFee + plateTransferFee + lateRegFee + lateTitleFee + personalizedPlateFee;
+    const localTotal = exciseTax + localTax;
+    const grandTotal = stateTotal + localTotal;
+
+    // Update Dashboard
+    dom.resTotal.textContent = formatUSD(grandTotal);
+    dom.resState.textContent = formatUSD(stateTotal);
+    dom.resLocal.textContent = formatUSD(localTotal);
+    dom.tableTotal.textContent = formatUSD(grandTotal);
+
+    // Update Table Breakdown
+    let rows = '';
+    const addRow = (label, val) => `<tr><td>${label}</td><td class="t-right">${formatUSD(val)}</td></tr>`;
+
+    rows += addRow('Base BMV Registration Fee', baseRegFee);
+    rows += addRow('Transportation Infrastructure Improvement Fee (TIIF)', tiif);
+    
+    if (fuelFee > 0) rows += addRow('EV / Hybrid Supplemental Surcharge', fuelFee);
+    if (titleFee > 0) rows += addRow('Certificate of Title Fee', titleFee);
+    if (speedTitleFee > 0) rows += addRow('Speed Title Expedite Fee', speedTitleFee);
+    if (plateTransferFee > 0) rows += addRow('Plate Transfer / Duplicate Fee', plateTransferFee);
+    if (lateRegFee > 0) rows += addRow('Late Registration Penalty', lateRegFee);
+    if (lateTitleFee > 0) rows += addRow('Late Title Penalty', lateTitleFee);
+    if (personalizedPlateFee > 0) rows += addRow('Personalized Plate Message Fee', personalizedPlateFee);
+
+    rows += addRow('Vehicle Excise Tax (Value/Age Based)', exciseTax);
+    if (localTax > 0) rows += addRow('County / Municipal Wheel Tax', localTax);
+
+    dom.breakdownBody.innerHTML = rows;
+
+    // Contextual Note
+    dom.note.innerHTML = `<strong>Remember:</strong> Because Indiana's excise tax is tied to the original MSRP of the vehicle and drops as the vehicle ages, your total registration cost will be highest when the vehicle is new and will steadily decrease for the first 10 years of ownership.`;
+    dom.note.style.display = 'block';
+  }
+
+  function init() {
+    [
+      dom.vehicleType, dom.fuelType, dom.exciseTax, dom.localTax, 
+      dom.titleNeeded, dom.speedTitle, dom.plateTransfer, 
+      dom.lateReg, dom.lateTitle, dom.personalizedPlate
+    ].forEach((el) => {
+      el.addEventListener('input', calculate);
+      el.addEventListener('change', calculate);
+    });
+    calculate();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>
