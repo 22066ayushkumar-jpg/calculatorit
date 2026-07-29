@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Kansas Vehicle Registration Fee Calculator / Estimator 2026</title>
+<meta name="description" content="Estimate Kansas vehicle registration fees with our calculator. See cost factors, examples, and how fees are calculated." />
+<link rel="canonical" href="https://calculateit.net/kansas-vehicle-registration-fee-calculator.html" />
+<meta property="og:title" content="Kansas Vehicle Registration Fee Calculator 2026" />
+<meta property="og:description" content="Estimate Kansas vehicle registration fees with our calculator. See cost factors, examples, and how fees are calculated." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://calculateit.net/kansas-vehicle-registration-fee-calculator.html" />
+<meta name="twitter:card" content="summary" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Nunito:wght@400;600;700&display=swap" />
+<link rel="stylesheet" href="/assets/css/tokens.css" />
+<link rel="stylesheet" href="/assets/css/base.css" />
+<link rel="stylesheet" href="/assets/css/components.css" />
+<link rel="stylesheet" href="/assets/css/pages.css" />
+<style>
+  .hero--calc{padding-top:5.5rem;padding-bottom:1.5rem}
+  .hero--calc h1{font-size:clamp(1.7rem,4vw,2.6rem);margin-bottom:.5rem;text-align:center;}
+  .hero--calc .lede{margin-bottom:1.25rem;font-size:1rem;text-align:center;max-width:800px;margin-left:auto;margin-right:auto;}
+  
+  #ks-dmv-app{max-width:960px;margin:0 auto;padding:1.1rem;background:var(--card-bg,#FEFEFA);border-radius:26px;box-shadow:0 8px 30px rgba(60,60,50,.08);border:1px solid rgba(120,120,108,.15)}
+  #ks-dmv-app .dashboard-header{background:linear-gradient(135deg,rgba(93,112,82,.10),rgba(193,140,93,.10));border:1px solid rgba(93,112,82,.25);border-radius:20px;padding:1rem 1.1rem;margin-bottom:1rem}
+  #ks-dmv-app .dash-main{text-align:center;padding:.4rem 0 .8rem}
+  #ks-dmv-app .dash-label{font-size:.85rem;color:#78786C;text-transform:uppercase;letter-spacing:.06em}
+  #ks-dmv-app .dash-value{font-family:Fraunces,serif;font-weight:700;font-size:2.8rem;color:#5D7052;margin:.15rem 0}
+  #ks-dmv-app .dash-sub{font-size:.8rem;color:#78786C}
+  #ks-dmv-app .dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;text-align:center;margin-top:.6rem}
+  #ks-dmv-app .dash-item{padding:.4rem .3rem;border-top:1px solid rgba(120,120,108,.2)}
+  #ks-dmv-app .dash-item .k{font-size:.78rem;color:#78786C;text-transform:uppercase;letter-spacing:.05em}
+  #ks-dmv-app .dash-item .v{font-family:Fraunces,serif;font-weight:700;font-size:1.3rem;color:#2C2C24;margin-top:.15rem}
+  
+  #ks-dmv-app h3.ks-title{font-family:Fraunces,serif;font-size:1.05rem;margin:.9rem 0 .5rem;color:#4A4A40}
+  #ks-dmv-app .grid-row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+  #ks-dmv-app .fg{display:flex;flex-direction:column;margin-bottom:.6rem}
+  #ks-dmv-app .fg label{font-weight:600;font-size:.9rem;margin-bottom:.3rem;color:#2C2C24;}
+  #ks-dmv-app .fg input,#ks-dmv-app .fg select{padding:.6rem .75rem;border-radius:12px;border:1px solid rgba(120,120,108,.35);background:#FDFCF8;font:inherit;width:100%}
+  #ks-dmv-app .fg input:focus,#ks-dmv-app .fg select:focus{outline:2px solid #5D7052;outline-offset:1px}
+  #ks-dmv-app .fg .hint{font-size:.75rem;color:#78786C;margin-top:.25rem}
+  #ks-dmv-app .pre{position:relative}
+  #ks-dmv-app .pre span.prefix{position:absolute;left:.8rem;top:50%;transform:translateY(-50%);color:#78786C;font-size:.9rem}
+  #ks-dmv-app .pre input{padding-left:1.6rem}
+  
+  #ks-dmv-app .info-box{background:#fff;border:1px solid rgba(120,120,108,.2);border-radius:16px;padding:1rem;margin-top:1rem}
+  #ks-dmv-app table.ks-fees{width:100%;border-collapse:collapse}
+  #ks-dmv-app table.ks-fees th,#ks-dmv-app table.ks-fees td{padding:.6rem;border-bottom:1px dashed rgba(120,120,108,.25);font-size:.92rem;text-align:left}
+  #ks-dmv-app table.ks-fees .t-right{text-align:right}
+  #ks-dmv-app table.ks-fees tfoot td{border-top:2px solid #5D7052;border-bottom:0;font-weight:700;color:#5D7052;font-size:1.05rem}
+  
+  #ks-dmv-app .ks-note-box{background:rgba(193,140,93,.12);border:1px solid rgba(193,140,93,.3);border-radius:12px;padding:.8rem 1rem;margin-top:1rem;font-size:.88rem;color:#2C2C24;}
+  #ks-dmv-app .ks-note-box:empty{display:none;}
+  #ks-dmv-app .ks-disclaimer{font-size:.78rem;color:#78786C;margin-top:1rem;line-height:1.5;padding:0 .5rem;}
+  
+  @media (max-width: 700px) {
+    #ks-dmv-app .grid-row,
+    #ks-dmv-app .dash-grid { grid-template-columns: 1fr; }
+    #ks-dmv-app .dashboard-header { padding: 1.25rem; }
+    #ks-dmv-app .t-right { text-align: right; }
+    #ks-dmv-app .dash-value{font-size:2.4rem;}
+  }
+
+  .content-section{max-width:820px;margin:2rem auto}
+  .content-section h2{font-family:Fraunces,serif;font-size:1.5rem;margin:1.5rem 0 .6rem;color:#2C2C24}
+  .content-section p,.content-section li{line-height:1.65;color:#4A4A40}
+  .content-section ul{padding-left:1.2rem}
+  .fee-table-content{width:100%;border-collapse:collapse;margin-top:.5rem}
+  .fee-table-content th,.fee-table-content td{padding:.6rem;border-bottom:1px solid rgba(120,120,108,.25);text-align:left;font-size:.92rem}
+  details.faq{border:1px solid rgba(120,120,108,.25);border-radius:12px;padding:.7rem .9rem;margin-bottom:.6rem;background:#FDFCF8}
+  details.faq summary{font-weight:700;cursor:pointer;color:#2C2C24}
+  details.faq p{margin:.5rem 0 0}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <nav class="nav" data-nav aria-label="Primary">
+    <a class="nav__brand" href="/index.html">
+      <span class="nav__logo" aria-hidden="true">C</span>
+      <span>CalculateIt</span>
+    </a>
+    <ul class="nav__list">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/vehicles.html">Vehicle Hub</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <a class="btn btn--primary nav__cta" href="/vehicles.html">All 50-state calculators</a>
+    <button class="nav__toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </nav>
+  <div class="nav-mobile" id="nav-mobile" data-nav-mobile data-open="false">
+    <ul>
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/vehicles.html">Vehicle Hub</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero hero--calc">
+    <div class="container">
+      <h1>Kansas Vehicle Registration Fee Calculator / Estimator 2026</h1>
+      <p class="lede">Estimate Kansas vehicle registration fees with our calculator. See cost factors, examples, and how fees are calculated.</p>
+
+      <div id="ks-dmv-app">
+        
+        <div class="dashboard-header">
+          <!-- Required Calculator Banner -->
+          <div style="text-align:center; margin-bottom: 1rem;">
+            <span style="display:inline-block; background:rgba(93,112,82,.15); color:#5D7052; font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.05em; padding:.3rem .8rem; border-radius:99px;">
+              No sign ups just fill in your details. 2026 updated.
+            </span>
+          </div>
+
+          <div class="dash-main">
+            <div class="dash-label">Total Estimated Due</div>
+            <div class="dash-value" id="resTotal">$0.00</div>
+            <div class="dash-sub">State fees + Property Tax + County processing</div>
+          </div>
+          <div class="dash-grid">
+            <div class="dash-item"><div class="k">State & Title Fees</div><div class="v" id="resState">$0.00</div></div>
+            <div class="dash-item"><div class="k">Local & Property Tax</div><div class="v" id="resLocal">$0.00</div></div>
+          </div>
+        </div>
+
+        <h3 class="ks-title">Vehicle Information</h3>
+        <div class="grid-row">
+          <div class="fg">
+            <label for="ksVehicleType">Vehicle Type & Weight</label>
+            <select id="ksVehicleType">
+              <option value="passenger_light">Passenger Vehicle (4,500 lbs or less)</option>
+              <option value="passenger_heavy">Passenger Vehicle (Over 4,500 lbs)</option>
+              <option value="motorcycle">Motorcycle</option>
+              <option value="truck_under_12k">Truck / Truck Tractor (Under 12,000 lbs)</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label for="ksFuelType">Fuel / Powertrain Type</label>
+            <select id="ksFuelType">
+              <option value="gas">Gas / Diesel</option>
+              <option value="hybrid">Standard Hybrid (HEV)</option>
+              <option value="phev">Plug-in Hybrid (PHEV)</option>
+              <option value="ev">All-Electric (BEV)</option>
+            </select>
+            <div class="hint">2026 rates apply customized flat fees based on electrification.</div>
+          </div>
+        </div>
+        
+        <h3 class="ks-title">Property Taxes & Local Fees</h3>
+        <div class="grid-row">
+          <div class="fg">
+            <label for="ksPropertyTax">Annual Vehicle Property Tax</label>
+            <div class="pre">
+              <span class="prefix">$</span>
+              <input type="number" id="ksPropertyTax" value="150.00" min="0" step="0.01">
+            </div>
+            <div class="hint">Check KDOR for your vehicle's specific tax value.</div>
+          </div>
+          <div class="fg">
+            <label for="ksExtraCountyFee">Extra County Facility Fee</label>
+            <div class="pre">
+              <span class="prefix">$</span>
+              <input type="number" id="ksExtraCountyFee" value="0.00" min="0" max="15" step="0.01">
+            </div>
+            <div class="hint">E.g., Sedgwick or Douglas County facility fees (usually $0-$5).</div>
+          </div>
+        </div>
+
+        <h3 class="ks-title">Transaction Details</h3>
+        <div class="grid-row">
+          <div class="fg">
+            <label for="ksTitleNeeded">Title Transaction Needed?</label>
+            <select id="ksTitleNeeded">
+              <option value="no">No (Renewal Only)</option>
+              <option value="yes">Yes (New Purchase / Transfer)</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label for="ksTransferTag">Transfer Existing Tag?</label>
+            <select id="ksTransferTag">
+              <option value="no">No (Need new plates)</option>
+              <option value="yes">Yes (Transferring old plates)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid-row">
+          <div class="fg" style="grid-column: 1 / 2;">
+            <label for="ksLienFee">Filing a New Lien? (Financing)</label>
+            <select id="ksLienFee">
+              <option value="no">No</option>
+              <option value="yes">Yes</option>
+            </select>
+          </div>
+        </div>
+
+        <h3 class="ks-title" style="margin-top: 1.5rem;">Itemized Fee Breakdown</h3>
+        <div class="info-box">
+          <table class="ks-fees">
+            <thead>
+              <tr><th>Fee Line Item</th><th class="t-right">Amount</th></tr>
+            </thead>
+            <tbody id="breakdownBody"></tbody>
+            <tfoot>
+              <tr><td>Total Estimated Due</td><td class="t-right" id="tableTotal">$0.00</td></tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <div class="ks-note-box" id="ksNote"></div>
+
+        <p class="ks-disclaimer">Estimate only. Kansas registration is heavily reliant on your vehicle's property tax, which is assessed locally based on the vehicle's retail value and your specific county's mill levy. For the most accurate check, verify your property tax on the official Kansas Department of Revenue portal before finalizing your budget.</p>
+        
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container content-section">
+      <h2>How much will my tag and registration cost in Kansas?</h2>
+      <p>The standard state registration fee for a gas-powered passenger vehicle in Kansas is very affordable: <strong>$30.00</strong> for vehicles 4,500 lbs or less, and <strong>$40.00</strong> for vehicles over 4,500 lbs. However, your total checkout price at the county treasurer's office will be significantly higher because you must pay your <strong>vehicle property tax</strong> at the exact same time. Depending on the age and original MSRP of your vehicle, this property tax can add anywhere from $50 to over $1,000 to your yearly renewal bill.</p>
+
+      <h2>How are fees calculated in Kansas</h2>
+      <p>Kansas utilizes a decentralized system where the Department of Revenue sets base fees, but all 105 individual counties handle the transactions and collect the local taxes. The typical breakdown looks like this:</p>
+      <ul>
+        <li><strong>Base Registration:</strong> Determined by vehicle type (passenger, truck, motorcycle), weight class, and fuel type.</li>
+        <li><strong>State Surcharges:</strong> Every registration is hit with $7.25 in mandatory state processing fees (Modernization $4.00, Highway Patrol $2.00, Law Enforcement Training $1.25).</li>
+        <li><strong>County Service Fees:</strong> A standardized $5.00 county processing fee applies across the state. Some specific locations (like Douglas or Sedgwick counties) may add an extra $3.00 to $5.00 facility charge.</li>
+        <li><strong>Vehicle Property Tax:</strong> A locally assessed tax based on a depreciating scale of the vehicle's original retail value combined with your county's mill levy.</li>
+      </ul>
+
+      <h2>What affects your registration in Kansas?</h2>
+      <ul>
+        <li><strong>Electrification:</strong> As of Jan 1, 2026, Kansas imposes specific flat registration fees to compensate for lost fuel taxes. An EV pays a flat $165, a Plug-in Hybrid (PHEV) pays $100, and a standard Hybrid (HEV) pays $70 instead of the standard $30/$40 weight-based fees.</li>
+        <li><strong>Vehicle Weight:</strong> Heavy passenger vehicles (SUVs and large trucks over 4,500 lbs) pay $10 more per year in base tag fees than lighter sedans.</li>
+        <li><strong>Transaction Type:</strong> Transferring an existing valid tag to a new vehicle costs $6.50. A brand-new title certificate costs $10.00.</li>
+      </ul>
+
+      <h2>Estimated examples</h2>
+      <table class="fee-table-content">
+        <thead>
+          <tr>
+            <th>Scenario</th>
+            <th>Primary Drivers</th>
+            <th>Approx. Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>New Gas Sedan</strong> (Under 4,500 lbs)</td>
+            <td>$30 Reg + $12.25 Surcharges + $10 Title + Property Tax</td>
+            <td><strong>$52.25</strong> (+ Prop Tax)</td>
+          </tr>
+          <tr>
+            <td><strong>Used Electric SUV</strong> (Renewal)</td>
+            <td>$165 EV Reg + $12.25 Surcharges + Property Tax</td>
+            <td><strong>$177.25</strong> (+ Prop Tax)</td>
+          </tr>
+          <tr>
+            <td><strong>Standard Hybrid</strong> (Over 4,500 lbs)</td>
+            <td>$70 Hybrid Reg + $12.25 Surcharges + Property Tax</td>
+            <td><strong>$82.25</strong> (+ Prop Tax)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>What this calculator may not include</h2>
+      <ul>
+        <li>State and local sales taxes (ranging from 7.5% to 10%+) due upon the purchase of a vehicle from a dealer or private party.</li>
+        <li>Highway Patrol VIN Inspection fees ($20) which are required for any out-of-state vehicle being brought into Kansas.</li>
+        <li>Specialty plate manufacturing fees or vanity plate reservations.</li>
+      </ul>
+
+      <h2>Frequently asked questions</h2>
+      <details class="faq"><summary>How much is the car registration fee in Kansas?</summary>
+        <p>The standard passenger registration fee is $30 for vehicles 4,500 lbs or less, and $40 for vehicles over 4,500 lbs. However, standard mandatory surcharges ($12.25 combined) will bring the base DMV cost to $42.25 or $52.25, not including your required vehicle property tax.</p>
+      </details>
+      <details class="faq"><summary>Is this calculator accurate for all vehicles in Kansas?</summary>
+        <p>This calculator covers all standard passenger vehicles, SUVs, light trucks under 12,000 lbs, and motorcycles. It handles the new 2026 EV/HEV fee structure accurately. It does not cover heavy commercial trucks, farm equipment, or multi-axle trailers.</p>
+      </details>
+      <details class="faq"><summary>Can registration fees in Kansas change every year?</summary>
+        <p>Yes. While the base tag fee ($30/$40) remains mostly static, your annual vehicle property tax depreciates over time. This means your total registration renewal bill in Kansas should gradually get cheaper as your vehicle gets older.</p>
+      </details>
+      <details class="faq"><summary>Can I use this calculator for a new car and a used car in Kansas?</summary>
+        <p>Yes. Just ensure you select "Yes" under the "Title Transaction Needed" dropdown if you are purchasing a car so the tool can add the $10 title fee. You will also need to adjust the property tax input based on whether the car is new (higher tax) or used (lower tax).</p>
+      </details>
+
+      <p style="margin-top:2rem"><a class="btn btn--primary" href="/vehicles.html">See all 50-state vehicle calculators ?</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2026 CalculateIt.net  <a href="/privacy.html">Privacy</a>  <a href="/disclaimer.html">Disclaimer</a>  <a href="/contact.html">Contact</a></p>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js" defer></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much is the car registration fee in Kansas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The standard passenger registration fee is $30 for vehicles 4,500 lbs or less, and $40 for vehicles over 4,500 lbs. However, standard mandatory surcharges ($12.25 combined) will bring the base DMV cost to $42.25 or $52.25, not including your required vehicle property tax."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this calculator accurate for all vehicles in Kansas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This calculator covers all standard passenger vehicles, SUVs, light trucks under 12,000 lbs, and motorcycles. It handles the new 2026 EV/HEV fee structure accurately. It does not cover heavy commercial trucks, farm equipment, or multi-axle trailers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can registration fees in Kansas change every year?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. While the base tag fee ($30/$40) remains mostly static, your annual vehicle property tax depreciates over time. This means your total registration renewal bill in Kansas should gradually get cheaper as your vehicle gets older."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this calculator for a new car and a used car in Kansas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Just ensure you select \"Yes\" under the \"Title Transaction Needed\" dropdown if you are purchasing a car so the tool can add the $10 title fee. You will also need to adjust the property tax input based on whether the car is new (higher tax) or used (lower tax)."
+      }
+    }
+  ]
+}
+</script>
+
+<script>
+(function () {
+  'use strict';
+
+  const dom = {
+    vehicleType: document.getElementById('ksVehicleType'),
+    fuelType: document.getElementById('ksFuelType'),
+    propertyTax: document.getElementById('ksPropertyTax'),
+    extraCountyFee: document.getElementById('ksExtraCountyFee'),
+    titleNeeded: document.getElementById('ksTitleNeeded'),
+    transferTag: document.getElementById('ksTransferTag'),
+    lienFee: document.getElementById('ksLienFee'),
+    
+    resTotal: document.getElementById('resTotal'),
+    resState: document.getElementById('resState'),
+    resLocal: document.getElementById('resLocal'),
+    breakdownBody: document.getElementById('breakdownBody'),
+    tableTotal: document.getElementById('tableTotal'),
+    note: document.getElementById('ksNote')
+  };
+
+  const formatUSD = (n) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(Number(n) || 0);
+
+  function calculate() {
+    const vType = dom.vehicleType.value;
+    const fType = dom.fuelType.value;
+    const pTax = parseFloat(dom.propertyTax.value) || 0;
+    const exCountyFee = parseFloat(dom.extraCountyFee.value) || 0;
+    
+    const titleNeeded = dom.titleNeeded.value === 'yes';
+    const tagTransfer = dom.transferTag.value === 'yes';
+    const lien = dom.lienFee.value === 'yes';
+
+    const modFee = 4.00;
+    const patrolFee = 2.00;
+    const trainingFee = 1.25;
+    const countyService = 5.00;
+
+    let baseReg = 0;
+
+    // Base Registration Rates (2026 Electric Updates applied)
+    if (vType === "passenger_light") {
+      if (fType === "hybrid") baseReg = 70.00;
+      else if (fType === "phev") baseReg = 100.00;
+      else if (fType === "ev") baseReg = 165.00;
+      else baseReg = 30.00;
+    } else if (vType === "passenger_heavy") {
+      if (fType === "hybrid") baseReg = 70.00;
+      else if (fType === "phev") baseReg = 100.00;
+      else if (fType === "ev") baseReg = 165.00;
+      else baseReg = 40.00;
+    } else if (vType === "motorcycle") {
+      if (fType === "ev") {
+        baseReg = 30.00;
+      } else {
+        baseReg = 16.00;
+      }
+    } else if (vType === "truck_under_12k") {
+      if (fType === "hybrid" || fType === "phev") {
+        baseReg = 125.00;
+      } else if (fType === "ev") {
+        baseReg = 200.00;
+      } else {
+        baseReg = 40.00;
+      }
+    }
+
+    // Transactions
+    let titleFee = titleNeeded ? 10.00 : 0;
+    let transferFee = tagTransfer ? 6.50 : 0;
+    let lienFee = lien ? 1.50 : 0;
+
+    // Grouping
+    const stateTotal = baseReg + modFee + patrolFee + trainingFee + titleFee + transferFee + lienFee;
+    const localTotal = countyService + exCountyFee + pTax;
+    const grandTotal = stateTotal + localTotal;
+
+    // Update Dashboard
+    dom.resTotal.textContent = formatUSD(grandTotal);
+    dom.resState.textContent = formatUSD(stateTotal);
+    dom.resLocal.textContent = formatUSD(localTotal);
+    dom.tableTotal.textContent = formatUSD(grandTotal);
+
+    // Update Table Breakdown
+    let rows = '';
+    const addRow = (label, val) => `<tr><td>${label}</td><td class="t-right">${formatUSD(val)}</td></tr>`;
+
+    rows += addRow('Base Registration Fee (Type & Fuel Based)', baseReg);
+    rows += addRow('DMV Modernization Surcharge', modFee);
+    rows += addRow('Highway Patrol Surcharge', patrolFee);
+    rows += addRow('Law Enforcement Training Surcharge', trainingFee);
+    
+    if (titleFee > 0) rows += addRow('Certificate of Title Fee', titleFee);
+    if (transferFee > 0) rows += addRow('Tag Transfer Fee', transferFee);
+    if (lienFee > 0) rows += addRow('Lien Filing Fee', lienFee);
+    
+    rows += addRow('Standard County Service Fee', countyService);
+    if (exCountyFee > 0) rows += addRow('Extra County Facility Fee', exCountyFee);
+    if (pTax > 0) rows += addRow('Vehicle Property Tax', pTax);
+
+    dom.breakdownBody.innerHTML = rows;
+
+    dom.note.innerHTML = `<strong>Accuracy note:</strong> Kansas vehicle registration is not complete without paying your annual vehicle property tax. For the most accurate result, enter the official estimate from the Kansas Department of Revenue Vehicle Property Tax Check or your county treasurer. Some counties may also add a small local facility fee on top of the standard $5.00 county service fee.`;
+    dom.note.style.display = 'block';
+  }
+
+  function init() {
+    [
+      dom.vehicleType, dom.fuelType, dom.propertyTax, dom.extraCountyFee, 
+      dom.titleNeeded, dom.transferTag, dom.lienFee
+    ].forEach((el) => {
+      el.addEventListener('input', calculate);
+      el.addEventListener('change', calculate);
+    });
+    calculate();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>
