@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Massachusetts Vehicle Registration Fee Calculator 2026</title>
+<meta name="description" content="Estimate massachusetts vehicle registration fees with our calculator. See fee breakdown and how much you pay." />
+<link rel="canonical" href="https://calculateit.net/massachusetts-vehicle-registration-fee-calculator.html" />
+<meta property="og:title" content="Massachusetts Vehicle Registration Fee Calculator 2026" />
+<meta property="og:description" content="Estimate massachusetts vehicle registration fees with our calculator. See fee breakdown and how much you pay." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://calculateit.net/massachusetts-vehicle-registration-fee-calculator.html" />
+<meta name="twitter:card" content="summary" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Nunito:wght@400;600;700&display=swap" />
+<link rel="stylesheet" href="/assets/css/tokens.css" />
+<link rel="stylesheet" href="/assets/css/base.css" />
+<link rel="stylesheet" href="/assets/css/components.css" />
+<link rel="stylesheet" href="/assets/css/pages.css" />
+<style>
+  .hero--calc{padding-top:5.5rem;padding-bottom:1.5rem}
+  .hero--calc h1{font-size:clamp(1.7rem,4vw,2.6rem);margin-bottom:.5rem;text-align:center;}
+  .hero--calc .lede{margin-bottom:1.25rem;font-size:1rem;text-align:center;max-width:800px;margin-left:auto;margin-right:auto;}
+  
+  #ma-dmv-app{max-width:960px;margin:0 auto;padding:1.1rem;background:var(--card-bg,#FEFEFA);border-radius:26px;box-shadow:0 8px 30px rgba(60,60,50,.08);border:1px solid rgba(120,120,108,.15)}
+  #ma-dmv-app .dashboard-header{background:linear-gradient(135deg,rgba(93,112,82,.10),rgba(193,140,93,.10));border:1px solid rgba(93,112,82,.25);border-radius:20px;padding:1rem 1.1rem;margin-bottom:1rem}
+  #ma-dmv-app .dash-main{text-align:center;padding:.4rem 0 .8rem}
+  #ma-dmv-app .dash-label{font-size:.85rem;color:#78786C;text-transform:uppercase;letter-spacing:.06em}
+  #ma-dmv-app .dash-value{font-family:Fraunces,serif;font-weight:700;font-size:2.8rem;color:#5D7052;margin:.15rem 0}
+  #ma-dmv-app .dash-sub{font-size:.8rem;color:#78786C}
+  #ma-dmv-app .dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;text-align:center;margin-top:.6rem}
+  #ma-dmv-app .dash-item{padding:.4rem .3rem;border-top:1px solid rgba(120,120,108,.2)}
+  #ma-dmv-app .dash-item .k{font-size:.78rem;color:#78786C;text-transform:uppercase;letter-spacing:.05em}
+  #ma-dmv-app .dash-item .v{font-family:Fraunces,serif;font-weight:700;font-size:1.3rem;color:#2C2C24;margin-top:.15rem}
+  
+  #ma-dmv-app h3.ma-title{font-family:Fraunces,serif;font-size:1.05rem;margin:.9rem 0 .5rem;color:#4A4A40}
+  #ma-dmv-app .grid-row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+  #ma-dmv-app .fg{display:flex;flex-direction:column;margin-bottom:.6rem}
+  #ma-dmv-app .fg label{font-weight:600;font-size:.9rem;margin-bottom:.3rem;color:#2C2C24;}
+  #ma-dmv-app .fg input,#ma-dmv-app .fg select{padding:.6rem .75rem;border-radius:12px;border:1px solid rgba(120,120,108,.35);background:#FDFCF8;font:inherit;width:100%}
+  #ma-dmv-app .fg input:focus,#ma-dmv-app .fg select:focus{outline:2px solid #5D7052;outline-offset:1px}
+  #ma-dmv-app .fg .hint{font-size:.75rem;color:#78786C;margin-top:.25rem}
+  #ma-dmv-app .pre{position:relative}
+  #ma-dmv-app .pre span.prefix{position:absolute;left:.8rem;top:50%;transform:translateY(-50%);color:#78786C;font-size:.9rem}
+  #ma-dmv-app .pre input{padding-left:1.6rem}
+  
+  #ma-dmv-app .info-box{background:#fff;border:1px solid rgba(120,120,108,.2);border-radius:16px;padding:1rem;margin-top:1rem}
+  #ma-dmv-app table.ma-fees{width:100%;border-collapse:collapse}
+  #ma-dmv-app table.ma-fees th,#ma-dmv-app table.ma-fees td{padding:.6rem;border-bottom:1px dashed rgba(120,120,108,.25);font-size:.92rem;text-align:left}
+  #ma-dmv-app table.ma-fees .t-right{text-align:right}
+  #ma-dmv-app table.ma-fees tfoot td{border-top:2px solid #5D7052;border-bottom:0;font-weight:700;color:#5D7052;font-size:1.05rem}
+  
+  #ma-dmv-app .ma-note-box{background:rgba(193,140,93,.12);border:1px solid rgba(193,140,93,.3);border-radius:12px;padding:.8rem 1rem;margin-top:1rem;font-size:.88rem;color:#2C2C24;}
+  #ma-dmv-app .ma-note-box:empty{display:none;}
+  #ma-dmv-app .ma-disclaimer{font-size:.78rem;color:#78786C;margin-top:1rem;line-height:1.5;padding:0 .5rem;}
+  
+  @media (max-width: 700px) {
+    #ma-dmv-app .grid-row,
+    #ma-dmv-app .dash-grid { grid-template-columns: 1fr; }
+    #ma-dmv-app .dashboard-header { padding: 1.25rem; }
+    #ma-dmv-app .t-right { text-align: right; }
+    #ma-dmv-app .dash-value{font-size:2.4rem;}
+  }
+
+  .content-section{max-width:820px;margin:2rem auto}
+  .content-section h2{font-family:Fraunces,serif;font-size:1.5rem;margin:1.5rem 0 .6rem;color:#2C2C24}
+  .content-section p,.content-section li{line-height:1.65;color:#4A4A40}
+  .content-section ul{padding-left:1.2rem}
+  .fee-table-content{width:100%;border-collapse:collapse;margin-top:.5rem}
+  .fee-table-content th,.fee-table-content td{padding:.6rem;border-bottom:1px solid rgba(120,120,108,.25);text-align:left;font-size:.92rem}
+  details.faq{border:1px solid rgba(120,120,108,.25);border-radius:12px;padding:.7rem .9rem;margin-bottom:.6rem;background:#FDFCF8}
+  details.faq summary{font-weight:700;cursor:pointer;color:#2C2C24}
+  details.faq p{margin:.5rem 0 0}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <nav class="nav" data-nav aria-label="Primary">
+    <a class="nav__brand" href="/index.html">
+      <span class="nav__logo" aria-hidden="true">C</span>
+      <span>CalculateIt</span>
+    </a>
+    <ul class="nav__list">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/vehicles.html">Vehicle Hub</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <a class="btn btn--primary nav__cta" href="/vehicles.html">All 50-state calculators</a>
+    <button class="nav__toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </nav>
+  <div class="nav-mobile" id="nav-mobile" data-nav-mobile data-open="false">
+    <ul>
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/vehicles.html">Vehicle Hub</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero hero--calc">
+    <div class="container">
+      <h1>Massachusetts Vehicle Registration Fee Calculator / Estimator 2026</h1>
+      <p class="lede">Estimate massachusetts vehicle registration fees with our calculator. See fee breakdown and how much you pay.</p>
+
+      <div id="ma-dmv-app">
+        
+        <div class="dashboard-header">
+          <div style="text-align:center; margin-bottom: 1rem;">
+            <span style="display:inline-block; background:rgba(93,112,82,.15); color:#5D7052; font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.05em; padding:.3rem .8rem; border-radius:99px;">
+              No sign ups just fill in your details. 2026 updated.
+            </span>
+          </div>
+
+          <div class="dash-main">
+            <div class="dash-label">Total Estimated Due</div>
+            <div class="dash-value" id="resTotal">$0.00</div>
+            <div class="dash-sub">Combined RMV fees, taxes, and local excise estimate</div>
+          </div>
+          <div class="dash-grid">
+            <div class="dash-item"><div class="k">RMV Fees & Title</div><div class="v" id="resRMV">$0.00</div></div>
+            <div class="dash-item"><div class="k">Taxes & Excise</div><div class="v" id="resTax">$0.00</div></div>
+          </div>
+        </div>
+
+        <h3 class="ma-title">Vehicle & Transaction Information</h3>
+        <div class="grid-row">
+          <div class="fg">
+            <label for="maPlateType">Plate / Vehicle Type</label>
+            <select id="maPlateType">
+              <option value="passenger">Passenger Normal ($60)</option>
+              <option value="reserved">Passenger Reserved ($100)</option>
+              <option value="vanity">Passenger Vanity ($80)</option>
+              <option value="electric">Electric Passenger ($60)</option>
+              <option value="motorcycle">Motorcycle ($20)</option>
+              <option value="moped">Moped ($40)</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label for="maTransactionType">Transaction Type</label>
+            <select id="maTransactionType">
+              <option value="renewal">Renewal Only</option>
+              <option value="title_registration">New Purchase (Title + Registration)</option>
+              <option value="gift">Gift Transfer</option>
+            </select>
+            <div class="hint">Sales tax applies to new purchases.</div>
+          </div>
+        </div>
+        
+        <div id="wrapValuation" style="display:none;">
+          <div class="grid-row">
+            <div class="fg">
+              <label for="maPurchasePrice">Actual Purchase Price</label>
+              <div class="pre">
+                <span class="prefix">$</span>
+                <input type="number" id="maPurchasePrice" value="25000.00" min="0" step="0.01">
+              </div>
+            </div>
+            <div class="fg">
+              <label for="maNadaValue">NADA Trade-In Value</label>
+              <div class="pre">
+                <span class="prefix">$</span>
+                <input type="number" id="maNadaValue" value="24000.00" min="0" step="0.01">
+              </div>
+              <div class="hint">MA charges 6.25% on whichever value is higher.</div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="ma-title">Additional RMV Services</h3>
+        <div class="grid-row">
+          <div class="fg">
+            <label for="maTransferPlate">Transfer Existing Plate?</label>
+            <select id="maTransferPlate">
+              <option value="no">No</option>
+              <option value="yes">Yes (Add $25 transfer fee)</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label for="maDuplicateReg">Need Duplicate Registration?</label>
+            <select id="maDuplicateReg">
+              <option value="no">No</option>
+              <option value="yes">Yes (Add $25 fee)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid-row">
+          <div class="fg">
+            <label for="maReplacementPlate">Need Replacement Plate?</label>
+            <select id="maReplacementPlate">
+              <option value="no">No</option>
+              <option value="yes">Yes (Add $10 fee)</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label for="maReinstatement">Registration Reinstatement</label>
+            <select id="maReinstatement">
+              <option value="none">None</option>
+              <option value="insurance">Insurance Cancellation ($50)</option>
+              <option value="other">Other Reason ($100)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid-row">
+          <div class="fg" style="grid-column: 1 / 2;">
+            <label for="maLocalExcise">Optional Local Excise Estimate</label>
+            <div class="pre">
+              <span class="prefix">$</span>
+              <input type="number" id="maLocalExcise" value="0.00" min="0" step="0.01">
+            </div>
+            <div class="hint">Annual town tax ($25 per $1,000 of depreciated value).</div>
+          </div>
+        </div>
+
+        <h3 class="ma-title" style="margin-top: 1.5rem;">Itemized Fee Breakdown</h3>
+        <div class="info-box">
+          <table class="ma-fees">
+            <thead>
+              <tr><th>Fee Line Item</th><th class="t-right">Amount</th></tr>
+            </thead>
+            <tbody id="breakdownBody"></tbody>
+            <tfoot>
+              <tr><td>Total Estimated Due</td><td class="t-right" id="tableTotal">$0.00</td></tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <div class="ma-note-box" id="maNote"></div>
+
+        <p class="ma-disclaimer">Estimate only. Massachusetts RMV sales tax calculations are strictly enforced based on the National Automobile Dealers Association (NADA) clean trade-in value. If you purchased a vehicle significantly under market value from a private party, you will still be taxed on the NADA book value unless you qualify for a specific RMV exemption.</p>
+        
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container content-section">
+      <h2>How much are vehicle registration fees in massachusetts?</h2>
+      <p>The standard passenger vehicle registration fee in Massachusetts is a flat <strong>$60.00</strong>, which covers you for a two-year period. Motorcycles are cheaper at <strong>$20.00</strong> for a one-year plate. If you are registering a newly purchased vehicle, you must also pay a <strong>$75.00 certificate of title fee</strong>, along with the state's 6.25% motor vehicle sales and use tax, directly to the RMV at the time of registration.</p>
+
+      <h2>What affects your massachusetts registration fee?</h2>
+      <ul>
+        <li><strong>Plate Type:</strong> A standard passenger plate is $60. Upgrading to a vanity plate increases the cost to $80, and a "reserved" low-number plate costs $100.</li>
+        <li><strong>Sales Tax Valuation:</strong> When buying a used car from a private party, the RMV compares your written purchase price to the vehicle's NADA "clean trade-in" value. You must pay 6.25% on whichever number is <strong>higher</strong>.</li>
+        <li><strong>Transaction Needs:</strong> If you are transferring plates from an old car to a new one, there is a $25 transfer fee. A duplicate registration certificate costs $25.</li>
+        <li><strong>Gifts:</strong> If you receive a vehicle as a gift from an immediate family member, you are exempt from the 6.25% sales tax, but you must pay a $25 gift transfer fee instead.</li>
+      </ul>
+
+      <h2>How are registration fees calculated in massachusetts?</h2>
+      <p>The RMV uses a straightforward flat-fee system for the registration and title itself. The formula gets complicated when calculating the mandatory sales tax during a new title transfer.</p>
+      <ul>
+        <li><strong>Formula:</strong> Plate Fee + Title Fee ($75) + Sales Tax (6.25% of Max[Purchase Price, NADA Value]) + Admin Fees = Total RMV Cost.</li>
+      </ul>
+      <p>Additionally, Massachusetts residents are subject to an annual <strong>motor vehicle excise tax</strong> billed by their local city or town, not the RMV. This is calculated at $25 per $1,000 of the vehicle's depreciated valuation.</p>
+
+      <h2>Estimated examples</h2>
+      <table class="fee-table-content">
+        <thead>
+          <tr>
+            <th>Scenario</th>
+            <th>Primary Drivers</th>
+            <th>Approx. Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Used Car Private Sale</strong> ($10,000 Purchase / $12,000 NADA)</td>
+            <td>$60 Reg + $75 Title + $750 Sales Tax (on NADA value)</td>
+            <td><strong>$885.00</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Passenger Plate Renewal</strong> (2-Year Cycle)</td>
+            <td>$60 Reg (No title or tax fees)</td>
+            <td><strong>$60.00</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Family Gift Transfer</strong> (From parent to child)</td>
+            <td>$60 Reg + $75 Title + $25 Gift Fee (No Sales Tax)</td>
+            <td><strong>$160.00</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>What this calculator may not include</h2>
+      <ul>
+        <li>The mandatory Massachusetts vehicle safety and emissions inspection fee ($35.00), which you must pay at an authorized inspection station within 7 days of registering the car.</li>
+        <li>Your annual local municipal excise tax bill (unless you manually enter an estimate in the optional field).</li>
+        <li>Late fees or penalties for failing to register or title a vehicle within the RMV's required timeframe.</li>
+      </ul>
+
+      <h2>Frequently asked questions</h2>
+      <details class="faq"><summary>How much is the car registration fee in massachusetts?</summary>
+        <p>A standard passenger vehicle registration costs $60.00 and is valid for two years. If you are also titling the vehicle for the first time, add a $75.00 title fee, plus applicable 6.25% sales tax.</p>
+      </details>
+      <details class="faq"><summary>Is this calculator accurate for all vehicles in massachusetts?</summary>
+        <p>This calculator covers standard passenger cars, electric vehicles, motorcycles, and mopeds using the official May 2025 RMV fee schedule. It does not calculate weight-based commercial plates, apportioned registrations, or specific camper/trailer fees.</p>
+      </details>
+      <details class="faq"><summary>Can registration fees in massachusetts change every year?</summary>
+        <p>The base registration fee ($60 for two years) does not change based on vehicle age or value. However, the separate annual motor vehicle excise tax (billed by your town) does depreciate and change each year.</p>
+      </details>
+      <details class="faq"><summary>Can I use this calculator for a new car and a used car in massachusetts?</summary>
+        <p>Yes. Just select "New Purchase (Title + Registration)" and enter your purchase price. If it is a used car purchased from a private party, be sure to also enter the NADA trade-in value, as the RMV will tax you on whichever number is higher.</p>
+      </details>
+
+      <p style="margin-top:2rem"><a class="btn btn--primary" href="/vehicles.html">See all 50-state vehicle calculators ?</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p> 2026 CalculateIt.net  <a href="/privacy.html">Privacy</a>  <a href="/disclaimer.html">Disclaimer</a>  <a href="/contact.html">Contact</a></p>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js" defer></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much is the car registration fee in massachusetts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A standard passenger vehicle registration costs $60.00 and is valid for two years. If you are also titling the vehicle for the first time, add a $75.00 title fee, plus applicable 6.25% sales tax."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this calculator accurate for all vehicles in massachusetts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This calculator covers standard passenger cars, electric vehicles, motorcycles, and mopeds using the official May 2025 RMV fee schedule. It does not calculate weight-based commercial plates, apportioned registrations, or specific camper/trailer fees."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can registration fees in massachusetts change every year?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The base registration fee ($60 for two years) does not change based on vehicle age or value. However, the separate annual motor vehicle excise tax (billed by your town) does depreciate and change each year."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this calculator for a new car and a used car in massachusetts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Just select \"New Purchase (Title + Registration)\" and enter your purchase price. If it is a used car purchased from a private party, be sure to also enter the NADA trade-in value, as the RMV will tax you on whichever number is higher."
+      }
+    }
+  ]
+}
+</script>
+
+<script>
+(function () {
+  'use strict';
+
+  const dom = {
+    plateType: document.getElementById('maPlateType'),
+    transactionType: document.getElementById('maTransactionType'),
+    purchasePrice: document.getElementById('maPurchasePrice'),
+    nadaValue: document.getElementById('maNadaValue'),
+    transferPlate: document.getElementById('maTransferPlate'),
+    duplicateReg: document.getElementById('maDuplicateReg'),
+    replacementPlate: document.getElementById('maReplacementPlate'),
+    reinstatement: document.getElementById('maReinstatement'),
+    localExcise: document.getElementById('maLocalExcise'),
+    
+    wrapValuation: document.getElementById('wrapValuation'),
+    
+    resTotal: document.getElementById('resTotal'),
+    resRMV: document.getElementById('resRMV'),
+    resTax: document.getElementById('resTax'),
+    breakdownBody: document.getElementById('breakdownBody'),
+    tableTotal: document.getElementById('tableTotal'),
+    note: document.getElementById('maNote')
+  };
+
+  const formatUSD = (n) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(Number(n) || 0);
+
+  function getRegistrationFee(plateType) {
+    const fees = {
+      passenger: 60.00,
+      reserved: 100.00,
+      vanity: 80.00,
+      electric: 60.00,
+      motorcycle: 20.00,
+      moped: 40.00
+    };
+    return fees[plateType] || 0;
+  }
+
+  function calculate() {
+    const plateType = dom.plateType.value;
+    const tType = dom.transactionType.value;
+    const purchasePrice = parseFloat(dom.purchasePrice.value) || 0;
+    const nadaValue = parseFloat(dom.nadaValue.value) || 0;
+    
+    const transferPlate = dom.transferPlate.value === 'yes';
+    const duplicateReg = dom.duplicateReg.value === 'yes';
+    const replacementPlate = dom.replacementPlate.value === 'yes';
+    const reinstatement = dom.reinstatement.value;
+    const localExcise = parseFloat(dom.localExcise.value) || 0;
+
+    // Toggle Valuation Fields Visibility
+    dom.wrapValuation.style.display = (tType === 'title_registration') ? 'block' : 'none';
+
+    const registrationFee = getRegistrationFee(plateType);
+
+    let titleFee = 0;
+    let salesTax = 0;
+    let transferFee = 0;
+    let duplicateFee = 0;
+    let replacementPlateFee = 0;
+    let reinstatementFee = 0;
+    let giftTransferFee = 0;
+
+    // Titles & Taxes
+    if (tType === "title_registration") {
+      titleFee = 75.00;
+      // MA RMV uses the higher of purchase price or NADA clean trade-in
+      const taxableBase = Math.max(purchasePrice, nadaValue);
+      salesTax = taxableBase * 0.0625;
+    }
+
+    if (tType === "gift") {
+      giftTransferFee = 25.00; // Fee in lieu of sales tax for family gifts
+      titleFee = 75.00;
+    }
+
+    // Add-on fees
+    if (transferPlate) {
+      transferFee = 25.00;
+    }
+    if (duplicateReg) {
+      duplicateFee = 25.00;
+    }
+    if (replacementPlate) {
+      replacementPlateFee = 10.00;
+    }
+
+    if (reinstatement === "insurance") {
+      reinstatementFee = 50.00;
+    } else if (reinstatement === "other") {
+      reinstatementFee = 100.00;
+    }
+
+    // Grouping for Dashboard
+    const rmvTotal = registrationFee + titleFee + transferFee + duplicateFee + replacementPlateFee + reinstatementFee + giftTransferFee;
+    const taxTotal = salesTax + localExcise;
+    const grandTotal = rmvTotal + taxTotal;
+
+    // Update Dashboard
+    dom.resTotal.textContent = formatUSD(grandTotal);
+    dom.resRMV.textContent = formatUSD(rmvTotal);
+    dom.resTax.textContent = formatUSD(taxTotal);
+    dom.tableTotal.textContent = formatUSD(grandTotal);
+
+    // Update Table Breakdown
+    let rows = '';
+    const addRow = (label, val) => `<tr><td>${label}</td><td class="t-right">${formatUSD(val)}</td></tr>`;
+
+    rows += addRow('Base Registration Fee', registrationFee);
+    
+    if (titleFee > 0) rows += addRow('Certificate of Title Fee', titleFee);
+    if (salesTax > 0) rows += addRow('MA State Sales / Use Tax (6.25%)', salesTax);
+    if (giftTransferFee > 0) rows += addRow('Family Gift Transfer Fee', giftTransferFee);
+    if (transferFee > 0) rows += addRow('Plate Transfer Fee', transferFee);
+    if (duplicateFee > 0) rows += addRow('Duplicate Registration Fee', duplicateFee);
+    if (replacementPlateFee > 0) rows += addRow('Replacement Plate Fee', replacementPlateFee);
+    if (reinstatementFee > 0) rows += addRow('Registration Reinstatement Fee', reinstatementFee);
+    
+    if (localExcise > 0) rows += addRow('Optional Local Municipal Excise Estimate', localExcise);
+
+    dom.breakdownBody.innerHTML = rows;
+
+    dom.note.innerHTML = `<strong>Accuracy note:</strong> This calculator uses the Massachusetts RMV official 2026 fee schedule and Mass.gov tax guidance. The optional local excise field is not an RMV fee (it is billed later by your town), but many Massachusetts drivers include it when they want a fuller annual ownership-cost estimate.`;
+    dom.note.style.display = 'block';
+  }
+
+  function init() {
+    [
+      dom.plateType, dom.transactionType, dom.purchasePrice, dom.nadaValue, 
+      dom.transferPlate, dom.duplicateReg, dom.replacementPlate, 
+      dom.reinstatement, dom.localExcise
+    ].forEach((el) => {
+      el.addEventListener('input', calculate);
+      el.addEventListener('change', calculate);
+    });
+    calculate();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>
