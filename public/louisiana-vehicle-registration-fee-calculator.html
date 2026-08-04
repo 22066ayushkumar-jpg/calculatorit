@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Louisiana Vehicle Registration Fee Calculator / Estimator 2026</title>
+<meta name="description" content="Estimate Louisiana vehicle registration fees with our calculator. See cost factors, examples, and how fees are calculated." />
+<link rel="canonical" href="https://calculateit.net/louisiana-vehicle-registration-fee-calculator.html" />
+<meta property="og:title" content="Louisiana Vehicle Registration Fee Calculator 2026" />
+<meta property="og:description" content="Estimate Louisiana vehicle registration fees with our calculator. See cost factors, examples, and how fees are calculated." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://calculateit.net/louisiana-vehicle-registration-fee-calculator.html" />
+<meta name="twitter:card" content="summary" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Nunito:wght@400;600;700&display=swap" />
+<link rel="stylesheet" href="/assets/css/tokens.css" />
+<link rel="stylesheet" href="/assets/css/base.css" />
+<link rel="stylesheet" href="/assets/css/components.css" />
+<link rel="stylesheet" href="/assets/css/pages.css" />
+<style>
+  .hero--calc{padding-top:5.5rem;padding-bottom:1.5rem}
+  .hero--calc h1{font-size:clamp(1.7rem,4vw,2.6rem);margin-bottom:.5rem;text-align:center;}
+  .hero--calc .lede{margin-bottom:1.25rem;font-size:1rem;text-align:center;max-width:800px;margin-left:auto;margin-right:auto;}
+  
+  #la-dmv-app{max-width:960px;margin:0 auto;padding:1.1rem;background:var(--card-bg,#FEFEFA);border-radius:26px;box-shadow:0 8px 30px rgba(60,60,50,.08);border:1px solid rgba(120,120,108,.15)}
+  #la-dmv-app .dashboard-header{background:linear-gradient(135deg,rgba(93,112,82,.10),rgba(193,140,93,.10));border:1px solid rgba(93,112,82,.25);border-radius:20px;padding:1rem 1.1rem;margin-bottom:1rem}
+  #la-dmv-app .dash-main{text-align:center;padding:.4rem 0 .8rem}
+  #la-dmv-app .dash-label{font-size:.85rem;color:#78786C;text-transform:uppercase;letter-spacing:.06em}
+  #la-dmv-app .dash-value{font-family:Fraunces,serif;font-weight:700;font-size:2.8rem;color:#5D7052;margin:.15rem 0}
+  #la-dmv-app .dash-sub{font-size:.8rem;color:#78786C}
+  #la-dmv-app .dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;text-align:center;margin-top:.6rem}
+  #la-dmv-app .dash-item{padding:.4rem .3rem;border-top:1px solid rgba(120,120,108,.2)}
+  #la-dmv-app .dash-item .k{font-size:.78rem;color:#78786C;text-transform:uppercase;letter-spacing:.05em}
+  #la-dmv-app .dash-item .v{font-family:Fraunces,serif;font-weight:700;font-size:1.3rem;color:#2C2C24;margin-top:.15rem}
+  
+  #la-dmv-app h3.la-title{font-family:Fraunces,serif;font-size:1.05rem;margin:.9rem 0 .5rem;color:#4A4A40}
+  #la-dmv-app .grid-row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+  #la-dmv-app .fg{display:flex;flex-direction:column;margin-bottom:.6rem}
+  #la-dmv-app .fg label{font-weight:600;font-size:.9rem;margin-bottom:.3rem;color:#2C2C24;}
+  #la-dmv-app .fg input,#la-dmv-app .fg select{padding:.6rem .75rem;border-radius:12px;border:1px solid rgba(120,120,108,.35);background:#FDFCF8;font:inherit;width:100%}
+  #la-dmv-app .fg input:focus,#la-dmv-app .fg select:focus{outline:2px solid #5D7052;outline-offset:1px}
+  #la-dmv-app .fg .hint{font-size:.75rem;color:#78786C;margin-top:.25rem}
+  #la-dmv-app .pre{position:relative}
+  #la-dmv-app .pre span.prefix{position:absolute;left:.8rem;top:50%;transform:translateY(-50%);color:#78786C;font-size:.9rem}
+  #la-dmv-app .pre input{padding-left:1.6rem}
+  
+  #la-dmv-app .info-box{background:#fff;border:1px solid rgba(120,120,108,.2);border-radius:16px;padding:1rem;margin-top:1rem}
+  #la-dmv-app table.la-fees{width:100%;border-collapse:collapse}
+  #la-dmv-app table.la-fees th,#la-dmv-app table.la-fees td{padding:.6rem;border-bottom:1px dashed rgba(120,120,108,.25);font-size:.92rem;text-align:left}
+  #la-dmv-app table.la-fees .t-right{text-align:right}
+  #la-dmv-app table.la-fees tfoot td{border-top:2px solid #5D7052;border-bottom:0;font-weight:700;color:#5D7052;font-size:1.05rem}
+  
+  #la-dmv-app .la-note-box{background:rgba(193,140,93,.12);border:1px solid rgba(193,140,93,.3);border-radius:12px;padding:.8rem 1rem;margin-top:1rem;font-size:.88rem;color:#2C2C24;}
+  #la-dmv-app .la-note-box:empty{display:none;}
+  #la-dmv-app .la-disclaimer{font-size:.78rem;color:#78786C;margin-top:1rem;line-height:1.5;padding:0 .5rem;}
+  
+  @media (max-width: 700px) {
+    #la-dmv-app .grid-row,
+    #la-dmv-app .dash-grid { grid-template-columns: 1fr; }
+    #la-dmv-app .dashboard-header { padding: 1.25rem; }
+    #la-dmv-app .t-right { text-align: right; }
+    #la-dmv-app .dash-value{font-size:2.4rem;}
+  }
+
+  .content-section{max-width:820px;margin:2rem auto}
+  .content-section h2{font-family:Fraunces,serif;font-size:1.5rem;margin:1.5rem 0 .6rem;color:#2C2C24}
+  .content-section p,.content-section li{line-height:1.65;color:#4A4A40}
+  .content-section ul{padding-left:1.2rem}
+  .fee-table-content{width:100%;border-collapse:collapse;margin-top:.5rem}
+  .fee-table-content th,.fee-table-content td{padding:.6rem;border-bottom:1px solid rgba(120,120,108,.25);text-align:left;font-size:.92rem}
+  details.faq{border:1px solid rgba(120,120,108,.25);border-radius:12px;padding:.7rem .9rem;margin-bottom:.6rem;background:#FDFCF8}
+  details.faq summary{font-weight:700;cursor:pointer;color:#2C2C24}
+  details.faq p{margin:.5rem 0 0}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <nav class="nav" data-nav aria-label="Primary">
+    <a class="nav__brand" href="/index.html">
+      <span class="nav__logo" aria-hidden="true">C</span>
+      <span>CalculateIt</span>
+    </a>
+    <ul class="nav__list">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/vehicles.html">Vehicle Hub</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <a class="btn btn--primary nav__cta" href="/vehicles.html">All 50-state calculators</a>
+    <button class="nav__toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </nav>
+  <div class="nav-mobile" id="nav-mobile" data-nav-mobile data-open="false">
+    <ul>
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/vehicles.html">Vehicle Hub</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero hero--calc">
+    <div class="container">
+      <h1>Louisiana Vehicle Registration Fee Calculator / Estimator 2026</h1>
+      <p class="lede">Estimate Louisiana vehicle registration fees with our calculator. See cost factors, examples, and how fees are calculated.
+        
+      </p>
+
+      <div id="la-dmv-app">
+        
+        <div class="dashboard-header">
+          <div style="text-align:center; margin-bottom: 1rem;">
+            <span style="display:inline-block; background:rgba(93,112,82,.15); color:#5D7052; font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.05em; padding:.3rem .8rem; border-radius:99px;">
+              No sign ups just fill in your details. 2026 updated.
+            </span>
+          </div>
+
+          <div class="dash-main">
+            <div class="dash-label">Total Estimated Due</div>
+            <div class="dash-value" id="resTotal">$0.00</div>
+            <div class="dash-sub">Estimated total OMV fees (Excludes sales tax)</div>
+          </div>
+          <div class="dash-grid">
+            <div class="dash-item"><div class="k">Plate & Road Fees</div><div class="v" id="resPlate">$0.00</div></div>
+            <div class="dash-item"><div class="k">Transaction Fees</div><div class="v" id="resAddons">$0.00</div></div>
+          </div>
+        </div>
+
+        <h3 class="la-title">Vehicle Information</h3>
+        <div class="grid-row">
+          <div class="fg">
+            <label for="laVehicleType">Vehicle Type & Weight</label>
+            <select id="laVehicleType">
+              <option value="passenger">Passenger Car (2-Year Plate)</option>
+              <option value="motorcycle">Motorcycle (4-Year Plate)</option>
+              <option value="motorhome">Motor Home (2-Year Plate)</option>
+              <option value="truck6000">Truck (up to 6,000 lbs GVW, 4-Year Plate)</option>
+              <option value="truck10000">Truck (6,001–10,000 lbs GVW, 4-Year Plate)</option>
+              <option value="boattrailer">Boat Trailer (up to 1,500 lbs, 4-Year Plate)</option>
+              <option value="utility500">Utility Trailer (up to 500 lbs, 4-Year Plate)</option>
+              <option value="trailer1yr">All Other Trailer (1-Year Plate)</option>
+              <option value="trailer4yr">All Other Trailer (4-Year Plate)</option>
+              <option value="trailerperm">All Other Trailer (Permanent Plate)</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label for="laFuelType">Fuel / Powertrain Type</label>
+            <select id="laFuelType">
+              <option value="gas">Gas / Diesel</option>
+              <option value="hybrid">Hybrid (HEV / PHEV)</option>
+              <option value="ev">Fully Electric Vehicle (BEV)</option>
+            </select>
+            <div class="hint">Starting 2026, OMV collects the EV/Hybrid road use fee directly.</div>
+          </div>
+        </div>
+        
+        <div class="grid-row" id="wrapValue">
+          <div class="fg" style="grid-column: 1 / -1;">
+            <label for="laVehicleValue">Original Vehicle Value</label>
+            <div class="pre">
+              <span class="prefix">$</span>
+              <input type="number" id="laVehicleValue" value="25000.00" min="0" step="0.01">
+            </div>
+            <div class="hint">Passenger plates are calculated at 0.1% per year (Minimum $10,000 value).</div>
+          </div>
+        </div>
+
+        <h3 class="la-title">Transaction Details</h3>
+        <div class="grid-row">
+          <div class="fg">
+            <label for="laTitleNeeded">Title Transaction</label>
+            <select id="laTitleNeeded">
+              <option value="no">No (Renewal Only)</option>
+              <option value="yes">Yes - New / Transfer Title</option>
+              <option value="duplicate">Yes - Duplicate / Corrected Title</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label for="laLienType">Lien Recordation (Financing)</label>
+            <select id="laLienType">
+              <option value="none">None</option>
+              <option value="ucc">Mortgage with UCC ($15)</option>
+              <option value="other">Mortgage other than UCC ($10)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid-row">
+          <div class="fg">
+            <label for="laLicenseTransfer">Transfer Existing Plate?</label>
+            <select id="laLicenseTransfer">
+              <option value="no">No</option>
+              <option value="yes">Yes (Avoids new plate fee)</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label for="laDuplicateReg">Duplicate Registration Needed?</label>
+            <select id="laDuplicateReg">
+              <option value="no">No</option>
+              <option value="yes">Yes ($4 Reg + $8 Handling)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid-row">
+          <div class="fg" style="grid-column: 1 / 2;">
+            <label for="laLocalFee">Local / Tag Agent Fee</label>
+            <div class="pre">
+              <span class="prefix">$</span>
+              <input type="number" id="laLocalFee" value="0.00" min="0" max="6" step="0.01">
+            </div>
+            <div class="hint">May apply (will not exceed $6).</div>
+          </div>
+        </div>
+
+        <h3 class="la-title" style="margin-top: 1.5rem;">Itemized Fee Breakdown</h3>
+        <div class="info-box">
+          <table class="la-fees">
+            <thead>
+              <tr><th>Fee Line Item</th><th class="t-right">Amount</th></tr>
+            </thead>
+            <tbody id="breakdownBody"></tbody>
+            <tfoot>
+              <tr><td>Total Estimated Due</td><td class="t-right" id="tableTotal">$0.00</td></tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <div class="la-note-box" id="laNote"></div>
+
+        <p class="la-disclaimer">Estimate only. This calculator provides OMV processing and plate fees based on state formulas. It <strong>does not include</strong> Louisiana state and local parish sales/use taxes, which apply to all vehicle purchases. For 2026, note that the temporary state vehicle sales tax rate is 5% (effective Jan 1, 2025) plus your local parish rates, which can combine up to 9%–12.95% total.</p>
+        
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container content-section">
+      <h2>How much are vehicle registration fees in Louisiana?</h2>
+      <p>For most passenger cars and light trucks, Louisiana charges an annualized rate of 0.1% of the vehicle's original selling value. However, since passenger plates are renewed every two years, you actually pay <strong>0.2% of the value</strong> at the time of registration. The state sets a minimum vehicle value of $10,000, meaning the absolute minimum you will pay for a two-year passenger plate is $20.00. First-time registrations will also include a $68.50 title fee and an $8.00 handling fee.</p>
+
+      <h2>How are registration fees calculated in Louisiana?</h2>
+      <p>The formula for passenger vehicles in Louisiana is straightforward. The Office of Motor Vehicles (OMV) takes the vehicle's assessed value (with a $10,000 minimum floor) and multiplies it by 0.1% per year.</p>
+      <ul>
+        <li><strong>Formula:</strong> <code>(Vehicle Value × 0.001) × 2 Years</code></li>
+      </ul>
+      <p>If you are registering a heavy truck, motorcycle, or trailer, the state abandons the value-based formula and charges a flat fee based on weight or vehicle type instead. For example, a heavy truck between 6,001 and 10,000 lbs pays a flat $112.00 for a 4-year plate.</p>
+
+      <h2>What affects your Louisiana registration fee?</h2>
+      <ul>
+        <li><strong>Vehicle Value:</strong> This is the primary driver for passenger cars. A $50,000 vehicle costs $100 to register for two years, while a $15,000 vehicle costs $30. Unlike some states, this is typically based on the original selling price and does not decrease as the vehicle ages.</li>
+        <li><strong>Vehicle Type:</strong> Motorcycles, motorhomes, and trailers all have specific flat fees instead of value-based fees, and are often issued on 4-year cycles instead of 2-year cycles.</li>
+        <li><strong>Powertrain / Fuel Type:</strong> Electric vehicles incur a $110 annual road usage fee, and hybrid vehicles incur a $60 fee, to offset the fact that they do not pay traditional fuel taxes at the pump. <strong>Note for 2026:</strong> The OMV assumes direct collection of these road usage fees at the time of registration, meaning you will pay multiple years of this surcharge upfront depending on your plate's lifespan.</li>
+        <li><strong>Transaction Type:</strong> First-time registrations will include a $68.50 title fee and an $8.00 handling fee.</li>
+      </ul>
+
+      <h2>Estimated examples</h2>
+      <table class="fee-table-content">
+        <thead>
+          <tr>
+            <th>Scenario</th>
+            <th>Primary Drivers</th>
+            <th>Approx. Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Used Gas Sedan</strong> (Value $15,000, Renewal)</td>
+            <td>$30.00 Plate Fee (2 Yrs) + $8.00 Handling Fee</td>
+            <td><strong>$38.00</strong></td>
+          </tr>
+          <tr>
+            <td><strong>New EV</strong> (Value $45,000, New Title)</td>
+            <td>$90.00 Plate Fee + $220.00 EV Fee (2 Yrs) + $68.50 Title + $8.00 Handling</td>
+            <td><strong>$386.50</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Heavy Truck</strong> (Up to 10,000 lbs, New Title)</td>
+            <td>Flat $112.00 Plate Fee (4 Yrs) + $68.50 Title + $8.00 Handling</td>
+            <td><strong>$188.50</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>What this calculator may not include</h2>
+      <ul>
+        <li>State and local parish vehicle sales taxes (which can combine to exceed 9% to 12% of the vehicle's purchase price).</li>
+        <li>Public tag agent convenience fees (if you use a third-party office instead of the OMV).</li>
+        <li>Specialty or personalized license plate manufacturing fees.</li>
+      </ul>
+
+      <h2>Frequently asked questions</h2>
+      <details class="faq"><summary>How much is the car registration fee in Louisiana?</summary>
+        <p>The standard passenger registration fee is calculated at 0.1% of the vehicle's selling price per year, billed in two-year increments (effectively 0.2%). A $30,000 car would cost $60 to register for two years. A minimum floor applies, so no passenger car pays less than $20.</p>
+      </details>
+      <details class="faq"><summary>Is this calculator accurate for all vehicles in Louisiana?</summary>
+        <p>This calculator covers all standard passenger vehicles, light and heavy trucks (up to 10,000 lbs), motorcycles, motorhomes, and various trailer classes using the official OMV fee schedule. It does not calculate heavy commercial fleet registrations.</p>
+      </details>
+      <details class="faq"><summary>Can registration fees in Louisiana change every year?</summary>
+        <p>While the 0.1% base formula for passenger cars remains static, Louisiana recently added new recurring fees for EV and Hybrid vehicles ($110 and $60 annually) to account for road usage. Also note that state sales tax rates applied at the initial time of registration can fluctuate.</p>
+      </details>
+      <details class="faq"><summary>Can I use this calculator for a new car and a used car in Louisiana?</summary>
+        <p>Yes. Simply ensure you enter the correct vehicle value and select whether you need a new title transaction. However, be aware that you will also owe state and local sales tax on the purchase of the vehicle, which this tool does not calculate.</p>
+      </details>
+
+      <p style="margin-top:2rem"><a class="btn btn--primary" href="/vehicles.html">See all 50-state vehicle calculators ?</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2026 CalculateIt.net · <a href="/privacy.html">Privacy</a> · <a href="/disclaimer.html">Disclaimer</a> · <a href="/contact.html">Contact</a></p>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js" defer></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much is the car registration fee in Louisiana?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The standard passenger registration fee is calculated at 0.1% of the vehicle's selling price per year, billed in two-year increments (effectively 0.2%). A $30,000 car would cost $60 to register for two years. A minimum floor applies, so no passenger car pays less than $20."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this calculator accurate for all vehicles in Louisiana?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This calculator covers all standard passenger vehicles, light and heavy trucks (up to 10,000 lbs), motorcycles, motorhomes, and various trailer classes using the official OMV fee schedule. It does not calculate heavy commercial fleet registrations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can registration fees in Louisiana change every year?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "While the 0.1% base formula for passenger cars remains static, Louisiana recently added new recurring fees for EV and Hybrid vehicles ($110 and $60 annually) to account for road usage. Also note that state sales tax rates applied at the initial time of registration can fluctuate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this calculator for a new car and a used car in Louisiana?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Simply ensure you enter the correct vehicle value and select whether you need a new title transaction. However, be aware that you will also owe state and local sales tax on the purchase of the vehicle, which this tool does not calculate."
+      }
+    }
+  ]
+}
+</script>
+
+<script>
+(function () {
+  'use strict';
+
+  const dom = {
+    vehicleType: document.getElementById('laVehicleType'),
+    fuelType: document.getElementById('laFuelType'),
+    vehicleValue: document.getElementById('laVehicleValue'),
+    titleNeeded: document.getElementById('laTitleNeeded'),
+    lienType: document.getElementById('laLienType'),
+    licenseTransfer: document.getElementById('laLicenseTransfer'),
+    localFee: document.getElementById('laLocalFee'),
+    duplicateReg: document.getElementById('laDuplicateReg'),
+    
+    wrapValue: document.getElementById('wrapValue'),
+    
+    resTotal: document.getElementById('resTotal'),
+    resPlate: document.getElementById('resPlate'),
+    resAddons: document.getElementById('resAddons'),
+    breakdownBody: document.getElementById('breakdownBody'),
+    tableTotal: document.getElementById('tableTotal'),
+    note: document.getElementById('laNote')
+  };
+
+  const formatUSD = (n) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(Number(n) || 0);
+
+  function getPlateFee(vehicleType, vehicleValue) {
+    if (vehicleType === "passenger") {
+      const taxableValue = Math.max(vehicleValue, 10000);
+      return taxableValue * 0.001 * 2; // 0.1% per year, sold in 2-year blocks (0.2%)
+    }
+
+    const flatFees = {
+      motorcycle: 12.00,
+      motorhome: 50.00,
+      truck6000: 40.00,
+      truck10000: 112.00,
+      boattrailer: 25.00,
+      utility500: 12.00,
+      trailer1yr: 10.00,
+      trailer4yr: 40.00,
+      trailerperm: 70.00
+    };
+
+    return flatFees[vehicleType] || 0;
+  }
+
+  function calculate() {
+    const vType = dom.vehicleType.value;
+    const fType = dom.fuelType.value;
+    const vValue = parseFloat(dom.vehicleValue.value) || 0;
+    const titleNeeded = dom.titleNeeded.value;
+    const lienType = dom.lienType.value;
+    const licenseTransfer = dom.licenseTransfer.value === 'yes';
+    const localFee = parseFloat(dom.localFee.value) || 0;
+    const duplicateReg = dom.duplicateReg.value === 'yes';
+
+    // Toggle Value Input Visibility based on Passenger requirement
+    dom.wrapValue.style.display = (vType === 'passenger') ? 'flex' : 'none';
+
+    let plateFee = 0;
+    
+    // Transfer logic bypasses new plate fee
+    if (!licenseTransfer) {
+       plateFee = getPlateFee(vType, vValue);
+    }
+
+    let titleFee = 0;
+    let handlingFee = 0;
+    let lienFee = 0;
+    let transferFee = 0;
+    let duplicateRegFee = 0;
+    let roadUsageFee = 0;
+
+    // Titles
+    if (titleNeeded === "yes") {
+      titleFee = 68.50;
+      handlingFee = 8.00;
+    } else if (titleNeeded === "duplicate") {
+      titleFee = 68.50;
+      handlingFee = 8.00;
+    }
+
+    // Liens
+    if (lienType === "ucc") lienFee = 15.00;
+    if (lienType === "other") lienFee = 10.00;
+
+    // Plate Transfer
+    if (licenseTransfer) {
+      transferFee = 3.00;
+      if (handlingFee === 0) handlingFee = 8.00; // Handling applies to transfers too
+    }
+
+    if (duplicateReg) {
+      duplicateRegFee = 12.00; // $4 Registration + $8 Handling
+    }
+
+    // EV / Hybrid Road Usage Surcharges (Scaled by Plate Lifespan starting 2026)
+    if (vType !== "boattrailer" && vType !== "utility500" && !vType.includes("trailer")) {
+      let plateYears = 1;
+      if (vType === "passenger" || vType === "motorhome") plateYears = 2;
+      else if (vType === "motorcycle" || vType === "truck6000" || vType === "truck10000") plateYears = 4;
+      
+      if (fType === "ev") roadUsageFee = 110.00 * plateYears;
+      if (fType === "hybrid") roadUsageFee = 60.00 * plateYears;
+    }
+
+    // Grouping
+    const plateAndRoad = plateFee + roadUsageFee;
+    const transactionAddons = titleFee + handlingFee + lienFee + transferFee + duplicateRegFee + localFee;
+    const grandTotal = plateAndRoad + transactionAddons;
+
+    // Update Dashboard
+    dom.resTotal.textContent = formatUSD(grandTotal);
+    dom.resPlate.textContent = formatUSD(plateAndRoad);
+    dom.resAddons.textContent = formatUSD(transactionAddons);
+    dom.tableTotal.textContent = formatUSD(grandTotal);
+
+    // Update Table Breakdown
+    let rows = '';
+    const addRow = (label, val) => `<tr><td>${label}</td><td class="t-right">${formatUSD(val)}</td></tr>`;
+
+    if (!licenseTransfer) {
+      rows += addRow('Base Plate / Registration Fee', plateFee);
+    }
+    if (roadUsageFee > 0) rows += addRow('EV / Hybrid Road Usage Surcharge (Multi-Year)', roadUsageFee);
+    
+    if (titleFee > 0) rows += addRow(titleNeeded === "duplicate" ? "Duplicate / Corrected Title Fee" : "Certificate of Title Fee", titleFee);
+    if (handlingFee > 0) rows += addRow('OMV Handling Fee', handlingFee);
+    if (lienFee > 0) rows += addRow(lienType === "ucc" ? "Lien Recordation (UCC)" : "Lien Recordation (Non-UCC)", lienFee);
+    if (transferFee > 0) rows += addRow('License Plate Transfer Fee', transferFee);
+    if (duplicateRegFee > 0) rows += addRow('Duplicate Registration Fee ($4 Reg + $8 Handling)', duplicateRegFee);
+    if (localFee > 0) rows += addRow('Local / Public Tag Agent Fee', localFee);
+
+    dom.breakdownBody.innerHTML = rows;
+
+    dom.note.innerHTML = `<strong>Accuracy note:</strong> Louisiana passenger registration is strictly value-based at 0.1% per year, calculated dynamically here for 2-year increments ($10k minimum floor). Title, handling, lien, and transfer rates are verified against current 2026 OMV Policy tables. Furthermore, beginning in 2026, EV and Hybrid road usage fees are collected by the OMV concurrently with vehicle registration.`;
+    dom.note.style.display = 'block';
+  }
+
+  function init() {
+    [
+      dom.vehicleType, dom.fuelType, dom.vehicleValue, dom.titleNeeded, 
+      dom.lienType, dom.licenseTransfer, dom.localFee, dom.duplicateReg
+    ].forEach((el) => {
+      el.addEventListener('input', calculate);
+      el.addEventListener('change', calculate);
+    });
+    calculate();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>
