@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Missouri Vehicle Registration Fee Calculator / Estimator 2026</title>
+<meta name="description" content="Estimate Missouri vehicle registration fees with our calculator. See fee breakdown and how much you pay." />
+<link rel="canonical" href="https://calculateit.net/missouri-vehicle-registration-fee-calculator.html" />
+<meta property="og:title" content="Missouri Vehicle Registration Fee Calculator 2026" />
+<meta property="og:description" content="Estimate Missouri vehicle registration fees with our calculator. See fee breakdown and how much you pay." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://calculateit.net/missouri-vehicle-registration-fee-calculator.html" />
+<meta name="twitter:card" content="summary" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Nunito:wght@400;600;700&display=swap" />
+<link rel="stylesheet" href="/assets/css/tokens.css" />
+<link rel="stylesheet" href="/assets/css/base.css" />
+<link rel="stylesheet" href="/assets/css/components.css" />
+<link rel="stylesheet" href="/assets/css/pages.css" />
+<style>
+  .hero--calc{padding-top:5.5rem;padding-bottom:1.5rem}
+  .hero--calc h1{font-size:clamp(1.7rem,4vw,2.6rem);margin-bottom:.5rem;text-align:center;}
+  .hero--calc .lede{margin-bottom:1.25rem;font-size:1rem;text-align:center;max-width:800px;margin-left:auto;margin-right:auto;}
+  
+  #mo-dmv-app{max-width:960px;margin:0 auto;padding:1.1rem;background:var(--card-bg,#FEFEFA);border-radius:26px;box-shadow:0 8px 30px rgba(60,60,50,.08);border:1px solid rgba(120,120,108,.15)}
+  #mo-dmv-app .dashboard-header{background:linear-gradient(135deg,rgba(93,112,82,.10),rgba(193,140,93,.10));border:1px solid rgba(93,112,82,.25);border-radius:20px;padding:1rem 1.1rem;margin-bottom:1rem}
+  #mo-dmv-app .dash-main{text-align:center;padding:.4rem 0 .8rem}
+  #mo-dmv-app .dash-label{font-size:.85rem;color:#78786C;text-transform:uppercase;letter-spacing:.06em}
+  #mo-dmv-app .dash-value{font-family:Fraunces,serif;font-weight:700;font-size:2.8rem;color:#5D7052;margin:.15rem 0}
+  #mo-dmv-app .dash-sub{font-size:.8rem;color:#78786C}
+  #mo-dmv-app .dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;text-align:center;margin-top:.6rem}
+  #mo-dmv-app .dash-item{padding:.4rem .3rem;border-top:1px solid rgba(120,120,108,.2)}
+  #mo-dmv-app .dash-item .k{font-size:.78rem;color:#78786C;text-transform:uppercase;letter-spacing:.05em}
+  #mo-dmv-app .dash-item .v{font-family:Fraunces,serif;font-weight:700;font-size:1.3rem;color:#2C2C24;margin-top:.15rem}
+  
+  #mo-dmv-app h3.mo-title{font-family:Fraunces,serif;font-size:1.05rem;margin:.9rem 0 .5rem;color:#4A4A40}
+  #mo-dmv-app .grid-row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+  #mo-dmv-app .fg{display:flex;flex-direction:column;margin-bottom:.6rem}
+  #mo-dmv-app .fg label{font-weight:600;font-size:.9rem;margin-bottom:.3rem;color:#2C2C24;}
+  #mo-dmv-app .fg input,#mo-dmv-app .fg select{padding:.6rem .75rem;border-radius:12px;border:1px solid rgba(120,120,108,.35);background:#FDFCF8;font:inherit;width:100%}
+  #mo-dmv-app .fg input:focus,#mo-dmv-app .fg select:focus{outline:2px solid #5D7052;outline-offset:1px}
+  #mo-dmv-app .fg .hint{font-size:.75rem;color:#78786C;margin-top:.25rem}
+  #mo-dmv-app .pre{position:relative}
+  #mo-dmv-app .pre span.prefix{position:absolute;left:.8rem;top:50%;transform:translateY(-50%);color:#78786C;font-size:.9rem}
+  #mo-dmv-app .pre input{padding-left:1.6rem}
+  
+  #mo-dmv-app .info-box{background:#fff;border:1px solid rgba(120,120,108,.2);border-radius:16px;padding:1rem;margin-top:1rem}
+  #mo-dmv-app table.mo-fees{width:100%;border-collapse:collapse}
+  #mo-dmv-app table.mo-fees th,#mo-dmv-app table.mo-fees td{padding:.6rem;border-bottom:1px dashed rgba(120,120,108,.25);font-size:.92rem;text-align:left}
+  #mo-dmv-app table.mo-fees .t-right{text-align:right}
+  #mo-dmv-app table.mo-fees tfoot td{border-top:2px solid #5D7052;border-bottom:0;font-weight:700;color:#5D7052;font-size:1.05rem}
+  
+  #mo-dmv-app .mo-note-box{background:rgba(193,140,93,.12);border:1px solid rgba(193,140,93,.3);border-radius:12px;padding:.8rem 1rem;margin-top:1rem;font-size:.88rem;color:#2C2C24;}
+  #mo-dmv-app .mo-note-box:empty{display:none;}
+  #mo-dmv-app .mo-disclaimer{font-size:.78rem;color:#78786C;margin-top:1rem;line-height:1.5;padding:0 .5rem;}
+  
+  @media (max-width: 700px) {
+    #mo-dmv-app .grid-row,
+    #mo-dmv-app .dash-grid { grid-template-columns: 1fr; }
+    #mo-dmv-app .dashboard-header { padding: 1.25rem; }
+    #mo-dmv-app .t-right { text-align: right; }
+    #mo-dmv-app .dash-value{font-size:2.4rem;}
+  }
+
+  .content-section{max-width:820px;margin:2rem auto}
+  .content-section h2{font-family:Fraunces,serif;font-size:1.5rem;margin:1.5rem 0 .6rem;color:#2C2C24}
+  .content-section p,.content-section li{line-height:1.65;color:#4A4A40}
+  .content-section ul{padding-left:1.2rem}
+  .fee-table-content{width:100%;border-collapse:collapse;margin-top:.5rem}
+  .fee-table-content th,.fee-table-content td{padding:.6rem;border-bottom:1px solid rgba(120,120,108,.25);text-align:left;font-size:.92rem}
+  details.faq{border:1px solid rgba(120,120,108,.25);border-radius:12px;padding:.7rem .9rem;margin-bottom:.6rem;background:#FDFCF8}
+  details.faq summary{font-weight:700;cursor:pointer;color:#2C2C24}
+  details.faq p{margin:.5rem 0 0}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <nav class="nav" data-nav aria-label="Primary">
+    <a class="nav__brand" href="/index.html">
+      <span class="nav__logo" aria-hidden="true">C</span>
+      <span>CalculateIt</span>
+    </a>
+    <ul class="nav__list">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/vehicles.html">Vehicle Hub</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <a class="btn btn--primary nav__cta" href="/vehicles.html">All 50-state calculators</a>
+    <button class="nav__toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </nav>
+  <div class="nav-mobile" id="nav-mobile" data-nav-mobile data-open="false">
+    <ul>
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/vehicles.html">Vehicle Hub</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero hero--calc">
+    <div class="container">
+      <h1>Missouri Vehicle Registration Fee Calculator / Estimator 2026</h1>
+      <p class="lede">Are you buying a car or renewing your plates in the Show-Me State? Our <strong>Missouri vehicle registration fees calculator</strong> helps you estimate your total Department of Revenue (DOR) checkout costs. Missouri calculates passenger vehicle registration based on taxable horsepower, meaning older or very small cars cost less to register than modern SUVs. Additionally, electric vehicles (EVs) and plug-in hybrids face an escalating special fuel decal fee that reached its statutory cap of $150 in 2026. Use this tool to get an accurate breakdown of your state sales tax, title processing fees, and alternative fuel surcharges.</p>
+
+      <div id="mo-dmv-app">
+        
+        <div class="dashboard-header">
+          <div style="text-align:center; margin-bottom: 1rem;">
+            <span style="display:inline-block; background:rgba(93,112,82,.15); color:#5D7052; font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.05em; padding:.3rem .8rem; border-radius:99px;">
+              No sign ups just fill in your details. 2026 updated.
+            </span>
+          </div>
+
+          <div class="dash-main">
+            <div class="dash-label">Total Estimated Due</div>
+            <div class="dash-value" id="resTotal">$0.00</div>
+            <div class="dash-sub">Estimated DOR checkout total</div>
+          </div>
+          <div class="dash-grid">
+            <div class="dash-item"><div class="k">Reg & Title Fees</div><div class="v" id="resReg">$0.00</div></div>
+            <div class="dash-item"><div class="k">Taxes & EV Decals</div><div class="v" id="resTax">$0.00</div></div>
+          </div>
+        </div>
+
+        <h3 class="mo-title">Vehicle & Transaction Information</h3>
+        <div class="grid-row">
+          <div class="fg">
+            <label for="moVehicleType">Vehicle Type & Taxable Horsepower</label>
+            <select id="moVehicleType">
+              <option value="passenger_72">Passenger (72+ HP - Most modern cars & SUVs)</option>
+              <option value="passenger_60">Passenger (60 - 71 HP)</option>
+              <option value="passenger_48">Passenger (48 - 59 HP)</option>
+              <option value="passenger_under48">Passenger (Under 48 HP)</option>
+              <option value="motorcycle">Motorcycle (2-Wheel)</option>
+              <option value="truck_12k">Truck (Beyond Local up to 12,000 lbs)</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label for="moFuelType">Fuel / Powertrain Type</label>
+            <select id="moFuelType">
+              <option value="gas">Gas / Diesel / Standard Hybrid</option>
+              <option value="phev">Plug-in Hybrid (PHEV)</option>
+              <option value="ev">All-Electric Vehicle (BEV)</option>
+            </select>
+            <div class="hint">EVs/PHEVs require an annual Special Fuel Decal.</div>
+          </div>
+        </div>
+
+        <div class="grid-row">
+          <div class="fg">
+            <label for="moTransactionType">Transaction Type</label>
+            <select id="moTransactionType">
+              <option value="renewal">Annual Tag Renewal</option>
+              <option value="title_registration">New Purchase (Initial Title & Registration)</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label for="moRegTerm">Registration Term</label>
+            <select id="moRegTerm">
+              <option value="1">1-Year Registration</option>
+              <option value="2">2-Year Registration</option>
+            </select>
+            <div class="hint">Available if emissions/safety inspections permit.</div>
+          </div>
+        </div>
+
+        <div class="grid-row" id="wrapPurchase" style="display:none;">
+          <div class="fg">
+            <label for="moPurchasePrice">Actual Purchase Price</label>
+            <div class="pre">
+              <span class="prefix">$</span>
+              <input type="number" id="moPurchasePrice" value="25000.00" min="0" step="0.01">
+            </div>
+          </div>
+          <div class="fg">
+            <label for="moTradeIn">Trade-In Allowance</label>
+            <div class="pre">
+              <span class="prefix">$</span>
+              <input type="number" id="moTradeIn" value="5000.00" min="0" step="0.01">
+            </div>
+            <div class="hint">Reduces your taxable purchase price.</div>
+          </div>
+        </div>
+
+        <div class="grid-row" id="wrapTax" style="display:none;">
+          <div class="fg" style="grid-column: 1 / -1;">
+            <label for="moLocalTax">Local Sales Tax Rate (%)</label>
+            <input type="number" id="moLocalTax" value="2.500" min="0" step="0.001">
+            <div class="hint">Added to MO's 4.225% state rate. (e.g., enter 2.5 for a 6.725% total rate).</div>
+          </div>
+        </div>
+
+        <h3 class="mo-title" style="margin-top: 1.5rem;">Itemized Fee Breakdown</h3>
+        <div class="info-box">
+          <table class="mo-fees">
+            <thead>
+              <tr><th>Fee Line Item</th><th class="t-right">Amount</th></tr>
+            </thead>
+            <tbody id="breakdownBody"></tbody>
+            <tfoot>
+              <tr><td>Total Estimated Due</td><td class="t-right" id="tableTotal">$0.00</td></tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <div class="mo-note-box" id="moNote"></div>
+
+        <p class="mo-disclaimer">Estimate only. This calculator provides DOR state registration and title processing fees. <strong>It does not include your annual county personal property tax</strong>, which is billed separately by your local county collector and must be paid in full before you are legally permitted to renew your tags.</p>
+        
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container content-section">
+      <h2>How much are vehicle registration fees in Missouri?</h2>
+      <p>In Missouri, the base registration fee for a modern passenger car (72 taxable horsepower or more) is <strong>$51.25 per year</strong>, plus a standard <strong>$9.00 processing fee</strong>. The state allows drivers to choose between a 1-year or 2-year registration term (which simply doubles the base fee and processing fee). If you are titling a newly purchased vehicle, you will also owe an $8.50 title fee, a $9.00 title processing fee, a $2.00 electronic transmission fee, and state and local sales taxes on the net purchase price of the vehicle.</p>
+
+      <h2>What affects your Missouri registration fee?</h2>
+      <ul>
+        <li><strong>Taxable Horsepower:</strong> Missouri is unique in that passenger car registration is tiered by engine horsepower. While very small or older vehicles might fall into the $24.25 or $33.25 brackets, almost all modern cars, trucks, and SUVs fall into the top bracket (72+ HP) and cost $51.25 annually.</li>
+        <li><strong>Powertrain / EV Decals:</strong> Missouri does not charge a gas tax on electricity. To make up the difference, Battery Electric Vehicles (BEVs) must purchase a Special Fuel Decal annually. By 2026, the passenger BEV decal reached its final phased-in cost of <strong>$150.00</strong>, while Plug-in Hybrids (PHEVs) pay <strong>$75.00</strong>.</li>
+        <li><strong>Sales Tax and Trade-ins:</strong> When titling a new car, you must pay Missouri's 4.225% state sales tax plus any local county/city taxes. Missouri calculates this on the <em>net</em> purchase price, meaning the value of any trade-in vehicle is strictly deducted from your taxable total, saving you hundreds of dollars.</li>
+      </ul>
+
+      <h2>How are registration fees calculated in Missouri?</h2>
+      <p>The formula the DOR uses combines your horsepower-based state fee with administrative processing fees for each individual line item.</p>
+      <ul>
+        <li><strong>Formula (Standard Renewal):</strong> (HP Base Rate × Term) + ($9 Processing × Term) + EV Decal Fees</li>
+        <li><strong>Formula (New Title):</strong> (HP Base Rate × Term) + ($9 Reg Processing × Term) + $8.50 Title Fee + $9 Title Processing + $2 Electronic Fee + Sales Tax</li>
+      </ul>
+
+      <h2>Estimated examples</h2>
+      <table class="fee-table-content">
+        <thead>
+          <tr>
+            <th>Scenario</th>
+            <th>Primary Drivers</th>
+            <th>Approx. Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>New Gas SUV Purchase</strong> (72+ HP, 1-Year, $30k Net Price, 6.225% Tax)</td>
+            <td>$51.25 Reg + $9 Reg Proc + $19.50 Title Fees + $1,867 Sales Tax</td>
+            <td><strong>$1,946.75</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Used Electric Car Renewal</strong> (72+ HP, 1-Year Term)</td>
+            <td>$51.25 Reg + $9 Reg Proc + $150 EV Decal + $9 Decal Proc</td>
+            <td><strong>$219.25</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Motorcycle Renewal</strong> (2-Wheel, 2-Year Term)</td>
+            <td>$17.50 Reg (2-yr) + $18 Reg Proc (2-yr)</td>
+            <td><strong>$35.50</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>What this calculator may not include</h2>
+      <ul>
+        <li><strong>County Personal Property Tax:</strong> Missouri assesses a significant annual personal property tax on vehicles based on their market value. You MUST pay this bill to your county collector and obtain a tax receipt before the DOR will let you renew your registration.</li>
+        <li><strong>Safety and Emissions Inspections:</strong> Vehicles over 10 model years old or with more than 150,000 miles require a biennial safety inspection ($12 statutory limit). Residents of the St. Louis area (St. Louis City, St. Louis County, St. Charles, Franklin, and Jefferson counties) also require an emissions test ($24).</li>
+      </ul>
+
+      <h2>Frequently asked questions</h2>
+      <details class="faq"><summary>How much is the car registration fee in Missouri?</summary>
+        <p>The state base registration fee for most modern cars (72 HP or more) is $51.25 for a one-year term or $102.50 for a two-year term, plus a required $9.00 or $18.00 processing fee, respectively.</p>
+      </details>
+      <details class="faq"><summary>Is this calculator accurate for all vehicles in Missouri?</summary>
+        <p>This calculator is highly accurate for passenger cars, motorcycles, and standard light trucks up to 12,000 lbs using the 2026 DOR fee schedule. It does not calculate heavy commercial fleet registrations, permanent trailer plates, or boat/vessel taxes.</p>
+      </details>
+      <details class="faq"><summary>Can registration fees in Missouri change every year?</summary>
+        <p>The base registration fees rarely change. However, if you drive an electric vehicle or plug-in hybrid, the state has been increasing the Special Fuel Decal fee by 20% each year until it reached $150 (for BEVs) in 2026. Your separate county personal property tax will also decrease annually as the vehicle depreciates.</p>
+      </details>
+      <details class="faq"><summary>Can I use this calculator for a new car and a used car in Missouri?</summary>
+        <p>Yes. Set the transaction type to "New Purchase (Initial Title & Registration)" for any newly acquired vehicle to calculate the sales tax and titling fees. If you are just renewing your plates on a car you already own, select "Annual Tag Renewal."</p>
+      </details>
+
+      <p style="margin-top:2rem"><a class="btn btn--primary" href="/vehicles.html">See all 50-state vehicle calculators →</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2026 CalculateIt.net · <a href="/privacy.html">Privacy</a> · <a href="/disclaimer.html">Disclaimer</a> · <a href="/contact.html">Contact</a></p>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js" defer></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much is the car registration fee in Missouri?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The state base registration fee for most modern cars (72 HP or more) is $51.25 for a one-year term or $102.50 for a two-year term, plus a required $9.00 or $18.00 processing fee, respectively."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this calculator accurate for all vehicles in Missouri?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This calculator is highly accurate for passenger cars, motorcycles, and standard light trucks up to 12,000 lbs using the 2026 DOR fee schedule. It does not calculate heavy commercial fleet registrations, permanent trailer plates, or boat/vessel taxes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can registration fees in Missouri change every year?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The base registration fees rarely change. However, if you drive an electric vehicle or plug-in hybrid, the state has been increasing the Special Fuel Decal fee by 20% each year until it reached $150 (for BEVs) in 2026. Your separate county personal property tax will also decrease annually as the vehicle depreciates."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this calculator for a new car and a used car in Missouri?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Set the transaction type to \"New Purchase (Initial Title & Registration)\" for any newly acquired vehicle to calculate the sales tax and titling fees. If you are just renewing your plates on a car you already own, select \"Annual Tag Renewal.\""
+      }
+    }
+  ]
+}
+</script>
+
+<script>
+(function () {
+  'use strict';
+
+  const dom = {
+    vehicleType: document.getElementById('moVehicleType'),
+    fuelType: document.getElementById('moFuelType'),
+    transactionType: document.getElementById('moTransactionType'),
+    regTerm: document.getElementById('moRegTerm'),
+    purchasePrice: document.getElementById('moPurchasePrice'),
+    tradeIn: document.getElementById('moTradeIn'),
+    localTax: document.getElementById('moLocalTax'),
+    
+    wrapPurchase: document.getElementById('wrapPurchase'),
+    wrapTax: document.getElementById('wrapTax'),
+    
+    resTotal: document.getElementById('resTotal'),
+    resReg: document.getElementById('resReg'),
+    resTax: document.getElementById('resTax'),
+    breakdownBody: document.getElementById('breakdownBody'),
+    tableTotal: document.getElementById('tableTotal'),
+    note: document.getElementById('moNote')
+  };
+
+  const formatUSD = (n) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(Number(n) || 0);
+
+  function calculate() {
+    const vType = dom.vehicleType.value;
+    const fType = dom.fuelType.value;
+    const tType = dom.transactionType.value;
+    const term = parseInt(dom.regTerm.value) || 1;
+    const pPrice = parseFloat(dom.purchasePrice.value) || 0;
+    const tValue = parseFloat(dom.tradeIn.value) || 0;
+    const localTax = parseFloat(dom.localTax.value) || 0;
+
+    const isNew = (tType === 'title_registration');
+    
+    // Toggle Purchase fields
+    dom.wrapPurchase.style.display = isNew ? 'flex' : 'none';
+    dom.wrapTax.style.display = isNew ? 'flex' : 'none';
+
+    // 1. Base Registration by HP/Type
+    let regBase = 0;
+    if (vType === 'passenger_72') regBase = 51.25;
+    else if (vType === 'passenger_60') regBase = 45.25;
+    else if (vType === 'passenger_48') regBase = 39.25;
+    else if (vType === 'passenger_under48') regBase = 33.25;
+    else if (vType === 'motorcycle') regBase = 8.75;
+    else if (vType === 'truck_12k') regBase = 38.25;
+
+    let registrationFee = regBase * term;
+    let regProcessing = 9.00 * term;
+
+    // 2. EV / PHEV Decal Fees (Annual)
+    let evFee = 0;
+    let evProcessing = 0;
+    
+    if (fType === 'ev') {
+        evFee = 150.00 * term;
+        evProcessing = 9.00 * term;
+    } else if (fType === 'phev') {
+        evFee = 75.00 * term;
+        evProcessing = 9.00 * term;
+    }
+
+    // 3. Title Fees
+    let titleFee = isNew ? 8.50 : 0;
+    let titleProcessing = isNew ? 9.00 : 0;
+    let electronicFee = isNew ? 2.00 : 0;
+
+    // 4. State + Local Sales Tax
+    let salesTax = 0;
+    let taxRate = 0;
+    let taxableBase = 0;
+    if (isNew) {
+        taxableBase = Math.max(0, pPrice - tValue);
+        taxRate = 0.04225 + (localTax / 100);
+        salesTax = taxableBase * taxRate;
+    }
+
+    // Grouping
+    const regAndTitle = registrationFee + regProcessing + titleFee + titleProcessing + electronicFee + evProcessing;
+    const taxesAndEV = salesTax + evFee;
+    const grandTotal = regAndTitle + taxesAndEV;
+
+    // Update Dashboard
+    dom.resTotal.textContent = formatUSD(grandTotal);
+    dom.resReg.textContent = formatUSD(regAndTitle);
+    dom.resTax.textContent = formatUSD(taxesAndEV);
+    dom.tableTotal.textContent = formatUSD(grandTotal);
+
+    // Update Table Breakdown
+    let rows = '';
+    const addRow = (label, val) => `<tr><td>${label}</td><td class="t-right">${formatUSD(val)}</td></tr>`;
+    
+    rows += addRow(`Base Registration Fee (${term}-Year Term)`, registrationFee);
+    rows += addRow(`Registration Processing Fee`, regProcessing);
+    
+    if (evFee > 0) {
+        const evLabel = fType === 'ev' ? 'BEV Special Fuel Decal' : 'PHEV Special Fuel Decal';
+        rows += addRow(`${evLabel} (${term}-Year Term)`, evFee);
+        rows += addRow(`Fuel Decal Processing Fee`, evProcessing);
+    }
+    
+    if (titleFee > 0) rows += addRow('Certificate of Title Fee', titleFee);
+    if (titleProcessing > 0) rows += addRow('Title Processing Fee', titleProcessing);
+    if (electronicFee > 0) rows += addRow('Electronic Transmission Fee', electronicFee);
+    
+    if (salesTax > 0) {
+        rows += `<tr><td>State & Local Sales / Use Tax<br><small style="color:#78786C">(${(taxRate * 100).toFixed(3)}% on $${formatUSD(taxableBase)} net purchase)</small></td><td class="t-right">${formatUSD(salesTax)}</td></tr>`;
+    }
+
+    dom.breakdownBody.innerHTML = rows;
+
+    dom.note.innerHTML = `<strong>Accuracy note:</strong> This estimator uses the official 2026 Missouri DOR registration fee and EV Decal schedules. The $9 processing fee is a statutory mandate applied separately to almost every vehicle transaction (titles, registrations, and decals) at license offices.`;
+    dom.note.style.display = 'block';
+  }
+
+  function init() {
+    [
+      dom.vehicleType, dom.fuelType, dom.transactionType, dom.regTerm, 
+      dom.purchasePrice, dom.tradeIn, dom.localTax
+    ].forEach((el) => {
+      el.addEventListener('input', calculate);
+      el.addEventListener('change', calculate);
+    });
+    calculate();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>
